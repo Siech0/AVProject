@@ -37,18 +37,20 @@ nav {
 }
 
 .nav-list > li {
-	display: inline-block;
+	display: flex;
 	float: left;
-	padding: 5px;
-	color: #DDD;
-	border: 1px solid black;
-	border-radius: 0px 0px 4px 4px;
-	background: #555555;
-	margin: 0 .25vw 0 .25vw;
 	min-width: 6vw;
+	min-height: 50px;
 	width: auto;
 	height: auto;
-	min-height: 50px;
+	padding: 5px;
+	margin: 0 .25vw 0 .25vw;
+	color: #DDD;
+	background: #555555;
+	border: 1px solid black;
+	border-radius: 0px 0px 4px 4px;
+	text-align: center;
+	align-items: center;
 }
 
 .nav-list > li:hover {
@@ -62,7 +64,10 @@ nav {
 
 .nav-list > li > span {
 	float: right;
-	margin-left: 3px;
+	margin-left: 5px;
+  	display: inline-block;
+  	vertical-align: middle;
+  	line-height: normal;
 }
 
 .container {
