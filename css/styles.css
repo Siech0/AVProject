@@ -1,7 +1,78 @@
-body {
-	background-color: #333333;
+html {
+	min-height: 100%;
+	min-width: 100%;
 }
 
-div {
-	background-color: #DDDDDD;
+body {
+	top: 0;
+	min-height: 100%;
+	min-width: 100%;
+	line-height: 1.25em;
+	font-family: Helvetica Neue, Helvetica, Arial;
+	background: #333333;
+}
+
+
+header {
+	background: #333;
+	width: 100%;
+	height: 80px;
+	position: relative;
+	top: 0;
+	left: 0;
+	z-index: 100;
+}
+
+nav {
+	display: -webkit-flex; /* Safari Compat */
+	-webkit-justify-content: flex-center; /* Safari Compat */
+	display: flex;
+	justify-content: center;
+	top: 0px;
+}
+
+
+.nav-list {
+	list-style: none;
+}
+
+.nav-list > li {
+	display: inline-block;
+	float: left;
+	padding: 5px;
+	color: #DDD;
+	border: 1px solid black;
+	border-radius: 0px 0px 4px 4px;
+	background: #555555;
+	margin: 0 .25vw 0 .25vw;
+	min-width: 6vw;
+	width: auto;
+	height: auto;
+	min-height: 50px;
+}
+
+.nav-list > li:hover {
+	background: #666666;
+}
+
+.nav-list > li > img {
+	float: left;
+	
+}
+
+.nav-list > li > span {
+	float: right;
+	margin-left: 3px;
+}
+
+.container {
+	height: 100%;
+}
+
+#diagram {
+
+}
+/*STYLES FOR MOBILE USERS*/
+@media only screen and (max-width : 640px) {
+
 }
