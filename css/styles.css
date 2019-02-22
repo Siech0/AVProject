@@ -78,6 +78,13 @@ nav {
 #diagram {
 
 }
+
+.draggable {
+	width: 100px;
+	height: 100px;
+	background-color: #ffffff;
+}
+
 /*STYLES FOR MOBILE USERS*/
 @media only screen and (max-width : 640px) {
 
