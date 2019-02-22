@@ -59,6 +59,7 @@ nav {
 
 .nav-list > li > img {
 	float: left;
+	max-height: 50px;
 	
 }
 
