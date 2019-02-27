@@ -120,9 +120,21 @@ nav {
     overflow: hidden;                
 }
 
-/*Styling for the master Switch image */
-#master_switch{
+/*Styling for the master Switch Off image */
+.master_switch_off{
     background-image: url(../images/masterOff.jpg);
+    position: absolute;
+    top: 123px;
+    left: 36px;
+    width: 14px;
+    height: 51px;
+    background-repeat: no-repeat;	
+    overflow: hidden;        
+}
+
+/*Styling for the master Switch On image */
+.master_switch_on{
+    background-image: url(../images/masterOn.jpg);
     position: absolute;
     top: 123px;
     left: 36px;
@@ -181,6 +193,8 @@ nav {
     background-repeat: no-repeat;	
     overflow: hidden; 
 }
+
+
 
 
 /*Styling for the 'x' that appears in the corner of each header*/

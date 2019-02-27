@@ -47,6 +47,23 @@ $( function() {
     });
 });
 
+//Function to switch master_alt on and off
+$( function() {
+    $("#master_switch").click(function(){
+       if ($("#master_switch").hasClass("master_switch_off"))
+           {
+               $("#master_switch").removeClass("master_switch_off");
+               $("#master_switch").addClass("master_switch_on");
+           }
+        else
+            {
+               $("#master_switch").removeClass("master_switch_on");
+               $("#master_switch").addClass("master_switch_off");                
+            }
+        //var masterswitch = document.getElementById("master_switch");
+    });
+});
+
 // Getter
 var scope = $( ".selector" ).draggable( "option", "scope" );
  
