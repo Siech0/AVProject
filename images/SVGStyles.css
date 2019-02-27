@@ -1,0 +1,28 @@
+
+path, rect, circle, ellipse {
+    stroke: black;
+    fill: none;
+}
+
+#avionics_1_switch path, #avionics_1_switch circle {
+    stroke: green;
+}
+text {
+    fill: blue;
+}
+#labels text {
+    fill: yellow;
+}
+
+#starter rect, #starter path, #alternator rect, #alternator path, #ignition_switch rect, #ignition_switch path {
+    fill: white;
+    stroke: black;
+}
+
+#battery_master_switch path, #battery_master_switch circle {
+    stroke: blue;
+}
+
+#battery_relay path, #battery_relay circle  {
+    stroke: orange;
+}
