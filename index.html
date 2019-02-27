@@ -38,7 +38,7 @@
 					<span> SWITCHES </span>
 				</li>
 
-			<ul>
+            </ul>
 		</nav>
 	</header>
 	<main class="container">
@@ -46,7 +46,26 @@
 		
 		</svg>
 	</main>
-	<div class="draggable"> </div>
+        <div id="master_main_container" class="draggable">
+            <div id="master_header" class="box_headers">Master Switches <span class="close">&times;</span></div>
+            <div id="master_switch_panel" > 
+                <div id="master_switch"></div>
+            </div>            
+        </div>
+        
+        <div id="breakers_main_container" class="draggable">
+            <div id="breaker_header" class="box_headers">Circuit Breakers<span class="close">&times;</span></div>
+            <div id="breaker_switch_panel"></div>
+        </div>
+    
+        <div id="switches_main_container" class="draggable">
+            <div id="switches_header" class="box_headers">Switches<span class="close">&times;</span></div>
+            <div id="switches_switch_panel"></div>
+        </div>
+    
+    
+    
+    
 	<script src="js/jquery.js"></script>
 	<script src="js/jquery-ui.js"></script>
 	<script src="js/index.js"></script>
