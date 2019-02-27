@@ -23,17 +23,17 @@
 				</li>
 				<li>
 					<img src="images/button_epu.png"/>
-					<span> EPU <br><span id="epu-status"> OFFLINE </span> </span>
+					<span> EPU <br><span id="epu-status" class="epu_controller"> OFFLINE </span> </span>
 				</li>
-				<li>
+				<li id="master_button">
 					<img src="images/button_master.png"/>
 					<span> MASTER </span>
 				</li>
-				<li>
+				<li id="breaker_button">
 					<img src="images/button_breaker.png"/>
 					<span> BREAKERS </span>
 				</li>
-				<li>
+				<li id="switches_button">
 					<img src="images/button_switch.png"/>
 					<span> SWITCHES </span>
 				</li>
@@ -47,19 +47,19 @@
 		</svg>
 	</main>
         <div id="master_main_container" class="draggable">
-            <div id="master_header" class="box_headers">Master Switches <span class="close">&times;</span></div>
+            <div id="master_header" class="box_headers">Master Switches <span class="close" id="master_close">&times;</span></div>
             <div id="master_switch_panel" > 
                 <div id="master_switch"></div>
             </div>            
         </div>
         
         <div id="breakers_main_container" class="draggable">
-            <div id="breaker_header" class="box_headers">Circuit Breakers<span class="close">&times;</span></div>
+            <div id="breaker_header" class="box_headers">Circuit Breakers<span class="close" id="breakers_close">&times;</span></div>
             <div id="breaker_switch_panel"></div>
         </div>
     
         <div id="switches_main_container" class="draggable">
-            <div id="switches_header" class="box_headers">Switches<span class="close">&times;</span></div>
+            <div id="switches_header" class="box_headers">Switches<span class="close" id="switches_close">&times;</span></div>
             <div id="switches_switch_panel"></div>
         </div>
     
