@@ -41,15 +41,16 @@
             </ul>
 		</nav>
 	</header>
-	<main class="container">
+	<div id="svg_wrapper" class="container">
 		<svg id="diagram">
 		
 		</svg>
-	</main>
+	</div>
         <div id="master_main_container" class="draggable">
             <div id="master_header" class="box_headers">Master Switches <span class="close" id="master_close">&times;</span></div>
             <div id="master_switch_panel" > 
-                <div id="master_switch" class ="master_switch_off"></div>
+                <div id="master_switch_alt" class ="master_switch_off_alt"></div>
+                <div id="master_switch_bat" class ="master_switch_off_bat"></div>
             </div>            
         </div>
         
@@ -62,6 +63,10 @@
             <div id="switches_header" class="box_headers">Switches<span class="close" id="switches_close">&times;</span></div>
             <div id="switches_switch_panel"></div>
         </div>
+
+    <audio id="audio_master" preload="auto">
+    <source src="music/Sleep%20Away.mp3"/>
+    </audio>
     
     
     

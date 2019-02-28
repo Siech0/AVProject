@@ -47,20 +47,40 @@ $( function() {
     });
 });
 
-//Function to switch master_alt on and off
+//Function to switch master_alt on and off !! Will play music !!
 $( function() {
-    $("#master_switch").click(function(){
-       if ($("#master_switch").hasClass("master_switch_off"))
+    $("#master_switch_alt").click(function(){
+       if ($("#master_switch_alt").hasClass("master_switch_off_alt"))
            {
-               $("#master_switch").removeClass("master_switch_off");
-               $("#master_switch").addClass("master_switch_on");
+               $("#master_switch_alt").removeClass("master_switch_off_alt");
+               $("#master_switch_alt").addClass("master_switch_on_alt");
+               $("#master_switch_bat").removeClass("master_switch_off_bat");
+               $("#master_switch_bat").addClass("master_switch_on_bat");
+               $("#audio_master").trigger("play");
            }
         else
             {
-               $("#master_switch").removeClass("master_switch_on");
-               $("#master_switch").addClass("master_switch_off");                
+               $("#master_switch_alt").removeClass("master_switch_on_alt");
+               $("#master_switch_alt").addClass("master_switch_off_alt");                
             }
-        //var masterswitch = document.getElementById("master_switch");
+    });
+});
+
+//Function to switch master_bat on and off
+$( function() {
+    $("#master_switch_bat").click(function(){
+       if ($("#master_switch_bat").hasClass("master_switch_off_bat"))
+           {
+               $("#master_switch_bat").removeClass("master_switch_off_bat");
+               $("#master_switch_bat").addClass("master_switch_on_bat");
+           }
+        else
+            {
+               $("#master_switch_bat").removeClass("master_switch_on_bat");
+               $("#master_switch_bat").addClass("master_switch_off_bat"); 
+               $("#master_switch_alt").removeClass("master_switch_on_alt");
+               $("#master_switch_alt").addClass("master_switch_off_alt");
+            }
     });
 });
 

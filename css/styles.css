@@ -73,6 +73,16 @@ nav {
 
 .container {
 	height: 100%;
+    
+}
+
+#svg_wrapper{
+    position: relative;
+    top: 50px;
+    height: 500px;
+    left:50px;
+    width:1500px;
+    background-color: white;
 }
 
 #diagram {
@@ -99,7 +109,7 @@ nav {
 #master_main_container{
     background-color: white;
     position: absolute;
-    top: 500px;
+    top: 670px;
     left: 100px;
     height: 230px;
     width: 185px;
@@ -120,8 +130,8 @@ nav {
     overflow: hidden;                
 }
 
-/*Styling for the master Switch Off image */
-.master_switch_off{
+/*Styling for the master Switch Off image  -- .master_switch_bat*/
+.master_switch_off_alt{
     background-image: url(../images/masterOff.jpg);
     position: absolute;
     top: 123px;
@@ -133,7 +143,7 @@ nav {
 }
 
 /*Styling for the master Switch On image */
-.master_switch_on{
+.master_switch_on_alt{
     background-image: url(../images/masterOn.jpg);
     position: absolute;
     top: 123px;
@@ -144,11 +154,35 @@ nav {
     overflow: hidden;        
 }
 
+/*Styling for the master Switch Off image  -- BAT*/
+.master_switch_off_bat{
+    background-image: url(../images/masterOff.jpg);
+    position: absolute;
+    top: 123px;
+    left: 51px;
+    width: 14px;
+    height: 51px;
+    background-repeat: no-repeat;	
+    overflow: hidden;        
+}
+
+/*Styling for the master Switch On image -- BAT*/
+.master_switch_on_bat{
+    background-image: url(../images/masterOn.jpg);
+    position: absolute;
+    top: 123px;
+    left: 51px;
+    width: 14px;
+    height: 51px;
+    background-repeat: no-repeat;	
+    overflow: hidden;        
+}
+
 /*Styling for breakers container*/
 #breakers_main_container{
     background-color: white;
     position: absolute;
-    top: 500px;
+    top: 671px;
     left: 300px;
     height: 220px;
     width: 569px;
@@ -173,7 +207,7 @@ nav {
 #switches_main_container{
     background-color: white;
     position: absolute;
-    top: 500px;
+    top: 671px;
     left: 885px;
     height: 220px;
     width: 224px;
