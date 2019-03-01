@@ -16,27 +16,28 @@ body {
 header {
 	background: #333;
 	width: 100%;
-	height: 80px;
+	height: auto;
 	position: relative;
 	top: 0;
 	left: 0;
 	z-index: 100;
 }
 
-nav {
-	display: -webkit-flex; /* Safari Compat */
-	-webkit-justify-content: flex-center; /* Safari Compat */
-	display: flex;
-	justify-content: center;
-	top: 0px;
+main {
+	width: 100%;
+	margin-top: 1vh;
 }
 
+footer {
+	width: 100%;
+	margin-top: 1vh;
+}
 
-.nav-list {
+#nav_list {
 	list-style: none;
 }
 
-.nav-list > li {
+#nav_list > li {
 	display: flex;
 	float: left;
 	min-width: 6vw;
@@ -53,17 +54,17 @@ nav {
 	align-items: center;
 }
 
-.nav-list > li:hover {
+#nav_list > li:hover {
 	background: #666666;
 }
 
-.nav-list > li > img {
+#nav_list > li > img {
 	float: left;
 	max-height: 50px;
 	
 }
 
-.nav-list > li > span {
+#nav_list > li > span {
 	float: right;
 	margin-left: 5px;
   	display: inline-block;
@@ -71,28 +72,33 @@ nav {
   	line-height: normal;
 }
 
-.container {
-	height: 100%;
-    
+#panel_list {
+	list-style: none;
 }
 
-#svg_wrapper{
-    position: relative;
-    top: 50px;
-    height: 500px;
-    left:50px;
-    width:1500px;
-    background-color: white;
+#panel_list > li {
+	float: left;
+	margin: 0 .1vw 0 .1vw;
 }
 
+/* Placeholder */
 #diagram {
-
+	height: 500px;
+	width: 1000px;
+	background: white;
 }
 
-.draggable {
-	width: 100px;
-	height: 100px;
-	
+
+.container {
+	display: -webkit-flex; /* Safari Compat */
+	-webkit-justify-content: flex-center; /* Safari Compat */
+	display: flex;
+	justify-content: center;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	align-items: center;
+	text-align: center;	
 }
 
 /*Class for all lower box headers*/
@@ -108,9 +114,6 @@ nav {
 /*Styling for master switch container*/
 #master_main_container{
     background-color: white;
-    position: absolute;
-    top: 670px;
-    left: 100px;
     height: 230px;
     width: 185px;
     border: solid;
@@ -181,9 +184,6 @@ nav {
 /*Styling for breakers container*/
 #breakers_main_container{
     background-color: white;
-    position: absolute;
-    top: 671px;
-    left: 300px;
     height: 220px;
     width: 569px;
     border: solid;
@@ -206,9 +206,6 @@ nav {
 /*Styling for master switch container*/
 #switches_main_container{
     background-color: white;
-    position: absolute;
-    top: 671px;
-    left: 885px;
     height: 220px;
     width: 224px;
     border: solid;

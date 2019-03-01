@@ -11,8 +11,8 @@
 </head>
 <body>
 	<header>
-		<nav>
-			<ul class="nav-list">
+		<nav class="container">
+			<ul id="nav_list">
                 <li>
                     <img src="images/UCM_logo.png"/>
                     <h1>C172S Electrical System</h1>
@@ -29,7 +29,7 @@
 					<img src="images/button_master.png"/>
 					<span> MASTER </span>
 				</li>
-				<li id="breaker_button">
+				<li id="breakers_button">
 					<img src="images/button_breaker.png"/>
 					<span> BREAKERS </span>
 				</li>
@@ -41,35 +41,39 @@
             </ul>
 		</nav>
 	</header>
-	<div id="svg_wrapper" class="container">
-		<svg id="diagram">
-		
-		</svg>
-	</div>
-        <div id="master_main_container" class="draggable">
-            <div id="master_header" class="box_headers">Master Switches <span class="close" id="master_close">&times;</span></div>
-            <div id="master_switch_panel" > 
-                <div id="master_switch_alt" class ="master_switch_off_alt"></div>
-                <div id="master_switch_bat" class ="master_switch_off_bat"></div>
-            </div>            
-        </div>
-        
-        <div id="breakers_main_container" class="draggable">
-            <div id="breaker_header" class="box_headers">Circuit Breakers<span class="close" id="breakers_close">&times;</span></div>
-            <div id="breaker_switch_panel"></div>
-        </div>
-    
-        <div id="switches_main_container" class="draggable">
-            <div id="switches_header" class="box_headers">Switches<span class="close" id="switches_close">&times;</span></div>
-            <div id="switches_switch_panel"></div>
-        </div>
-
+	<main>
+		<content class="container">
+			<svg id="diagram">
+			
+			</svg>
+		</content>
+	</main>
+	<footer>
+		<div class="container">
+			<ul id="panel_list">
+				<li id="master_main_container" class="draggable">
+					<div id="master_header" class="box_headers">Master Switches <span class="close" id="master_close">&times;</span></div>
+					<div id="master_switch_panel" > 
+						<div id="master_switch_alt" class ="master_switch_off_alt"></div>
+						<div id="master_switch_bat" class ="master_switch_off_bat"></div>
+					</div>            
+				</li>
+				
+				<li id="breakers_main_container" class="draggable">
+					<div id="breaker_header" class="box_headers">Circuit Breakers<span class="close" id="breakers_close">&times;</span></div>
+					<div id="breaker_switch_panel"></div>
+				</li>
+			
+				<li id="switches_main_container" class="draggable">
+					<div id="switches_header" class="box_headers">Switches<span class="close" id="switches_close">&times;</span></div>
+					<div id="switches_switch_panel"></div>
+				</li>
+			</ul>
+		</div>
+	</footer>
     <audio id="audio_master" preload="auto">
-    <source src="music/Sleep%20Away.mp3"/>
+		<source src="music/Sleep%20Away.mp3"/>
     </audio>
-    
-    
-    
     
 	<script src="js/jquery.js"></script>
 	<script src="js/jquery-ui.js"></script>
