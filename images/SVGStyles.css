@@ -4,14 +4,15 @@ path, rect, circle, ellipse {
     fill: none;
 }
 
-#avionics_1_switch path, #avionics_1_switch circle {
-    stroke: green;
+#avionics_1_switch path, #avionics_1_switch circle, #avionics_1_switch rect {
+    stroke: red;
 }
 text {
     fill: blue;
 }
-#labels text {
-    fill: yellow;
+#labels text, #labels div {
+    fill: green;
+    color: green;
 }
 
 #starter rect, #starter path, #alternator rect, #alternator path, #ignition_switch rect, #ignition_switch path {
@@ -25,4 +26,13 @@ text {
 
 #battery_relay path, #battery_relay circle  {
     stroke: orange;
+}
+
+#feeder_a_breaker path, #feeder_a_breaker rect, #feeder_a_breaker circle {
+    stroke: purple;
+    fill: purple;
+}
+
+#ACU_box {
+    fill: white;
 }
