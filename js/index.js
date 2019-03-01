@@ -86,6 +86,9 @@ $( function() {
 
 // Getter
 var scope = $( ".selector" ).draggable( "option", "scope" );
+
+// puts svg into wrapper.
+$( "#svg_wrapper" ).load("images/C172SSchematic.svg");	
  
 // Setter
 $( ".selector" ).draggable( "option", "scope", "buttonBox" );

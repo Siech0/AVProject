@@ -31,6 +31,10 @@ nav {
 	top: 0px;
 }
 
+svg {
+	height: 100%;
+	width: 100%;
+}
 
 .nav-list {
 	list-style: none;
@@ -78,10 +82,10 @@ nav {
 
 #svg_wrapper{
     position: relative;
-    top: 50px;
-    height: 500px;
-    left:50px;
-    width:1500px;
+    width: 90%;
+	padding: 2%;
+	margin: auto;
+	
     background-color: white;
 }
 

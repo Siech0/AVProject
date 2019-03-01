@@ -15,8 +15,7 @@
    id="svg1225"
    sodipodi:docname="C172SSchematic.svg"
    inkscape:version="0.92.4 (unknown)">
-  <style
-     id="style2">@import url(SVGStyles.css);</style>
+  
   <metadata
      id="metadata1229">
     <rdf:RDF>
@@ -3681,11 +3680,11 @@
          width="47"
          height="12"
          requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-        <xhtml:div
+        <div
            style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 48px; white-space: nowrap; overflow-wrap: normal;">
-          <xhtml:div
-             style="display:inline-block;text-align:inherit;text-decoration:inherit;">Low Volt</xhtml:div>
-        </xhtml:div>
+          <div
+             style="display:inline-block;text-align:inherit;text-decoration:inherit;">Low Volt</div>
+        </div>
       </foreignObject>
       <text
          style="font-size:12px;font-family:Helvetica;text-anchor:middle;stroke:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
@@ -3704,11 +3703,11 @@
          width="27"
          height="12"
          requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-        <xhtml:div
+        <div
            style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 28px; white-space: nowrap; overflow-wrap: normal;">
-          <xhtml:div
-             style="display:inline-block;text-align:inherit;text-decoration:inherit;">Field</xhtml:div>
-        </xhtml:div>
+          <div
+             style="display:inline-block;text-align:inherit;text-decoration:inherit;">Field</div>
+        </div>
       </foreignObject>
       <text
          style="font-size:12px;font-family:Helvetica;text-anchor:middle;stroke:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
@@ -3727,11 +3726,11 @@
          width="44"
          height="12"
          requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-        <xhtml:div
+        <div
            style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 45px; white-space: nowrap; overflow-wrap: normal;">
-          <xhtml:div
-             style="display:inline-block;text-align:inherit;text-decoration:inherit;">Alt Input</xhtml:div>
-        </xhtml:div>
+          <div
+             style="display:inline-block;text-align:inherit;text-decoration:inherit;">Alt Input</div>
+        </div>
       </foreignObject>
       <text
          style="font-size:12px;font-family:Helvetica;text-anchor:middle;stroke:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
@@ -3750,11 +3749,11 @@
          width="48"
          height="12"
          requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-        <xhtml:div
+        <div
            style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 49px; white-space: nowrap; overflow-wrap: normal; text-align: right;">
-          <xhtml:div
-             style="display:inline-block;text-align:inherit;text-decoration:inherit;">Power In</xhtml:div>
-        </xhtml:div>
+          <div
+             style="display:inline-block;text-align:inherit;text-decoration:inherit;">Power In</div>
+        </div>
       </foreignObject>
       <text
          style="font-size:12px;font-family:Helvetica;text-anchor:middle;stroke:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
@@ -3773,11 +3772,11 @@
          width="50"
          height="12"
          requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-        <xhtml:div
+        <div
            style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 51px; white-space: nowrap; overflow-wrap: normal; text-align: right;">
-          <xhtml:div
-             style="display:inline-block;text-align:inherit;text-decoration:inherit;">Alt Ouput</xhtml:div>
-        </xhtml:div>
+          <div
+             style="display:inline-block;text-align:inherit;text-decoration:inherit;">Alt Ouput</div>
+        </div>
       </foreignObject>
       <text
          style="font-size:12px;font-family:Helvetica;text-anchor:middle;stroke:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
@@ -3796,11 +3795,11 @@
          width="41"
          height="12"
          requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-        <xhtml:div
+        <div
            style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 42px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-          <xhtml:div
-             style="display:inline-block;text-align:inherit;text-decoration:inherit;">Ground</xhtml:div>
-        </xhtml:div>
+          <div
+             style="display:inline-block;text-align:inherit;text-decoration:inherit;">Ground</div>
+        </div>
       </foreignObject>
       <text
          style="font-size:12px;font-family:Helvetica;text-anchor:middle;stroke:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
@@ -3819,11 +3818,11 @@
          width="35"
          height="12"
          requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-        <xhtml:div
+        <div
            style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 36px; white-space: nowrap; overflow-wrap: normal; text-align: right;">
-          <xhtml:div
-             style="display:inline-block;text-align:inherit;text-decoration:inherit;">Sense</xhtml:div>
-        </xhtml:div>
+          <div
+             style="display:inline-block;text-align:inherit;text-decoration:inherit;">Sense</div>
+        </div>
       </foreignObject>
       <text
          style="font-size:12px;font-family:Helvetica;text-anchor:middle;stroke:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
@@ -3842,11 +3841,11 @@
          width="110"
          height="27"
          requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-        <xhtml:div
+        <div
            style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 110px; white-space: normal; overflow-wrap: normal; text-align: center;">
-          <xhtml:div
-             style="display:inline-block;text-align:inherit;text-decoration:inherit;">Alternator Control Unit ACU</xhtml:div>
-        </xhtml:div>
+          <div
+             style="display:inline-block;text-align:inherit;text-decoration:inherit;">Alternator Control Unit ACU</div>
+        </div>
       </foreignObject>
       <text
          style="font-size:12px;font-family:Helvetica;text-anchor:middle;stroke:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
@@ -3883,11 +3882,11 @@
            width="90"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 90px; white-space: normal; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Low Volt Annunciator</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Low Volt Annunciator</div>
+          </div>
         </foreignObject>
         <text
            style="font-size:12px;font-family:Helvetica;text-anchor:middle;stroke:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
@@ -3910,11 +3909,11 @@
            width="38"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 38px; white-space: normal; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Alt Master</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Alt Master</div>
+          </div>
         </foreignObject>
         <text
            id="text153"
@@ -3937,19 +3936,19 @@
            width="38"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 39px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Battery<xhtml:br />
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Battery<br />
 
 
 
 
 
 
-Relay<xhtml:br />
-</xhtml:div>
-          </xhtml:div>
+Relay<br />
+</div>
+          </div>
         </foreignObject>
         <text
            style="font-size:12px;font-family:Helvetica;text-anchor:middle;stroke:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
@@ -3972,19 +3971,19 @@ Relay<xhtml:br />
            width="36"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 37px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Starter<xhtml:br />
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Starter<br />
 
 
 
 
 
 
-Relay<xhtml:br />
-</xhtml:div>
-          </xhtml:div>
+Relay<br />
+</div>
+          </div>
         </foreignObject>
         <text
            style="font-size:12px;font-family:Helvetica;text-anchor:middle;stroke:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
@@ -4007,19 +4006,19 @@ Relay<xhtml:br />
            width="32"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 33px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Alt<xhtml:br />
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Alt<br />
 
 
 
 
 
 
-Relay<xhtml:br />
-</xhtml:div>
-          </xhtml:div>
+Relay<br />
+</div>
+          </div>
         </foreignObject>
         <text
            style="font-size:12px;font-family:Helvetica;text-anchor:middle;stroke:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
@@ -4042,11 +4041,11 @@ Relay<xhtml:br />
            width="19"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 20px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">EIS</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">EIS</div>
+          </div>
         </foreignObject>
         <text
            id="text181"
@@ -4069,11 +4068,11 @@ Relay<xhtml:br />
            width="50"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 51px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Feeder B</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Feeder B</div>
+          </div>
         </foreignObject>
         <text
            id="text223"
@@ -4096,11 +4095,11 @@ Relay<xhtml:br />
            width="50"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 51px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Feeder A</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Feeder A</div>
+          </div>
         </foreignObject>
         <text
            id="text229"
@@ -4123,11 +4122,11 @@ Relay<xhtml:br />
            width="59"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 59px; white-space: normal; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Ext Pwr Relay</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Ext Pwr Relay</div>
+          </div>
         </foreignObject>
         <text
            style="font-size:12px;font-family:Helvetica;text-anchor:middle;stroke:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
@@ -4150,11 +4149,11 @@ Relay<xhtml:br />
            width="38"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 39px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Battery</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Battery</div>
+          </div>
         </foreignObject>
         <text
            style="font-size:12px;font-family:Helvetica;text-anchor:middle;stroke:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
@@ -4177,11 +4176,11 @@ Relay<xhtml:br />
            width="39"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 39px; white-space: normal; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Battery Master</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Battery Master</div>
+          </div>
         </foreignObject>
         <text
            id="text293"
@@ -4219,11 +4218,11 @@ Relay<xhtml:br />
            width="35"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 36px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">AVN 1</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">AVN 1</div>
+          </div>
         </foreignObject>
         <text
            id="text417"
@@ -4246,11 +4245,11 @@ Relay<xhtml:br />
            width="35"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 36px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">AVN 2</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">AVN 2</div>
+          </div>
         </foreignObject>
         <text
            id="text545"
@@ -4273,11 +4272,11 @@ Relay<xhtml:br />
            width="38"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 38px; white-space: normal; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Pitot Heat</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Pitot Heat</div>
+          </div>
         </foreignObject>
         <text
            id="text591"
@@ -4300,11 +4299,11 @@ Relay<xhtml:br />
            width="38"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 38px; white-space: normal; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Nav LTS</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Nav LTS</div>
+          </div>
         </foreignObject>
         <text
            id="text597"
@@ -4327,11 +4326,11 @@ Relay<xhtml:br />
            width="38"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 38px; white-space: normal; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">TAXI LT</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">TAXI LT</div>
+          </div>
         </foreignObject>
         <text
            id="text603"
@@ -4354,11 +4353,11 @@ Relay<xhtml:br />
            width="38"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 38px; white-space: normal; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Strobe LTS</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Strobe LTS</div>
+          </div>
         </foreignObject>
         <text
            id="text609"
@@ -4381,19 +4380,19 @@ Relay<xhtml:br />
            width="32"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 33px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Panel<xhtml:br />
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Panel<br />
 
 
 
 
 
 
-LTS<xhtml:br />
-</xhtml:div>
-          </xhtml:div>
+LTS<br />
+</div>
+          </div>
         </foreignObject>
         <text
            style="font-size:12px;font-family:Helvetica;text-anchor:middle;stroke:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
@@ -4416,11 +4415,11 @@ LTS<xhtml:br />
            width="38"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 38px; white-space: normal; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Fuel Pump</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Fuel Pump</div>
+          </div>
         </foreignObject>
         <text
            id="text667"
@@ -4443,11 +4442,11 @@ LTS<xhtml:br />
            width="43"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 44px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">BCN LT</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">BCN LT</div>
+          </div>
         </foreignObject>
         <text
            id="text673"
@@ -4470,11 +4469,11 @@ LTS<xhtml:br />
            width="50"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 51px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">LAND LT</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">LAND LT</div>
+          </div>
         </foreignObject>
         <text
            id="text679"
@@ -4497,11 +4496,11 @@ LTS<xhtml:br />
            width="64"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 64px; white-space: normal; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">CABIN LTS/PWR</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">CABIN LTS/PWR</div>
+          </div>
         </foreignObject>
         <text
            style="font-size:12px;font-family:Helvetica;text-anchor:middle;stroke:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
@@ -4524,11 +4523,11 @@ LTS<xhtml:br />
            width="38"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 39px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">FLAPS</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">FLAPS</div>
+          </div>
         </foreignObject>
         <text
            id="text691"
@@ -4551,11 +4550,11 @@ LTS<xhtml:br />
            width="19"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 20px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">EIS</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">EIS</div>
+          </div>
         </foreignObject>
         <text
            style="font-size:12px;font-family:Helvetica;text-anchor:middle;stroke:none;stroke-width:1.19205523;stroke-miterlimit:10;stroke-dasharray:none"
@@ -4578,11 +4577,11 @@ LTS<xhtml:br />
            width="24"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 25px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">PFD</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">PFD</div>
+          </div>
         </foreignObject>
         <text
            id="text965"
@@ -4605,11 +4604,11 @@ LTS<xhtml:br />
            width="38"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 38px; white-space: normal; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">ADC AHRS</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">ADC AHRS</div>
+          </div>
         </foreignObject>
         <text
            id="text971"
@@ -4632,11 +4631,11 @@ LTS<xhtml:br />
            width="37"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 37px; white-space: normal; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">NAV1 ENG</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">NAV1 ENG</div>
+          </div>
         </foreignObject>
         <text
            id="text977"
@@ -4659,11 +4658,11 @@ LTS<xhtml:br />
            width="47"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 47px; white-space: normal; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">COMM 1</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">COMM 1</div>
+          </div>
         </foreignObject>
         <text
            id="text983"
@@ -4686,15 +4685,15 @@ LTS<xhtml:br />
            width="40"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 41px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
+            <div
                style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-              <xhtml:div>STDBY</xhtml:div>
-              <xhtml:div>BATT<xhtml:br />
-</xhtml:div>
-            </xhtml:div>
-          </xhtml:div>
+              <div>STDBY</div>
+              <div>BATT<br />
+</div>
+            </div>
+          </div>
         </foreignObject>
         <text
            style="font-size:12px;font-family:Helvetica;text-anchor:middle;stroke:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
@@ -4717,11 +4716,11 @@ LTS<xhtml:br />
            width="24"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 25px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">PFD</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">PFD</div>
+          </div>
         </foreignObject>
         <text
            id="text1011"
@@ -4744,11 +4743,11 @@ LTS<xhtml:br />
            width="38"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 38px; white-space: normal; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">ADC AHRS</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">ADC AHRS</div>
+          </div>
         </foreignObject>
         <text
            style="font-size:12px;font-family:Helvetica;text-anchor:middle;stroke:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
@@ -4771,11 +4770,11 @@ LTS<xhtml:br />
            width="38"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 38px; white-space: normal; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">NAV1 ENG</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">NAV1 ENG</div>
+          </div>
         </foreignObject>
         <text
            style="font-size:12px;font-family:Helvetica;text-anchor:middle;stroke:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
@@ -4798,11 +4797,11 @@ LTS<xhtml:br />
            width="26"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 27px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">MFD</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">MFD</div>
+          </div>
         </foreignObject>
         <text
            id="text1035"
@@ -4825,11 +4824,11 @@ LTS<xhtml:br />
            width="43"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 44px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">XPNDR</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">XPNDR</div>
+          </div>
         </foreignObject>
         <text
            id="text1041"
@@ -4852,11 +4851,11 @@ LTS<xhtml:br />
            width="35"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 36px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">NAV 2</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">NAV 2</div>
+          </div>
         </foreignObject>
         <text
            id="text1047"
@@ -4879,11 +4878,11 @@ LTS<xhtml:br />
            width="48"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 49px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">COMM 2</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">COMM 2</div>
+          </div>
         </foreignObject>
         <text
            id="text1053"
@@ -4906,11 +4905,11 @@ LTS<xhtml:br />
            width="38"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 39px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">AUDIO</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">AUDIO</div>
+          </div>
         </foreignObject>
         <text
            id="text1059"
@@ -4933,11 +4932,11 @@ LTS<xhtml:br />
            width="29"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 30px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Warn</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Warn</div>
+          </div>
         </foreignObject>
         <text
            id="text1065"
@@ -4960,11 +4959,11 @@ LTS<xhtml:br />
            width="54"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 55px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">ESS Buss</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">ESS Buss</div>
+          </div>
         </foreignObject>
         <text
            id="text1143"
@@ -4987,11 +4986,11 @@ LTS<xhtml:br />
            width="58"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 59px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Elec Bus 1</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Elec Bus 1</div>
+          </div>
         </foreignObject>
         <text
            id="text1149"
@@ -5014,11 +5013,11 @@ LTS<xhtml:br />
            width="58"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 59px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Elec Bus 2</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Elec Bus 2</div>
+          </div>
         </foreignObject>
         <text
            id="text1155"
@@ -5041,11 +5040,11 @@ LTS<xhtml:br />
            width="59"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 60px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">AVN Bus 2</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">AVN Bus 2</div>
+          </div>
         </foreignObject>
         <text
            id="text1161"
@@ -5068,11 +5067,11 @@ LTS<xhtml:br />
            width="59"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 60px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">AVN Bus 1</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">AVN Bus 1</div>
+          </div>
         </foreignObject>
         <text
            id="text1167"
@@ -5095,11 +5094,11 @@ LTS<xhtml:br />
            width="64"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 65px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">X-Feed Bus</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">X-Feed Bus</div>
+          </div>
         </foreignObject>
         <text
            id="text1173"
@@ -5122,11 +5121,11 @@ LTS<xhtml:br />
            width="53"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 54px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Alternator</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Alternator</div>
+          </div>
         </foreignObject>
         <text
            id="text1211"
@@ -5149,11 +5148,11 @@ LTS<xhtml:br />
            width="36"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 37px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Starter</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Starter</div>
+          </div>
         </foreignObject>
         <text
            id="text1217"
@@ -5182,11 +5181,11 @@ LTS<xhtml:br />
            width="43"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 43px; white-space: normal; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Test voltage sense</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Test voltage sense</div>
+          </div>
         </foreignObject>
         <g
            id="g5850"
@@ -5204,11 +5203,11 @@ LTS<xhtml:br />
                  width="43"
                  height="41"
                  requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                <xhtml:div
+                <div
                    style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 43px; white-space: normal; overflow-wrap: normal; text-align: center;">
-                  <xhtml:div
-                     style="display:inline-block;text-align:inherit;text-decoration:inherit;">Test voltage sense</xhtml:div>
-                </xhtml:div>
+                  <div
+                     style="display:inline-block;text-align:inherit;text-decoration:inherit;">Test voltage sense</div>
+                </div>
               </foreignObject>
               <text
                  x="22"
@@ -5237,11 +5236,11 @@ LTS<xhtml:br />
                  width="43"
                  height="41"
                  requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                <xhtml:div
+                <div
                    style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 43px; white-space: normal; overflow-wrap: normal; text-align: center;">
-                  <xhtml:div
-                     style="display:inline-block;text-align:inherit;text-decoration:inherit;">Test voltage sense</xhtml:div>
-                </xhtml:div>
+                  <div
+                     style="display:inline-block;text-align:inherit;text-decoration:inherit;">Test voltage sense</div>
+                </div>
               </foreignObject>
               <text
                  x="22"
@@ -5271,11 +5270,11 @@ LTS<xhtml:br />
              width="80"
              pointer-events="all"
              style="overflow:visible;">
-            <xhtml:div
+            <div
                style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 80px; white-space: normal; overflow-wrap: normal; text-align: center;">
-              <xhtml:div
-                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">STBY BATT CURRENT SHUNT</xhtml:div>
-            </xhtml:div>
+              <div
+                 style="display:inline-block;text-align:inherit;text-decoration:inherit;">STBY BATT CURRENT SHUNT</div>
+            </div>
           </foreignObject>
           <g
              id="g5904"
@@ -5293,11 +5292,11 @@ LTS<xhtml:br />
                    width="80"
                    height="41"
                    requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                  <xhtml:div
+                  <div
                      style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 80px; white-space: normal; overflow-wrap: normal; text-align: center;">
-                    <xhtml:div
-                       style="display:inline-block;text-align:inherit;text-decoration:inherit;">STBY BATT CURRENT SHUNT</xhtml:div>
-                  </xhtml:div>
+                    <div
+                       style="display:inline-block;text-align:inherit;text-decoration:inherit;">STBY BATT CURRENT SHUNT</div>
+                  </div>
                 </foreignObject>
                 <text
                    x="40"
@@ -5317,11 +5316,11 @@ LTS<xhtml:br />
                  width="80"
                  height="41"
                  requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                <xhtml:div
+                <div
                    style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 80px; white-space: normal; overflow-wrap: normal; text-align: center;">
-                  <xhtml:div
-                     style="display:inline-block;text-align:inherit;text-decoration:inherit;">STBY BATT CURRENT SHUNT</xhtml:div>
-                </xhtml:div>
+                  <div
+                     style="display:inline-block;text-align:inherit;text-decoration:inherit;">STBY BATT CURRENT SHUNT</div>
+                </div>
               </foreignObject>
               <text
                  x="40"
@@ -5353,10 +5352,10 @@ LTS<xhtml:br />
            width="40"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 41px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Ignition<xhtml:br />
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Ignition<br />
 
 
 
@@ -5364,9 +5363,9 @@ LTS<xhtml:br />
 
 
 
-Switch<xhtml:br />
-</xhtml:div>
-          </xhtml:div>
+Switch<br />
+</div>
+          </div>
         </foreignObject>
         <g
            id="g6030"
@@ -5384,19 +5383,19 @@ Switch<xhtml:br />
                  width="40"
                  height="27"
                  requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                <xhtml:div
+                <div
                    style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 41px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-                  <xhtml:div
-                     style="display:inline-block;text-align:inherit;text-decoration:inherit;">Ignition<xhtml:br />
+                  <div
+                     style="display:inline-block;text-align:inherit;text-decoration:inherit;">Ignition<br />
 
 
 
 
 
 
-Switch<xhtml:br />
-</xhtml:div>
-                </xhtml:div>
+Switch<br />
+</div>
+                </div>
               </foreignObject>
               <text
                  x="20"
@@ -5459,11 +5458,11 @@ Switch<xhtml:br />
            width="66"
            pointer-events="all"
            style="overflow:visible;">
-          <xhtml:div
+          <div
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 66px; white-space: normal; overflow-wrap: normal; text-align: center;">
-            <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Standby Battery Controller</xhtml:div>
-          </xhtml:div>
+            <div
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">Standby Battery Controller</div>
+          </div>
         </foreignObject>
         <g
            transform="translate(14.303142,-0.46139168)"
@@ -5482,11 +5481,11 @@ Switch<xhtml:br />
                  width="66"
                  height="41"
                  requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                <xhtml:div
+                <div
                    style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 66px; white-space: normal; overflow-wrap: normal; text-align: center;">
-                  <xhtml:div
-                     style="display:inline-block;text-align:inherit;text-decoration:inherit;">Standby Battery Controller</xhtml:div>
-                </xhtml:div>
+                  <div
+                     style="display:inline-block;text-align:inherit;text-decoration:inherit;">Standby Battery Controller</div>
+                </div>
               </foreignObject>
               <text
                  x="35"
