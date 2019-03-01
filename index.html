@@ -23,30 +23,54 @@
 				</li>
 				<li>
 					<img src="images/button_epu.png"/>
-					<span> EPU <br><span id="epu-status"> OFFLINE </span> </span>
+					<span> EPU <br><span id="epu-status" class="epu_controller"> OFFLINE </span> </span>
 				</li>
-				<li>
+				<li id="master_button">
 					<img src="images/button_master.png"/>
 					<span> MASTER </span>
 				</li>
-				<li>
+				<li id="breaker_button">
 					<img src="images/button_breaker.png"/>
 					<span> BREAKERS </span>
 				</li>
-				<li>
+				<li id="switches_button">
 					<img src="images/button_switch.png"/>
 					<span> SWITCHES </span>
 				</li>
 
-			<ul>
+            </ul>
 		</nav>
 	</header>
-	<main class="container">
+	<div id="svg_wrapper" class="container">
 		<svg id="diagram">
 		
 		</svg>
-	</main>
-	<div class="draggable"> </div>
+	</div>
+        <div id="master_main_container" class="draggable">
+            <div id="master_header" class="box_headers">Master Switches <span class="close" id="master_close">&times;</span></div>
+            <div id="master_switch_panel" > 
+                <div id="master_switch_alt" class ="master_switch_off_alt"></div>
+                <div id="master_switch_bat" class ="master_switch_off_bat"></div>
+            </div>            
+        </div>
+        
+        <div id="breakers_main_container" class="draggable">
+            <div id="breaker_header" class="box_headers">Circuit Breakers<span class="close" id="breakers_close">&times;</span></div>
+            <div id="breaker_switch_panel"></div>
+        </div>
+    
+        <div id="switches_main_container" class="draggable">
+            <div id="switches_header" class="box_headers">Switches<span class="close" id="switches_close">&times;</span></div>
+            <div id="switches_switch_panel"></div>
+        </div>
+
+    <audio id="audio_master" preload="auto">
+    <source src="music/Sleep%20Away.mp3"/>
+    </audio>
+    
+    
+    
+    
 	<script src="js/jquery.js"></script>
 	<script src="js/jquery-ui.js"></script>
 	<script src="js/index.js"></script>

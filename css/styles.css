@@ -73,6 +73,16 @@ nav {
 
 .container {
 	height: 100%;
+    
+}
+
+#svg_wrapper{
+    position: relative;
+    top: 50px;
+    height: 500px;
+    left:50px;
+    width:1500px;
+    background-color: white;
 }
 
 #diagram {
@@ -82,7 +92,161 @@ nav {
 .draggable {
 	width: 100px;
 	height: 100px;
-	background-color: #ffffff;
+	
+}
+
+/*Class for all lower box headers*/
+.box_headers{
+    height: 30px;
+    color: white;
+    width: inherit;                
+    background-color: red;
+    font-size: 20px;
+    cursor: move;
+}
+
+/*Styling for master switch container*/
+#master_main_container{
+    background-color: white;
+    position: absolute;
+    top: 670px;
+    left: 100px;
+    height: 230px;
+    width: 185px;
+    border: solid;
+    border-width: 2px;
+    border-color: black;
+}
+
+/*Styling for the background image of the master Switch box */
+#master_switch_panel{     
+    background-image: url(../images/masterPanelBg.jpg);
+    position: absolute;
+    top: 32px;
+    left: 2px;
+    width: 181px;
+    height: 195px;                
+    background-repeat: no-repeat;	
+    overflow: hidden;                
+}
+
+/*Styling for the master Switch Off image  -- .master_switch_bat*/
+.master_switch_off_alt{
+    background-image: url(../images/masterOff.jpg);
+    position: absolute;
+    top: 123px;
+    left: 36px;
+    width: 14px;
+    height: 51px;
+    background-repeat: no-repeat;	
+    overflow: hidden;        
+}
+
+/*Styling for the master Switch On image */
+.master_switch_on_alt{
+    background-image: url(../images/masterOn.jpg);
+    position: absolute;
+    top: 123px;
+    left: 36px;
+    width: 14px;
+    height: 51px;
+    background-repeat: no-repeat;	
+    overflow: hidden;        
+}
+
+/*Styling for the master Switch Off image  -- BAT*/
+.master_switch_off_bat{
+    background-image: url(../images/masterOff.jpg);
+    position: absolute;
+    top: 123px;
+    left: 51px;
+    width: 14px;
+    height: 51px;
+    background-repeat: no-repeat;	
+    overflow: hidden;        
+}
+
+/*Styling for the master Switch On image -- BAT*/
+.master_switch_on_bat{
+    background-image: url(../images/masterOn.jpg);
+    position: absolute;
+    top: 123px;
+    left: 51px;
+    width: 14px;
+    height: 51px;
+    background-repeat: no-repeat;	
+    overflow: hidden;        
+}
+
+/*Styling for breakers container*/
+#breakers_main_container{
+    background-color: white;
+    position: absolute;
+    top: 671px;
+    left: 300px;
+    height: 220px;
+    width: 569px;
+    border: solid;
+    border-width: 2px;
+    border-color: black;    
+}
+
+/*Styling for the background image of the breakers box*/
+#breaker_switch_panel{
+    background-image: url(../images/breakerrPanelBg.jpg);
+    position: absolute;
+    top: 32px;
+    left: 2px;
+    width: 565px;
+    height: 183px;                
+    background-repeat: no-repeat;	
+    overflow: hidden; 
+}
+
+/*Styling for master switch container*/
+#switches_main_container{
+    background-color: white;
+    position: absolute;
+    top: 671px;
+    left: 885px;
+    height: 220px;
+    width: 224px;
+    border: solid;
+    border-width: 2px;
+    border-color: black;
+}
+
+/*Styling for the background image of the switch box*/
+#switches_switch_panel{
+    background-image: url(../images/switchesPanelBg.jpg);
+    position: absolute;
+    top: 32px;
+    left: 2px;
+    width: 220px;
+    height: 169px;                
+    background-repeat: no-repeat;	
+    overflow: hidden; 
+}
+
+
+
+
+/*Styling for the 'x' that appears in the corner of each header*/
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: default;
+}
+
+.close:hover {
+    background-color: #aaaaaa;
+    color: black;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: default;
 }
 
 /*STYLES FOR MOBILE USERS*/
