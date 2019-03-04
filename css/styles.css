@@ -28,9 +28,15 @@ main {
 	margin-top: 1vh;
 }
 
-svg {
+#nav_list > li > img {
+	float: left;
+	max-height: 50px;
+}
+
+#svg_wrapper svg {
 	height: 100%;
 	width: 100%;
+}
 
 footer {
 	width: 100%;
@@ -80,7 +86,6 @@ footer {
 	list-style: none;
 }
 
-<<<<<<< HEAD
 #svg_wrapper{
     position: relative;
     width: 90%;
@@ -88,11 +93,11 @@ footer {
 	margin: auto;
 	
     background-color: white;
-=======
+}
+
 #panel_list > li {
 	float: left;
 	margin: 0 .1vw 0 .1vw;
->>>>>>> 0fe99ca0a3944133901a53b3a6cc24962da7c927
 }
 
 /* Placeholder */

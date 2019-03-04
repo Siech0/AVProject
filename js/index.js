@@ -81,6 +81,7 @@ $( function() {
            {
                $("#master_switch_bat").removeClass("master_switch_off_bat");
                $("#master_switch_bat").addClass("master_switch_on_bat");
+			   $("#battery_master_switch").find("*").addClass("on");
            }
         else
             {
@@ -88,6 +89,7 @@ $( function() {
                $("#master_switch_bat").addClass("master_switch_off_bat"); 
                $("#master_switch_alt").removeClass("master_switch_on_alt");
                $("#master_switch_alt").addClass("master_switch_off_alt");
+			   $("#battery_master_switch").find("*").removeClass("on");
             }
     });
 } );

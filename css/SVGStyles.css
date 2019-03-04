@@ -20,9 +20,9 @@ text {
     stroke: black;
 }
 
-#battery_master_switch path, #battery_master_switch circle {
+/*#battery_master_switch path, #battery_master_switch circle {
     stroke: blue;
-}
+}*/
 
 #battery_relay path, #battery_relay circle  {
     stroke: orange;
@@ -35,4 +35,8 @@ text {
 
 #ACU_box {
     fill: white;
+}
+
+.on {
+    stroke: magenta;
 }
