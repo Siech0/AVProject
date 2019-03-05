@@ -67,11 +67,35 @@ $( function() {
                $("#master_switch_bat").removeClass("master_switch_off_bat");
                $("#master_switch_bat").addClass("master_switch_on_bat");
                $("#audio_master").trigger("play");
+			   
+			   // makes the paths connected to the switch turn on
+			   $("#alt_master_switch").find("*").addClass("on");
+			   $("#alt_relay").find("*").addClass("on");
+			   $("#battery_master_switch").find("*").addClass("on");
+			   $("#battery_relay").find("*").addClass("on");
+			   
+			   // makes the switch toggle from off to on
+			   $("#alt_master_switch_on").removeClass("hidden");
+			   $("#alt_master_switch_off").addClass("hidden");
+			   $("#battery_master_switch_on").removeClass("hidden");
+			   $("#battery_master_switch_off").addClass("hidden");
+			   
            }
         else
             {
                $("#master_switch_alt").removeClass("master_switch_on_alt");
-               $("#master_switch_alt").addClass("master_switch_off_alt");                
+               $("#master_switch_alt").addClass("master_switch_off_alt");
+			   
+			   // makes the paths turn off
+			   $("#alt_master_switch").find("*").removeClass("on");
+			   $("#alt_relay").find("*").removeClass("on");
+			   $("#alt_master_switch_on").removeClass("on");
+			   
+			   // makes the switch toggle from on to off
+			   $("#alt_master_switch_on").addClass("hidden");
+			   $("#alt_master_switch_off").removeClass("hidden");
+			   
+			   
             }
     });
 	
@@ -82,6 +106,10 @@ $( function() {
                $("#master_switch_bat").removeClass("master_switch_off_bat");
                $("#master_switch_bat").addClass("master_switch_on_bat");
 			   $("#battery_master_switch").find("*").addClass("on");
+			   $("#battery_relay").find("*").addClass("on");
+			   $("#battery_master_switch_on").removeClass("hidden");
+			   $("#battery_master_switch_off").addClass("hidden");
+			   
            }
         else
             {
@@ -89,7 +117,18 @@ $( function() {
                $("#master_switch_bat").addClass("master_switch_off_bat"); 
                $("#master_switch_alt").removeClass("master_switch_on_alt");
                $("#master_switch_alt").addClass("master_switch_off_alt");
+			   
 			   $("#battery_master_switch").find("*").removeClass("on");
+			   $("#battery_relay").find("*").removeClass("on");
+			   $("#alt_master_switch").find("*").removeClass("on");
+			   $("#alt_relay").find("*").removeClass("on");
+			   
+			   $("#battery_master_switch_off").removeClass("hidden");
+			   $("#battery_master_switch_on").addClass("hidden");
+			   $("#alt_master_switch_on").addClass("hidden");
+			   $("#alt_master_switch_off").removeClass("hidden");
+			   
+			   
             }
     });
 } );

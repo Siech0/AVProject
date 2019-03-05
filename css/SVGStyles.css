@@ -20,13 +20,16 @@ text {
     stroke: black;
 }
 
+#battery path, #battery circle, #battery ellipse {
+    stroke: pink;
+}
 /*#battery_master_switch path, #battery_master_switch circle {
     stroke: blue;
 }*/
 
-#battery_relay path, #battery_relay circle  {
-    stroke: orange;
-}
+/*#battery_relay path, #battery_relay circle  {*/
+/*    stroke: orange;*/
+/*}*/
 
 #feeder_a_breaker path, #feeder_a_breaker rect, #feeder_a_breaker circle {
     stroke: purple;
@@ -39,4 +42,8 @@ text {
 
 .on {
     stroke: magenta;
+}
+
+.hidden {
+    stroke: none;
 }
