@@ -71,8 +71,13 @@ $( function() {
 			   // makes the paths connected to the switch turn on
 			   $("#alt_master_switch").find("*").addClass("on");
 			   $("#alt_relay").find("*").addClass("on");
+			   $("#alt_relay_off").find("*").addClass("hidden");
+			   $("#alt_relay_on").removeClass("hidden");
 			   $("#battery_master_switch").find("*").addClass("on");
 			   $("#battery_relay").find("*").addClass("on");
+			   $("#battery_relay_on").removeClass("hidden");
+			   $("#battery_relay_off").find("*").addClass("hidden");
+			   
 			   
 			   // makes the switch toggle from off to on
 			   $("#alt_master_switch_on").removeClass("hidden");
@@ -95,6 +100,8 @@ $( function() {
 			   $("#alt_master_switch_on").addClass("hidden");
 			   $("#alt_master_switch_off").removeClass("hidden");
 			   
+			   $("#alt_relay_on").addClass("hidden");
+			   $("#alt_relay_off").find("*").removeClass("hidden");
 			   
             }
     });
@@ -107,8 +114,11 @@ $( function() {
                $("#master_switch_bat").addClass("master_switch_on_bat");
 			   $("#battery_master_switch").find("*").addClass("on");
 			   $("#battery_relay").find("*").addClass("on");
+			   
 			   $("#battery_master_switch_on").removeClass("hidden");
 			   $("#battery_master_switch_off").addClass("hidden");
+			   $("#battery_relay_on").removeClass("hidden");
+			   $("#battery_relay_off").find("*").addClass("hidden");
 			   
            }
         else
@@ -125,8 +135,14 @@ $( function() {
 			   
 			   $("#battery_master_switch_off").removeClass("hidden");
 			   $("#battery_master_switch_on").addClass("hidden");
+			   $("#battery_relay_on").addClass("hidden");
+			   $("#battery_relay_off").find("*").removeClass("hidden");
+			   
 			   $("#alt_master_switch_on").addClass("hidden");
 			   $("#alt_master_switch_off").removeClass("hidden");
+			   
+			   $("#alt_relay_on").addClass("hidden");
+			   $("#alt_relay_off").find("*").removeClass("hidden");
 			   
 			   
             }
