@@ -45,6 +45,8 @@ footer {
 
 #nav_list {
 	list-style: none;
+	width: 95%;
+	margin: auto;
 }
 
 #nav_list > li {
@@ -66,12 +68,6 @@ footer {
 
 #nav_list > li:hover {
 	background: #666666;
-}
-
-#nav_list > li > img {
-	float: left;
-	max-height: 50px;
-	
 }
 
 #nav_list > li > span {
