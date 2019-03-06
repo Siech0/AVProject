@@ -11,33 +11,30 @@
 	<link rel="stylesheet" type="text/css" href="css/styles.css"/>
 	<link rel="stylesheet" type="text/css" href="css/SVGStyles.css"/>
 	<style type="text/css">
-		svg {
-			height: 100%;
-			width: 100%;
-		}
+		
 	</style>
 </head>
 <body>
 	<header>
-		<nav class="container">
-			<ul id="nav_list">
+		<nav>
+			<ul id="nav_list" class="nav-list">
                 <li>
                     <img src="images/UCM_logo.png"/>
                     <h1>C172S Electrical System</h1>
                 </li>
 				<li>
-					<img src="images/sparkplug.jpeg"/>
+					<img src="images/sparkplug.jpg"/>
 					<span> ENGINE <br><span id="engine-status"> SHUTDOWN </span> </span>
 				</li>
 				<li>
-					<img src="images/button_epu.png"/>
+					<img src="images/button_epu.png" width=50px height=50px/>
 					<span> EPU <br><span id="epu-status" class="epu_controller"> OFFLINE </span> </span>
 				</li>
 				<li id="master_button">
 					<img src="images/button_master.png"/>
 					<span> MASTER </span>
 				</li>
-				<li id="breakers_button">
+				<li id="breaker_button">
 					<img src="images/button_breaker.png"/>
 					<span> BREAKERS </span>
 				</li>
@@ -78,8 +75,11 @@
 		</div>
 	</footer>
     <audio id="audio_master" preload="auto">
-		<source src="music/Sleep%20Away.mp3"/>
+    <source src="music/Sleep%20Away.mp3"/>
     </audio>
+    
+    
+    
     
 	<script src="js/jquery.js"></script>
 	<script src="js/jquery-ui.js"></script>
