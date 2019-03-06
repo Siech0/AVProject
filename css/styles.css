@@ -33,10 +33,6 @@ main {
 	max-height: 50px;
 }
 
-#svg_wrapper svg {
-	height: 100%;
-	width: 100%;
-}
 
 footer {
 	width: 100%;
@@ -84,10 +80,15 @@ footer {
 
 #svg_wrapper{
     	position: relative;
-    	width: 90%;
+    	width: 1000px;
     	padding: 2%;
     	margin: auto;
     	background-color: white;
+}
+
+#svg_wrapper svg {
+	height: 100%;
+	width: 100%;
 }
 
 #panel_list > li {

@@ -13,7 +13,22 @@ $( function() {
 		
 		return function() { ret.apply(new funcs); };
 	}
-	
+    
+    var classToogle = function(id, cInit, cSecond) {
+			if(panel_state[id] === undefined) {
+				panel_state[id] = true;
+			}
+        
+            if(panel_state[id]) {
+                $(id).find('*').removeClass(cSecond);
+                $(id).find('*').addClass(cInit);
+            } else {
+                $(id).find('*').removeClass(cInit);
+                $(id).find('*').addClass(cSecond);
+            }
+			panel_state[id] = !panel_state[id];
+    }
+    
 	//Function that generates toogle functionality for panel buttons.
 	var toogle = function(id, initial, rate) {
 		return function() {
@@ -30,7 +45,7 @@ $( function() {
 			panel_state[id] = !panel_state[id];
 		}
 	}
-	
+    
 	//Function that generates a panel self close function
 	var close = function(id, rate) {
 		return function() {
@@ -43,7 +58,11 @@ $( function() {
 	
 	//Enable navigation button panel toogle functionality
 	//toogle switches_main_container
-    $("#master_button").click(toogle("#master_main_container", true, 500));
+    $("#master_button").click( func_concat( [
+        toogle("#master_main_container", true, 500),
+        toogle("#breakers_main_container", true, 500)
+        ])
+    );
 	//toogle switches_main_container
     $("#breakers_button").click(toogle("#breakers_main_container", true, 500));
 	//toogle switches_main_container
