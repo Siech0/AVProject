@@ -5,6 +5,14 @@ $( function() {
 		This function essentially concatenates functions
 		provided in the funcs array and generates a new function,
 		that can be used as an event handler. 
+		
+		EXAMPLE:
+		
+		$("#master_button").click( func_concat( [
+			toogle("#master_main_container", true, 500),
+			toogle("#breakers_main_container", true, 500)
+        ])
+    );
 	*/
 	var func_concat = function (funcs){
 		var ret = funcs[ funcs.length - 1];
@@ -14,29 +22,12 @@ $( function() {
 		return function() { ret.apply(new funcs); };
 	}
     
-    var classToogle = function(id, cInit, cSecond) {
-			if(panel_state[id] === undefined) {
-				panel_state[id] = true;
-			}
-        
-            if(panel_state[id]) {
-                $(id).find('*').removeClass(cSecond);
-                $(id).find('*').addClass(cInit);
-            } else {
-                $(id).find('*').removeClass(cInit);
-                $(id).find('*').addClass(cSecond);
-            }
-			panel_state[id] = !panel_state[id];
-    }
-    
 	//Function that generates toogle functionality for panel buttons.
 	var toogle = function(id, initial, rate) {
+		if(panel_state[id] === undefined) {
+			panel_state[id] = initial;
+		}
 		return function() {
-			//undefined
-			if(panel_state[id] === undefined) {
-				panel_state[id] = initial;
-			}
-
 			if(panel_state[id]) { 	//Active
 				$(id).hide(rate);
 			} else { 				//Inactive
@@ -53,29 +44,26 @@ $( function() {
 		}
 	}
 	
+	//Function that plays audio {
+	var audio = function(id) {
+		return function () {
+			$(id).trigger("play");
+		};
+	}
+	
 	//Enable draggable functionality for all draggable containers
 	$(".draggable").draggable({scope: "buttonBox"});
 	
 	//Enable navigation button panel toogle functionality
-	//toogle switches_main_container
-    $("#master_button").click( func_concat( [
-        toogle("#master_main_container", true, 500),
-        toogle("#breakers_main_container", true, 500)
-        ])
-    );
-	//toogle switches_main_container
-    $("#breakers_button").click(toogle("#breakers_main_container", true, 500));
-	//toogle switches_main_container
-	$("#switches_button").click(toogle("#switches_main_container", true, 500));
+    $("#master_button").click(toogle("#master_main_container", true, 500)); //Master
+    $("#breakers_button").click(toogle("#breakers_main_container", true, 500)); //Breakers
+	$("#switches_button").click(toogle("#switches_main_container", true, 500)); //Switches
 	
 	
 	//Enable panel self close functionality
-	//Hide master_main_container
-	$("#master_close").click(close("#master_main_container", 500));
-	//hide breakers_main_container id
-    $("#breakers_close").click(close("#breakers_main_container", 500));
-	//hide switches_main_container
-    $("#switches_close").click(close("#breakers_main_container", 500));
+	$("#master_close").click(close("#master_main_container", 500)); //Master
+    $("#breakers_close").click(close("#breakers_main_container", 500)); //Breakers
+    $("#switches_close").click(close("#switches_main_container", 500)); //Switches
 	
 	//Toogle master_alt on and off, plays music.
 	$("#master_switch_alt").click(function(){
@@ -126,6 +114,7 @@ $( function() {
     });
 	
 	//Toogle master_bat on and off
+	
     $("#master_switch_bat").click(function(){
        if ($("#master_switch_bat").hasClass("master_switch_off_bat"))
            {
@@ -166,6 +155,7 @@ $( function() {
 			   
             }
     });
+	
 } );
 
 // Getter
