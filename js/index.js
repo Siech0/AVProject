@@ -1,10 +1,20 @@
 $( function() {
+	//Ultimately this exists for debug purposes
+	//We could realistically use local state closures
 	var panel_state = {};
 	
 	/* 	
 		This function essentially concatenates functions
 		provided in the funcs array and generates a new function,
 		that can be used as an event handler. 
+		
+		EXAMPLE:
+		
+		$("#master_button").click( func_concat( [
+			toogle("#master_main_container", true, 500),
+			toogle("#breakers_main_container", true, 500)
+        ])
+    );
 	*/
 	var func_concat = function (funcs){
 		var ret = funcs[ funcs.length - 1];
@@ -14,6 +24,7 @@ $( function() {
 		return function() { ret.apply(new funcs); };
 	}
 	
+
 	var classOnOff = function(id, classToAdd, classToRemove){
 		if ($(id).find("*").length == 0) {
 			$(id).removeClass(classToRemove);
@@ -24,83 +35,121 @@ $( function() {
 		}
 	};
     
-    var classToogle = function(id, cInit, cSecond) {
-		
-		//console.log(id, cInit, cSecond);
-			if(panel_state[id] === undefined) {
-				panel_state[id] = true;
+		// Switch the class on an id from c1 to c2 and vice versa
+	var cSwitch = function(id, initFirst, cls1, cls2) {
+		return elementClassSwitch($(id), id, initFirst, cls1, cls2);
+	};
+	// Switch the class on an id and its children from c1 to c2 and vice versa
+	var crSwitch = function(id, initFirst, cls1, cls2) {
+		return elementClassSwitch($(id).find('*'), id, initFirst, cls1, cls2);
+	};
+	//Don't use directly, the interface is different from other similar functions.
+	var elementClassSwitch = function(ele, id, initFirst, cls1, cls2) {
+		if(panel_state[id] === undefined) {
+			panel_state[id] = initFirst;
+		}
+		return function() {
+			if(panel_state[id]) {
+				ele.addClass(cls2);
+				ele.removeClass(cls1);
+
+			} else {
+				ele.addClass(cls1);
+				ele.removeClass(cls2);
 			}
-        
-            if(panel_state[id]) {
-				if ($(id).find("*").length == 0) {
-                    $(id).removeClass(cSecond);
-					$(id).addClass(cInit);
-                } else {
-					$(id).find('*').removeClass(cSecond);
-					$(id).find('*').addClass(cInit);
-				}
-            } else {
-				if ($(id).find("*").length == 0) {
-                    $(id).removeClass(cInit);
-					$(id).addClass(cSecond);
-                } else {
-					$(id).find('*').removeClass(cInit);
-					$(id).find('*').addClass(cSecond);	
-				}
-                
-            }
+
 			panel_state[id] = !panel_state[id];
-    }
+		};
+	};
+	
+	// Toogle a class on an id to be on/off.
+	var cToogle = function(id, initActive, cls) {
+		return elementClassToogle($(id), id, initActive, cls);
+	};
+	// Toogle a class on an id and its children to be on/off.
+	var crToogle = function(id, initActive, cls) {
+		return elementClassToogle($(id).find('*'), id, initActive, cls);
+	};
+	//Don't use directly, the interface is different from other similar functions.    
+	var elementClassToogle = function(ele, id, initActive, cls) {
+		if(panel_state[id] === undefined) {
+			panel_state[id] = initActive;
+		}
+
+		return function() {
+			if(panel_state[id]) {
+				ele.removeClass(cls);
+			} else {
+				ele.addClass(cls);
+			}
+			panel_state[id] = !panel_state[id];
+		};
+	};
     
 	//Function that generates toogle functionality for panel buttons.
 	var toogle = function(id, initial, rate) {
+		if(panel_state[id] === undefined) {
+			panel_state[id] = initial;
+		}
 		return function() {
-			//undefined
-			if(panel_state[id] === undefined) {
-				panel_state[id] = initial;
-			}
-
 			if(panel_state[id]) { 	//Active
 				$(id).hide(rate);
 			} else { 				//Inactive
 				$(id).show(rate);
 			}
 			panel_state[id] = !panel_state[id];
-		}
+		};
 	};
     
+	//Exists for code reuse, toogles class on supplied elements, not id!
+
+
+
 	//Function that generates a panel self close function
 	var close = function(id, rate) {
 		return function() {
 			$(id).hide(rate);
-		}
+		};
 	};
 	
+	//Function that plays audio {
+	var audio = function(id) {
+		return function () {
+			$(id).trigger("play");
+		};
+	};
+	
+    /* When the document is loaded, it will hide all elements in the pop_up_list*/
+    $( document ).ready(function(){
+        $("#pop_up_list").children().hide();
+    });
+
+    /*Function to display pop up box when clicking on the 'starter' svg element present in C172SSchematic.svg
+      For some reason, I was able to make it work one time.  After I refreshed the page, it stopped working and I have no idea why.*/
+    var svg_starter = document.getElementById('starter');
+    $(svg_starter).click(function(){
+       $("#alternator_main_container").show(500); 
+    });
+    
+    
 	//Enable draggable functionality for all draggable containers
 	$(".draggable").draggable({scope: "buttonBox"});
 	
 	//Enable navigation button panel toogle functionality
-	//toogle switches_main_container
-    $("#master_button").click( func_concat( [
-        toogle("#master_main_container", true, 500),
-        toogle("#breakers_main_container", true, 500)
-        ])
-    );
-	//toogle switches_main_container
-    $("#breakers_button").click(toogle("#breakers_main_container", true, 500));
-	//toogle switches_main_container
-	$("#switches_button").click(toogle("#switches_main_container", true, 500));
+    $("#master_button").click(toogle("#master_main_container", true, 500)); //Master
+    $("#breakers_button").click(toogle("#breakers_main_container", true, 500)); //Breakers
+	$("#switches_button").click(toogle("#switches_main_container", true, 500)); //Switches
 	
 	
 	//Enable panel self close functionality
-	//Hide master_main_container
-	$("#master_close").click(close("#master_main_container", 500));
-	//hide breakers_main_container id
-    $("#breakers_close").click(close("#breakers_main_container", 500));
-	//hide switches_main_container
-    $("#switches_close").click(close("#breakers_main_container", 500));
+	$("#master_close").click(close("#master_main_container", 500)); //Master
+    $("#breakers_close").click(close("#breakers_main_container", 500)); //Breakers
+    $("#switches_close").click(close("#switches_main_container", 500)); //Switches
 	
+
+
 	//Toogle master_alt on and off, plays music.
+	
 	$("#master_switch_alt").click(function(){
        if ($("#master_switch_alt").hasClass("master_switch_off_alt"))
            {
@@ -148,7 +197,9 @@ $( function() {
             }
     });
 	
+	
 	//Toogle master_bat on and off
+	
     $("#master_switch_bat").click(function(){
        if ($("#master_switch_bat").hasClass("master_switch_off_bat"))
            {
@@ -189,6 +240,8 @@ $( function() {
 			   
             }
     });
+    
+	
 } );
 
 // Getter

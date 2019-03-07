@@ -12,41 +12,37 @@ body {
 	background: #333333;
 }
 
+.container {
+	display: -webkit-flex; /* Safari Compat */
+	-webkit-justify-content: flex-center; /* Safari Compat */
+	display: flex;
+	justify-content: center;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	align-items: center;
+	text-align: center;	
+}
 
+
+/* HEADER STYLES */
 header {
-	background: #333;
 	width: 100%;
 	height: auto;
-	position: relative;
 	top: 0;
 	left: 0;
-	z-index: 100;
-}
-
-main {
-	width: 100%;
-	margin-top: 1vh;
-}
-
-#nav_list > li > img {
-	float: left;
-	max-height: 50px;
-}
-
-
-footer {
-	width: 100%;
-	margin-top: 1vh;
 }
 
 #nav_list {
 	list-style: none;
-	width: 95%;
-	margin: auto;
 }
 
 #nav_list > li {
+	display: -webkit-flex; /* Safari Compat */
+	-webkit-justify-content: flex-center; /* Safari Compat */
 	display: flex;
+	justify-content: center;
+	align-items: center;
 	float: left;
 	min-width: 6vw;
 	min-height: 50px;
@@ -58,12 +54,16 @@ footer {
 	background: #555555;
 	border: 1px solid black;
 	border-radius: 0px 0px 4px 4px;
-	text-align: center;
-	align-items: center;
+
 }
 
 #nav_list > li:hover {
 	background: #666666;
+}
+
+#nav_list > li > img {
+	float: left;
+	max-height: 50px;
 }
 
 #nav_list > li > span {
@@ -74,8 +74,10 @@ footer {
   	line-height: normal;
 }
 
-#panel_list {
-	list-style: none;
+/* MAIN CONTENT STYLES */
+main {
+	width: 100%;
+	margin-top: 1vh;
 }
 
 #svg_wrapper{
@@ -91,30 +93,23 @@ footer {
 	width: 100%;
 }
 
+/* FOOTER STYLES */
+footer {
+	width: 100%;
+	margin-top: 1vh;
+}
+
+#panel_list {
+	list-style: none;
+} 
+
 #panel_list > li {
 	float: left;
 	margin: 0 .1vw 0 .1vw;
 }
 
-/* Placeholder */
-#diagram {
-	height: 500px;
-	width: 1000px;
-	background: white;
-}
 
 
-.container {
-	display: -webkit-flex; /* Safari Compat */
-	-webkit-justify-content: flex-center; /* Safari Compat */
-	display: flex;
-	justify-content: center;
-	margin: 0;
-	padding: 0;
-	width: 100%;
-	align-items: center;
-	text-align: center;	
-}
 
 /*Class for all lower box headers*/
 .box_headers{
@@ -259,6 +254,28 @@ footer {
     font-size: 28px;
     font-weight: bold;
     cursor: default;
+}
+
+/* Class for popup box header*/
+.pop_up_header {
+    height: 30px;
+    color: white;
+    width: inherit;                
+    background-color: red;
+    font-size: 20px;
+    cursor: move;
+}
+
+/*Class to style pop_up panels*/
+.pop_up_panel {
+    position: absolute;
+    top: 32px;
+    left: 2px;
+    width: 181px;
+    height: 195px;
+    background-color: gray;
+    background-repeat: no-repeat;	
+    overflow: hidden;                
 }
 
 /*STYLES FOR MOBILE USERS*/
