@@ -22,7 +22,7 @@ $( function() {
 		funcs = funcs.length > 1 ? func_concat(funcs) : funcs[0];
 		
 		return function() { ret.apply(new funcs); };
-	}
+	};
 	
 
 	var classOnOff = function(id, classToAdd, classToRemove){
@@ -101,6 +101,33 @@ $( function() {
 		};
 	};
     
+	
+	// I want a function that takes advantage of my naming conventions to turn
+	// switches and breakers on and off
+	var schematicFlipSwitch = function(name, toState){
+		var onId = "#" + name + "_on";
+		var offId = "#" + name + "_off";
+		//console.log(onId);
+		//console.log(offId);
+		
+		// so we want to flip it to state
+		if (toState) {
+            //that means we want to turn the switch to on
+			$(onId).removeClass("hidden");
+			$(onId).find("*").removeClass("hidden");
+			
+			$(offId).addClass("hidden");
+			$(offId).find("*").addClass("hidden");
+			
+        } else {
+			$(offId).removeClass("hidden");
+			$(offId).find("*").removeClass("hidden");
+			
+			$(onId).addClass("hidden");
+			$(onId).find("*").addClass("hidden");
+		}
+	}
+	
 	//Exists for code reuse, toogles class on supplied elements, not id!
 
 
@@ -153,46 +180,35 @@ $( function() {
 	$("#master_switch_alt").click(function(){
        if ($("#master_switch_alt").hasClass("master_switch_off_alt"))
            {
-               $("#master_switch_alt").removeClass("master_switch_off_alt");
-               $("#master_switch_alt").addClass("master_switch_on_alt");
-               $("#master_switch_bat").removeClass("master_switch_off_bat");
-               $("#master_switch_bat").addClass("master_switch_on_bat");
+				classOnOff("#master_switch_alt", "master_switch_on_alt", "master_switch_off_alt");
+				classOnOff("#master_switch_bat", "master_switch_on_bat", "master_switch_off_bat");
+
                $("#audio_master").trigger("play");
 			   
 			   // makes the paths connected to the switch turn on
-			   $("#alt_master_switch").find("*").addClass("on");
-			   $("#alt_relay").find("*").addClass("on");
-			   $("#alt_relay_off").find("*").addClass("hidden");
-			   $("#alt_relay_on").removeClass("hidden");
-			   $("#battery_master_switch").find("*").addClass("on");
-			   $("#battery_relay").find("*").addClass("on");
-			   $("#battery_relay_on").removeClass("hidden");
-			   $("#battery_relay_off").find("*").addClass("hidden");
+			   
+			   classOnOff("#alt_master_switch", "on", "");
+			   classOnOff("#alt_relay", "on", "");
+			   classOnOff("#battery_relay", "on", "");
+			   classOnOff("#battery_master_switch", "on", "");
 			   
 			   
-			   // makes the switch toggle from off to on
-			   $("#alt_master_switch_on").removeClass("hidden");
-			   $("#alt_master_switch_off").addClass("hidden");
-			   $("#battery_master_switch_on").removeClass("hidden");
-			   $("#battery_master_switch_off").addClass("hidden");
+			   schematicFlipSwitch("alt_relay", true);
+			   schematicFlipSwitch("alt_master_switch", true);
+			   schematicFlipSwitch("battery_master_switch", true);
+			   schematicFlipSwitch("battery_relay", true);
 			   
            }
         else
             {
-               $("#master_switch_alt").removeClass("master_switch_on_alt");
-               $("#master_switch_alt").addClass("master_switch_off_alt");
-			   
+				classOnOff("#master_switch_alt", "master_switch_off_alt", "master_switch_on_alt");
+			
 			   // makes the paths turn off
-			   $("#alt_master_switch").find("*").removeClass("on");
-			   $("#alt_relay").find("*").removeClass("on");
-			   $("#alt_master_switch_on").removeClass("on");
+			   classOnOff("#alt_master_switch", "", "on");
+			   classOnOff("#alt_relay", "", "on");
 			   
-			   // makes the switch toggle from on to off
-			   $("#alt_master_switch_on").addClass("hidden");
-			   $("#alt_master_switch_off").removeClass("hidden");
-			   
-			   $("#alt_relay_on").addClass("hidden");
-			   $("#alt_relay_off").find("*").removeClass("hidden");
+			   schematicFlipSwitch("alt_relay", false);
+			   schematicFlipSwitch("alt_master_switch", false);
 			   
             }
     });
@@ -207,36 +223,30 @@ $( function() {
 			// because of how the two switches interact a simple toggle won't work
 			// on all the other switches it should be fine though.
                classOnOff("#master_switch_bat", "master_switch_on_bat", "master_switch_off_bat");
-			   $("#battery_master_switch").find("*").addClass("on");
-			   $("#battery_relay").find("*").addClass("on");
 			   
-			   $("#battery_master_switch_on").removeClass("hidden");
-			   $("#battery_master_switch_off").addClass("hidden");
-			   $("#battery_relay_on").removeClass("hidden");
-			   $("#battery_relay_off").find("*").addClass("hidden");
+			   classOnOff("#battery_master_switch", "on", "");
+			   classOnOff("#battery_relay", "on", "");
+			   
+			   schematicFlipSwitch("battery_master_switch", true);
+			   schematicFlipSwitch("battery_relay", true);
 			   
            }
         else
             {
 				classOnOff("#master_switch_bat", "master_switch_off_bat", "master_switch_on_bat");
 				classOnOff("#master_switch_alt", "master_switch_off_alt", "master_switch_on_alt");
-               
-			   $("#battery_master_switch").find("*").removeClass("on");
-			   $("#battery_relay").find("*").removeClass("on");
-			   $("#alt_master_switch").find("*").removeClass("on");
-			   $("#alt_relay").find("*").removeClass("on");
-			   
-			   $("#battery_master_switch_off").removeClass("hidden");
-			   $("#battery_master_switch_on").addClass("hidden");
-			   $("#battery_relay_on").addClass("hidden");
-			   $("#battery_relay_off").find("*").removeClass("hidden");
-			   
-			   $("#alt_master_switch_on").addClass("hidden");
-			   $("#alt_master_switch_off").removeClass("hidden");
-			   
-			   $("#alt_relay_on").addClass("hidden");
-			   $("#alt_relay_off").find("*").removeClass("hidden");
-			   
+				
+				classOnOff("#battery_master_switch", "", "on");
+				schematicFlipSwitch("battery_master_switch", false);
+				
+				classOnOff("#battery_relay", "", "on");
+				schematicFlipSwitch("battery_relay", false);
+				
+				classOnOff("#alt_master_switch", "", "on");
+				schematicFlipSwitch("alt_master_switch", false);
+				
+                classOnOff("#alt_relay", "", "on");
+				schematicFlipSwitch("alt_relay", false);
 			   
             }
     });
