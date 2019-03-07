@@ -256,6 +256,28 @@ footer {
     cursor: default;
 }
 
+/* Class for popup box header*/
+.pop_up_header {
+    height: 30px;
+    color: white;
+    width: inherit;                
+    background-color: red;
+    font-size: 20px;
+    cursor: move;
+}
+
+/*Class to style pop_up panels*/
+.pop_up_panel {
+    position: absolute;
+    top: 32px;
+    left: 2px;
+    width: 181px;
+    height: 195px;
+    background-color: gray;
+    background-repeat: no-repeat;	
+    overflow: hidden;                
+}
+
 /*STYLES FOR MOBILE USERS*/
 @media only screen and (max-width : 640px) {
 

@@ -18,7 +18,9 @@ text {
 #starter rect, #starter path, #alternator rect, #alternator path, #ignition_switch rect, #ignition_switch path {
     fill: white;
     stroke: black;
+    pointer-events: all;
 }
+
 
 #battery path, #battery circle, #battery ellipse {
     stroke: pink;
@@ -46,4 +48,13 @@ text {
 
 .hidden {
     stroke: none;
+}
+
+.box {
+    fill: red;
+    pointer-events: all;
+}
+
+.box:hover {
+    fill: red;
 }

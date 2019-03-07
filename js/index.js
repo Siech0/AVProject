@@ -51,6 +51,19 @@ $( function() {
 		};
 	}
 	
+    /* When the document is loaded, it will hide all elements in the pop_up_list*/
+    $( document ).ready(function(){
+        $("#pop_up_list").children().hide();
+    });
+
+    /*Function to display pop up box when clicking on the 'starter' svg element present in C172SSchematic.svg
+      For some reason, I was able to make it work one time.  After I refreshed the page, it stopped working and I have no idea why.*/
+    var svg_starter = document.getElementById('starter');
+    $(svg_starter).click(function(){
+       $("#alternator_main_container").show(500); 
+    });
+    
+    
 	//Enable draggable functionality for all draggable containers
 	$(".draggable").draggable({scope: "buttonBox"});
 	
@@ -155,6 +168,7 @@ $( function() {
 			   
             }
     });
+    
 	
 } );
 
