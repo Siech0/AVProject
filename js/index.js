@@ -114,17 +114,17 @@ $( function() {
 		if (toState) {
             //that means we want to turn the switch to on
 			$(onId).removeClass("hidden");
-			$(onId).find("*").removeClass("hidden");
+			//$(onId).find("*").removeClass("hidden");
 			
 			$(offId).addClass("hidden");
-			$(offId).find("*").addClass("hidden");
+			//$(offId).find("*").addClass("hidden");
 			
         } else {
 			$(offId).removeClass("hidden");
-			$(offId).find("*").removeClass("hidden");
+			//$(offId).find("*").removeClass("hidden");
 			
 			$(onId).addClass("hidden");
-			$(onId).find("*").addClass("hidden");
+			//$(onId).find("*").addClass("hidden");
 		}
 	}
 	
