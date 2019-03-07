@@ -13,18 +13,41 @@ $( function() {
 		
 		return function() { ret.apply(new funcs); };
 	}
+	
+	var classOnOff = function(id, classToAdd, classToRemove){
+		if ($(id).find("*").length == 0) {
+			$(id).removeClass(classToRemove);
+			$(id).addClass(classToAdd);
+		} else {
+			$(id).find('*').removeClass(classToRemove);
+			$(id).find('*').addClass(classToAdd);
+		}
+	};
     
     var classToogle = function(id, cInit, cSecond) {
+		
+		//console.log(id, cInit, cSecond);
 			if(panel_state[id] === undefined) {
 				panel_state[id] = true;
 			}
         
             if(panel_state[id]) {
-                $(id).find('*').removeClass(cSecond);
-                $(id).find('*').addClass(cInit);
+				if ($(id).find("*").length == 0) {
+                    $(id).removeClass(cSecond);
+					$(id).addClass(cInit);
+                } else {
+					$(id).find('*').removeClass(cSecond);
+					$(id).find('*').addClass(cInit);
+				}
             } else {
-                $(id).find('*').removeClass(cInit);
-                $(id).find('*').addClass(cSecond);
+				if ($(id).find("*").length == 0) {
+                    $(id).removeClass(cInit);
+					$(id).addClass(cSecond);
+                } else {
+					$(id).find('*').removeClass(cInit);
+					$(id).find('*').addClass(cSecond);	
+				}
+                
             }
 			panel_state[id] = !panel_state[id];
     }
@@ -44,14 +67,14 @@ $( function() {
 			}
 			panel_state[id] = !panel_state[id];
 		}
-	}
+	};
     
 	//Function that generates a panel self close function
 	var close = function(id, rate) {
 		return function() {
 			$(id).hide(rate);
 		}
-	}
+	};
 	
 	//Enable draggable functionality for all draggable containers
 	$(".draggable").draggable({scope: "buttonBox"});
@@ -129,8 +152,10 @@ $( function() {
     $("#master_switch_bat").click(function(){
        if ($("#master_switch_bat").hasClass("master_switch_off_bat"))
            {
-               $("#master_switch_bat").removeClass("master_switch_off_bat");
-               $("#master_switch_bat").addClass("master_switch_on_bat");
+			//classToogle("#master_switch_bat", "master_switch_on_bat", "master_switch_off_bat");
+			// because of how the two switches interact a simple toggle won't work
+			// on all the other switches it should be fine though.
+               classOnOff("#master_switch_bat", "master_switch_on_bat", "master_switch_off_bat");
 			   $("#battery_master_switch").find("*").addClass("on");
 			   $("#battery_relay").find("*").addClass("on");
 			   
@@ -142,11 +167,9 @@ $( function() {
            }
         else
             {
-               $("#master_switch_bat").removeClass("master_switch_on_bat");
-               $("#master_switch_bat").addClass("master_switch_off_bat"); 
-               $("#master_switch_alt").removeClass("master_switch_on_alt");
-               $("#master_switch_alt").addClass("master_switch_off_alt");
-			   
+				classOnOff("#master_switch_bat", "master_switch_off_bat", "master_switch_on_bat");
+				classOnOff("#master_switch_alt", "master_switch_off_alt", "master_switch_on_alt");
+               
 			   $("#battery_master_switch").find("*").removeClass("on");
 			   $("#battery_relay").find("*").removeClass("on");
 			   $("#alt_master_switch").find("*").removeClass("on");
