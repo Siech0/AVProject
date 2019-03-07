@@ -39,13 +39,13 @@
      inkscape:window-height="744"
      id="namedview1227"
      showgrid="false"
-     inkscape:zoom="2"
-     inkscape:cx="932.25029"
-     inkscape:cy="206.80563"
+     inkscape:zoom="5.6568542"
+     inkscape:cx="799.51872"
+     inkscape:cy="39.373627"
      inkscape:window-x="65"
      inkscape:window-y="24"
      inkscape:window-maximized="1"
-     inkscape:current-layer="standby_battery_paths"
+     inkscape:current-layer="audio_breaker"
      showguides="false"
      inkscape:guide-bbox="true"
      fit-margin-top="0"
@@ -168,7 +168,7 @@
        style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;" />
   </g>
   <rect
-     style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none"
+     style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none;"
      id="x-feed_bus"
      pointer-events="none"
      ry="10.760641"
@@ -201,10 +201,14 @@
        id="av_switch"
        style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;">
       <path
-         d="m 814.5,569.5 36,-15 m 3,16 h 15"
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         id="path349"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+         d="m 814.5,569.5 36,-15"
+         id="av_switch_off"
          inkscape:connector-curvature="0" />
+      <path
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         d="m 853.5,570.5 h 15"
+         id="path349" />
       <circle
          id="ellipse351"
          pointer-events="none"
@@ -219,6 +223,12 @@
          cx="812"
          r="3"
          style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;" />
+      <path
+         style="fill:none;stroke-width:1.14403725px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+         d="m 847.98414,570.60265 h -32.8621"
+         id="av_switch_on"
+         inkscape:connector-curvature="0"
+         class="hidden" />
     </g>
   </g>
   <g
@@ -226,10 +236,14 @@
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
-       inkscape:connector-curvature="0"
-       id="path551"
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       d="m 732,626 36,-15"
+       id="strobe_lights_switch_off"
+       inkscape:connector-curvature="0" />
+    <path
        style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-       d="m 732,626 36,-15 m 3,16 h 15" />
+       d="m 771,627 h 15"
+       id="path551" />
     <circle
        style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
        r="3"
@@ -244,16 +258,26 @@
        cy="627"
        pointer-events="none"
        id="ellipse555" />
+    <path
+       style="fill:none;stroke-width:1.14403725px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 764.89108,627.18096 h -32.8621"
+       id="strobe_lights_on"
+       inkscape:connector-curvature="0"
+       class="hidden" />
   </g>
   <g
      id="panel_lights_switch"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
-       inkscape:connector-curvature="0"
-       id="path557"
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       d="m 732.5,660 36,-15"
+       id="panel_lights_switch_off"
+       inkscape:connector-curvature="0" />
+    <path
        style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-       d="m 732.5,660 36,-15 m 3,16 h 15" />
+       d="m 771.5,661 h 15"
+       id="path557" />
     <circle
        style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
        r="3"
@@ -268,6 +292,12 @@
        cy="661"
        pointer-events="none"
        id="ellipse561" />
+    <path
+       style="fill:none;stroke-width:1.14403725px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 766.03218,660.89139 h -32.8621"
+       id="panel_lights_switch_on"
+       inkscape:connector-curvature="0"
+       class="hidden" />
   </g>
   <g
      id="taxi_light_switch"
@@ -292,16 +322,26 @@
        cy="594"
        pointer-events="none"
        id="ellipse567" />
+    <path
+       style="fill:none;stroke-width:1.14403725px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 763.95745,593.76624 h -32.8621"
+       id="taxi_light_switch_on"
+       inkscape:connector-curvature="0"
+       class="hidden" />
   </g>
   <g
      id="nav_lights_switch"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
-       inkscape:connector-curvature="0"
-       id="path569"
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       d="m 731.5,557.5 36,-15"
+       id="nav_lights_switch_off"
+       inkscape:connector-curvature="0" />
+    <path
        style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-       d="m 731.5,557.5 36,-15 m 3,16 h 15" />
+       d="m 770.5,558.5 h 15"
+       id="path569" />
     <circle
        style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
        r="3"
@@ -316,16 +356,26 @@
        cy="559"
        pointer-events="none"
        id="ellipse573" />
+    <path
+       style="fill:none;stroke-width:1.14403725px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 764.89107,558.5773 H 732.02898"
+       id="nav_lights_switch_on"
+       inkscape:connector-curvature="0"
+       class="hidden" />
   </g>
   <g
      id="pitot_heat_switch"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
-       inkscape:connector-curvature="0"
-       id="path575"
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       d="m 731.5,523 36,-15"
+       id="pitot_heat_switch_off"
+       inkscape:connector-curvature="0" />
+    <path
        style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-       d="m 731.5,523 36,-15 m 3,16 h 15" />
+       d="m 770.5,524 h 15"
+       id="path575" />
     <circle
        style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
        r="3"
@@ -340,19 +390,25 @@
        cy="524"
        pointer-events="none"
        id="ellipse579" />
+    <path
+       style="fill:none;stroke-width:1.14403725px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 764.78733,524.27546 H 731.92524"
+       id="pitot_heat_switch_on"
+       inkscape:connector-curvature="0"
+       class="hidden" />
   </g>
   <g
      id="fuel_pump_switch"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
-       d="m 742.5,35 h 15 m -54,-1 36,-15"
-       stroke-miterlimit="10"
-       pointer-events="none"
-       id="path637"
-       inkscape:connector-curvature="0"
        style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-       sodipodi:nodetypes="cccc" />
+       d="m 742.5,35 h 15"
+       id="path1698" />
+    <path
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+       d="m 703.5,34 36,-15"
+       id="path637" />
     <circle
        style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
        r="3"
@@ -367,6 +423,12 @@
        cy="35"
        pointer-events="none"
        id="ellipse641" />
+    <path
+       style="fill:none;stroke-width:1.14403725px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 737.08826,34.985685 h -32.8621"
+       id="fuel_pump_switch_on"
+       class="hidden"
+       inkscape:connector-curvature="0" />
   </g>
   <g
      id="avionics_1_switch"
@@ -386,13 +448,14 @@
        id="g897"
        style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;">
       <path
-         sodipodi:nodetypes="cccc"
          style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         inkscape:connector-curvature="0"
-         id="path643"
-         pointer-events="none"
-         stroke-miterlimit="10"
-         d="m 869,127 h 15 m -54,-1 36,-15" />
+         d="m 869,127 h 15"
+         id="path1905" />
+      <path
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+         d="m 830,126 36,-15"
+         id="avionics_1_switch_off"
+         inkscape:connector-curvature="0" />
       <circle
          style="opacity:1;fill-opacity:1;stroke-miterlimit:10;stroke-dasharray:none;"
          r="3"
@@ -408,19 +471,26 @@
          cy="127"
          cx="827" />
     </g>
+    <path
+       style="fill:none;stroke-width:1.14403725px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 863.00881,127.04548 h -32.8621"
+       id="avionics_1_switch_on"
+       inkscape:connector-curvature="0"
+       class="hidden" />
   </g>
   <g
      id="cabin_lights_switch"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
-       d="m 757.5,175 9.4633,-0.2307 M 718.5,174 l 36,-15"
-       stroke-miterlimit="10"
-       pointer-events="none"
-       id="path649"
-       inkscape:connector-curvature="0"
        style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-       sodipodi:nodetypes="cccc" />
+       d="m 757.5,175 9.4633,-0.2307"
+       id="path1761" />
+    <path
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       d="m 718.5,174 36,-15"
+       id="cabin_lights_switch_off"
+       inkscape:connector-curvature="0" />
     <circle
        style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
        r="3"
@@ -435,19 +505,26 @@
        cy="175"
        pointer-events="none"
        id="ellipse653" />
+    <path
+       style="fill:none;stroke-width:1.14403725px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 751.82026,175.14586 h -32.8621"
+       id="cabin_lights_switch_on"
+       inkscape:connector-curvature="0"
+       class="hidden" />
   </g>
   <g
      id="landing_light_switch"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
-       d="m 739.5,118 h 15 m -54,-1 36,-15"
-       stroke-miterlimit="10"
-       pointer-events="none"
-       id="path655"
-       inkscape:connector-curvature="0"
        style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-       sodipodi:nodetypes="cccc" />
+       d="m 739.5,118 h 15"
+       id="path1742" />
+    <path
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       d="m 700.5,117 36,-15"
+       id="landing_light_switch_off"
+       inkscape:connector-curvature="0" />
     <circle
        style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
        r="3"
@@ -462,19 +539,26 @@
        cy="118"
        pointer-events="none"
        id="ellipse659" />
+    <path
+       style="fill:none;stroke-width:1.14403725px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 733.77008,117.97615 h -32.8621"
+       id="landing_light_switch_on"
+       inkscape:connector-curvature="0"
+       class="hidden" />
   </g>
   <g
      id="beacon_light_switch"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
-       d="m 740.5,75.5 h 15 m -54,-1 36,-15"
-       stroke-miterlimit="10"
-       pointer-events="none"
-       id="path661"
-       inkscape:connector-curvature="0"
        style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-       sodipodi:nodetypes="cccc" />
+       d="m 740.5,75.5 h 15"
+       id="path1723" />
+    <path
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       d="m 701.5,74.5 36,-15"
+       id="beacon_light_switch_off"
+       inkscape:connector-curvature="0" />
     <circle
        style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
        r="3"
@@ -489,9 +573,15 @@
        cy="76"
        pointer-events="none"
        id="ellipse665" />
+    <path
+       style="fill:none;stroke-width:1.14403725px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 734.70371,75.78883 h -32.8621"
+       id="beacon_light_switch_on"
+       class="hidden"
+       inkscape:connector-curvature="0" />
   </g>
   <rect
-     style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none"
+     style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none;"
      id="ess_bus"
      pointer-events="none"
      ry="10.760641"
@@ -620,7 +710,7 @@
        id="path813" />
   </g>
   <rect
-     style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none"
+     style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none;"
      id="EIS_standby_battery"
      pointer-events="none"
      height="35.90831"
@@ -1597,8 +1687,7 @@
        pointer-events="none"
        id="alt_relay_on"
        class="hidden"
-       sodipodi:nodetypes="cc"
-        />
+       sodipodi:nodetypes="cc" />
   </g>
   <g
      id="feeder_b_breaker"
@@ -1734,8 +1823,8 @@
        id="path5779" />
     <g
        transform="translate(215.57912,68.15443)"
-       id="g5818"
-       style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;">
+       id="avn_2_breaker_on"
+       style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none">
       <path
          inkscape:connector-curvature="0"
          id="path211-0"
@@ -1743,36 +1832,61 @@
          transform="rotate(-90,430.5,407.5)"
          stroke-miterlimit="10"
          d="m 423,392.5 q 15,0 15,15 0,15 -15,15"
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse213-8"
-         pointer-events="none"
-         cy="417.125"
-         cx="445.375" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse215-0"
-         pointer-events="none"
-         cy="417.5"
-         cx="415.5" />
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path217-7"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 430.81727,400 v -7.16852" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path219-9"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
+      <g
+         id="avn_2_breaker_off"
+         class="hidden">
+        <path
+           style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+           d="m 415.49282,410.97555 q 0,-15 15,-15 15,0 15,15"
+           stroke-miterlimit="10"
+           pointer-events="none"
+           id="path211-0-61"
+           inkscape:connector-curvature="0" />
+        <path
+           d="m 430.8101,395.97555 v -7.16852"
+           stroke-miterlimit="10"
+           pointer-events="none"
+           id="path217-7-8"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+        <path
+           d="m 424.14748,388.80703 h 3.17267 q 3.17267,0 6.34536,0 h 3.17267"
+           stroke-miterlimit="10"
+           pointer-events="none"
+           id="path219-9-79"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+      </g>
     </g>
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse213-8"
+       pointer-events="none"
+       cy="486.1391"
+       cx="660.59448"
+       r="2.7272727" />
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse215-0"
+       pointer-events="none"
+       cy="486.5141"
+       cx="630.71948"
+       r="2.7272727" />
   </g>
   <g
      id="pitot_heat_breaker"
@@ -1785,8 +1899,7 @@
        id="path5763" />
     <g
        transform="translate(215.70294,105.95638)"
-       id="g6046-8-2"
-       style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;">
+       id="pitot_heat_breaker_on">
       <path
          inkscape:connector-curvature="0"
          id="path211-0-1"
@@ -1794,36 +1907,61 @@
          transform="rotate(-90,430.5,407.5)"
          stroke-miterlimit="10"
          d="m 423,392.5 q 15,0 15,15 0,15 -15,15"
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse213-8-3"
-         pointer-events="none"
-         cy="417.125"
-         cx="445.375" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse215-0-6"
-         pointer-events="none"
-         cy="417.5"
-         cx="415.5" />
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path217-7-5"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 430.81727,400 v -7.16852" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path219-9-7"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
+    <g
+       id="pitot_heat_breaker_off"
+       class="hidden">
+      <path
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+         d="m 631.07194,517.17741 q 0,-15 15,-15 15,0 15,15"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path211-0-202"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 646.38921,502.17741 v -7.16852"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path217-7-37"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+      <path
+         d="m 639.72659,495.00889 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path219-9-59"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+    </g>
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse213-8-3"
+       pointer-events="none"
+       cy="523.20087"
+       cx="660.802"
+       r="2.7272727" />
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse215-0-6"
+       pointer-events="none"
+       cy="523.57587"
+       cx="630.927"
+       r="2.7272727" />
   </g>
   <g
      id="nav_lights_breaker"
@@ -1836,8 +1974,7 @@
        id="path5750" />
     <g
        transform="translate(215.24155,141.02214)"
-       id="g6046-8-6"
-       style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;">
+       id="nav_lts_breaker_on">
       <path
          inkscape:connector-curvature="0"
          id="path211-0-8"
@@ -1845,36 +1982,60 @@
          transform="rotate(-90,430.5,407.5)"
          stroke-miterlimit="10"
          d="m 423,392.5 q 15,0 15,15 0,15 -15,15"
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse213-8-6"
-         pointer-events="none"
-         cy="417.125"
-         cx="445.375" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse215-0-66"
-         pointer-events="none"
-         cy="417.5"
-         cx="415.5" />
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path217-7-3"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 430.81727,400 v -7.16852" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path219-9-6"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
+    <g
+       id="nav_lts_breaker_off" class="hidden">
+      <path
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+         d="m 630.44952,551.67639 q 0,-15 15,-15 15,0 15,15"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path211-0-22"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 645.7668,536.67639 v -7.16852"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path217-7-89"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+      <path
+         d="m 639.10418,529.50787 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path219-9-73"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+    </g>
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse213-8-6"
+       pointer-events="none"
+       cy="558.2912"
+       cx="659.97211"
+       r="2.7272727" />
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse215-0-66"
+       pointer-events="none"
+       cy="558.6662"
+       cx="630.09711"
+       r="2.7272727" />
   </g>
   <g
      id="taxi_lights_breaker"
@@ -1887,8 +2048,7 @@
        id="path5738" />
     <g
        transform="translate(215.70294,176.5493)"
-       id="g6046-8-3"
-       style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;">
+       id="taxi_lt_breaker_on">
       <path
          inkscape:connector-curvature="0"
          id="path211-0-4"
@@ -1896,36 +2056,61 @@
          transform="rotate(-90,430.5,407.5)"
          stroke-miterlimit="10"
          d="m 423,392.5 q 15,0 15,15 0,15 -15,15"
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse213-8-9"
-         pointer-events="none"
-         cy="417.125"
-         cx="445.375" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse215-0-9"
-         pointer-events="none"
-         cy="417.5"
-         cx="415.5" />
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path217-7-7"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 430.81727,400 v -7.16852" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path219-9-5"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
+    <g
+       id="taxi_lt_breaker_off"
+       class="hidden">
+      <path
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+         d="m 631.07194,587.35818 q 0,-15 15,-15 15,0 15,15"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path211-0-612"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 646.38922,572.35818 v -7.16852"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path217-7-93"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+      <path
+         d="m 639.7266,565.18966 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path219-9-19"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+    </g>
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse213-8-9"
+       pointer-events="none"
+       cy="593.97302"
+       cx="660.80194"
+       r="2.7272727" />
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse215-0-9"
+       pointer-events="none"
+       cy="594.34802"
+       cx="630.92694"
+       r="2.7272727" />
   </g>
   <g
      id="strobe_lights_breaker"
@@ -1938,8 +2123,7 @@
        id="path5726" />
     <g
        transform="translate(215.70294,209.07742)"
-       id="g6046-8-37"
-       style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;">
+       id="strobe_lights_breaker_on">
       <path
          inkscape:connector-curvature="0"
          id="path211-0-40"
@@ -1947,36 +2131,61 @@
          transform="rotate(-90,430.5,407.5)"
          stroke-miterlimit="10"
          d="m 423,392.5 q 15,0 15,15 0,15 -15,15"
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse213-8-5"
-         pointer-events="none"
-         cy="417.125"
-         cx="445.375" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse215-0-4"
-         pointer-events="none"
-         cy="417.5"
-         cx="415.5" />
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path217-7-0"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 430.81727,400 v -7.16852" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path219-9-63"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
+    <g
+       id="strobe_lights_breaker_off"
+       class="hidden">
+      <path
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+         d="m 631.07193,618.9001 q 0,-15 15,-15 15,0 15,15"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path211-0-47"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 646.38921,603.9001 v -7.16852"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path217-7-84"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+      <path
+         d="m 639.72659,596.73158 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path219-9-50"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+    </g>
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse213-8-5"
+       pointer-events="none"
+       cy="627.09198"
+       cx="661.00946"
+       r="2.7272727" />
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse215-0-4"
+       pointer-events="none"
+       cy="627.46698"
+       cx="631.13446"
+       r="2.7272727" />
   </g>
   <g
      id="panel_lights_breaker"
@@ -1989,8 +2198,7 @@
        id="path5714" />
     <g
        transform="translate(215.93363,243.4511)"
-       id="g6046-8-1"
-       style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;">
+       id="panel_lights_breaker_on">
       <path
          inkscape:connector-curvature="0"
          id="path211-0-0"
@@ -1998,36 +2206,61 @@
          transform="rotate(-90,430.5,407.5)"
          stroke-miterlimit="10"
          d="m 423,392.5 q 15,0 15,15 0,15 -15,15"
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse213-8-8"
-         pointer-events="none"
-         cy="417.125"
-         cx="445.375" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse215-0-5"
-         pointer-events="none"
-         cy="417.5"
-         cx="415.5" />
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path217-7-38"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 430.81727,400 v -7.16852" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path219-9-9"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
+    <g
+       id="panel_lights_breaker_off"
+       class="hidden">
+      <path
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+         d="m 631.27941,654.77903 q 0,-15 15,-15 15,0 15,15"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path211-0-36"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 646.59669,639.77903 v -7.16852"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path217-7-106"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+      <path
+         d="m 639.93407,632.61051 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path219-9-32"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+    </g>
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse213-8-8"
+       pointer-events="none"
+       cy="660.99963"
+       cx="661.21692"
+       r="2.7272727" />
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse215-0-5"
+       pointer-events="none"
+       cy="661.37463"
+       cx="631.34192"
+       r="2.7272727" />
   </g>
   <g
      id="fuel_pump_breaker"
@@ -2043,8 +2276,7 @@
        sodipodi:nodetypes="cc" />
     <g
        transform="translate(212.70389,-383.1188)"
-       id="g6046-8-7"
-       style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;">
+       id="fuel_pump_breaker_on">
       <path
          inkscape:connector-curvature="0"
          id="path211-0-2"
@@ -2052,36 +2284,61 @@
          transform="rotate(-90,430.5,407.5)"
          stroke-miterlimit="10"
          d="m 423,392.5 q 15,0 15,15 0,15 -15,15"
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse213-8-1"
-         pointer-events="none"
-         cy="417.125"
-         cx="445.375" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse215-0-8"
-         pointer-events="none"
-         cy="417.5"
-         cx="415.5" />
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path217-7-2"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 430.81727,400 v -7.16852" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path219-9-0"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
+    <g
+       id="fuel_pump_breaker_off"
+       class="hidden">
+      <path
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+         d="m 628.37479,27.686289 q 0,-15 15,-15 15,0 15,15"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path211-0-03-78"
+         inkscape:connector-curvature="0" />
+      <path
+         d="M 643.69206,12.686291 V 5.5177711"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path217-7-59-6"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+      <path
+         d="m 637.02944,5.5177711 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path219-9-58-8"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+    </g>
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse213-8-1"
+       pointer-events="none"
+       cy="34.892544"
+       cx="657.68982"
+       r="2.7272727" />
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse215-0-8"
+       pointer-events="none"
+       cy="35.267544"
+       cx="627.81482"
+       r="2.7272727" />
   </g>
   <g
      id="beacon_light_breaker"
@@ -2097,8 +2354,7 @@
        sodipodi:nodetypes="cc" />
     <g
        transform="translate(212.4732,-341.36285)"
-       id="g6046-8-25"
-       style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;">
+       id="beacon_light_breaker_on">
       <path
          inkscape:connector-curvature="0"
          id="path211-0-5"
@@ -2106,36 +2362,61 @@
          transform="rotate(-90,430.5,407.5)"
          stroke-miterlimit="10"
          d="m 423,392.5 q 15,0 15,15 0,15 -15,15"
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse213-8-69"
-         pointer-events="none"
-         cy="417.125"
-         cx="445.375" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse215-0-2"
-         pointer-events="none"
-         cy="417.5"
-         cx="415.5" />
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path217-7-1"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 430.81727,400 v -7.16852" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path219-9-2"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
+    <g
+       id="beacon_light_breaker_off"
+       class="hidden">
+      <path
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+         d="m 628.37479,69.873603 q 0,-15 15,-15 15,0 15,15"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path211-0-03-74"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 643.69206,54.873605 v -7.16852"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path217-7-59-43"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+      <path
+         d="m 637.02944,47.705085 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path219-9-58-0"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+    </g>
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse213-8-69"
+       pointer-events="none"
+       cy="75.897034"
+       cx="657.68988"
+       r="2.7272727" />
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse215-0-2"
+       pointer-events="none"
+       cy="76.272034"
+       cx="627.81488"
+       r="2.7272727" />
   </g>
   <g
      id="landing_light_breaker"
@@ -2151,8 +2432,7 @@
        sodipodi:nodetypes="cc" />
     <g
        transform="translate(212.93459,-300.299)"
-       id="g6046-8-79"
-       style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;">
+       id="landing_light_breaker_on">
       <path
          inkscape:connector-curvature="0"
          id="path211-0-58"
@@ -2160,36 +2440,61 @@
          transform="rotate(-90,430.5,407.5)"
          stroke-miterlimit="10"
          d="m 423,392.5 q 15,0 15,15 0,15 -15,15"
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse213-8-35"
-         pointer-events="none"
-         cy="417.125"
-         cx="445.375" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse215-0-68"
-         pointer-events="none"
-         cy="417.5"
-         cx="415.5" />
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path217-7-58"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 430.81727,400 v -7.16852" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path219-9-4"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
+    <g
+       id="landing_light_breaker_off"
+       class="hidden">
+      <path
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+         d="m 628.16731,110.68096 q 0,-15.000002 15,-15.000002 15,0 15,15.000002"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path211-0-03-2"
+         inkscape:connector-curvature="0" />
+      <path
+         d="M 643.48459,95.68096 V 88.51244"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path217-7-59-5"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+      <path
+         d="m 636.82197,88.51244 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path219-9-58-4"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+    </g>
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse213-8-35"
+       pointer-events="none"
+       cy="118.08435"
+       cx="658.1048"
+       r="2.7272727" />
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse215-0-68"
+       pointer-events="none"
+       cy="118.45935"
+       cx="628.2298"
+       r="2.7272727" />
   </g>
   <g
      id="cabin_lights_breaker"
@@ -2213,8 +2518,7 @@
        sodipodi:nodetypes="cc" />
     <g
        transform="translate(212.4732,-259.69653)"
-       id="g6046-8-9"
-       style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;">
+       id="cabin_lights_breaker_on">
       <path
          inkscape:connector-curvature="0"
          id="path211-0-05"
@@ -2222,36 +2526,61 @@
          transform="rotate(-90,430.5,407.5)"
          stroke-miterlimit="10"
          d="m 423,392.5 q 15,0 15,15 0,15 -15,15"
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse213-8-90"
-         pointer-events="none"
-         cy="417.125"
-         cx="445.375" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse215-0-62"
-         pointer-events="none"
-         cy="417.5"
-         cx="415.5" />
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path217-7-16"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 430.81727,400 v -7.16852" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path219-9-29"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
+    <g
+       id="cabin_lights_breaker_off"
+       class="hidden">
+      <path
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+         d="m 627.75236,150.89691 q 0,-15 15,-15 15,0 15,15"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path211-0-03-7"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 643.06964,135.89691 v -7.16852"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path217-7-59-4"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+      <path
+         d="m 636.40702,128.72839 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path219-9-58-5"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+    </g>
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse213-8-90"
+       pointer-events="none"
+       cy="157.70889"
+       cx="658.31226"
+       r="2.7272727" />
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse215-0-62"
+       pointer-events="none"
+       cy="158.08389"
+       cx="628.43726"
+       r="2.7272727" />
   </g>
   <g
      id="flaps_breaker"
@@ -2267,8 +2596,7 @@
        sodipodi:nodetypes="cc" />
     <g
        transform="translate(212.24251,-221.63172)"
-       id="g6046-8-61"
-       style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;">
+       id="flaps_breaker_on">
       <path
          inkscape:connector-curvature="0"
          id="path211-0-03"
@@ -2276,36 +2604,61 @@
          transform="rotate(-90,430.5,407.5)"
          stroke-miterlimit="10"
          d="m 423,392.5 q 15,0 15,15 0,15 -15,15"
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse213-8-32"
-         pointer-events="none"
-         cy="417.125"
-         cx="445.375" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse215-0-29"
-         pointer-events="none"
-         cy="417.5"
-         cx="415.5" />
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path217-7-59"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 430.81727,400 v -7.16852" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path219-9-58"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
+      <g
+         id="flaps_breaker_off"
+         class="hidden">
+        <path
+           style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+           d="m 415.30238,411.36461 q 0,-15 15,-15 15,0 15,15"
+           stroke-miterlimit="10"
+           pointer-events="none"
+           id="path211-0-03-6"
+           inkscape:connector-curvature="0" />
+        <path
+           d="m 430.61966,396.36461 v -7.16852"
+           stroke-miterlimit="10"
+           pointer-events="none"
+           id="path217-7-59-9"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+        <path
+           d="m 423.95704,389.19609 h 3.17267 q 3.17267,0 6.34536,0 h 3.17267"
+           stroke-miterlimit="10"
+           pointer-events="none"
+           id="path219-9-58-3"
+           inkscape:connector-curvature="0"
+           style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+      </g>
     </g>
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse213-8-32"
+       pointer-events="none"
+       cy="196.15059"
+       cx="657.68988"
+       r="2.7272727" />
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse215-0-29"
+       pointer-events="none"
+       cy="196.52559"
+       cx="627.81488"
+       r="2.7272727" />
   </g>
   <g
      id="avionics_1_breaker"
@@ -2321,8 +2674,7 @@
        sodipodi:nodetypes="cccc" />
     <g
        transform="translate(212.7039,-181.02925)"
-       id="g6046-8-5"
-       style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;">
+       id="avionics_1_breaker_on">
       <path
          inkscape:connector-curvature="0"
          id="path211-0-9"
@@ -2330,77 +2682,130 @@
          transform="rotate(-90,430.5,407.5)"
          stroke-miterlimit="10"
          d="m 423,392.5 q 15,0 15,15 0,15 -15,15"
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse213-8-0"
-         pointer-events="none"
-         cy="417.125"
-         cx="445.375" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse215-0-99"
-         pointer-events="none"
-         cy="417.5"
-         cx="415.5" />
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path217-7-18"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 430.81727,400 v -7.16852" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path219-9-64"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
+    <g
+       id="avionics_1_breaker_off"
+       class="hidden">
+      <path
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+         d="m 628.37479,230.14597 q 0,-15 15,-15 15,0 15,15"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path211-0-9-7"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 643.69205,215.14597 v -7.16852"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path217-7-18-6"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+      <path
+         d="m 637.02943,207.97745 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path219-9-64-5"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+    </g>
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse213-8-0"
+       pointer-events="none"
+       cy="236.36655"
+       cx="658.72723"
+       r="2.7272727" />
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse215-0-99"
+       pointer-events="none"
+       cy="236.74155"
+       cx="628.85223"
+       r="2.7272727" />
   </g>
   <g
-     style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+     style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      id="alt_field_breaker"
      transform="matrix(0.85204541,0,0,0.89672011,182.699,-90.221339)">
-    <path
-       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
-       d="m 423,392.5 q 15,0 15,15 0,15 -15,15"
-       stroke-miterlimit="10"
-       transform="rotate(-90,430.5,407.5)"
-       pointer-events="none"
-       id="path211-0-81"
-       inkscape:connector-curvature="0" />
     <circle
        cx="445.375"
        cy="417.125"
        pointer-events="none"
        id="ellipse213-8-7"
        r="2.7272727"
-       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;" />
     <circle
        cx="415.5"
        cy="417.5"
        pointer-events="none"
        id="ellipse215-0-54"
        r="2.7272727"
-       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
-    <path
-       d="m 430.81727,400 v -7.16852"
-       stroke-miterlimit="10"
-       pointer-events="none"
-       id="path217-7-9"
-       inkscape:connector-curvature="0"
-       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
-    <path
-       d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267"
-       stroke-miterlimit="10"
-       pointer-events="none"
-       id="path219-9-1"
-       inkscape:connector-curvature="0"
-       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;" />
+    <g
+       id="g2183">
+      <path
+         inkscape:connector-curvature="0"
+         id="path211-0-81"
+         pointer-events="none"
+         transform="rotate(-90,430.5,407.5)"
+         stroke-miterlimit="10"
+         d="m 423,392.5 q 15,0 15,15 0,15 -15,15"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;" />
+      <path
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         inkscape:connector-curvature="0"
+         id="path217-7-9"
+         pointer-events="none"
+         stroke-miterlimit="10"
+         d="m 430.81727,400 v -7.16852" />
+      <path
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         inkscape:connector-curvature="0"
+         id="path219-9-1"
+         pointer-events="none"
+         stroke-miterlimit="10"
+         d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
+    </g>
+    <g
+       id="alt_field_breaker_off"
+       class="hidden">
+      <path
+         inkscape:connector-curvature="0"
+         id="path211-0-81-0"
+         pointer-events="none"
+         stroke-miterlimit="10"
+         d="m 415.02373,410.43573 q 0,-15 15,-15 15,0 15,15"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+      <path
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+         inkscape:connector-curvature="0"
+         id="path217-7-9-6"
+         pointer-events="none"
+         stroke-miterlimit="10"
+         d="m 430.341,395.43573 v -7.16852" />
+      <path
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+         inkscape:connector-curvature="0"
+         id="path219-9-1-1"
+         pointer-events="none"
+         stroke-miterlimit="10"
+         d="m 423.67838,388.26721 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
+    </g>
   </g>
   <g
      id="warn_breaker"
@@ -2491,8 +2896,7 @@
        id="path1133" />
     <g
        transform="translate(480.77246,144.25188)"
-       id="g6046-8-4"
-       style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;">
+       id="mfd_breaker_on">
       <path
          inkscape:connector-curvature="0"
          id="path211-0-580"
@@ -2500,36 +2904,61 @@
          transform="rotate(-90,430.5,407.5)"
          stroke-miterlimit="10"
          d="m 423,392.5 q 15,0 15,15 0,15 -15,15"
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse213-8-56"
-         pointer-events="none"
-         cy="417.125"
-         cx="445.375" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse215-0-3"
-         pointer-events="none"
-         cy="417.5"
-         cx="415.5" />
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path217-7-585"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 430.81727,400 v -7.16852" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path219-9-43"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
+    <g
+       id="mfd_breaker_off"
+       class="hidden">
+      <path
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+         d="m 896.6378,554.23917 q 0,-15 15,-15 15,0 15,15"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path211-0-86-9"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 911.95507,539.23916 v -7.16852"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path217-7-78-17"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+      <path
+         d="m 905.29245,532.07064 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path219-9-3-71"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+    </g>
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse213-8-1-4"
+       pointer-events="none"
+       cy="562.0368"
+       cx="926.57532"
+       r="2.7272727" />
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse215-0-8-44"
+       pointer-events="none"
+       cy="562.4118"
+       cx="896.70032"
+       r="2.7272727" />
   </g>
   <g
      id="XPNDR_breaker"
@@ -2544,8 +2973,7 @@
        id="path1135" />
     <g
        transform="translate(480.31107,178.39487)"
-       id="g6046-8-81"
-       style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;">
+       id="XPNDR_breaker_on">
       <path
          inkscape:connector-curvature="0"
          id="path211-0-06"
@@ -2553,36 +2981,61 @@
          transform="rotate(-90,430.5,407.5)"
          stroke-miterlimit="10"
          d="m 423,392.5 q 15,0 15,15 0,15 -15,15"
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse213-8-99"
-         pointer-events="none"
-         cy="417.125"
-         cx="445.375" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse215-0-86"
-         pointer-events="none"
-         cy="417.5"
-         cx="415.5" />
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path217-7-4"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 430.81727,400 v -7.16852" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path219-9-06"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
+    <g
+       id="XPNDR_breaker_off"
+       class="hidden">
+      <path
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+         d="m 895.60043,589.92096 q 0,-15 15,-15 15,0 15,15"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path211-0-86-15"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 910.91771,574.92096 v -7.16852"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path217-7-78-97"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+      <path
+         d="m 904.25508,567.75244 h 3.17267 q 3.17268,0 6.34537,0 h 3.17267"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path219-9-3-76"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+    </g>
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse213-8-1-7"
+       pointer-events="none"
+       cy="595.74725"
+       cx="925.95288"
+       r="2.7272727" />
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse215-0-8-63"
+       pointer-events="none"
+       cy="596.12225"
+       cx="896.07788"
+       r="2.7272727" />
   </g>
   <g
      id="nav_2_breaker"
@@ -2636,6 +3089,31 @@
          stroke-miterlimit="10"
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
+    <g
+       id="nav_2_breaker_off"
+       class="hidden">
+      <path
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+         d="m 896.43032,623.63139 q 0,-15 15,-15 15,0 15,15"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path211-0-86-73"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 911.7476,608.63138 v -7.16852"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path217-7-78-6"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+      <path
+         d="m 905.08498,601.46286 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path219-9-3-5"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+    </g>
   </g>
   <g
      id="comm_2_breaker"
@@ -2650,8 +3128,7 @@
        id="path1139" />
     <g
        transform="translate(480.31106,247.60362)"
-       id="g6046-8-96"
-       style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;">
+       id="comm_2_breaker_on">
       <path
          inkscape:connector-curvature="0"
          id="path211-0-3"
@@ -2659,36 +3136,61 @@
          transform="rotate(-90,430.5,407.5)"
          stroke-miterlimit="10"
          d="m 423,392.5 q 15,0 15,15 0,15 -15,15"
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse213-8-34"
-         pointer-events="none"
-         cy="417.125"
-         cx="445.375" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse215-0-20"
-         pointer-events="none"
-         cy="417.5"
-         cx="415.5" />
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path217-7-10"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 430.81727,400 v -7.16852" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path219-9-09"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
+    <g
+       id="comm_2_breaker_off"
+       class="hidden">
+      <path
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+         d="m 896.01538,658.72177 q 0,-15 15,-15 15,0 15,15"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path211-0-86-6"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 911.33265,643.72176 v -7.16852"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path217-7-78-3"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+      <path
+         d="m 904.67003,636.55324 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path219-9-3-94"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+    </g>
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse213-8-1-17"
+       pointer-events="none"
+       cy="664.94238"
+       cx="925.95288"
+       r="2.7272727" />
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse215-0-8-5"
+       pointer-events="none"
+       cy="665.31738"
+       cx="896.07788"
+       r="2.7272727" />
   </g>
   <g
      id="audio_breaker"
@@ -2703,8 +3205,7 @@
        id="path1141" />
     <g
        transform="translate(480.54176,281.9773)"
-       id="g6046-8-78"
-       style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;">
+       id="audio_breaker_off">
       <path
          inkscape:connector-curvature="0"
          id="path211-0-83"
@@ -2712,36 +3213,61 @@
          transform="rotate(-90,430.5,407.5)"
          stroke-miterlimit="10"
          d="m 423,392.5 q 15,0 15,15 0,15 -15,15"
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse213-8-2"
-         pointer-events="none"
-         cy="417.125"
-         cx="445.375" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse215-0-7"
-         pointer-events="none"
-         cy="417.5"
-         cx="415.5" />
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path217-7-06"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 430.81727,400 v -7.16852" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path219-9-78"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
+    <g
+       id="g2740"
+       class="hidden">
+      <path
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+         d="m 896.43032,693.41788 q 0,-15 15,-15 15,0 15,15"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path211-0-86-8"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 911.7476,678.41787 v -7.16852"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path217-7-78-12"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+      <path
+         d="m 905.08498,671.24935 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path219-9-3-93"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+    </g>
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse213-8-1-96"
+       pointer-events="none"
+       cy="699.44128"
+       cx="925.74536"
+       r="2.7272727" />
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse215-0-8-2"
+       pointer-events="none"
+       cy="699.81628"
+       cx="895.87036"
+       r="2.7272727" />
   </g>
   <g
      id="pfd_breaker"
@@ -2756,8 +3282,7 @@
        id="path1009" />
     <g
        transform="translate(433.71051,-153.80714)"
-       id="g6046-8-0"
-       style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;">
+       id="pfd_breaker_on">
       <path
          inkscape:connector-curvature="0"
          id="path211-0-86"
@@ -2765,36 +3290,61 @@
          transform="rotate(-90,430.5,407.5)"
          stroke-miterlimit="10"
          d="m 423,392.5 q 15,0 15,15 0,15 -15,15"
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse213-8-15"
-         pointer-events="none"
-         cy="417.125"
-         cx="445.375" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse215-0-56"
-         pointer-events="none"
-         cy="417.5"
-         cx="415.5" />
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path217-7-78"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 430.81727,400 v -7.16852" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path219-9-3"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
+    <g
+       id="pfd_breaker_off"
+       class="hidden">
+      <path
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+         d="m 849.54135,256.9566 q 0,-15 15,-15 15,0 15,15"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path211-0-86-0"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 864.85863,241.95659 v -7.16852"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path217-7-78-4"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+      <path
+         d="m 858.19601,234.78807 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path219-9-3-8"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+    </g>
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse213-8-1-6"
+       pointer-events="none"
+       cy="263.96573"
+       cx="879.27136"
+       r="2.7272727" />
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse215-0-8-3"
+       pointer-events="none"
+       cy="264.34073"
+       cx="849.39636"
+       r="2.7272727" />
   </g>
   <g
      id="adc_ahrs_breaker"
@@ -2809,8 +3359,7 @@
        id="path1007" />
     <g
        transform="translate(433.71051,-114.58884)"
-       id="g6046-8-66"
-       style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;">
+       id="adc_ahrs_breaker_on">
       <path
          inkscape:connector-curvature="0"
          id="path211-0-6"
@@ -2818,36 +3367,61 @@
          transform="rotate(-90,430.5,407.5)"
          stroke-miterlimit="10"
          d="m 423,392.5 q 15,0 15,15 0,15 -15,15"
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse213-8-89"
-         pointer-events="none"
-         cy="417.125"
-         cx="445.375" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse215-0-33"
-         pointer-events="none"
-         cy="417.5"
-         cx="415.5" />
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path217-7-14"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 430.81727,400 v -7.16852" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path219-9-23"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
+    <g
+       id="adc_ahrs_breaker_off"
+       class="hidden">
+      <path
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+         d="m 849.33387,296.58114 q 0,-15 15,-15 15,0 15,15"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path211-0-86-7"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 864.65115,281.58113 v -7.16852"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path217-7-78-1"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+      <path
+         d="m 857.98853,274.41261 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path219-9-3-7"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+    </g>
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse213-8-1-85"
+       pointer-events="none"
+       cy="302.99884"
+       cx="879.47882"
+       r="2.7272727" />
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse215-0-8-6"
+       pointer-events="none"
+       cy="303.37384"
+       cx="849.60388"
+       r="2.7272727" />
   </g>
   <g
      id="nav_1_eng_breaker"
@@ -2862,8 +3436,7 @@
        id="path1005" />
     <g
        transform="translate(433.71051,-74.44777)"
-       id="g6046-8-43"
-       style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;">
+       id="nav_1_eng_breaker_on">
       <path
          inkscape:connector-curvature="0"
          id="path211-0-33"
@@ -2871,36 +3444,61 @@
          transform="rotate(-90,430.5,407.5)"
          stroke-miterlimit="10"
          d="m 423,392.5 q 15,0 15,15 0,15 -15,15"
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse213-8-999"
-         pointer-events="none"
-         cy="417.125"
-         cx="445.375" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse215-0-0"
-         pointer-events="none"
-         cy="417.5"
-         cx="415.5" />
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path217-7-77"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 430.81727,400 v -7.16852" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path219-9-54"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
+    <g
+       id="nav_1_eng_breaker_off"
+       class="hidden">
+      <path
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+         d="m 849.1264,336.40281 q 0,-15 15,-15 15,0 15,15"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path211-0-86-2"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 864.44368,321.4028 v -7.16852"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path217-7-78-7"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+      <path
+         d="m 857.78106,314.23428 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path219-9-3-2"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+    </g>
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse213-8-1-1"
+       pointer-events="none"
+       cy="343.41193"
+       cx="878.85645"
+       r="2.7272727" />
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse215-0-8-1"
+       pointer-events="none"
+       cy="343.78693"
+       cx="848.98145"
+       r="2.7272727" />
   </g>
   <g
      id="comm_1_breaker"
@@ -2915,8 +3513,7 @@
        id="path1003" />
     <g
        transform="translate(433.9412,-30.154169)"
-       id="g6046-8-34"
-       style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;">
+       id="comm_1_breaker_on">
       <path
          inkscape:connector-curvature="0"
          id="path211-0-812"
@@ -2924,36 +3521,61 @@
          transform="rotate(-90,430.5,407.5)"
          stroke-miterlimit="10"
          d="m 423,392.5 q 15,0 15,15 0,15 -15,15"
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse213-8-4"
-         pointer-events="none"
-         cy="417.125"
-         cx="445.375" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse215-0-31"
-         pointer-events="none"
-         cy="417.5"
-         cx="415.5" />
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path217-7-03"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 430.81727,400 v -7.16852" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path219-9-70"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
+    <g
+       id="comm_1_breaker_off"
+       class="hidden">
+      <path
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+         d="m 849.9563,380.56149 q 0,-15 15,-15 15,0 15,15"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path211-0-86-26"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 865.27357,365.56148 v -7.16852"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path217-7-78-10"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+      <path
+         d="m 858.61095,358.39296 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path219-9-3-6"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+    </g>
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse213-8-1-59"
+       pointer-events="none"
+       cy="387.57059"
+       cx="879.0639"
+       r="2.7272727" />
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse215-0-8-84"
+       pointer-events="none"
+       cy="387.94559"
+       cx="849.1889"
+       r="2.7272727" />
   </g>
   <g
      id="stby_ind_lts_breaker"
@@ -2968,8 +3590,7 @@
        id="path1001" />
     <g
        transform="translate(433.7105,10.678995)"
-       id="g6046-8-54"
-       style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;">
+       id="stby_ind_lts_breaker_on">
       <path
          inkscape:connector-curvature="0"
          id="path211-0-11"
@@ -2977,36 +3598,61 @@
          transform="rotate(-90,430.5,407.5)"
          stroke-miterlimit="10"
          d="m 423,392.5 q 15,0 15,15 0,15 -15,15"
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse213-8-09"
-         pointer-events="none"
-         cy="417.125"
-         cx="445.375" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse215-0-868"
-         pointer-events="none"
-         cy="417.5"
-         cx="415.5" />
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path217-7-27"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 430.81727,400 v -7.16852" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path219-9-13"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
+    <g
+       id="stby_ind_lts_breaker_off"
+       class="hidden">
+      <path
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+         d="m 849.54135,422.15739 q 0,-15 15,-15 15,0 15,15"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path211-0-86-1"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 864.85863,407.15738 v -7.16852"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path217-7-78-5"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+      <path
+         d="m 858.19601,399.98886 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path219-9-3-9"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+    </g>
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse213-8-1-81"
+       pointer-events="none"
+       cy="427.98367"
+       cx="879.47882"
+       r="2.7272727" />
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse215-0-8-03"
+       pointer-events="none"
+       cy="428.35867"
+       cx="849.60388"
+       r="2.7272727" />
   </g>
   <g
      style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
@@ -3029,8 +3675,7 @@
        id="ellipse863" />
     <g
        transform="translate(433.9412,50.358679)"
-       id="g6046-8-12"
-       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;">
+       id="stdby_batt_breaker_on">
       <path
          inkscape:connector-curvature="0"
          id="path211-0-20"
@@ -3038,43 +3683,68 @@
          transform="rotate(-90,430.5,407.5)"
          stroke-miterlimit="10"
          d="m 423,392.5 q 15,0 15,15 0,15 -15,15"
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse213-8-23"
-         pointer-events="none"
-         cy="417.125"
-         cx="445.375" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse215-0-52"
-         pointer-events="none"
-         cy="417.5"
-         cx="415.5" />
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path217-7-53"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 430.81727,400 v -7.16852" />
       <path
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
          id="path219-9-064"
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
+    <g
+       id="stdby_batt_breaker_off"
+       class="hidden">
+      <path
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+         d="m 849.33388,461.38765 q 0,-15 15,-15 15,0 15,15"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path211-0-86-4"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 864.65115,446.38764 v -7.16852"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path217-7-78-9"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+      <path
+         d="m 857.98853,439.21912 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path219-9-3-0"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+    </g>
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse213-8-1-0"
+       pointer-events="none"
+       cy="468.39676"
+       cx="879.68634"
+       r="2.7272727" />
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse215-0-8-4"
+       pointer-events="none"
+       cy="468.77176"
+       cx="849.81134"
+       r="2.7272727" />
   </g>
   <g
      id="avn_pfd_breaker"
-     style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+     style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
-       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
        inkscape:connector-curvature="0"
        d="m 945,95 h 42"
        stroke-miterlimit="10"
@@ -3082,8 +3752,7 @@
        id="path1029" />
     <g
        transform="translate(496.22908,-322.2151)"
-       id="g6046-8-22"
-       style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none">
+       id="avn_pfd_breaker_on">
       <path
          inkscape:connector-curvature="0"
          id="path211-0-87"
@@ -3092,20 +3761,6 @@
          stroke-miterlimit="10"
          d="m 423,392.5 q 15,0 15,15 0,15 -15,15"
          style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
-         r="2.7272727"
-         id="ellipse213-8-91"
-         pointer-events="none"
-         cy="417.125"
-         cx="445.375" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
-         r="2.7272727"
-         id="ellipse215-0-42"
-         pointer-events="none"
-         cy="417.5"
-         cx="415.5" />
       <path
          style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
@@ -3121,13 +3776,52 @@
          stroke-miterlimit="10"
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
+    <g
+       id="avn_pfd_breaker_off"
+       class="hidden">
+      <path
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+         d="m 911.99082,89.25487 q 0,-15 15,-15 15,0 15,15"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path211-0-03-8"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 927.3081,74.254872 v -7.16852"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path217-7-59-431"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+      <path
+         d="m 920.64548,67.086352 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path219-9-58-49"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+    </g>
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse213-8-1-9"
+       pointer-events="none"
+       cy="95.216454"
+       cx="942.1358"
+       r="2.7272727" />
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse215-0-8-0"
+       pointer-events="none"
+       cy="95.591454"
+       cx="912.2608"
+       r="2.7272727" />
   </g>
   <g
      id="avn_ADC_AHRS_breaker"
-     style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+     style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
-       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
        inkscape:connector-curvature="0"
        d="m 945,139.5 h 42"
        stroke-miterlimit="10"
@@ -3135,8 +3829,7 @@
        id="path1031" />
     <g
        transform="translate(495.76769,-278.61359)"
-       id="g6046-8-63"
-       style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none">
+       id="avn_ADC_AHRS_breaker_on">
       <path
          inkscape:connector-curvature="0"
          id="path211-0-34"
@@ -3145,20 +3838,6 @@
          stroke-miterlimit="10"
          d="m 423,392.5 q 15,0 15,15 0,15 -15,15"
          style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
-         r="2.7272727"
-         id="ellipse213-8-03"
-         pointer-events="none"
-         cy="417.125"
-         cx="445.375" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
-         r="2.7272727"
-         id="ellipse215-0-1"
-         pointer-events="none"
-         cy="417.5"
-         cx="415.5" />
       <path
          style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
@@ -3174,13 +3853,52 @@
          stroke-miterlimit="10"
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
+    <g
+       id="avn_ADC_AHRS_breaker_off"
+       class="hidden">
+      <path
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+         d="m 911.3684,132.7603 q 0,-15 15,-15 15,0 15,15"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path211-0-03-20"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 926.68568,117.7603 v -7.16852"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path217-7-59-68"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+      <path
+         d="m 920.02306,110.59178 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path219-9-58-9"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+    </g>
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse213-8-1-8"
+       pointer-events="none"
+       cy="139.17801"
+       cx="941.51337"
+       r="2.7272727" />
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse215-0-8-8"
+       pointer-events="none"
+       cy="139.55301"
+       cx="911.63837"
+       r="2.7272727" />
   </g>
   <g
      id="avn_nav1_eng"
-     style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+     style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
-       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
        inkscape:connector-curvature="0"
        d="m 945,182 h 42"
        stroke-miterlimit="10"
@@ -3188,8 +3906,7 @@
        id="path1033" />
     <g
        transform="translate(495.76769,-235.47347)"
-       id="g6046-8-619"
-       style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none">
+       id="avn_nav1_eng_breaker_on">
       <path
          inkscape:connector-curvature="0"
          id="path211-0-549"
@@ -3198,20 +3915,6 @@
          stroke-miterlimit="10"
          d="m 423,392.5 q 15,0 15,15 0,15 -15,15"
          style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
-         r="2.7272727"
-         id="ellipse213-8-68"
-         pointer-events="none"
-         cy="417.125"
-         cx="445.375" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
-         r="2.7272727"
-         id="ellipse215-0-48"
-         pointer-events="none"
-         cy="417.5"
-         cx="415.5" />
       <path
          style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
          inkscape:connector-curvature="0"
@@ -3227,6 +3930,45 @@
          stroke-miterlimit="10"
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
+    <g
+       id="avn_nav1_eng_breaker_off"
+       class="hidden">
+      <path
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+         d="m 911.57588,175.53902 q 0,-15 15,-15 15,0 15,15"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path211-0-03-26"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 926.89315,160.53903 v -7.16852"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path217-7-59-64"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+      <path
+         d="m 920.23053,153.37051 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267"
+         stroke-miterlimit="10"
+         pointer-events="none"
+         id="path219-9-58-95"
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none" />
+    </g>
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse213-8-1-5"
+       pointer-events="none"
+       cy="181.95673"
+       cx="940.89099"
+       r="2.7272727" />
+    <circle
+       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none"
+       id="ellipse215-0-8-09"
+       pointer-events="none"
+       cy="182.33173"
+       cx="911.01599"
+       r="2.7272727" />
   </g>
   <g
      id="standby_battery"
@@ -3507,10 +4249,11 @@
        id="path805-5" />
   </g>
   <g
-     id="test_led_arrows">
+     id="test_led_arrows"
+     style="">
     <path
        inkscape:connector-curvature="0"
-       style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none"
+       style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none;"
        d="m 864.93061,501.24991 -4.93343,4.94615"
        stroke-miterlimit="10"
        pointer-events="none"
@@ -3518,7 +4261,7 @@
        sodipodi:nodetypes="cc" />
     <path
        inkscape:connector-curvature="0"
-       style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none"
+       style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none;"
        d="m 868.10465,498.06765 -1.66217,4.85251 -3.02374,-3.34047 z"
        stroke-miterlimit="10"
        pointer-events="none"
@@ -3526,7 +4269,7 @@
        sodipodi:nodetypes="cccc" />
     <path
        inkscape:connector-curvature="0"
-       style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none"
+       style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none;"
        d="m 866.92116,508.29828 -4.93343,4.94614"
        stroke-miterlimit="10"
        pointer-events="none"
@@ -3534,7 +4277,7 @@
        sodipodi:nodetypes="cc" />
     <path
        inkscape:connector-curvature="0"
-       style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none"
+       style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none;"
        d="m 870.0952,505.11602 -1.66217,4.8525 -3.02374,-3.34048 z"
        stroke-miterlimit="10"
        pointer-events="none"
@@ -3822,6 +4565,7 @@
 
 
 
+
 Relay<br />
 </div>
           </div>
@@ -3858,6 +4602,7 @@ Relay<br />
 
 
 
+
 Relay<br />
 </div>
           </div>
@@ -3887,6 +4632,7 @@ Relay<br />
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 33px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
             <div
                style="display:inline-block;text-align:inherit;text-decoration:inherit;">Alt<br />
+
 
 
 
@@ -4262,6 +5008,7 @@ Relay<br />
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 33px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
             <div
                style="display:inline-block;text-align:inherit;text-decoration:inherit;">Panel<br />
+
 
 
 
@@ -4746,7 +5493,7 @@ LTS<br />
     </g>
     <g
        id="g1057"
-       transform="translate(921.5,642.5)"
+       transform="translate(930.42135,642.5)"
        style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none">
       <switch
          id="switch1055"
@@ -5243,6 +5990,7 @@ LTS<br />
 
 
 
+
 Switch<br />
 </div>
           </div>
@@ -5267,6 +6015,7 @@ Switch<br />
                    style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 41px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
                   <div
                      style="display:inline-block;text-align:inherit;text-decoration:inherit;">Ignition<br />
+
 
 
 
@@ -5580,14 +6329,14 @@ Switch<br />
        stroke-miterlimit="10"
        pointer-events="none"
        id="path831"
-       style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none"
+       style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none;"
        inkscape:connector-curvature="0" />
     <path
        d="m 897.47964,568.93759 h 32.934"
        stroke-miterlimit="10"
        pointer-events="none"
        id="path833"
-       style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none"
+       style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none;"
        inkscape:connector-curvature="0" />
     <path
        d="m 874.12461,314.24876 -30.67363,10.76064 m -2.55614,6.27704 h -12.78068"
@@ -5595,7 +6344,7 @@ Switch<br />
        pointer-events="none"
        id="path851"
        inkscape:connector-curvature="0"
-       style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none"
+       style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none;"
        sodipodi:nodetypes="cccc" />
     <ellipse
        ry="2.6901603"
@@ -5605,7 +6354,7 @@ Switch<br />
        transform="scale(-1)"
        pointer-events="none"
        id="ellipse855"
-       style="fill:none;stroke-width:0.87409741" />
+       style="fill:none;stroke-width:0.87409741;" />
     <path
        d="m 879.23689,367.60361 c 28.82802,0 57.65501,0.31449 86.4826,0.44836 l 0.7072,-10.93999"
        stroke-miterlimit="10"
@@ -5615,7 +6364,7 @@ Switch<br />
        style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none"
        sodipodi:nodetypes="ccc" />
     <path
-       style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none"
+       style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none;"
        d="m 874.12461,368.50033 -30.67363,10.76064"
        id="path861"
        inkscape:connector-curvature="0" />
@@ -5627,7 +6376,7 @@ Switch<br />
        transform="scale(-1)"
        pointer-events="none"
        id="ellipse865"
-       style="fill:none;stroke-width:0.87409741" />
+       style="fill:none;stroke-width:0.87409741;" />
     <path
        style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none"
        d="m 966.42669,321.60186 0.0724,-11.8367 0.0724,-16.14096 h -62.19931 c 0,-5.82868 -8.52046,-5.82868 -8.52046,0 v 0 h -67.31159 l -0.21301,19.72784 h 12.56767"
@@ -5691,12 +6440,13 @@ Switch<br />
     </g>
   </g>
   <g
-     id="arm_off_test_arrows">
+     id="arm_off_test_arrows"
+     style="">
     <path
        inkscape:transform-center-y="11.677486"
        inkscape:transform-center-x="20.643023"
        inkscape:connector-curvature="0"
-       style="fill:none;stroke-width:0.69259381;stroke-miterlimit:10;stroke-dasharray:none"
+       style="fill:none;stroke-width:0.69259381;stroke-miterlimit:10;stroke-dasharray:none;"
        d="m 895.02434,328.74497 -0.1652,4.50075"
        stroke-miterlimit="10"
        pointer-events="none"
@@ -5706,7 +6456,7 @@ Switch<br />
        inkscape:transform-center-y="7.9968265"
        inkscape:transform-center-x="20.560373"
        inkscape:connector-curvature="0"
-       style="fill:none;stroke-width:0.69259381;stroke-miterlimit:10;stroke-dasharray:none"
+       style="fill:none;stroke-width:0.69259381;stroke-miterlimit:10;stroke-dasharray:none;"
        d="m 895.13064,325.84928 2.085,2.93081 -4.3825,-0.0702 z"
        stroke-miterlimit="10"
        pointer-events="none"
@@ -5716,7 +6466,7 @@ Switch<br />
        inkscape:transform-center-y="-1.1454079"
        inkscape:transform-center-x="0.20567225"
        inkscape:connector-curvature="0"
-       style="fill:none;stroke-width:0.69259381;stroke-miterlimit:10;stroke-dasharray:none"
+       style="fill:none;stroke-width:0.69259381;stroke-miterlimit:10;stroke-dasharray:none;"
        d="m 895.84294,351.87219 0.1652,-4.50076"
        stroke-miterlimit="10"
        pointer-events="none"
@@ -5726,7 +6476,7 @@ Switch<br />
        inkscape:transform-center-y="2.5352471"
        inkscape:transform-center-x="0.28832225"
        inkscape:connector-curvature="0"
-       style="fill:none;stroke-width:0.69259381;stroke-miterlimit:10;stroke-dasharray:none"
+       style="fill:none;stroke-width:0.69259381;stroke-miterlimit:10;stroke-dasharray:none;"
        d="m 895.73654,354.76787 -2.0849,-2.93081 4.3825,0.0702 z"
        stroke-miterlimit="10"
        pointer-events="none"
