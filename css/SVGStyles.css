@@ -41,10 +41,19 @@ text {
 
 .on, .on path, .on circle, .on rect {
     stroke: magenta;
+    /*fill: magenta;*/
+}
+
+.on path {
+    fill: magenta;
 }
 
 .hidden, .hidden path, .hidden circle, .hidden ellipse {
     stroke: none;
+}
+
+.hidden path {
+    fill: none;
 }
 
 .box {

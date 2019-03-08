@@ -126,7 +126,7 @@ $( function() {
 			$(onId).addClass("hidden");
 			//$(onId).find("*").addClass("hidden");
 		}
-	}
+	};
 	
 	//Exists for code reuse, toogles class on supplied elements, not id!
 
@@ -251,8 +251,64 @@ $( function() {
             }
     });
     
+	// if we name the div tags right, we can set this up in a loop to toggle
+	// the switches in the switches panel...
+	// also we can set it to the "active" class
+	// how it's gonna work is
+	// forall the switches in the panel
+	// we get the id, and concatenate it with svg to access the switchon the schematic
+	var switchPanel = $("#switches_switch_panel").children();
+	console.log(switchPanel);
+	switchPanel.each(function(){
+		$(this).click(function(){
+			var id = $(this).attr('id');
+		if (panel_state[id] == undefined) {
+			panel_state[id] = false;
+		}
+		schematicFlipSwitch(id+"_svg", !panel_state[id]);
+		panel_state[id] = !panel_state[id];
+		
+		//cSwitch("#beacon_light_switch", true, "on");
+		if (panel_state[id]) {
+			console.log("Turning on " + id);
+			classOnOff("#"+id+"_svg", "on", "");    
+		} else {
+			classOnOff("#"+id+"_svg", "", "on");
+			console.log("Turning off " + id);
+		}
+		});
+		
+	}
+			
+	);
+	/*for (var sw in switchPanel) {
+		console.log("hi");
+		var id = sw.get(0).id;
+		sw.click(
+			function(){
+				
+	}*/
 	
+//	$("#switch_beacon").click(function(){
+//		if (panel_state['#switch_beacon'] == undefined) {
+//            panel_state['#switch_beacon'] = false;
+//        }
+//		schematicFlipSwitch("switch_beacon_light", !panel_state['#switch_beacon']);
+//		panel_state['#switch_beacon'] = !panel_state['#switch_beacon'];
+//		
+//		//cSwitch("#beacon_light_switch", true, "on");
+//		if (panel_state['#switch_beacon']) {
+//			classOnOff("#switch_beacon_light", "on", "");    
+//        } else {
+//			classOnOff("#switch_beacon_light", "", "on");    
+//		}
+//		
+//    }); 
 } );
+
+	
+	
+
 
 // Getter
 var scope = $( ".selector" ).draggable( "option", "scope" );
