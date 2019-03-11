@@ -2,6 +2,16 @@
 //We could realistically use local state in a closure
 //This is just here for debugging ezpz
 var panel_state = {};
+
+//Returns function that essentially concatenates other functions
+var func_concat = function (funcs){
+	var ret = funcs[ funcs.length - 1];
+	funcs.pop();
+	funcs = funcs.length > 1 ? func_concat(funcs) : funcs[0];
+	
+	return function() { ret.apply(new funcs); };
+}
+
 //Function that generates toogle functionality for panel buttons.
 var toogle = function(id, initial, rate) {
 	if(panel_state[id] === undefined) {
@@ -25,80 +35,12 @@ var close = function(id, rate) {
 }
 
 $( function() {
-	//Ultimately this exists for debug purposes
-
 	
-	var func_concat = function (funcs){
-		var ret = funcs[ funcs.length - 1];
-		funcs.pop();
-		funcs = funcs.length > 1 ? func_concat(funcs) : funcs[0];
-		
-		return function() { ret.apply(new funcs); };
-	}
-	
-	// Switch the class on an id from c1 to c2 and vice versa
-	var cSwitch = function(id, initFirst, cls1, cls2) {
-		return elementClassSwitch($(id), id, initFirst, cls1, cls2);
-	}
-	// Switch the class on an id and its children from c1 to c2 and vice versa
-	var crSwitch = function(id, initFirst, cls1, cls2) {
-		return elementClassSwitch($(id).find('*'), id, initFirst, cls1, cls2);
-	}
-	//Don't use directly, the interface is different from other similar functions.
-	var elementClassSwitch = function(ele, id, initFirst, cls1, cls2) {
-		if(panel_state[id] === undefined) {
-			panel_state[id] = initFirst;
-		}
-		return function() {
-			if(panel_state[id]) {
-				ele.addClass(cls2);
-				ele.removeClass(cls1);
-
-			} else {
-				ele.addClass(cls1);
-				ele.removeClass(cls2);
-			}
-			panel_state[id] = !panel_state[id];
-		}
-	}
-	
-	// Toogle a class on an id to be on/off.
-	var cToogle = function(id, initActive, cls) {
-		return elementClassToogle($(id), id, initActive, cls);
-	} 
-	// Toogle a class on an id and its children to be on/off.
-	var crToogle = function(id, initActive, cls) {
-		return elementClassToogle($(id).find('*'), id, initActive, cls);
-	}
-	//Don't use directly, the interface is different from other similar functions.    
-	var elementClassToogle = function(ele, id, initActive, cls) {
-		if(panel_state[id] === undefined) {
-			panel_state[id] = initActive;
-		}
-
-		return function() {
-			if(panel_state[id]) {
-				ele.removeClass(cls);
-			} else {
-				ele.addClass(cls);
-			}
-			panel_state[id] = !panel_state[id];
-		}
-	}
-    
-
-	
-	//Function that plays audio {
-	var audio = function(id) {
-		return function () {
-			$(id).trigger("play");
-		};
-	}
-	
-    /* When the document is loaded, it will hide all elements in the pop_up_list*/
+    /* When the document is loaded, it will hide all elements in the pop_up_list
     $( document ).ready(function(){
         $("#pop_up_list").children().hide();
     });
+	*/
 
     /*Function to display pop up box when clicking on the 'starter' svg element present in C172SSchematic.svg
       For some reason, I was able to make it work one time.  After I refreshed the page, it stopped working and I have no idea why.
@@ -113,6 +55,33 @@ $( function() {
 	$(".draggable").draggable({scope: "buttonBox"});
 	
 	//Enable navigation button panel toogle functionality
+	
+	panel_state["#engine_button"] = false;
+	$("#engine_button").click(function(){
+		var status = $("#engine_status");
+		if(panel_state["#engine_button"]){
+			status.css("color", "red");
+			status.text("OFFLINE");
+		} else {
+			status.css("color", "cyan");
+			status.text("ONLINE");
+		}
+		panel_state["#engine_button"] = !panel_state["#engine_button"];
+	});
+	
+	panel_state["#epu_button"] = false;
+	$("#epu_button").click(function(){
+		var status = $("#epu_status");
+		if(panel_state["#epu_button"]){
+			status.css("color", "red");
+			status.text("OFFLINE");
+		} else {
+			status.css("color", "cyan");
+			status.text("ONLINE");
+		}
+		panel_state["#epu_button"] = !panel_state["#epu_button"];
+	});
+	
     $("#master_button").click(toogle("#master_main_container", true, 500)); //Master
     $("#breakers_button").click(toogle("#breakers_main_container", true, 500)); //Breakers
 	$("#switches_button").click(toogle("#switches_main_container", true, 500)); //Switches

@@ -5,7 +5,7 @@ html {
 
 body {
 	top: 0;
-	line-height: 1.25em;
+	line-height: 1em;
 	font-family: Helvetica Neue, Helvetica, Arial;
 	background: #333333;
 }
@@ -56,6 +56,7 @@ header {
 	background: #555555;
 	border: 1px solid black;
 	border-radius: 0px 0px 4px 4px;
+	cursor: default;
 
 }
 
@@ -71,9 +72,16 @@ header {
 #nav_list > li > span {
 	float: right;
 	margin-left: 5px;
+	
+	font-weight: bold;
   	display: inline-block;
   	vertical-align: middle;
   	line-height: normal;
+	width: px;
+	-webkit-text-size-adjust:none;
+	-ms-text-size-adjust:none;
+	-moz-text-size-adjust:none;
+	text-size-adjust:none;
 }
 
 /* MAIN CONTENT STYLES */
@@ -132,12 +140,12 @@ footer {
 
 
 /*Class for all lower box headers*/
-.box_container {
+.panel_container {
 	border: 2px solid black;
 	background-color: #777777;
 }
 
-.box_header{
+.panel_header{
 	padding: 2px;
 	border-bottom: 1px solid black;
     color: white;                
@@ -146,13 +154,13 @@ footer {
     cursor: move;
 }
 
-.box_content {
+.panel_content {
 	height: auto;
 	overflow: auto;
 	padding: 2px;
 }
 
-.box_content img:first-of-type{
+.panel_content img:first-of-type{
 	display: block;
 	width: 100%;
 	height: auto;
