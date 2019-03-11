@@ -227,8 +227,8 @@ $.getJSON("itemInfo.json", function(json) {
 		var anchor = $("<div class='info_panel_anchor' id='info_panel_anchor_" + i + "'></div>");
 		anchor.css('top', info_panels[i].yPos + '%');
 		anchor.css('left', info_panels[i].xPos + '%');
-		anchor.css('width', info_panels[i].width + 'vw');
-		anchor.css('height', info_panels[i].height + 'vw');
+		anchor.css('width', 'calc(' + info_panels[i].width + '%');
+		anchor.css('height', 'calc(' + info_panels[i].height + '%');
 		anchor.click(toogle("#info_panel_"+i, false, 500));
 		anchor.appendTo(wrapper);
 		

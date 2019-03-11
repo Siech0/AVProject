@@ -82,7 +82,7 @@ main {
 
 #svg_wrapper{
 	position: relative;
-	width: 50vw;
+	width: 55vw;
 	margin: auto;
 	background-color: white;
 }
@@ -267,7 +267,7 @@ footer {
 }
 
 .info_panel_anchor:hover {
-	background: rgba(0, 0, 0, 0.3);
+	background: rgba(0, 0, 0, 0.1);
 }
 
 /* Styling for information panels */

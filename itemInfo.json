@@ -2,19 +2,19 @@
 	"info_panels" : [
 		{
 			"title": "Alternator",
-			"text": "This is does alternator stuff.        asdasdasdasd asas",
-			"xPos": 2.5,
+			"text": "This is does alternator stuff.",
+			"xPos": 2.7,
 			"yPos": 25.5,
-			"width": 2.5,
-			"height": 2.5
+			"width": 5,
+			"height": 8
 		},
 		{
-			"title": "test panel 2",
-			"text": "This is a text panel 2",
-			"xPos": 30,
-			"yPos": 30,
-			"width": 1,
-			"height": 1
+			"title": "Starter",
+			"text": "This is does starter stuff.",
+			"xPos": 1.9,
+			"yPos": 55,
+			"width": 3.8,
+			"height": 3.8
 		}
 	]
 }
