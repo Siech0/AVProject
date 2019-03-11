@@ -1,4 +1,4 @@
-//Dreaded global, will refactor later.
+﻿//Dreaded global, will refactor later.
 //We could realistically use local state in a closure
 //This is just here for debugging ezpz
 var panel_state = {};
@@ -227,8 +227,8 @@ $.getJSON("itemInfo.json", function(json) {
 		var anchor = $("<div class='info_panel_anchor' id='info_panel_anchor_" + i + "'></div>");
 		anchor.css('top', info_panels[i].yPos + '%');
 		anchor.css('left', info_panels[i].xPos + '%');
-		anchor.css('width', 'calc(' + info_panels[i].width + '%');
-		anchor.css('height', 'calc(' + info_panels[i].height + '%');
+		anchor.css('width', info_panels[i].width + '%');
+		anchor.css('height', info_panels[i].height + '%');
 		anchor.click(toogle("#info_panel_"+i, false, 500));
 		anchor.appendTo(wrapper);
 		
