@@ -81,13 +81,18 @@ main {
 }
 
 #svg_wrapper{
+    display: flex;
+    flex-direction: column;
 	position: relative;
-	width: 55vw;
+    width: 100%;
+    max-height: 70%;
+	/*width: 55vw;*/
 	margin: auto;
 	background-color: white;
 }
 
 #svg_wrapper svg {
+    display: flex;
 	height: 100%;
 	width: 100%;
 }
