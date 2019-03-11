@@ -1,0 +1,20 @@
+{
+	"info_panels" : [
+		{
+			"title": "test panel",
+			"text": "This is a text panel",
+			"xPos": 50,
+			"yPos": 50,
+			"width": 2,
+			"height": 2
+		},
+		{
+			"title": "test panel 2",
+			"text": "This is a text panel 2",
+			"xPos": 30,
+			"yPos": 30,
+			"width": 1,
+			"height": 1
+		}
+	]
+}

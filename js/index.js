@@ -1,7 +1,31 @@
+//Dreaded global, will refactor later.
+var panel_state = {};
+//Function that generates toogle functionality for panel buttons.
+var toogle = function(id, initial, rate) {
+	if(panel_state[id] === undefined) {
+		panel_state[id] = initial;
+	}
+	return function() {
+		if(panel_state[id]) { 	//Active
+			$(id).hide(rate);
+		} else { 				//Inactive
+			$(id).show(rate);
+		}
+		panel_state[id] = !panel_state[id];
+	}
+}
+
+//Function that generates a panel self close function
+var close = function(id, rate) {
+	return function() {
+		$(id).hide(rate);
+	}
+}
+
 $( function() {
 	//Ultimately this exists for debug purposes
-	//We could realistically use local state closures
-	var panel_state = {};
+	//We could realistically use local state in a closure
+
 	
 	var func_concat = function (funcs){
 		var ret = funcs[ funcs.length - 1];
@@ -11,7 +35,7 @@ $( function() {
 		return function() { ret.apply(new funcs); };
 	}
 	
-		// Switch the class on an id from c1 to c2 and vice versa
+	// Switch the class on an id from c1 to c2 and vice versa
 	var cSwitch = function(id, initFirst, cls1, cls2) {
 		return elementClassSwitch($(id), id, initFirst, cls1, cls2);
 	}
@@ -61,30 +85,7 @@ $( function() {
 		}
 	}
     
-	//Function that generates toogle functionality for panel buttons.
-	var toogle = function(id, initial, rate) {
-		if(panel_state[id] === undefined) {
-			panel_state[id] = initial;
-		}
-		return function() {
-			if(panel_state[id]) { 	//Active
-				$(id).hide(rate);
-			} else { 				//Inactive
-				$(id).show(rate);
-			}
-			panel_state[id] = !panel_state[id];
-		}
-	}
-	
-	//Exists for code reuse, toogles class on supplied elements, not id!
 
-
-	//Function that generates a panel self close function
-	var close = function(id, rate) {
-		return function() {
-			$(id).hide(rate);
-		}
-	}
 	
 	//Enable draggable functionality for all draggable containers
 	$(".draggable").draggable({scope: "buttonBox"});
@@ -189,18 +190,47 @@ $( function() {
 			   
 			   $("#alt_relay_on").addClass("hidden");
 			   $("#alt_relay_off").find("*").removeClass("hidden");
-			   
-			   
             }
     });
-	
 } );
-
-// Getter
-var scope = $( ".selector" ).draggable( "option", "scope" );
 
 // puts svg into wrapper.
 $( "#svg_wrapper" ).load("images/C172SSchematic.svg");	
  
+//Load info panel data and generate anchors and panels
+$.getJSON("itemInfo.json", function(json) {
+	info_panels = json.info_panels;
+	var wrapper = ("#svg_wrapper");
+	for (var i = 0; i < info_panels.length; ++i) {
+		var anchor = $("<div class='info_panel_anchor' id='info_panel_anchor_" + i + "'></div>");
+		anchor.css('top', info_panels[i].yPos + '%');
+		anchor.css('left', info_panels[i].xPos + '%');
+		anchor.css('width', info_panels[i].width + 'vw');
+		anchor.css('height', info_panels[i].height + 'vw');
+		anchor.click(toogle("#info_panel_"+i, false, 500));
+		anchor.appendTo(wrapper);
+		
+		var panel = $("<div class='info_panel draggable' id='info_panel_" + i + "'></div>");
+		panel.hide(0);
+		panel.css('top', (info_panels[i].yPos + 5) + '%');
+		panel.css('left', (info_panels[i].xPos + 5) + '%');
+		var title = $("<div></div>");
+		title.text(info_panels[i].title);
+		var closer = $("<span class='close' id='info_panel_close_'" + i + "'></span>");
+		closer.text('×');
+		closer.click(close("#info_panel_"+i, 500));
+		var content = $("<p></p>");
+		content.text(info_panels[i].text);
+		
+		closer.appendTo(title);
+		title.appendTo(panel);
+		content.appendTo(panel);
+		panel.appendTo(wrapper);
+	}
+});
+
+// Getter
+var scope = $( ".selector" ).draggable( "option", "scope" );
 // Setter
 $( ".selector" ).draggable( "option", "scope", "buttonBox" );
+
