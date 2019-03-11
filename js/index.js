@@ -1,4 +1,6 @@
 //Dreaded global, will refactor later.
+//We could realistically use local state in a closure
+//This is just here for debugging ezpz
 var panel_state = {};
 //Function that generates toogle functionality for panel buttons.
 var toogle = function(id, initial, rate) {
@@ -24,7 +26,6 @@ var close = function(id, rate) {
 
 $( function() {
 	//Ultimately this exists for debug purposes
-	//We could realistically use local state in a closure
 
 	
 	var func_concat = function (funcs){
@@ -87,6 +88,27 @@ $( function() {
     
 
 	
+	//Function that plays audio {
+	var audio = function(id) {
+		return function () {
+			$(id).trigger("play");
+		};
+	}
+	
+    /* When the document is loaded, it will hide all elements in the pop_up_list*/
+    $( document ).ready(function(){
+        $("#pop_up_list").children().hide();
+    });
+
+    /*Function to display pop up box when clicking on the 'starter' svg element present in C172SSchematic.svg
+      For some reason, I was able to make it work one time.  After I refreshed the page, it stopped working and I have no idea why.
+    var svg_starter = document.getElementById('starter');
+    $(svg_starter).click(function(){
+       $("#alternator_main_container").show(500); 
+    });
+	*/
+    
+    
 	//Enable draggable functionality for all draggable containers
 	$(".draggable").draggable({scope: "buttonBox"});
 	
