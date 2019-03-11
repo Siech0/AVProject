@@ -1,12 +1,12 @@
 {
 	"info_panels" : [
 		{
-			"title": "test panel",
-			"text": "This is a text panel",
-			"xPos": 50,
-			"yPos": 50,
-			"width": 2,
-			"height": 2
+			"title": "Alternator",
+			"text": "This is does alternator stuff.        asdasdasdasd asas",
+			"xPos": 2.5,
+			"yPos": 25.5,
+			"width": 2.5,
+			"height": 2.5
 		},
 		{
 			"title": "test panel 2",
