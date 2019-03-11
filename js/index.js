@@ -281,6 +281,31 @@ $( function() {
 	}
 			
 	);
+	
+	var breakerPanel = $("#breaker_switch_panel").children();
+	console.log(breakerPanel);
+	breakerPanel.each(function(){
+		$(this).click(function(){
+			var id = $(this).attr('id');
+		if (panel_state[id] == undefined) {
+			panel_state[id] = true;
+		}
+		schematicFlipSwitch(id+"_svg", !panel_state[id]);
+		panel_state[id] = !panel_state[id];
+		
+		//cSwitch("#beacon_light_switch", true, "on");
+		if (panel_state[id]) {
+			console.log("Turning on " + id);
+			classOnOff("#"+id+"_svg", "on", "");    
+		} else {
+			classOnOff("#"+id+"_svg", "", "on");
+			console.log("Turning off " + id);
+		}
+		});
+		
+	}
+			
+	);
 	/*for (var sw in switchPanel) {
 		console.log("hi");
 		var id = sw.get(0).id;

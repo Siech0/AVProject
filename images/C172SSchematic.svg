@@ -186,7 +186,7 @@
      pointer-events="none"
      d="M 915.44874,225.47347 H 1027.9189 V 625.41064 H 915.44874 Z" />
   <g
-     id="avionics_2_switch"
+     id="switch_avn2_svg"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <rect
@@ -199,13 +199,11 @@
        ry="12"
        pointer-events="none"
        id="rect305" />
-    <g
-       id="av_switch"
-       style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;">
+   
       <path
          style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
          d="m 814.5,569.5 36,-15"
-         id="av_switch_off"
+         id="switch_avn2_svg_off"
          inkscape:connector-curvature="0" />
       <path
          style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
@@ -228,10 +226,9 @@
       <path
          style="fill:none;stroke-width:1.14403725px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1;"
          d="m 847.98414,570.60265 h -32.8621"
-         id="av_switch_on"
+         id="switch_avn2_svg_on"
          inkscape:connector-curvature="0"
          class="hidden" />
-    </g>
   </g>
   <g
      id="switch_strobe_light_svg"
@@ -370,13 +367,13 @@
        class="hidden" />
   </g>
   <g
-     id="pitot_heat_switch"
+     id="switch_pitot_heat_svg"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
        style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
        d="m 731.5,523 36,-15"
-       id="pitot_heat_switch_off"
+       id="switch_pitot_heat_svg_off"
        inkscape:connector-curvature="0" />
     <path
        style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
@@ -399,7 +396,7 @@
     <path
        style="fill:none;stroke-width:1.14403725px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
        d="M 764.78733,524.27546 H 731.92524"
-       id="pitot_heat_switch_on"
+       id="switch_pitot_heat_svg_on"
        inkscape:connector-curvature="0"
        class="hidden" />
   </g>
@@ -437,7 +434,7 @@
        inkscape:connector-curvature="0" />
   </g>
   <g
-     id="avionics_1_switch"
+     id="switch_avn1_svg"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <rect
@@ -450,9 +447,7 @@
        ry="12"
        pointer-events="none"
        id="rect307" />
-    <g
-       id="g897"
-       style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;">
+    
       <path
          style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
          d="m 869,127 h 15"
@@ -460,7 +455,7 @@
       <path
          style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
          d="m 830,126 36,-15"
-         id="avionics_1_switch_off"
+         id="switch_avn1_svg_off"
          inkscape:connector-curvature="0" />
       <circle
          style="opacity:1;fill-opacity:1;stroke-miterlimit:10;stroke-dasharray:none;"
@@ -476,11 +471,11 @@
          pointer-events="none"
          cy="127"
          cx="827" />
-    </g>
+    
     <path
        style="fill:none;stroke-width:1.14403725px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
        d="m 863.00881,127.04548 h -32.8621"
-       id="avionics_1_switch_on"
+       id="switch_avn1_svg_on"
        inkscape:connector-curvature="0"
        class="hidden" />
   </g>
@@ -1818,7 +1813,7 @@
     </g>
   </g>
   <g
-     id="avionics_2_breaker"
+     id="breaker_avn2_svg"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
@@ -1828,7 +1823,7 @@
        id="path5779" />
     <g
        transform="translate(215.57912,68.15443)"
-       id="avn_2_breaker_on"
+       id="breaker_avn2_svg_on"
        style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;">
       <path
          inkscape:connector-curvature="0"
@@ -1852,10 +1847,12 @@
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
+    </g>
       <g
-         id="avn_2_breaker_off"
+        transform="translate(215.57912,68.15443)"
+         id="breaker_avn2_svg_off"
          class="hidden"
-         style="">
+         >
         <path
            style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
            d="m 415.49282,410.97555 q 0,-15 15,-15 15,0 15,15"
@@ -1878,7 +1875,7 @@
            inkscape:connector-curvature="0"
            style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;" />
       </g>
-    </g>
+    
     <circle
        style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
        id="ellipse213-8"
@@ -1895,7 +1892,7 @@
        r="2.7272727" />
   </g>
   <g
-     id="pitot_heat_breaker"
+     id="breaker_pitot_heat_svg"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
@@ -1905,7 +1902,7 @@
        id="path5763" />
     <g
        transform="translate(215.70294,105.95638)"
-       id="pitot_heat_breaker_on"
+       id="breaker_pitot_heat_svg_on"
        style="">
       <path
          inkscape:connector-curvature="0"
@@ -1931,7 +1928,7 @@
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
     <g
-       id="pitot_heat_breaker_off"
+       id="breaker_pitot_heat_svg_off"
        class="hidden"
        style="">
       <path
@@ -1972,7 +1969,7 @@
        r="2.7272727" />
   </g>
   <g
-     id="nav_lights_breaker"
+     id="breaker_nav_light_svg"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
@@ -1982,7 +1979,7 @@
        id="path5750" />
     <g
        transform="translate(215.24155,141.02214)"
-       id="nav_lts_breaker_on"
+       id="breaker_nav_light_svg_on"
        style="">
       <path
          inkscape:connector-curvature="0"
@@ -2008,7 +2005,7 @@
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
     <g
-       id="nav_lts_breaker_off"
+       id="breaker_nav_light_svg_off"
        class="hidden"
        style="">
       <path
@@ -2049,7 +2046,7 @@
        r="2.7272727" />
   </g>
   <g
-     id="taxi_lights_breaker"
+     id="breaker_taxi_light_svg"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
@@ -2059,7 +2056,7 @@
        id="path5738" />
     <g
        transform="translate(215.70294,176.5493)"
-       id="taxi_lt_breaker_on"
+       id="breaker_taxi_light_svg_on"
        style="">
       <path
          inkscape:connector-curvature="0"
@@ -2085,7 +2082,7 @@
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
     <g
-       id="taxi_lt_breaker_off"
+       id="breaker_taxi_light_svg_off"
        class="hidden"
        style="">
       <path
@@ -2126,7 +2123,7 @@
        r="2.7272727" />
   </g>
   <g
-     id="strobe_lights_breaker"
+     id="breaker_strobe_light_svg"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
@@ -2136,7 +2133,7 @@
        id="path5726" />
     <g
        transform="translate(215.70294,209.07742)"
-       id="strobe_lights_breaker_on"
+       id="breaker_strobe_light_svg_on"
        style="">
       <path
          inkscape:connector-curvature="0"
@@ -2162,7 +2159,7 @@
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
     <g
-       id="strobe_lights_breaker_off"
+       id="breaker_strobe_light_svg_off"
        class="hidden"
        style="">
       <path
@@ -2203,7 +2200,7 @@
        r="2.7272727" />
   </g>
   <g
-     id="panel_lights_breaker"
+     id="breaker_panel_lights_svg"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
@@ -2213,7 +2210,7 @@
        id="path5714" />
     <g
        transform="translate(215.93363,243.4511)"
-       id="panel_lights_breaker_on"
+       id="breaker_panel_lights_svg_on"
        style="">
       <path
          inkscape:connector-curvature="0"
@@ -2239,7 +2236,7 @@
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
     <g
-       id="panel_lights_breaker_off"
+       id="breaker_panel_lights_svg_off"
        class="hidden"
        style="">
       <path
@@ -2280,7 +2277,7 @@
        r="2.7272727" />
   </g>
   <g
-     id="fuel_pump_breaker"
+     id="breaker_fuel_pump_svg"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
@@ -2293,7 +2290,7 @@
        sodipodi:nodetypes="cc" />
     <g
        transform="translate(212.70389,-383.1188)"
-       id="fuel_pump_breaker_on"
+       id="breaker_fuel_pump_svg_on"
        style="">
       <path
          inkscape:connector-curvature="0"
@@ -2319,7 +2316,7 @@
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
     <g
-       id="fuel_pump_breaker_off"
+       id="breaker_fuel_pump_svg_off"
        class="hidden"
        style="">
       <path
@@ -2360,7 +2357,7 @@
        r="2.7272727" />
   </g>
   <g
-     id="beacon_light_breaker"
+     id="breaker_beacon_light_svg"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
@@ -2373,7 +2370,7 @@
        sodipodi:nodetypes="cc" />
     <g
        transform="translate(212.4732,-341.36285)"
-       id="beacon_light_breaker_on"
+       id="breaker_beacon_light_svg_on"
        style="">
       <path
          inkscape:connector-curvature="0"
@@ -2399,7 +2396,7 @@
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
     <g
-       id="beacon_light_breaker_off"
+       id="breaker_beacon_light_svg_off"
        class="hidden"
        style="">
       <path
@@ -2440,7 +2437,7 @@
        r="2.7272727" />
   </g>
   <g
-     id="landing_light_breaker"
+     id="breaker_land_light_svg"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
@@ -2453,7 +2450,7 @@
        sodipodi:nodetypes="cc" />
     <g
        transform="translate(212.93459,-300.299)"
-       id="landing_light_breaker_on"
+       id="breaker_land_light_svg_on"
        style="">
       <path
          inkscape:connector-curvature="0"
@@ -2479,7 +2476,7 @@
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
     <g
-       id="landing_light_breaker_off"
+       id="breaker_land_light_svg_off"
        class="hidden"
        style="">
       <path
@@ -2520,7 +2517,7 @@
        r="2.7272727" />
   </g>
   <g
-     id="cabin_lights_breaker"
+     id="breaker_cabin_lights_svg"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
@@ -2541,7 +2538,7 @@
        sodipodi:nodetypes="cc" />
     <g
        transform="translate(212.4732,-259.69653)"
-       id="cabin_lights_breaker_on"
+       id="breaker_cabin_lights_svg_on"
        style="">
       <path
          inkscape:connector-curvature="0"
@@ -2567,7 +2564,7 @@
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
     <g
-       id="cabin_lights_breaker_off"
+       id="breaker_cabin_lights_svg_off"
        class="hidden"
        style="">
       <path
@@ -2608,7 +2605,7 @@
        r="2.7272727" />
   </g>
   <g
-     id="flaps_breaker"
+     id="breaker_flaps_svg"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
@@ -2621,7 +2618,7 @@
        sodipodi:nodetypes="cc" />
     <g
        transform="translate(212.24251,-221.63172)"
-       id="flaps_breaker_on"
+       id="breaker_flaps_svg_on"
        style="">
       <path
          inkscape:connector-curvature="0"
@@ -2645,8 +2642,10 @@
          pointer-events="none"
          stroke-miterlimit="10"
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
-      <g
-         id="flaps_breaker_off"
+    </g>
+    <g
+      transform="translate(212.24251,-221.63172)"
+         id="breaker_flaps_svg_off"
          class="hidden"
          style="">
         <path
@@ -2670,7 +2669,7 @@
            id="path219-9-58-3"
            inkscape:connector-curvature="0"
            style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;" />
-      </g>
+      
     </g>
     <circle
        style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
@@ -2688,7 +2687,7 @@
        r="2.7272727" />
   </g>
   <g
-     id="avionics_1_breaker"
+     id="breaker_avn1_svg"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
@@ -2701,7 +2700,7 @@
        sodipodi:nodetypes="cccc" />
     <g
        transform="translate(212.7039,-181.02925)"
-       id="avionics_1_breaker_on"
+       id="breaker_avn1_svg_on"
        style="">
       <path
          inkscape:connector-curvature="0"
@@ -2727,7 +2726,7 @@
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
     <g
-       id="avionics_1_breaker_off"
+       id="breaker_avn1_svg_off"
        class="hidden"
        style="">
       <path
@@ -2769,7 +2768,7 @@
   </g>
   <g
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-     id="alt_field_breaker"
+     id="breaker_alt_field_svg"
      transform="matrix(0.85204541,0,0,0.89672011,182.699,-90.221339)">
     <circle
        cx="445.375"
@@ -2786,7 +2785,7 @@
        r="2.7272727"
        style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;" />
     <g
-       id="g2183"
+       id="breaker_alt_field_svg_on"
        style="">
       <path
          inkscape:connector-curvature="0"
@@ -2812,7 +2811,7 @@
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
     <g
-       id="alt_field_breaker_off"
+       id="breaker_alt_field_svg_off"
        class="hidden"
        style="">
       <path
@@ -2839,7 +2838,7 @@
     </g>
   </g>
   <g
-     id="warn_breaker"
+     id="breaker_warn_svg"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <circle
@@ -2872,9 +2871,25 @@
        id="ellipse849"
        style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
        r="3.1500001" />
+    <circle
+         transform="translate(275.91455,-79.061687)"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         r="2.7272727"
+         id="ellipse213-8-33"
+         pointer-events="none"
+         cy="417.125"
+         cx="445.375" />
+      <circle
+         transform="translate(275.91455,-79.061687)"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         r="2.7272727"
+         id="ellipse215-0-95"
+         pointer-events="none"
+         cy="417.5"
+         cx="415.5" />
     <g
        transform="translate(275.91455,-79.061687)"
-       id="g6046-8-35"
+       id="breaker_warn_svg_on"
        style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;">
       <path
          inkscape:connector-curvature="0"
@@ -2884,20 +2899,36 @@
          stroke-miterlimit="10"
          d="m 423,392.5 q 15,0 15,15 0,15 -15,15"
          style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;" />
-      <circle
+      
+      <path
          style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse213-8-33"
+         inkscape:connector-curvature="0"
+         id="path217-7-70"
          pointer-events="none"
-         cy="417.125"
-         cx="445.375" />
-      <circle
+         stroke-miterlimit="10"
+         d="m 430.81727,400 v -7.16852" />
+      <path
          style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse215-0-95"
+         inkscape:connector-curvature="0"
+         id="path219-9-11"
          pointer-events="none"
-         cy="417.5"
-         cx="415.5" />
+         stroke-miterlimit="10"
+         d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
+    </g>
+    <g
+       transform="translate(275.91455,-83.061687)"
+       class="hidden"
+       id="breaker_warn_svg_off"
+       style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;">
+      <path
+         inkscape:connector-curvature="0"
+         id="path211-0-54"
+         pointer-events="none"
+         transform="rotate(-90,430.5,407.5)"
+         stroke-miterlimit="10"
+         d="m 423,392.5 q 15,0 15,15 0,15 -15,15"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;" />
+      
       <path
          style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
          inkscape:connector-curvature="0"
@@ -2915,7 +2946,7 @@
     </g>
   </g>
   <g
-     id="mfd_breaker"
+     id="breaker_mfd_svg"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
@@ -2927,7 +2958,7 @@
        id="path1133" />
     <g
        transform="translate(480.77246,144.25188)"
-       id="mfd_breaker_on"
+       id="breaker_mfd_svg_on"
        style="">
       <path
          inkscape:connector-curvature="0"
@@ -2953,7 +2984,7 @@
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
     <g
-       id="mfd_breaker_off"
+       id="breaker_mfd_svg_off"
        class="hidden"
        style="">
       <path
@@ -2994,7 +3025,7 @@
        r="2.7272727" />
   </g>
   <g
-     id="XPNDR_breaker"
+     id="breaker_xpndr_svg"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
@@ -3006,7 +3037,7 @@
        id="path1135" />
     <g
        transform="translate(480.31107,178.39487)"
-       id="XPNDR_breaker_on"
+       id="breaker_xpndr_svg_on"
        style="">
       <path
          inkscape:connector-curvature="0"
@@ -3032,7 +3063,7 @@
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
     <g
-       id="XPNDR_breaker_off"
+       id="breaker_xpndr_svg_off"
        class="hidden"
        style="">
       <path
@@ -3073,7 +3104,7 @@
        r="2.7272727" />
   </g>
   <g
-     id="nav_2_breaker"
+     id="breaker_nav2_svg"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
@@ -3083,9 +3114,25 @@
        stroke-miterlimit="10"
        pointer-events="none"
        id="path1137" />
+    <circle
+           transform="translate(480.77246,212.76855)"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         r="2.7272727"
+         id="ellipse213-8-62"
+         pointer-events="none"
+         cy="417.125"
+         cx="445.375" />
+      <circle
+             transform="translate(480.77246,212.76855)"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
+         r="2.7272727"
+         id="ellipse215-0-92"
+         pointer-events="none"
+         cy="417.5"
+         cx="415.5" />
     <g
        transform="translate(480.77246,212.76855)"
-       id="g6046-8-94"
+       id="breaker_nav2_svg_on"
        style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;">
       <path
          inkscape:connector-curvature="0"
@@ -3095,20 +3142,7 @@
          stroke-miterlimit="10"
          d="m 423,392.5 q 15,0 15,15 0,15 -15,15"
          style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse213-8-62"
-         pointer-events="none"
-         cy="417.125"
-         cx="445.375" />
-      <circle
-         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-         r="2.7272727"
-         id="ellipse215-0-92"
-         pointer-events="none"
-         cy="417.5"
-         cx="415.5" />
+      
       <path
          style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
          inkscape:connector-curvature="0"
@@ -3125,7 +3159,7 @@
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
     <g
-       id="nav_2_breaker_off"
+       id="breaker_nav2_svg_off"
        class="hidden"
        style="">
       <path
@@ -3152,7 +3186,7 @@
     </g>
   </g>
   <g
-     id="comm_2_breaker"
+     id="breaker_comm2_svg"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
@@ -3164,7 +3198,7 @@
        id="path1139" />
     <g
        transform="translate(480.31106,247.60362)"
-       id="comm_2_breaker_on"
+       id="breaker_comm2_svg_on"
        style="">
       <path
          inkscape:connector-curvature="0"
@@ -3190,7 +3224,7 @@
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
     <g
-       id="comm_2_breaker_off"
+       id="breaker_comm2_svg_off"
        class="hidden"
        style="">
       <path
@@ -3231,7 +3265,7 @@
        r="2.7272727" />
   </g>
   <g
-     id="audio_breaker"
+     id="breaker_audio_svg"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
@@ -3243,7 +3277,7 @@
        id="path1141" />
     <g
        transform="translate(480.54176,281.9773)"
-       id="audio_breaker_off"
+       id="breaker_audio_svg_on"
        style="">
       <path
          inkscape:connector-curvature="0"
@@ -3269,7 +3303,7 @@
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
     <g
-       id="g2740"
+       id="breaker_audio_svg_off"
        class="hidden"
        style="">
       <path
@@ -3310,7 +3344,7 @@
        r="2.7272727" />
   </g>
   <g
-     id="pfd_breaker"
+     id="breaker_ess_pfd_svg"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
@@ -3322,7 +3356,7 @@
        id="path1009" />
     <g
        transform="translate(433.71051,-153.80714)"
-       id="pfd_breaker_on"
+       id="breaker_ess_pfd_svg_on"
        style="">
       <path
          inkscape:connector-curvature="0"
@@ -3348,7 +3382,7 @@
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
     <g
-       id="pfd_breaker_off"
+       id="breaker_ess_pfd_svg_off"
        class="hidden"
        style="">
       <path
@@ -3389,7 +3423,7 @@
        r="2.7272727" />
   </g>
   <g
-     id="adc_ahrs_breaker"
+     id="breaker_ess_adc_ahrs_svg"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
@@ -3401,7 +3435,7 @@
        id="path1007" />
     <g
        transform="translate(433.71051,-114.58884)"
-       id="adc_ahrs_breaker_on"
+       id="breaker_ess_adc_ahrs_svg_on"
        style="">
       <path
          inkscape:connector-curvature="0"
@@ -3427,7 +3461,7 @@
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
     <g
-       id="adc_ahrs_breaker_off"
+       id="breaker_ess_adc_ahrs_svg_off"
        class="hidden"
        style="">
       <path
@@ -3468,7 +3502,7 @@
        r="2.7272727" />
   </g>
   <g
-     id="nav_1_eng_breaker"
+     id="breaker_ess_nav1_eng_svg"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
@@ -3480,7 +3514,7 @@
        id="path1005" />
     <g
        transform="translate(433.71051,-74.44777)"
-       id="nav_1_eng_breaker_on"
+       id="breaker_ess_nav1_eng_svg_on"
        style="">
       <path
          inkscape:connector-curvature="0"
@@ -3506,7 +3540,7 @@
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
     <g
-       id="nav_1_eng_breaker_off"
+       id="breaker_ess_nav1_eng_svg_off"
        class="hidden"
        style="">
       <path
@@ -3547,7 +3581,7 @@
        r="2.7272727" />
   </g>
   <g
-     id="comm_1_breaker"
+     id="breaker_ess_comm1_svg"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
@@ -3559,7 +3593,7 @@
        id="path1003" />
     <g
        transform="translate(433.9412,-30.154169)"
-       id="comm_1_breaker_on"
+       id="breaker_ess_comm1_svg_on"
        style="">
       <path
          inkscape:connector-curvature="0"
@@ -3585,7 +3619,7 @@
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
     <g
-       id="comm_1_breaker_off"
+       id="breaker_ess_comm1_svg_off"
        class="hidden"
        style="">
       <path
@@ -3626,7 +3660,7 @@
        r="2.7272727" />
   </g>
   <g
-     id="stby_ind_lts_breaker"
+     id="breaker_ess_stdby_ind_lts_svg"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
@@ -3638,7 +3672,7 @@
        id="path1001" />
     <g
        transform="translate(433.7105,10.678995)"
-       id="stby_ind_lts_breaker_on"
+       id="breaker_ess_stdby_ind_lts_svg_on"
        style="">
       <path
          inkscape:connector-curvature="0"
@@ -3664,7 +3698,7 @@
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
     <g
-       id="stby_ind_lts_breaker_off"
+       id="breaker_ess_stdby_ind_lts_svg_off"
        class="hidden"
        style="">
       <path
@@ -3706,7 +3740,7 @@
   </g>
   <g
      style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
-     id="stdby_batt_breaker"
+     id="breaker_ess_stdby_battery_svg"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
        inkscape:connector-curvature="0"
@@ -3725,7 +3759,7 @@
        id="ellipse863" />
     <g
        transform="translate(433.9412,50.358679)"
-       id="stdby_batt_breaker_on"
+       id="breaker_ess_stdby_battery_svg_on"
        style="">
       <path
          inkscape:connector-curvature="0"
@@ -3751,7 +3785,7 @@
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
     <g
-       id="stdby_batt_breaker_off"
+       id="breaker_ess_stdby_battery_svg_off"
        class="hidden"
        style="">
       <path
@@ -3792,7 +3826,7 @@
        r="2.7272727" />
   </g>
   <g
-     id="avn_pfd_breaker"
+     id="breaker_avn1_pfd_svg"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
@@ -3804,7 +3838,7 @@
        id="path1029" />
     <g
        transform="translate(496.22908,-322.2151)"
-       id="avn_pfd_breaker_on"
+       id="breaker_avn1_pfd_svg_on"
        style="">
       <path
          inkscape:connector-curvature="0"
@@ -3830,7 +3864,7 @@
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
     <g
-       id="avn_pfd_breaker_off"
+       id="breaker_avn1_pfd_svg_off"
        class="hidden"
        style="">
       <path
@@ -3871,7 +3905,7 @@
        r="2.7272727" />
   </g>
   <g
-     id="avn_ADC_AHRS_breaker"
+     id="breaker_avn1_adc_ahrs_svg"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
@@ -3883,7 +3917,7 @@
        id="path1031" />
     <g
        transform="translate(495.76769,-278.61359)"
-       id="avn_ADC_AHRS_breaker_on"
+       id="breaker_avn1_adc_ahrs_svg_on"
        style="">
       <path
          inkscape:connector-curvature="0"
@@ -3909,7 +3943,7 @@
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
     <g
-       id="avn_ADC_AHRS_breaker_off"
+       id="breaker_avn1_adc_ahrs_svg_off"
        class="hidden"
        style="">
       <path
@@ -3962,7 +3996,7 @@
        id="path1033" />
     <g
        transform="translate(495.76769,-235.47347)"
-       id="avn_nav1_eng_breaker_on"
+       id="breaker_avn1_nav1_eng_svg_on"
        style="">
       <path
          inkscape:connector-curvature="0"
@@ -3988,7 +4022,7 @@
          d="m 424.15465,392.83148 h 3.17267 q 3.17268,0 6.34536,0 h 3.17267" />
     </g>
     <g
-       id="avn_nav1_eng_breaker_off"
+       id="breaker_avn1_nav1_eng_svg_off"
        class="hidden"
        style="">
       <path

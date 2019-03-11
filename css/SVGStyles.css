@@ -3,6 +3,9 @@ svg path, svg rect, svg circle, svg ellipse {
     stroke: black;
     fill: none;
 }
+svg path {
+    fill: black;
+}
 
 text {
     fill: blue;
