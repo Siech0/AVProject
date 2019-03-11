@@ -3,19 +3,6 @@ $( function() {
 	//We could realistically use local state closures
 	var panel_state = {};
 	
-	/* 	
-		This function essentially concatenates functions
-		provided in the funcs array and generates a new function,
-		that can be used as an event handler. 
-		
-		EXAMPLE:
-		
-		$("#master_button").click( func_concat( [
-			toogle("#master_main_container", true, 500),
-			toogle("#breakers_main_container", true, 500)
-        ])
-    );
-	*/
 	var func_concat = function (funcs){
 		var ret = funcs[ funcs.length - 1];
 		funcs.pop();
@@ -116,7 +103,6 @@ $( function() {
 
 
 	//Toogle master_alt on and off, plays music.
-	/*
 	$("#master_switch_alt").click(function(){
        if ($("#master_switch_alt").hasClass("master_switch_off_alt"))
            {
@@ -163,7 +149,7 @@ $( function() {
 			   
             }
     });
-	*/
+	
 	
 	//Toogle master_bat on and off
 	
