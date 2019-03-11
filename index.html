@@ -52,27 +52,30 @@
 		</content>
 	</main>
 	<footer>
-		<div class="container">
-			<ul id="panel_list">
-				<li id="master_main_container" class="draggable">
-					<div id="master_header" class="box_headers">Master Switches <span class="close" id="master_close">&times;</span></div>
-					<div id="master_switch_panel" > 
-						<div id="master_switch_alt" class ="master_switch_off_alt"></div>
-						<div id="master_switch_bat" class ="master_switch_off_bat"></div>
-					</div>            
-				</li>
-				
-				<li id="breakers_main_container" class="draggable">
-					<div id="breaker_header" class="box_headers">Circuit Breakers<span class="close" id="breakers_close">&times;</span></div>
-					<div id="breaker_switch_panel"></div>
-				</li>
+		<ul id="panel_list">
+			<li id="master_main_container" class="draggable box_container">
+				<div class="box_header">Master Switches <span class="close" id="master_close">&times;</span></div>
+				<div class="box_content">
+					<img src="./images/masterPanelBg.jpg"/>
+					<img id="master_switch_alt" class ="master_switch_off_alt"/>
+					<img id="master_switch_bat" class ="master_switch_off_bat"/>
+				</div>        
+			</li>
 			
-				<li id="switches_main_container" class="draggable">
-					<div id="switches_header" class="box_headers">Switches<span class="close" id="switches_close">&times;</span></div>
-					<div id="switches_switch_panel"></div>
-				</li>
-			</ul>
-		</div>
+			<li id="breakers_main_container" class="draggable box_container">
+				<div class="box_header">Circuit Breakers<span class="close" id="breakers_close">&times;</span></div>
+				<div class="box_content">
+					<img src="./images/breakerrPanelBg.jpg"/>
+				</div>
+			</li>
+		
+			<li id="switches_main_container" class="draggable box_container">
+				<div class="box_header">Switches<span class="close" id="switches_close">&times;</span></div>
+				<div class="box_content">
+					<img src="./images/switchesPanelBg.jpg"/>
+				</div>
+			</li>
+		</ul>
 	</footer>
     
 	<!--

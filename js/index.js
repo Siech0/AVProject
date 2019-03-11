@@ -216,40 +216,47 @@ $( function() {
     });
 } );
 
-// puts svg into wrapper.
-$( "#svg_wrapper" ).load("images/C172SSchematic.svg");	
- 
-//Load info panel data and generate anchors and panels
-$.getJSON("itemInfo.json", function(json) {
-	info_panels = json.info_panels;
-	var wrapper = ("#svg_wrapper");
-	for (var i = 0; i < info_panels.length; ++i) {
-		var anchor = $("<div class='info_panel_anchor' id='info_panel_anchor_" + i + "'></div>");
-		anchor.css('top', info_panels[i].yPos + '%');
-		anchor.css('left', info_panels[i].xPos + '%');
-		anchor.css('width', info_panels[i].width + '%');
-		anchor.css('height', info_panels[i].height + '%');
-		anchor.click(toogle("#info_panel_"+i, false, 500));
-		anchor.appendTo(wrapper);
-		
-		var panel = $("<div class='info_panel draggable' id='info_panel_" + i + "'></div>");
-		panel.hide(0);
-		panel.css('top', (info_panels[i].yPos + 5) + '%');
-		panel.css('left', (info_panels[i].xPos + 5) + '%');
-		var title = $("<div></div>");
-		title.text(info_panels[i].title);
-		var closer = $("<span class='close' id='info_panel_close_'" + i + "'></span>");
-		closer.text('×');
-		closer.click(close("#info_panel_"+i, 500));
-		var content = $("<p></p>");
-		content.text(info_panels[i].text);
-		
-		closer.appendTo(title);
-		title.appendTo(panel);
-		content.appendTo(panel);
-		panel.appendTo(wrapper);
+
+$( "#svg_wrapper" ).load("images/C172SSchematic.svg", function(res, status, jqXHR) {
+	if(status === "error") {
+		var wrapper = $("#svg_wrapper");
+		$("<p>Error: Unable to load diagram file.</p>").appendTo(wrapper);
+	} else {
+		//Load info panel data and generate anchors and panels
+		$.getJSON("itemInfo.json", function(json) {
+			info_panels = json.info_panels;
+			var wrapper = $("#svg_wrapper");
+			for (var i = 0; i < info_panels.length; ++i) {
+				var anchor = $("<div class='info_panel_anchor' id='info_panel_anchor_" + i + "'></div>");
+				anchor.css('top', info_panels[i].yPos + '%');
+				anchor.css('left', info_panels[i].xPos + '%');
+				anchor.css('width', info_panels[i].width + '%');
+				anchor.css('height', info_panels[i].height + '%');
+				anchor.click(toogle("#info_panel_"+i, false, 500));
+				anchor.appendTo(wrapper);
+				
+				var panel = $("<div class='info_panel draggable' id='info_panel_" + i + "'></div>");
+				panel.hide(0);
+				panel.css('top', (info_panels[i].yPos + 5) + '%');
+				panel.css('left', (info_panels[i].xPos + 5) + '%');
+				var title = $("<div></div>");
+				title.text(info_panels[i].title);
+				var closer = $("<span class='close' id='info_panel_close_'" + i + "'></span>");
+				closer.text('×');
+				closer.click(close("#info_panel_"+i, 500));
+				var content = $("<p></p>");
+				content.text(info_panels[i].text); 
+				
+				closer.appendTo(title);
+				title.appendTo(panel);
+				content.appendTo(panel);
+				panel.appendTo(wrapper);
+			}
+		});
 	}
 });
+ 
+
 
 // Getter
 var scope = $( ".selector" ).draggable( "option", "scope" );
