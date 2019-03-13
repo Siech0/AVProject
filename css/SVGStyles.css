@@ -3,10 +3,10 @@ svg path, svg rect, svg circle, svg ellipse {
     stroke: black;
     fill: none;
 }
-
-#avionics_1_switch path, #avionics_1_switch circle, #avionics_1_switch rect {
-    stroke: red;
+svg path {
+    fill: black;
 }
+
 text {
     fill: blue;
 }
@@ -42,12 +42,21 @@ text {
     fill: white;
 }
 
-.on {
+.on, .on path, .on circle, .on rect {
     stroke: magenta;
+    /*fill: magenta;*/
 }
 
-.hidden {
+.on path {
+    fill: magenta;
+}
+
+.hidden, .hidden path, .hidden circle, .hidden ellipse {
     stroke: none;
+}
+
+.hidden path {
+    fill: none;
 }
 
 .box {

@@ -1,40 +1,150 @@
-﻿//Dreaded global, will refactor later.
-//We could realistically use local state in a closure
-//This is just here for debugging ezpz
-var panel_state = {};
-
-//Returns function that essentially concatenates other functions
-var func_concat = function (funcs){
-	var ret = funcs[ funcs.length - 1];
-	funcs.pop();
-	funcs = funcs.length > 1 ? func_concat(funcs) : funcs[0];
-	
-	return function() { ret.apply(new funcs); };
-}
-
-//Function that generates toogle functionality for panel buttons.
-var toogle = function(id, initial, rate) {
-	if(panel_state[id] === undefined) {
-		panel_state[id] = initial;
-	}
-	return function() {
-		if(panel_state[id]) { 	//Active
-			$(id).hide(rate);
-		} else { 				//Inactive
-			$(id).show(rate);
-		}
-		panel_state[id] = !panel_state[id];
-	}
-}
-
-//Function that generates a panel self close function
-var close = function(id, rate) {
-	return function() {
-		$(id).hide(rate);
-	}
-}
-
 $( function() {
+	//Ultimately this exists for debug purposes
+	//We could realistically use local state closures
+	var panel_state = {};
+	
+	/* 	
+		This function essentially concatenates functions
+		provided in the funcs array and generates a new function,
+		that can be used as an event handler. 
+		
+		EXAMPLE:
+		
+		$("#master_button").click( func_concat( [
+			toogle("#master_main_container", true, 500),
+			toogle("#breakers_main_container", true, 500)
+        ])
+    );
+	*/
+	var func_concat = function (funcs){
+		var ret = funcs[ funcs.length - 1];
+		funcs.pop();
+		funcs = funcs.length > 1 ? func_concat(funcs) : funcs[0];
+		
+		return function() { ret.apply(new funcs); };
+	};
+	
+
+	var classOnOff = function(id, classToAdd, classToRemove){
+		if ($(id).find("*").length == 0) {
+			$(id).removeClass(classToRemove);
+			$(id).addClass(classToAdd);
+		} else {
+			$(id).find('*').removeClass(classToRemove);
+			$(id).find('*').addClass(classToAdd);
+		}
+	};
+    
+		// Switch the class on an id from c1 to c2 and vice versa
+	var cSwitch = function(id, initFirst, cls1, cls2) {
+		return elementClassSwitch($(id), id, initFirst, cls1, cls2);
+	};
+	// Switch the class on an id and its children from c1 to c2 and vice versa
+	var crSwitch = function(id, initFirst, cls1, cls2) {
+		return elementClassSwitch($(id).find('*'), id, initFirst, cls1, cls2);
+	};
+	//Don't use directly, the interface is different from other similar functions.
+	var elementClassSwitch = function(ele, id, initFirst, cls1, cls2) {
+		if(panel_state[id] === undefined) {
+			panel_state[id] = initFirst;
+		}
+		return function() {
+			if(panel_state[id]) {
+				ele.addClass(cls2);
+				ele.removeClass(cls1);
+
+			} else {
+				ele.addClass(cls1);
+				ele.removeClass(cls2);
+			}
+
+			panel_state[id] = !panel_state[id];
+		};
+	};
+	
+	// Toogle a class on an id to be on/off.
+	var cToogle = function(id, initActive, cls) {
+		return elementClassToogle($(id), id, initActive, cls);
+	};
+	// Toogle a class on an id and its children to be on/off.
+	var crToogle = function(id, initActive, cls) {
+		return elementClassToogle($(id).find('*'), id, initActive, cls);
+	};
+	//Don't use directly, the interface is different from other similar functions.    
+	var elementClassToogle = function(ele, id, initActive, cls) {
+		if(panel_state[id] === undefined) {
+			panel_state[id] = initActive;
+		}
+
+		return function() {
+			if(panel_state[id]) {
+				ele.removeClass(cls);
+			} else {
+				ele.addClass(cls);
+			}
+			panel_state[id] = !panel_state[id];
+		};
+	};
+    
+	//Function that generates toogle functionality for panel buttons.
+	var toogle = function(id, initial, rate) {
+		if(panel_state[id] === undefined) {
+			panel_state[id] = initial;
+		}
+		return function() {
+			if(panel_state[id]) { 	//Active
+				$(id).hide(rate);
+			} else { 				//Inactive
+				$(id).show(rate);
+			}
+			panel_state[id] = !panel_state[id];
+		};
+	};
+    
+	
+	// I want a function that takes advantage of my naming conventions to turn
+	// switches and breakers on and off
+	var schematicFlipSwitch = function(name, toState){
+		var onId = "#" + name + "_on";
+		var offId = "#" + name + "_off";
+		//console.log(onId);
+		//console.log(offId);
+		
+		// so we want to flip it to state
+		if (toState) {
+            //that means we want to turn the switch to on
+			$(onId).removeClass("hidden");
+			//$(onId).find("*").removeClass("hidden");
+			
+			$(offId).addClass("hidden");
+			//$(offId).find("*").addClass("hidden");
+			
+        } else {
+			$(offId).removeClass("hidden");
+			//$(offId).find("*").removeClass("hidden");
+			
+			$(onId).addClass("hidden");
+			//$(onId).find("*").addClass("hidden");
+		}
+	};
+	
+	//Exists for code reuse, toogles class on supplied elements, not id!
+
+
+
+	//Function that generates a panel self close function
+	var close = function(id, rate) {
+		return function() {
+			$(id).hide(rate);
+		};
+	};
+	
+	//Function that plays audio {
+	var audio = function(id) {
+		return function () {
+			$(id).trigger("play");
+		};
+	};
 	
     /* When the document is loaded, it will hide all elements in the pop_up_list
     $( document ).ready(function(){
@@ -95,49 +205,39 @@ $( function() {
 
 
 	//Toogle master_alt on and off, plays music.
+
 	$("#master_switch_alt").click(function(){
        if ($("#master_switch_alt").hasClass("master_switch_off_alt"))
            {
-               $("#master_switch_alt").removeClass("master_switch_off_alt");
-               $("#master_switch_alt").addClass("master_switch_on_alt");
-               $("#master_switch_bat").removeClass("master_switch_off_bat");
-               $("#master_switch_bat").addClass("master_switch_on_bat");
+				classOnOff("#master_switch_alt", "master_switch_on_alt", "master_switch_off_alt");
+				classOnOff("#master_switch_bat", "master_switch_on_bat", "master_switch_off_bat");
+
                $("#audio_master").trigger("play");
 			   
 			   // makes the paths connected to the switch turn on
-			   $("#alt_master_switch").find("*").addClass("on");
-			   $("#alt_relay").find("*").addClass("on");
-			   $("#alt_relay_off").find("*").addClass("hidden");
-			   $("#alt_relay_on").removeClass("hidden");
-			   $("#battery_master_switch").find("*").addClass("on");
-			   $("#battery_relay").find("*").addClass("on");
-			   $("#battery_relay_on").removeClass("hidden");
-			   $("#battery_relay_off").find("*").addClass("hidden");
+			   
+			   classOnOff("#alt_master_switch", "on", "");
+			   classOnOff("#alt_relay", "on", "");
+			   classOnOff("#battery_relay", "on", "");
+			   classOnOff("#battery_master_switch", "on", "");
 			   
 			   
-			   // makes the switch toggle from off to on
-			   $("#alt_master_switch_on").removeClass("hidden");
-			   $("#alt_master_switch_off").addClass("hidden");
-			   $("#battery_master_switch_on").removeClass("hidden");
-			   $("#battery_master_switch_off").addClass("hidden");
+			   schematicFlipSwitch("alt_relay", true);
+			   schematicFlipSwitch("alt_master_switch", true);
+			   schematicFlipSwitch("battery_master_switch", true);
+			   schematicFlipSwitch("battery_relay", true);
 			   
            }
         else
             {
-               $("#master_switch_alt").removeClass("master_switch_on_alt");
-               $("#master_switch_alt").addClass("master_switch_off_alt");
-			   
+				classOnOff("#master_switch_alt", "master_switch_off_alt", "master_switch_on_alt");
+			
 			   // makes the paths turn off
-			   $("#alt_master_switch").find("*").removeClass("on");
-			   $("#alt_relay").find("*").removeClass("on");
-			   $("#alt_master_switch_on").removeClass("on");
+			   classOnOff("#alt_master_switch", "", "on");
+			   classOnOff("#alt_relay", "", "on");
 			   
-			   // makes the switch toggle from on to off
-			   $("#alt_master_switch_on").addClass("hidden");
-			   $("#alt_master_switch_off").removeClass("hidden");
-			   
-			   $("#alt_relay_on").addClass("hidden");
-			   $("#alt_relay_off").find("*").removeClass("hidden");
+			   schematicFlipSwitch("alt_relay", false);
+			   schematicFlipSwitch("alt_master_switch", false);
 			   
             }
     });
@@ -148,43 +248,124 @@ $( function() {
     $("#master_switch_bat").click(function(){
        if ($("#master_switch_bat").hasClass("master_switch_off_bat"))
            {
-               $("#master_switch_bat").removeClass("master_switch_off_bat");
-               $("#master_switch_bat").addClass("master_switch_on_bat");
-			   $("#battery_master_switch").find("*").addClass("on");
-			   $("#battery_relay").find("*").addClass("on");
+			//classToogle("#master_switch_bat", "master_switch_on_bat", "master_switch_off_bat");
+			// because of how the two switches interact a simple toggle won't work
+			// on all the other switches it should be fine though.
+               classOnOff("#master_switch_bat", "master_switch_on_bat", "master_switch_off_bat");
 			   
-			   $("#battery_master_switch_on").removeClass("hidden");
-			   $("#battery_master_switch_off").addClass("hidden");
-			   $("#battery_relay_on").removeClass("hidden");
-			   $("#battery_relay_off").find("*").addClass("hidden");
+			   classOnOff("#battery_master_switch", "on", "");
+			   classOnOff("#battery_relay", "on", "");
+			   
+			   schematicFlipSwitch("battery_master_switch", true);
+			   schematicFlipSwitch("battery_relay", true);
 			   
            }
         else
             {
-               $("#master_switch_bat").removeClass("master_switch_on_bat");
-               $("#master_switch_bat").addClass("master_switch_off_bat"); 
-               $("#master_switch_alt").removeClass("master_switch_on_alt");
-               $("#master_switch_alt").addClass("master_switch_off_alt");
+				classOnOff("#master_switch_bat", "master_switch_off_bat", "master_switch_on_bat");
+				classOnOff("#master_switch_alt", "master_switch_off_alt", "master_switch_on_alt");
+				
+				classOnOff("#battery_master_switch", "", "on");
+				schematicFlipSwitch("battery_master_switch", false);
+				
+				classOnOff("#battery_relay", "", "on");
+				schematicFlipSwitch("battery_relay", false);
+				
+				classOnOff("#alt_master_switch", "", "on");
+				schematicFlipSwitch("alt_master_switch", false);
+				
+                classOnOff("#alt_relay", "", "on");
+				schematicFlipSwitch("alt_relay", false);
 			   
-			   $("#battery_master_switch").find("*").removeClass("on");
-			   $("#battery_relay").find("*").removeClass("on");
-			   $("#alt_master_switch").find("*").removeClass("on");
-			   $("#alt_relay").find("*").removeClass("on");
-			   
-			   $("#battery_master_switch_off").removeClass("hidden");
-			   $("#battery_master_switch_on").addClass("hidden");
-			   $("#battery_relay_on").addClass("hidden");
-			   $("#battery_relay_off").find("*").removeClass("hidden");
-			   
-			   $("#alt_master_switch_on").addClass("hidden");
-			   $("#alt_master_switch_off").removeClass("hidden");
-			   
-			   $("#alt_relay_on").addClass("hidden");
-			   $("#alt_relay_off").find("*").removeClass("hidden");
             }
     });
+    
+	// if we name the div tags right, we can set this up in a loop to toggle
+	// the switches in the switches panel...
+	// also we can set it to the "active" class
+	// how it's gonna work is
+	// forall the switches in the panel
+	// we get the id, and concatenate it with svg to access the switchon the schematic
+	var switchPanel = $("#switches_switch_panel").children();
+	console.log(switchPanel);
+	switchPanel.each(function(){
+		$(this).click(function(){
+			var id = $(this).attr('id');
+		if (panel_state[id] == undefined) {
+			panel_state[id] = false;
+		}
+		schematicFlipSwitch(id+"_svg", !panel_state[id]);
+		panel_state[id] = !panel_state[id];
+		
+		//cSwitch("#beacon_light_switch", true, "on");
+		if (panel_state[id]) {
+			console.log("Turning on " + id);
+			classOnOff("#"+id+"_svg", "on", "");    
+		} else {
+			classOnOff("#"+id+"_svg", "", "on");
+			console.log("Turning off " + id);
+		}
+		});
+		
+	}
+			
+	);
+	
+	var breakerPanel = $("#breaker_switch_panel").children();
+	console.log(breakerPanel);
+	breakerPanel.each(function(){
+		$(this).click(function(){
+			var id = $(this).attr('id');
+		if (panel_state[id] == undefined) {
+			panel_state[id] = true;
+		}
+		schematicFlipSwitch(id+"_svg", !panel_state[id]);
+		panel_state[id] = !panel_state[id];
+		
+		//cSwitch("#beacon_light_switch", true, "on");
+		if (panel_state[id]) {
+			console.log("Turning on " + id);
+			classOnOff("#"+id+"_svg", "on", "");    
+		} else {
+			classOnOff("#"+id+"_svg", "", "on");
+			console.log("Turning off " + id);
+		}
+		});
+		
+	}
+			
+	);
+	/*for (var sw in switchPanel) {
+		console.log("hi");
+		var id = sw.get(0).id;
+		sw.click(
+			function(){
+				
+	}*/
+	
+//	$("#switch_beacon").click(function(){
+//		if (panel_state['#switch_beacon'] == undefined) {
+//            panel_state['#switch_beacon'] = false;
+//        }
+//		schematicFlipSwitch("switch_beacon_light", !panel_state['#switch_beacon']);
+//		panel_state['#switch_beacon'] = !panel_state['#switch_beacon'];
+//		
+//		//cSwitch("#beacon_light_switch", true, "on");
+//		if (panel_state['#switch_beacon']) {
+//			classOnOff("#switch_beacon_light", "on", "");    
+//        } else {
+//			classOnOff("#switch_beacon_light", "", "on");    
+//		}
+//		
+//    }); 
 } );
 
+	
+	
+
+
+// Getter
+var scope = $( ".selector" ).draggable( "option", "scope" );
 
 $( "#svg_wrapper" ).load("images/C172SSchematic.svg", function(res, status, jqXHR) {
 	if(status === "error") {
@@ -231,4 +412,3 @@ $( "#svg_wrapper" ).load("images/C172SSchematic.svg", function(res, status, jqXH
 var scope = $( ".selector" ).draggable( "option", "scope" );
 // Setter
 $( ".selector" ).draggable( "option", "scope", "buttonBox" );
-

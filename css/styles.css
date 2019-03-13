@@ -113,7 +113,7 @@ main {
 	width: 100%;
 }
 
-#svg_wrapper>p {
+#svg_wrapper > p {
 
 	margin-top: 10px;
 	font-weight: bold;
@@ -164,14 +164,14 @@ footer {
 	padding: 2px;
 }
 
-.panel_content img:first-of-type{
+/*.panel_content img:first-of-type{
 	display: block;
 	width: 100%;
 	height: auto;
-}
+}*/
 
 #master_switch_alt {
-	position: absolute;
+	position: relative;
 	top: 149px;
     left: 38px;
     width: 14px;
@@ -179,9 +179,9 @@ footer {
 }
 
 #master_switch_bat {
-	position: absolute;
-	top: 149px;
-    left: 52px;
+	position: relative;
+	top: -20px;
+    left: -154px;
     width: 14px;
     height: 51px;
 	
@@ -240,6 +240,7 @@ footer {
 
 /* Styling for information panels */
 
+/*??????
 .info_panel {
 	display: block;
 	position: absolute;
@@ -255,6 +256,7 @@ footer {
 	border-radius: 4px;
 }
 
+
 .info_panel div {
 	width: 100%;
 
@@ -266,7 +268,7 @@ footer {
 
 .info_panel p {
 	margin: 2px
-}
+}*/
 
 
 /* Class for popup box header
