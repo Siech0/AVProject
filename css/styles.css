@@ -129,7 +129,9 @@ footer {
 	text-align: center;
 }
 
-
+.panel_content div {
+	display: inline;
+}
 #panel_list {
 	display: inline-block;
 	list-style: none;
@@ -164,27 +166,34 @@ footer {
 	padding: 2px;
 }
 
-/*.panel_content img:first-of-type{
+.panel_content img:first-of-type{
 	display: block;
-	width: 100%;
-	height: auto;
-}*/
+	/*width: 100%;*/
+	/*height: auto;*/
+}
 
 #master_switch_alt {
-	position: relative;
-	top: 149px;
+	position: absolute;
+	top: 145px;
     left: 38px;
     width: 14px;
     height: 51px;
+	width: 0px;
+	height: 0px;
+	padding: 25px 7px 24px 7px;
+	background-repeat: no-repeat;
 }
 
 #master_switch_bat {
-	position: relative;
-	top: -20px;
-    left: -154px;
+	position: absolute;
+	top: 145px;
+	left: 53px;
+    
     width: 14px;
     height: 51px;
-	
+	width: 0px;
+	height: 0px;
+	padding: 25px 7px 24px 7px;
 	background-repeat: no-repeat;
 }
 
