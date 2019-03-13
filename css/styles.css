@@ -104,6 +104,7 @@ footer {
 } 
 
 #panel_list > li {
+	
 	float: left;
 	margin: 0 .1vw 0 .1vw;
 }

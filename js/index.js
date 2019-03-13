@@ -1,21 +1,9 @@
-$( function() {
+
 	//Ultimately this exists for debug purposes
 	//We could realistically use local state closures
 	var panel_state = {};
 	
-	/* 	
-		This function essentially concatenates functions
-		provided in the funcs array and generates a new function,
-		that can be used as an event handler. 
-		
-		EXAMPLE:
-		
-		$("#master_button").click( func_concat( [
-			toogle("#master_main_container", true, 500),
-			toogle("#breakers_main_container", true, 500)
-        ])
-    );
-	*/
+	
 	var func_concat = function (funcs){
 		var ret = funcs[ funcs.length - 1];
 		funcs.pop();
@@ -30,60 +18,9 @@ $( function() {
 			$(id).removeClass(classToRemove);
 			$(id).addClass(classToAdd);
 		} else {
-			$(id).find('*').removeClass(classToRemove);
-			$(id).find('*').addClass(classToAdd);
+			$(id).removeClass(classToRemove);
+			$(id).addClass(classToAdd);
 		}
-	};
-    
-		// Switch the class on an id from c1 to c2 and vice versa
-	var cSwitch = function(id, initFirst, cls1, cls2) {
-		return elementClassSwitch($(id), id, initFirst, cls1, cls2);
-	};
-	// Switch the class on an id and its children from c1 to c2 and vice versa
-	var crSwitch = function(id, initFirst, cls1, cls2) {
-		return elementClassSwitch($(id).find('*'), id, initFirst, cls1, cls2);
-	};
-	//Don't use directly, the interface is different from other similar functions.
-	var elementClassSwitch = function(ele, id, initFirst, cls1, cls2) {
-		if(panel_state[id] === undefined) {
-			panel_state[id] = initFirst;
-		}
-		return function() {
-			if(panel_state[id]) {
-				ele.addClass(cls2);
-				ele.removeClass(cls1);
-
-			} else {
-				ele.addClass(cls1);
-				ele.removeClass(cls2);
-			}
-
-			panel_state[id] = !panel_state[id];
-		};
-	};
-	
-	// Toogle a class on an id to be on/off.
-	var cToogle = function(id, initActive, cls) {
-		return elementClassToogle($(id), id, initActive, cls);
-	};
-	// Toogle a class on an id and its children to be on/off.
-	var crToogle = function(id, initActive, cls) {
-		return elementClassToogle($(id).find('*'), id, initActive, cls);
-	};
-	//Don't use directly, the interface is different from other similar functions.    
-	var elementClassToogle = function(ele, id, initActive, cls) {
-		if(panel_state[id] === undefined) {
-			panel_state[id] = initActive;
-		}
-
-		return function() {
-			if(panel_state[id]) {
-				ele.removeClass(cls);
-			} else {
-				ele.addClass(cls);
-			}
-			panel_state[id] = !panel_state[id];
-		};
 	};
     
 	//Function that generates toogle functionality for panel buttons.
@@ -107,22 +44,54 @@ $( function() {
 	var schematicFlipSwitch = function(name, toState){
 		var onId = "#" + name + "_on";
 		var offId = "#" + name + "_off";
+		var switchId = "#" + name;
 		//console.log(onId);
 		//console.log(offId);
+		var inheiritFrom = "";
+		var inheiritTo = "";
+		//if (name.split("_")[0] == "breaker") {
+      inheiritTo = name.replace("breaker", "switch");
+  //} else if (name.split("_")[0] == "switch") {
+    inheiritFrom = name.replace("switch", "breaker");
+  //}
 		
+		//console.log(inheiritFrom);
+		//if (inheiritFrom != "") {
+     inheiritClass = $("#"+inheiritFrom).prop("classList");
+  //}
+		
+		//console.log(inheiritClass);
 		// so we want to flip it to state
 		if (toState) {
             //that means we want to turn the switch to on
+			$(switchId).addClass(inheiritClass[0]);
+			console.log(inheiritTo.replace("_svg",""));
+			console.log(panel_state[inheiritTo.replace("_svg","")]);
+			if (panel_state[inheiritTo.replace("_svg","")]) {
+				console.log(inheiritTo);
+        $("#" + inheiritTo).addClass(inheiritClass[0]);
+    }
+			
+			//$(switchId).removeClass("off");
 			$(onId).removeClass("hidden");
 			//$(onId).find("*").removeClass("hidden");
-			
+			//$(offId).removeClass(inheiritClass);
 			$(offId).addClass("hidden");
 			//$(offId).find("*").addClass("hidden");
 			
-        } else {
+  } else {
+			//$(switchId).addClass("off");
+			//if (inheiritTo != "") {
+			console.log($(switchId).prop("classList"));
+			
+   $("#"+inheiritTo).removeClass(inheiritClass[0]);
+   ////}
+			
+			$(switchId).removeClass(inheiritClass[0]);
 			$(offId).removeClass("hidden");
 			//$(offId).find("*").removeClass("hidden");
-			
+			//$(onId).removeClass("off");
+			//$(onId).removeClass(inheiritClass[0]);
 			$(onId).addClass("hidden");
 			//$(onId).find("*").addClass("hidden");
 		}
@@ -146,17 +115,19 @@ $( function() {
 		};
 	};
 	
-    /* When the document is loaded, it will hide all elements in the pop_up_list*/
+    /* When the document is loaded, it will hide all elements in the pop_up_list
     $( document ).ready(function(){
         $("#pop_up_list").children().hide();
     });
 
     /*Function to display pop up box when clicking on the 'starter' svg element present in C172SSchematic.svg
-      For some reason, I was able to make it work one time.  After I refreshed the page, it stopped working and I have no idea why.*/
+      For some reason, I was able to make it work one time.  After I refreshed the page, it stopped working and I have no idea why.
     var svg_starter = document.getElementById('starter');
     $(svg_starter).click(function(){
        $("#alternator_main_container").show(500); 
     });
+ */
+    
     
     
 	//Enable draggable functionality for all draggable containers
@@ -271,9 +242,9 @@ $( function() {
 		//cSwitch("#beacon_light_switch", true, "on");
 		if (panel_state[id]) {
 			console.log("Turning on " + id);
-			classOnOff("#"+id+"_svg", "on", "");    
+			//classOnOff("#"+id+"_svg", "on", "");    
 		} else {
-			classOnOff("#"+id+"_svg", "", "on");
+			//classOnOff("#"+id+"_svg", "", "on");
 			console.log("Turning off " + id);
 		}
 		});
@@ -290,10 +261,7 @@ $( function() {
 		if (panel_state[id] == undefined) {
 			panel_state[id] = true;
 		}
-		schematicFlipSwitch(id+"_svg", !panel_state[id]);
 		panel_state[id] = !panel_state[id];
-		
-		//cSwitch("#beacon_light_switch", true, "on");
 		if (panel_state[id]) {
 			console.log("Turning on " + id);
 			classOnOff("#"+id+"_svg", "on", "");    
@@ -301,35 +269,19 @@ $( function() {
 			classOnOff("#"+id+"_svg", "", "on");
 			console.log("Turning off " + id);
 		}
+		
+		schematicFlipSwitch(id+"_svg", panel_state[id]);
+		
+		
+		//cSwitch("#beacon_light_switch", true, "on");
+		
 		});
 		
 	}
 			
 	);
-	/*for (var sw in switchPanel) {
-		console.log("hi");
-		var id = sw.get(0).id;
-		sw.click(
-			function(){
-				
-	}*/
 	
-//	$("#switch_beacon").click(function(){
-//		if (panel_state['#switch_beacon'] == undefined) {
-//            panel_state['#switch_beacon'] = false;
-//        }
-//		schematicFlipSwitch("switch_beacon_light", !panel_state['#switch_beacon']);
-//		panel_state['#switch_beacon'] = !panel_state['#switch_beacon'];
-//		
-//		//cSwitch("#beacon_light_switch", true, "on");
-//		if (panel_state['#switch_beacon']) {
-//			classOnOff("#switch_beacon_light", "on", "");    
-//        } else {
-//			classOnOff("#switch_beacon_light", "", "on");    
-//		}
-//		
-//    }); 
-} );
+ ;
 
 	
 	

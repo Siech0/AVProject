@@ -51,6 +51,15 @@ text {
     fill: magenta;
 }
 
+
+.off, .off path, .off circle, .off ellipse {
+    stroke: black;
+}
+
+.off path {
+    fill: black;
+}
+
 .hidden, .hidden path, .hidden circle, .hidden ellipse {
     stroke: none;
 }
