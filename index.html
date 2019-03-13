@@ -18,17 +18,17 @@
 	<header>
 		<nav class="container">
 			<ul id="nav_list" class="nav-list">
-                <li>
+                <li id="logo_button">
                     <img src="images/UCM_logo.png"/>
                     <h1>C172S Electrical System</h1>
                 </li>
-				<li>
+				<li id="engine_button">
 					<img src="images/sparkplug.jpg"/>
-					<span> ENGINE <br><span id="engine-status"> SHUTDOWN </span> </span>
+					<span style="width: 80px;"> ENGINE: <br><span id="engine_status" style="color:red;"> OFFLINE </span> </span>
 				</li>
-				<li>
+				<li id="epu_button">
 					<img src="images/button_epu.png" width=50px height=50px/>
-					<span> EPU <br><span id="epu-status" class="epu_controller"> OFFLINE </span> </span>
+					<span style="width: 80px;"> EPU: <br><span id="epu_status" class="epu_controller" style="color:red;"> OFFLINE </span> </span>
 				</li>
 				<li id="master_button">
 					<img src="images/button_master.png"/>
@@ -52,19 +52,20 @@
 		</content>
 	</main>
 	<footer>
-		<div class="container">
-			<ul id="panel_list">
-				<li id="master_main_container" class="draggable">
-					<div id="master_header" class="box_headers">Master Switches <span class="close" id="master_close">&times;</span></div>
-					<div id="master_switch_panel" > 
-						<div id="master_switch_alt" class ="master_switch_off_alt"></div>
-						<div id="master_switch_bat" class ="master_switch_off_bat"></div>
-					</div>            
-				</li>
-				
-				<li id="breakers_main_container" class="draggable">
-					<div id="breaker_header" class="box_headers">Circuit Breakers<span class="close" id="breakers_close">&times;</span></div>
-					<div id="breaker_switch_panel">
+		<ul id="panel_list">
+			<li id="master_main_container" class="draggable panel_container">
+				<div class="panel_header">Master Switches <span class="close" id="master_close">&times;</span></div>
+				<div class="panel_content">
+					<img src="./images/masterPanelBg.jpg"/>
+					<img id="master_switch_alt" class ="master_switch_off_alt"/>
+					<img id="master_switch_bat" class ="master_switch_off_bat"/>
+				</div>        
+			</li>
+			
+			<li id="breakers_main_container" class="draggable panel_container">
+				<div class="panel_header">Circuit Breakers<span class="close" id="breakers_close">&times;</span></div>
+				<div class="panel_content">
+                    					<div id="breaker_switch_panel">
 						<!-- x-feed bus-->
 						<div id="breaker_alt_field">alt field</div>
 						<div id="breaker_warn">warn</div>
@@ -104,12 +105,17 @@
 						<div id="breaker_comm2">comm2</div>
 						<div id="breaker_audio">audio</div>
 					</div>
-					
-				</li>
-			
-				<li id="switches_main_container" class="draggable">
-					<div id="switches_header" class="box_headers">Switches<span class="close" id="switches_close">&times;</span></div>
-					<div id="switches_switch_panel">
+
+					<img src="./images/breakerrPanelBg.jpg"/>
+				</div>
+			</li>
+		
+			<li id="switches_main_container" class="draggable panel_container">
+				<div class="panel_header">Switches<span class="close" id="switches_close">&times;</span></div>
+				<div class="panel_content">
+                    
+                    <div id="switches_switch_panel">
+
 						<div id="switch_beacon_light">Beacon</div>
 						<div id="switch_land_light">Landing</div>
 						<div id="switch_taxi_light">Taxi</div>
@@ -122,13 +128,15 @@
 						<div id="switch_cabin_lights">cabin lights</div>
 						<div id="switch_avn1">avn1</div>
 					</div>
-					
-					
-				</li>
-			</ul>
-		</div>
+                    
+					<img src="./images/switchesPanelBg.jpg"/>
+				</div>
+			</li>
+		</ul>
 	</footer>
-    <!--
+    
+	<!--
+>>>>>>> 188e84c9db18651bb88d1a4fa05637f90f219d5e
     <div class="container">
         <ul id="pop_up_list">
             <li id="alternator_main_container" class="draggable">

@@ -1,13 +1,11 @@
 html {
-	min-height: 100%;
-	min-width: 100%;
+	width: 100%;
+	height: 100%;
 }
 
 body {
 	top: 0;
-	min-height: 100%;
-	min-width: 100%;
-	line-height: 1.25em;
+	line-height: 1em;
 	font-family: Helvetica Neue, Helvetica, Arial;
 	background: #333333;
 }
@@ -22,6 +20,10 @@ body {
 	width: 100%;
 	align-items: center;
 	text-align: center;	
+}
+
+.hidden {
+	display: none;
 }
 
 
@@ -54,6 +56,12 @@ header {
 	background: #555555;
 	border: 1px solid black;
 	border-radius: 0px 0px 4px 4px;
+	
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	cursor: default;
 
 }
 
@@ -69,9 +77,15 @@ header {
 #nav_list > li > span {
 	float: right;
 	margin-left: 5px;
+	
+	font-weight: bold;
   	display: inline-block;
   	vertical-align: middle;
   	line-height: normal;
+	-webkit-text-size-adjust:none;
+	-ms-text-size-adjust:none;
+	-moz-text-size-adjust:none;
+	text-size-adjust:none;
 }
 
 /* MAIN CONTENT STYLES */
@@ -81,15 +95,30 @@ main {
 }
 
 #svg_wrapper{
-    	position: relative;
-    	width: 1000px;
-    	padding: 2%;
-    	margin: auto;
-    	background-color: white;
+    display: flex;
+    flex-direction: column;
+	position: relative;
+    width: 100%;
+    max-height: 70%;
+	/*width: 55vw;*/
+	margin: auto;
+	background-color: white;
+	border: 2px solid black;
+	border-radius: 8px;
 }
 
 #svg_wrapper svg {
+    display: flex;
 	height: 100%;
+	width: 100%;
+}
+
+#svg_wrapper > p {
+
+	margin-top: 10px;
+	font-weight: bold;
+	font-size: 25px;
+	height: 50px;
 	width: 100%;
 }
 
@@ -97,9 +126,14 @@ main {
 footer {
 	width: 100%;
 	margin-top: 1vh;
+	text-align: center;
 }
 
+.panel_content div {
+	display: inline;
+}
 #panel_list {
+	display: inline-block;
 	list-style: none;
 } 
 
@@ -113,148 +147,76 @@ footer {
 
 
 /*Class for all lower box headers*/
-.box_headers{
-    height: 30px;
-    color: white;
-    width: inherit;                
+.panel_container {
+	border: 2px solid black;
+	background-color: #777777;
+}
+
+.panel_header{
+	padding: 2px;
+	border-bottom: 1px solid black;
+    color: white;                
     background-color: red;
-    font-size: 20px;
+	font-weight: bold;
     cursor: move;
 }
 
-/*Styling for master switch container*/
-#master_main_container{
-    background-color: white;
-    height: 230px;
-    width: 185px;
-    border: solid;
-    border-width: 2px;
-    border-color: black;
+.panel_content {
+	height: auto;
+	overflow: auto;
+	padding: 2px;
 }
 
-/*Styling for the background image of the master Switch box */
-#master_switch_panel{     
-    background-image: url(../images/masterPanelBg.jpg);
-    position: absolute;
-    top: 32px;
-    left: 2px;
-    width: 181px;
-    height: 195px;                
-    background-repeat: no-repeat;	
-    overflow: hidden;                
+.panel_content img:first-of-type{
+	display: block;
+	/*width: 100%;*/
+	/*height: auto;*/
+}
+
+#master_switch_alt {
+	position: absolute;
+	top: 145px;
+    left: 38px;
+    width: 14px;
+    height: 51px;
+	width: 0px;
+	height: 0px;
+	padding: 25px 7px 24px 7px;
+	background-repeat: no-repeat;
+}
+
+#master_switch_bat {
+	position: absolute;
+	top: 145px;
+	left: 53px;
+    
+    width: 14px;
+    height: 51px;
+	width: 0px;
+	height: 0px;
+	padding: 25px 7px 24px 7px;
+	background-repeat: no-repeat;
 }
 
 /*Styling for the master Switch Off image  -- .master_switch_bat*/
 .master_switch_off_alt{
-    background-image: url(../images/masterOff.jpg);
-    position: absolute;
-    top: 123px;
-    left: 36px;
-    width: 14px;
-    height: 51px;
-    background-repeat: no-repeat;	
-    overflow: hidden;        
+    background-image: url(../images/masterOff.jpg);       
 }
 
 /*Styling for the master Switch On image */
 .master_switch_on_alt{
-    background-image: url(../images/masterOn.jpg);
-    position: absolute;
-    top: 123px;
-    left: 36px;
-    width: 14px;
-    height: 51px;
-    background-repeat: no-repeat;	
-    overflow: hidden;        
+    background-image: url(../images/masterOn.jpg);      
 }
 
 /*Styling for the master Switch Off image  -- BAT*/
 .master_switch_off_bat{
-    background-image: url(../images/masterOff.jpg);
-    position: absolute;
-    top: 123px;
-    left: 51px;
-    width: 14px;
-    height: 51px;
-    background-repeat: no-repeat;	
-    overflow: hidden;        
+    background-image: url(../images/masterOff.jpg);     
 }
 
 /*Styling for the master Switch On image -- BAT*/
 .master_switch_on_bat{
-    background-image: url(../images/masterOn.jpg);
-    position: absolute;
-    top: 123px;
-    left: 51px;
-    width: 14px;
-    height: 51px;
-    background-repeat: no-repeat;	
-    overflow: hidden;        
+    background-image: url(../images/masterOn.jpg);      
 }
-
-/*Styling for breakers container*/
-#breakers_main_container{
-    background-color: white;
-    height: 220px;
-    width: 569px;
-    border: solid;
-    border-width: 2px;
-    border-color: black;    
-}
-
-/*Styling for the background image of the breakers box*/
-#breaker_switch_panel{
-    background-image: url(../images/breakerrPanelBg.jpg);
-    position: absolute;
-    top: 32px;
-    left: 2px;
-    width: 565px;
-    height: 183px;                
-    background-repeat: no-repeat;	
-    overflow: hidden; 
-}
-
-/*Styling for master switch container*/
-#switches_main_container{
-    background-color: white;
-    height: 220px;
-    width: 224px;
-    border: solid;
-    border-width: 2px;
-    border-color: black;
-}
-
-/*Styling for the background image of the switch box*/
-#switches_switch_panel{
-    background-image: url(../images/switchesPanelBg.jpg);
-    position: absolute;
-    top: 32px;
-    left: 2px;
-    width: 220px;
-    height: 169px;                
-    background-repeat: no-repeat;	
-    overflow: hidden; 
-}
-
-
-#switches_switch_panel div{
-    width: 50px;
-	height: 50px;
-	background-color: gray;
-	border: 2px black solid;
-	display: inline;
-}
-
-#breaker_switch_panel div{
-    width: 50px;
-	height: 50px;
-	background-color: gray;
-	border: 2px black solid;
-	display: inline;
-}
-
-
-
 
 /*Styling for the 'x' that appears in the corner of each header*/
 .close {
@@ -268,13 +230,58 @@ footer {
 .close:hover {
     background-color: #aaaaaa;
     color: black;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: default;
 }
 
-/* Class for popup box header*/
+/* Styling for information panel anchor */
+.info_panel_anchor {
+	display: block;
+	position: absolute;	
+	z-index: 10;
+	width: 3vh;
+	height: 3vh;
+	background: rgba(0, 0, 0, 0);
+	border-radius: 4px;
+	border-color: rgba(0, 0, 0, .1);
+}
+
+.info_panel_anchor:hover {
+	background: rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for information panels */
+
+/*??????
+.info_panel {
+	display: block;
+	position: absolute;
+	z-index: 11;
+	width: auto;
+	height: auto;
+	min-width: 7vw;
+	min-height: 5vh;
+	max-width: 10vw;
+	color: #DDD;
+	background-color: #555555;
+	border: 1px solid black;
+	border-radius: 4px;
+}
+
+
+.info_panel div {
+	width: 100%;
+
+	background-color: #777777;
+	border-bottom: 1px solid black;
+	font-weight: bold;
+	padding: 2px 0 2px 0;
+}
+
+.info_panel p {
+	margin: 2px
+}*/
+
+
+/* Class for popup box header
 .pop_up_header {
     height: 30px;
     color: white;
@@ -284,7 +291,7 @@ footer {
     cursor: move;
 }
 
-/*Class to style pop_up panels*/
+/*Class to style pop_up panels
 .pop_up_panel {
     position: absolute;
     top: 32px;
@@ -295,8 +302,6 @@ footer {
     background-repeat: no-repeat;	
     overflow: hidden;                
 }
+*/
 
-/*STYLES FOR MOBILE USERS*/
-@media only screen and (max-width : 640px) {
 
-}

@@ -38,7 +38,32 @@
 		};
 	};
     
-	
+	var schematicFlipMaster = function(name, toState){
+		var onId = "#" + name + "_on";
+		var offId = "#" + name + "_off";
+		if (toState) {
+            //that means we want to turn the switch to on
+			
+			//$(switchId).removeClass("off");
+			$(onId).removeClass("hidden");
+			//$(onId).find("*").removeClass("hidden");
+			//$(offId).removeClass(inheiritClass);
+			$(offId).addClass("hidden");
+			//$(offId).find("*").addClass("hidden");
+			
+  } else {
+			//$(switchId).addClass("off");
+			//if (inheiritTo != "") {
+			
+			$(offId).removeClass("hidden");
+			//$(offId).find("*").removeClass("hidden");
+			//$(onId).removeClass("off");
+			//$(onId).removeClass(inheiritClass[0]);
+			$(onId).addClass("hidden");
+			//$(onId).find("*").addClass("hidden");
+		}
+		
+	};
 	// I want a function that takes advantage of my naming conventions to turn
 	// switches and breakers on and off
 	var schematicFlipSwitch = function(name, toState){
@@ -119,6 +144,7 @@
     $( document ).ready(function(){
         $("#pop_up_list").children().hide();
     });
+	*/
 
     /*Function to display pop up box when clicking on the 'starter' svg element present in C172SSchematic.svg
       For some reason, I was able to make it work one time.  After I refreshed the page, it stopped working and I have no idea why.
@@ -127,13 +153,38 @@
        $("#alternator_main_container").show(500); 
     });
  */
-    
-    
-    
+
 	//Enable draggable functionality for all draggable containers
 	$(".draggable").draggable({scope: "buttonBox"});
 	
 	//Enable navigation button panel toogle functionality
+	
+	panel_state["#engine_button"] = false;
+	$("#engine_button").click(function(){
+		var status = $("#engine_status");
+		if(panel_state["#engine_button"]){
+			status.css("color", "red");
+			status.text("OFFLINE");
+		} else {
+			status.css("color", "cyan");
+			status.text("ONLINE");
+		}
+		panel_state["#engine_button"] = !panel_state["#engine_button"];
+	});
+	
+	panel_state["#epu_button"] = false;
+	$("#epu_button").click(function(){
+		var status = $("#epu_status");
+		if(panel_state["#epu_button"]){
+			status.css("color", "red");
+			status.text("OFFLINE");
+		} else {
+			status.css("color", "cyan");
+			status.text("ONLINE");
+		}
+		panel_state["#epu_button"] = !panel_state["#epu_button"];
+	});
+	
     $("#master_button").click(toogle("#master_main_container", true, 500)); //Master
     $("#breakers_button").click(toogle("#breakers_main_container", true, 500)); //Breakers
 	$("#switches_button").click(toogle("#switches_main_container", true, 500)); //Switches
@@ -147,7 +198,7 @@
 
 
 	//Toogle master_alt on and off, plays music.
-	
+
 	$("#master_switch_alt").click(function(){
        if ($("#master_switch_alt").hasClass("master_switch_off_alt"))
            {
@@ -164,10 +215,10 @@
 			   classOnOff("#battery_master_switch", "on", "");
 			   
 			   
-			   schematicFlipSwitch("alt_relay", true);
-			   schematicFlipSwitch("alt_master_switch", true);
-			   schematicFlipSwitch("battery_master_switch", true);
-			   schematicFlipSwitch("battery_relay", true);
+			   schematicFlipMaster("alt_relay", true);
+			   schematicFlipMaster("alt_master_switch", true);
+			   schematicFlipMaster("battery_master_switch", true);
+			   schematicFlipMaster("battery_relay", true);
 			   
            }
         else
@@ -178,8 +229,8 @@
 			   classOnOff("#alt_master_switch", "", "on");
 			   classOnOff("#alt_relay", "", "on");
 			   
-			   schematicFlipSwitch("alt_relay", false);
-			   schematicFlipSwitch("alt_master_switch", false);
+			   schematicFlipMaster("alt_relay", false);
+			   schematicFlipMaster("alt_master_switch", false);
 			   
             }
     });
@@ -198,8 +249,8 @@
 			   classOnOff("#battery_master_switch", "on", "");
 			   classOnOff("#battery_relay", "on", "");
 			   
-			   schematicFlipSwitch("battery_master_switch", true);
-			   schematicFlipSwitch("battery_relay", true);
+			   schematicFlipMaster("battery_master_switch", true);
+			   schematicFlipMaster("battery_relay", true);
 			   
            }
         else
@@ -208,16 +259,16 @@
 				classOnOff("#master_switch_alt", "master_switch_off_alt", "master_switch_on_alt");
 				
 				classOnOff("#battery_master_switch", "", "on");
-				schematicFlipSwitch("battery_master_switch", false);
+				schematicFlipMaster("battery_master_switch", false);
 				
 				classOnOff("#battery_relay", "", "on");
-				schematicFlipSwitch("battery_relay", false);
+				schematicFlipMaster("battery_relay", false);
 				
 				classOnOff("#alt_master_switch", "", "on");
-				schematicFlipSwitch("alt_master_switch", false);
+				schematicFlipMaster("alt_master_switch", false);
 				
                 classOnOff("#alt_relay", "", "on");
-				schematicFlipSwitch("alt_relay", false);
+				schematicFlipMaster("alt_relay", false);
 			   
             }
     });
@@ -290,8 +341,48 @@
 // Getter
 var scope = $( ".selector" ).draggable( "option", "scope" );
 
-// puts svg into wrapper.
-$( "#svg_wrapper" ).load("images/C172SSchematic.svg");	
+$( "#svg_wrapper" ).load("images/C172SSchematic.svg", function(res, status, jqXHR) {
+	if(status === "error") {
+		var wrapper = $("#svg_wrapper");
+		$("<p>Error: Unable to load diagram file.</p>").appendTo(wrapper);
+	} else {
+		//Load info panel data and generate anchors and panels
+		$.getJSON("itemInfo.json", function(json) {
+			info_panels = json.info_panels;
+			var wrapper = $("#svg_wrapper");
+			for (var i = 0; i < info_panels.length; ++i) {
+				var anchor = $("<div class='info_panel_anchor' id='info_panel_anchor_" + i + "'></div>");
+				anchor.css('top', info_panels[i].yPos + '%');
+				anchor.css('left', info_panels[i].xPos + '%');
+				anchor.css('width', info_panels[i].width + '%');
+				anchor.css('height', info_panels[i].height + '%');
+				anchor.click(toogle("#info_panel_"+i, false, 500));
+				anchor.appendTo(wrapper);
+				
+				var panel = $("<div class='info_panel draggable' id='info_panel_" + i + "'></div>");
+				panel.hide(0);
+				panel.css('top', (info_panels[i].yPos + 5) + '%');
+				panel.css('left', (info_panels[i].xPos + 5) + '%');
+				var title = $("<div></div>");
+				title.text(info_panels[i].title);
+				var closer = $("<span class='close' id='info_panel_close_'" + i + "'></span>");
+				closer.text('×');
+				closer.click(close("#info_panel_"+i, 500));
+				var content = $("<p></p>");
+				content.text(info_panels[i].text); 
+				
+				closer.appendTo(title);
+				title.appendTo(panel);
+				content.appendTo(panel);
+				panel.appendTo(wrapper);
+			}
+		});
+	}
+});
  
+
+
+// Getter
+var scope = $( ".selector" ).draggable( "option", "scope" );
 // Setter
 $( ".selector" ).draggable( "option", "scope", "buttonBox" );
