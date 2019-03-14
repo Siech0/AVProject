@@ -1,11 +1,13 @@
 html {
-	width: 100%;
-	height: 100%;
+	min-height: 100%;
+	min-width: 100%;
 }
 
 body {
 	top: 0;
-	line-height: 1em;
+	min-height: 100%;
+	min-width: 100%;
+	line-height: 1.25em;
 	font-family: Helvetica Neue, Helvetica, Arial;
 	background: #333333;
 }
@@ -20,10 +22,6 @@ body {
 	width: 100%;
 	align-items: center;
 	text-align: center;	
-}
-
-.hidden {
-	display: none;
 }
 
 
@@ -56,17 +54,21 @@ header {
 	background: #555555;
 	border: 1px solid black;
 	border-radius: 0px 0px 4px 4px;
-	
+	transform: translateY(-2px);
 	-moz-user-select: none;
 	-webkit-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
 	cursor: default;
-
 }
 
 #nav_list > li:hover {
 	background: #666666;
+}
+
+#nav_list > li:active {
+	background-color: #666666;
+	transform: translateY(-1px);
 }
 
 #nav_list > li > img {
@@ -77,15 +79,9 @@ header {
 #nav_list > li > span {
 	float: right;
 	margin-left: 5px;
-	
-	font-weight: bold;
   	display: inline-block;
   	vertical-align: middle;
   	line-height: normal;
-	-webkit-text-size-adjust:none;
-	-ms-text-size-adjust:none;
-	-moz-text-size-adjust:none;
-	text-size-adjust:none;
 }
 
 /* MAIN CONTENT STYLES */
@@ -95,30 +91,15 @@ main {
 }
 
 #svg_wrapper{
-    display: flex;
-    flex-direction: column;
-	position: relative;
-    width: 100%;
-    max-height: 70%;
-	/*width: 55vw;*/
-	margin: auto;
-	background-color: white;
-	border: 2px solid black;
-	border-radius: 8px;
+    	position: relative;
+    	width: 1000px;
+    	padding: 2%;
+    	margin: auto;
+    	background-color: white;
 }
 
 #svg_wrapper svg {
-    display: flex;
 	height: 100%;
-	width: 100%;
-}
-
-#svg_wrapper > p {
-
-	margin-top: 10px;
-	font-weight: bold;
-	font-size: 25px;
-	height: 50px;
 	width: 100%;
 }
 
@@ -126,14 +107,9 @@ main {
 footer {
 	width: 100%;
 	margin-top: 1vh;
-	text-align: center;
 }
 
-.panel_content div {
-	display: inline;
-}
 #panel_list {
-	display: inline-block;
 	list-style: none;
 } 
 
@@ -142,6 +118,7 @@ footer {
 	float: left;
 	margin: 0 .1vw 0 .1vw;
 }
+
 
 
 
@@ -175,27 +152,26 @@ footer {
 
 #master_switch_alt {
 	position: absolute;
-	top: 145px;
+	top: 148px;
     left: 38px;
     width: 14px;
-    height: 51px;
-	width: 0px;
-	height: 0px;
+    height: 52px;
+
 	padding: 25px 7px 24px 7px;
 	background-repeat: no-repeat;
+	background-size: auto;
 }
 
 #master_switch_bat {
 	position: absolute;
-	top: 145px;
+	top: 148px;
 	left: 53px;
-    
     width: 14px;
-    height: 51px;
-	width: 0px;
-	height: 0px;
+    height: 52px;
+	
 	padding: 25px 7px 24px 7px;
 	background-repeat: no-repeat;
+	background-size: auto;
 }
 
 /*Styling for the master Switch Off image  -- .master_switch_bat*/
@@ -218,6 +194,38 @@ footer {
     background-image: url(../images/masterOn.jpg);      
 }
 
+/* Styling for the switch containers */
+.switch_container {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.switch_container > button {
+
+	display: inline-block;
+	float: left;
+	padding: 1px;
+	margin: 1px;
+	background-color: #BBB;
+	border: 1px solid black;
+	border-radius: 4px;
+	cursor: default;
+	z-index: 10;
+}
+
+.switch_container > button:hover {
+	background-color: #DDD;
+}
+
+.switch_container > button:active {
+	background-color: #DDD;
+	box-shadow: 0 3px #666;
+	transform: translateY(1px);
+}
+
+
+
 /*Styling for the 'x' that appears in the corner of each header*/
 .close {
     color: #aaaaaa;
@@ -230,9 +238,13 @@ footer {
 .close:hover {
     background-color: #aaaaaa;
     color: black;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: default;
 }
 
-/* Styling for information panel anchor */
+/* Styling for information pop-up anchors */
 .info_panel_anchor {
 	display: block;
 	position: absolute;	
@@ -248,9 +260,7 @@ footer {
 	background: rgba(0, 0, 0, 0.1);
 }
 
-/* Styling for information panels */
-
-/*??????
+/* Styling for information pop-ups*/
 .info_panel {
 	display: block;
 	position: absolute;
@@ -264,6 +274,7 @@ footer {
 	background-color: #555555;
 	border: 1px solid black;
 	border-radius: 4px;
+	box-shadow: 2px 2px #222;
 }
 
 
@@ -278,8 +289,7 @@ footer {
 
 .info_panel p {
 	margin: 2px
-}*/
-
+}
 
 /* Class for popup box header
 .pop_up_header {
@@ -303,5 +313,3 @@ footer {
     overflow: hidden;                
 }
 */
-
-

@@ -3,18 +3,18 @@
 		{
 			"title": "Alternator",
 			"text": "This is does alternator stuff.",
-			"xPos": 2.7,
-			"yPos": 25.5,
+			"xPos": 5.9,
+			"yPos": 27.4,
 			"width": 5,
 			"height": 8
 		},
 		{
 			"title": "Starter",
 			"text": "This is does starter stuff.",
-			"xPos": 1.9,
-			"yPos": 55,
-			"width": 3.8,
-			"height": 3.8
+			"xPos": 4.9,
+			"yPos": 54.5,
+			"width": 7.8,
+			"height": 10
 		}
 	]
 }
