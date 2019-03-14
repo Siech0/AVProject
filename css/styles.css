@@ -24,6 +24,10 @@ body {
 	text-align: center;	
 }
 
+.draggable_handle {
+	cursor: move;
+}
+
 
 /* HEADER STYLES */
 header {
@@ -59,7 +63,7 @@ header {
 	-webkit-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-	cursor: default;
+	cursor: pointer;
 }
 
 #nav_list > li:hover {
@@ -87,7 +91,7 @@ header {
 /* MAIN CONTENT STYLES */
 main {
 	width: 100%;
-	margin-top: 1vh;
+	margin-top: 2px !important;
 }
 
 #svg_wrapper{
@@ -96,6 +100,9 @@ main {
     	padding: 2%;
     	margin: auto;
     	background-color: white;
+		
+		border: 2px solid black;
+		border-radius: 8px;
 }
 
 #svg_wrapper svg {
@@ -106,7 +113,7 @@ main {
 /* FOOTER STYLES */
 footer {
 	width: 100%;
-	margin-top: 1vh;
+	margin-top: 2px !important;
 }
 
 #panel_list {
@@ -118,9 +125,6 @@ footer {
 	float: left;
 	margin: 0 .1vw 0 .1vw;
 }
-
-
-
 
 
 /*Class for all lower box headers*/
@@ -135,7 +139,6 @@ footer {
     color: white;                
     background-color: red;
 	font-weight: bold;
-    cursor: move;
 }
 
 .panel_content {
@@ -202,7 +205,6 @@ footer {
 }
 
 .switch_container > button {
-
 	display: inline-block;
 	float: left;
 	padding: 1px;
@@ -210,7 +212,7 @@ footer {
 	background-color: #BBB;
 	border: 1px solid black;
 	border-radius: 4px;
-	cursor: default;
+	cursor: pointer;
 	z-index: 10;
 }
 
@@ -232,16 +234,15 @@ footer {
     float: right;
     font-size: 28px;
     font-weight: bold;
-    cursor: default;
+    cursor: pointer;
+	margin-right: 2px;
 }
 
 .close:hover {
-    background-color: #aaaaaa;
-    color: black;
+    color: #CCCCCC;
     float: right;
-    font-size: 28px;
+    transform: scale(0.9);
     font-weight: bold;
-    cursor: default;
 }
 
 /* Styling for information pop-up anchors */
@@ -258,6 +259,10 @@ footer {
 
 .info_panel_anchor:hover {
 	background: rgba(0, 0, 0, 0.1);
+}
+
+.info_panel_anchor:active {
+	background: rgba(0, 0, 0, 0.15);
 }
 
 /* Styling for information pop-ups*/
@@ -280,7 +285,6 @@ footer {
 
 .info_panel div {
 	width: 100%;
-
 	background-color: #777777;
 	border-bottom: 1px solid black;
 	font-weight: bold;

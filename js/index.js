@@ -15,6 +15,7 @@ var classOnOff = function(id, classToAdd, classToRemove){
 
 // I want a function that takes advantage of my naming conventions to turn
 // switches and breakers on and off
+// (Could we format this better, its incredibly hard to unserstand this code)
 var schematicFlipSwitch = function(name, toState){
 	var onId = "#" + name + "_on";
 	var offId = "#" + name + "_off";
@@ -28,8 +29,7 @@ var schematicFlipSwitch = function(name, toState){
 	//}
 	//if (inheiritFrom != "") {
 	inheiritClass = $("#"+inheiritFrom).prop("classList");
-	//}
-		
+	//}	
 	if (toState) {
 		//that means we want to turn the switch to on
 		$(switchId).addClass(inheiritClass[0]);
@@ -37,8 +37,8 @@ var schematicFlipSwitch = function(name, toState){
 		console.log(panel_state[inheiritTo.replace("_svg","")]);
 		if (panel_state[inheiritTo.replace("_svg","")]) {
 			console.log(inheiritTo);
-	$("#" + inheiritTo).addClass(inheiritClass[0]);
-}
+			$("#" + inheiritTo).addClass(inheiritClass[0]);
+		}
 		
 		//$(switchId).removeClass("off");
 		$(onId).removeClass("hidden");
@@ -47,14 +47,12 @@ var schematicFlipSwitch = function(name, toState){
 		$(offId).addClass("hidden");
 		//$(offId).find("*").addClass("hidden");
 		
-} else {
+	} else {
 		//$(switchId).addClass("off");
 		//if (inheiritTo != "") {
 		console.log($(switchId).prop("classList"));
-		
-$("#"+inheiritTo).removeClass(inheiritClass[0]);
-////}
-		
+		$("#"+inheiritTo).removeClass(inheiritClass[0]);
+		//}		
 		$(switchId).removeClass(inheiritClass[0]);
 		$(offId).removeClass("hidden");
 		//$(offId).find("*").removeClass("hidden");
@@ -108,11 +106,6 @@ $(svg_starter).click(function(){
 });
 */
 
-
-
-//Enable draggable functionality for all draggable containers
-$(".draggable").draggable({scope: "buttonBox"});
-
 //Enable navigation button panel toogle functionality
 $("#master_button").click(toogle("#master_main_container", true, 500)); //Master
 $("#breakers_button").click(toogle("#breakers_main_container", true, 500)); //Breakers
@@ -124,10 +117,7 @@ $("#master_close").click(close("#master_main_container", 500)); //Master
 $("#breakers_close").click(close("#breakers_main_container", 500)); //Breakers
 $("#switches_close").click(close("#switches_main_container", 500)); //Switches
 
-
-
 //Toogle master_alt on and off, plays music.
-
 $("#master_switch_alt").click(function(){
    if ($("#master_switch_alt").hasClass("master_switch_off_alt"))
 	   {
@@ -298,11 +288,11 @@ $( "#svg_wrapper" ).load("images/C172SSchematic.svg", function(res, status, jqXH
 				anchor.click(toogle("#info_panel_"+i, false, 500));
 				anchor.appendTo(wrapper);
 				
-				var panel = $("<div class='info_panel draggable' id='info_panel_" + i + "'></div>");
+				var panel = $("<div class='info_panel generated_draggable' id='info_panel_" + i + "'></div>");
 				panel.hide(0);
 				panel.css('top', (info_panels[i].yPos + 5) + '%');
 				panel.css('left', (info_panels[i].xPos + 5) + '%');
-				var title = $("<div></div>");
+				var title = $("<div class='draggable_handle'></div>");
 				title.text(info_panels[i].title);
 				var closer = $("<span class='close' id='info_panel_close_'" + i + "'></span>");
 				closer.text('×');
@@ -314,12 +304,14 @@ $( "#svg_wrapper" ).load("images/C172SSchematic.svg", function(res, status, jqXH
 				content.appendTo(panel);
 				panel.appendTo(wrapper);
 			}
+			//Ensure that the generated elements can be dragged
+			$(".generated_draggable").draggable({handle: ".draggable_handle"});
 		});
 	}
-});	
- 
-// Getter
-var scope = $( ".selector" ).draggable( "option", "scope" );
- 
-// Setter
-$( ".selector" ).draggable( "option", "scope", "buttonBox" );
+});	 
+
+//Enable draggable functionality for all draggable containers
+$(".draggable").draggable({handle: ".draggable_handle"});
+
+//Prevent annoying image drag 
+$('img').on('dragstart', function(event) { event.preventDefault(); });
