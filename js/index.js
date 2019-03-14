@@ -2,7 +2,7 @@
 	//Ultimately this exists for debug purposes
 	//We could realistically use local state closures
 	var panel_state = {};
-	
+	var activeClass = "on";
 	
 	var func_concat = function (funcs){
 		var ret = funcs[ funcs.length - 1];
@@ -109,7 +109,7 @@
 			//if (inheiritTo != "") {
 			console.log($(switchId).prop("classList"));
 			
-   $("#"+inheiritTo).removeClass(inheiritClass[0]);
+   $("#"+inheiritTo).removeClass(activeClass);
    ////}
 			
 			$(switchId).removeClass(inheiritClass[0]);
