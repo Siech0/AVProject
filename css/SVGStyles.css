@@ -42,7 +42,7 @@ text {
     fill: white;
 }
 
-.on, .on path, .on circle, .on rect {
+.on, .on path, .on circle, .on rect, .on ellipse {
     stroke: magenta;
     /*fill: magenta;*/
 }
