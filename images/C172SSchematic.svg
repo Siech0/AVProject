@@ -6863,25 +6863,25 @@ Switch<br />
     <path
      inkscape:connector-curvature="0"
      
-     id="stby_battery_controller"
+     id="stby_battery_controller_target"
      
      d="M 915.44874,225.47347 H 1027.9189 V 625.41064 H 915.44874 Z" />
     <path
      
      inkscape:connector-curvature="0"
-     id="power_distribution_module"
+     id="power_distribution_module_target"
      
      d="M 111.96999,6.673761 H 397.4052 V 634.37783 H 111.96999 Z" />
     <rect
      
-     id="ACU_box"
+     id="ACU_box_target"
      
      height="161.40962"
      width="127.80681"
      y="24.608164"
      x="132.4191" />
     <rect
-     
+     id="x-feed_bus_target"
      height="122.85065"
      width="20.449089"
      y="229.06033"
@@ -6894,13 +6894,13 @@ Switch<br />
    
    id="rect307-5" />
 <rect
-   id="rect1951-5"
+   id="starter"
    width="84.239174"
    height="81.239174"
    x="12.880414"
    y="345.70657" />
 <rect
-   id="rect1951-35"
+   id="alternator"
    width="58.805912"
    height="57.670029"
    x="24.597044"
@@ -6967,6 +6967,7 @@ Switch<br />
       <rect
    
    id="rect1951"
+   
    width="68.5"
    height="72.5"
    x="167.5"
@@ -7291,6 +7292,7 @@ Switch<br />
    
    id="rect243-7" />
 <rect
+     id="ess_bus_target"
    height="233.14723"
    width="20.449089"
    y="205.29727"

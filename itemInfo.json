@@ -1,5 +1,5 @@
 {
-	"info_panels" : [
+	"info_panels": {"alternator":
 		{
 			"title": "Alternator",
 			"text": "This is does alternator stuff.",
@@ -8,7 +8,7 @@
 			"width": 5,
 			"height": 8
 		},
-		{
+		"starter":{
 			"title": "Starter",
 			"text": "This is does starter stuff.",
 			"xPos": 1.9,
@@ -16,5 +16,5 @@
 			"width": 3.8,
 			"height": 3.8
 		}
-	]
+	}
 }
