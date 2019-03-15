@@ -25,6 +25,7 @@
     
 	//Function that generates toogle functionality for panel buttons.
 	var toogle = function(id, initial, rate) {
+		
 		if(panel_state[id] === undefined) {
 			panel_state[id] = initial;
 		}
@@ -37,6 +38,22 @@
 			panel_state[id] = !panel_state[id];
 		};
 	};
+	
+	var toogle2 = function(id, initial, rate) {
+		
+		if(panel_state[id] === undefined) {
+			panel_state[id] = initial;
+		}
+		//return function() {
+			if(panel_state[id]) { 	//Active
+				$(id).hide(rate);
+			} else { 				//Inactive
+				$(id).show(rate);
+			}
+			panel_state[id] = !panel_state[id];
+		//};
+	};
+  
     
 	var schematicFlipMaster = function(name, toState){
 		var onId = "#" + name + "_on";
@@ -334,9 +351,6 @@
 	
  ;
 
-	
-	
-
 
 // Getter
 var scope = $( ".selector" ).draggable( "option", "scope" );
@@ -346,41 +360,45 @@ $( "#svg_wrapper" ).load("images/C172SSchematic.svg", function(res, status, jqXH
 		var wrapper = $("#svg_wrapper");
 		$("<p>Error: Unable to load diagram file.</p>").appendTo(wrapper);
 	} else {
-		//Load info panel data and generate anchors and panels
-		$.getJSON("itemInfo.json", function(json) {
+		
+		var info_panels;
+		info_panels = $.getJSON("itemInfo.json", function(json) {
+			
 			info_panels = json.info_panels;
-			var wrapper = $("#svg_wrapper");
-			for (var i = 0; i < info_panels.length; ++i) {
-				var anchor = $("<div class='info_panel_anchor' id='info_panel_anchor_" + i + "'></div>");
-				anchor.css('top', info_panels[i].yPos + '%');
-				anchor.css('left', info_panels[i].xPos + '%');
-				anchor.css('width', info_panels[i].width + '%');
-				anchor.css('height', info_panels[i].height + '%');
-				anchor.click(toogle("#info_panel_"+i, false, 500));
-				anchor.appendTo(wrapper);
-				
-				var panel = $("<div class='info_panel draggable' id='info_panel_" + i + "'></div>");
-				panel.hide(0);
-				panel.css('top', (info_panels[i].yPos + 5) + '%');
-				panel.css('left', (info_panels[i].xPos + 5) + '%');
-				var title = $("<div></div>");
-				title.text(info_panels[i].title);
-				var closer = $("<span class='close' id='info_panel_close_'" + i + "'></span>");
-				closer.text('×');
-				closer.click(close("#info_panel_"+i, 500));
-				var content = $("<p></p>");
-				content.text(info_panels[i].text); 
-				
-				closer.appendTo(title);
-				title.appendTo(panel);
-				content.appendTo(panel);
-				panel.appendTo(wrapper);
-			}
+			console.log(info_panels);
+			
+			return info_panels;
 		});
+		
+		var targets = document.getElementById("targets");
+		
+	  targets.addEventListener("click", function (e){
+		   console.log(e.target.id);
+			 console.log(e.clientX);
+			 
+			 // this will move the info panel to whereever the user clicked
+			 $("#info_panel").css("top", e.pageY+5 +"px");
+			 $("#info_panel").css("left", e.pageX+5 +"px");
+			 
+			 console.log(panel_state["#info_panel"]);
+			 console.log($("#info_panel_title").text());
+			 
+			 // show hide the info panel
+			 toogle2("#info_panel", false, 500);
+			 
+			 // fill the info panel with the text from the json file according to the target chosen.
+			 $("#info_panel_title").text(info_panels[e.target.id].title);
+			 var closer = $("<span class='close' id='info_panel_close'>×</span>");
+			 closer.click(toogle("#info_panel", false, 500));
+			 closer.appendTo($("#info_panel_title"));
+			 $("#info_panel_content").text(info_panels[e.target.id].text);
+		   
+		}, false);
+
 	}
 });
  
-
+	
 
 // Getter
 var scope = $( ".selector" ).draggable( "option", "scope" );
