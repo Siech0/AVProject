@@ -76,3 +76,14 @@ text {
 .box:hover {
     fill: red;
 }
+
+#targets rect:hover, #targets path:hover {
+    stroke: purple;
+}
+
+#targets rect, #targets path{
+    stroke: none;
+    fill: transparent;
+}
+
+
