@@ -279,15 +279,7 @@ $( "#svg_wrapper" ).load("images/C172SSchematic.svg", function(res, status, jqXH
 		$.getJSON("itemInfo.json", function(json) {
 			info_panels = json.info_panels;
 			var wrapper = $("#svg_wrapper");
-			for (var i = 0; i < info_panels.length; ++i) {
-				var anchor = $("<div class='info_panel_anchor' id='info_panel_anchor_" + i + "'></div>");
-				anchor.css('top', info_panels[i].yPos + '%');
-				anchor.css('left', info_panels[i].xPos + '%');
-				anchor.css('width', info_panels[i].width + '%');
-				anchor.css('height', info_panels[i].height + '%');
-				anchor.click(toogle("#info_panel_"+i, false, 500));
-				anchor.appendTo(wrapper);
-				
+			for (var i = 0; i < info_panels.length; ++i) {				
 				var panel = $("<div class='info_panel generated_draggable' id='info_panel_" + i + "'></div>");
 				panel.hide(0);
 				panel.css('top', (info_panels[i].yPos + 5) + '%');
@@ -303,6 +295,8 @@ $( "#svg_wrapper" ).load("images/C172SSchematic.svg", function(res, status, jqXH
 				title.appendTo(panel);
 				content.appendTo(panel);
 				panel.appendTo(wrapper);
+				//Toogle("info_panel_" + i, false, 500)
+				$('#'+info_panels.group).click();
 			}
 			//Ensure that the generated elements can be dragged
 			$(".generated_draggable").draggable({handle: ".draggable_handle"});

@@ -245,26 +245,6 @@ footer {
     font-weight: bold;
 }
 
-/* Styling for information pop-up anchors */
-.info_panel_anchor {
-	display: block;
-	position: absolute;	
-	z-index: 10;
-	width: 3vh;
-	height: 3vh;
-	background: rgba(0, 0, 0, 0);
-	border-radius: 4px;
-	border-color: rgba(0, 0, 0, .1);
-}
-
-.info_panel_anchor:hover {
-	background: rgba(0, 0, 0, 0.1);
-}
-
-.info_panel_anchor:active {
-	background: rgba(0, 0, 0, 0.15);
-}
-
 /* Styling for information pop-ups*/
 .info_panel {
 	display: block;
