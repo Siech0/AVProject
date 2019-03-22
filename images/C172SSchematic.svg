@@ -726,24 +726,7 @@
      width="34.11935"
      y="537.44287"
      x="863.41473" />
-  <ellipse
-     id="ellipse853"
-     
-     transform="scale(-1)"
-     cy="-313.35202"
-     cx="-843.02496"
-     style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none;"
-     rx="2.5561361"
-     ry="2.6901603" />
-  <ellipse
-     id="ellipse857"
-     
-     transform="scale(-1)"
-     cy="-331.28644"
-     cx="-843.02496"
-     style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none;"
-     rx="2.5561361"
-     ry="2.6901603" />
+  
   <g
      id="on_off_control_off"
      style="">
@@ -758,13 +741,7 @@
        id="path873"
        inkscape:connector-curvature="0" />
   </g>
-  <path
-     style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none;"
-     inkscape:connector-curvature="0"
-     id="path881"
-     
-     stroke-miterlimit="10"
-     d="m 828.54018,311.5586 v 19.72785" />
+  
   <path
      style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none;"
      d="M 856.60656,435.4203 V 415.88973"
@@ -1342,9 +1319,11 @@
        id="path4167"
        d="M 1022.66,464.34749 H 988.34"
        style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;" />
+    
     <g
-       style="fill:none;"
-       id="g4176">
+       id="standby_battery_test_paths"
+       style="">
+      
       <circle
          r="3"
          id="ellipse867"
@@ -1354,6 +1333,7 @@
          cx="-990"
          style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;" />
       <path
+           
          style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
          d="m 985.7,467.17 -12.95,-0.085 V 430.75 l 14.75,-0.25"
          id="path4169"
@@ -1367,10 +1347,6 @@
          rx="2.6400001"
          cy="-467"
          cx="-988" />
-    </g>
-    <g
-       id="g4197"
-       style="">
       <g
          id="g4180"
          style="">
@@ -6421,6 +6397,32 @@ Switch<br />
   <g
      id="standby_battery_paths"
      style="">
+    <ellipse
+     id="ellipse853"
+     
+     transform="scale(-1)"
+     cy="-313.35202"
+     cx="-843.02496"
+     style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none;"
+     rx="2.5561361"
+     ry="2.6901603" />
+  <ellipse
+     id="ellipse857"
+     
+     transform="scale(-1)"
+     cy="-331.28644"
+     cx="-843.02496"
+     style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none;"
+     rx="2.5561361"
+     ry="2.6901603" />
+    <path
+           
+     style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none;"
+     inkscape:connector-curvature="0"
+     id="path881"
+     
+     stroke-miterlimit="10"
+     d="m 828.54018,311.5586 v 19.72785" />
     <path
        d="m 932.51774,542.98506 v 4.33294 l 2.5017,0.96288 -5.0035,1.92575 5.0035,1.92575 -5.0035,1.92575 5.0035,1.92576 -5.0035,1.92575 5.0035,1.92575 -5.0035,1.92576 2.5018,0.96288 v 4.33294"
        stroke-miterlimit="10"
@@ -6577,6 +6579,7 @@ Switch<br />
        id="test_switch_arm"
        class="hidden"
        style="">
+     <!-- -->
       <path
          inkscape:connector-curvature="0"
          id="path2714-6"

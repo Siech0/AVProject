@@ -51,7 +51,47 @@ var schematicFlipSwitch = function(name, toState){
         }
 };
 	
+// Someday I hope to reduce these into one function, but three will do
+var armStandbyBattery = function(){
+	offStandbyBattery();
+	$("#standby_battery_paths").addClass("on_standby_battery");
+	$("#test_switch_arm").addClass("on_standby_battery");
+	$("#test_switch_arm").removeClass("hidden");
+	$("#test_switch_off").addClass("hidden");
+	$("#on_off_control_on").removeClass("hidden");
+	$("#on_off_control_on").addClass("on_standby_battery");
+	$("#on_off_control_off").addClass("hidden");
+};
 
+var testStandbyBattery = function(){
+	offStandbyBattery();
+	$("#standby_battery_paths").addClass("on_standby_battery");
+	//$("#standby_battery_test_paths").addClass("on_standby_battery");
+	$("#test_voltage_sense").addClass("on_standby_battery");
+	$("#test_switch_test").addClass("on_standby_battery");
+	$("#test_switch_test").removeClass("hidden");
+	$("#test_led").addClass("on_standby_battery");
+	$("#on_off_control_on").removeClass("hidden");
+	$("#on_off_control_on").addClass("on_standby_battery");
+	$("#on_off_control_off").addClass("hidden");
+	$("#test_switch_off").addClass("hidden");
+};
+
+var offStandbyBattery = function(){
+	$("#test_switch_arm").removeClass("on_standby_battery");
+	$("#test_switch_test").removeClass("on_standby_battery");
+	$("#test_voltage_sense").removeClass("on_standby_battery");
+	$("#test_switch_arm").addClass("hidden");
+	$("#test_switch_test").addClass("hidden");
+	
+	$("#test_led").removeClass("on_standby_battery");
+	$("#on_off_control_on").addClass("hidden");
+	$("#on_off_control_on").removeClass("on_standby_battery");
+	$("#on_off_control_off").removeClass("hidden");
+	$("#test_switch_off").removeClass("hidden");
+	
+	$("#standby_battery_paths").removeClass("on_standby_battery");
+};
                         
                         
 var classOnOff = function(id, classToAdd, classToRemove){
@@ -95,6 +135,7 @@ var toogle2 = function(id, initial, rate) {
 var schematicFlipMaster = function(name, toState){
     var onId = "#" + name + "_on";
     var offId = "#" + name + "_off";
+	 console.log(onId);
     if (toState) {
         // that means we want to turn the switch on
         $(onId).removeClass("hidden");
@@ -276,6 +317,19 @@ switchPanel.each(function(){
 		}
 	});	
 });
+
+var standbyBatterySwitch = $("#standby_battery_switch");
+standbyBatterySwitch.click(function(e){
+	if(e.target.id == "standby_battery_arm"){
+		armStandbyBattery();
+	} else if (e.target.id == "standby_battery_test") {
+      testStandbyBattery();
+   } else {
+		offStandbyBattery();
+	}
+	
+}
+);
 
 var breakerPanel = $("#breaker_switch_container").children();
 breakerPanel.each(function(){
