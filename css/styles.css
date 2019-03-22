@@ -160,7 +160,7 @@ footer {
     width: 14px;
     height: 52px;
 
-	padding: 25px 7px 24px 7px;
+	padding: 25px 7px 0px 7px;
 	background-repeat: no-repeat;
 	background-size: auto;
 }
@@ -172,7 +172,7 @@ footer {
     width: 14px;
     height: 52px;
 	
-	padding: 25px 7px 24px 7px;
+	padding: 25px 7px 0px 7px;
 	background-repeat: no-repeat;
 	background-size: auto;
 }
