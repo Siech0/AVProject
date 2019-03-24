@@ -249,6 +249,7 @@ switchPanel.each(function(){
 	});	
 });
 
+
 var breakerPanel = $("#breaker_switch_container").children();
 breakerPanel.each(function(){
 	$(this).click(function(){
@@ -268,18 +269,31 @@ breakerPanel.each(function(){
 	});
 });
 
+
 /*Load the SVG file into the SVG_WRAPPER and handle errors if they occur.*/
-$( "#svg_wrapper" ).load("images/C172SSchematic.svg", function(res, status, jqXHR) {
+/*We are using .get over .load because .load is destructive to other elements in the wrapper*/
+$.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
 	if(status === "error") {
 		//If an error occurs, display a message
 		var wrapper = $("#svg_wrapper");
 		$("<p>Error: Unable to load diagram file.</p>").appendTo(wrapper);
 	} else {
-		//Load info panel data and generate anchors and panels
+		$("#diagram").replaceWith(data);
+		//Load info panel data and generate info panels
 		$.getJSON("itemInfo.json", function(json) {
 			info_panels = json.info_panels;
 			var wrapper = $("#svg_wrapper");
-			for (var i = 0; i < info_panels.length; ++i) {				
+			for (var i = 0; i < info_panels.length; ++i) {
+				/*
+				var anchor = $("<div class='info_panel_anchor' id='info_panel_anchor_" + i + "'></div>");
+				anchor.css('top', info_panels[i].yPos + '%');
+				anchor.css('left', info_panels[i].xPos + '%');
+				anchor.css('width', info_panels[i].width + '%');
+				anchor.css('height', info_panels[i].height + '%');
+				anchor.click(toogle("#info_panel_"+i, false, 500));
+				anchor.appendTo(wrapper);
+				*/
+				
 				var panel = $("<div class='info_panel generated_draggable' id='info_panel_" + i + "'></div>");
 				panel.hide(0);
 				panel.css('top', (info_panels[i].yPos + 5) + '%');
@@ -295,17 +309,63 @@ $( "#svg_wrapper" ).load("images/C172SSchematic.svg", function(res, status, jqXH
 				title.appendTo(panel);
 				content.appendTo(panel);
 				panel.appendTo(wrapper);
-				//Toogle("info_panel_" + i, false, 500)
-				$('#'+info_panels.group).click();
 			}
 			//Ensure that the generated elements can be dragged
 			$(".generated_draggable").draggable({handle: ".draggable_handle"});
 		});
 	}
-});	 
+}, "text");
 
 //Enable draggable functionality for all draggable containers
 $(".draggable").draggable({handle: ".draggable_handle"});
 
 //Prevent annoying image drag 
 $('img').on('dragstart', function(event) { event.preventDefault(); });
+
+$('#nav_pull_anchor').click(function(){
+	if(panel_state['#nav_pull_anchor'] === undefined) {
+		panel_state['#nav_pull_anchor'] = true;
+	}
+	if(panel_state['#nav_pull_anchor']) {
+		$("#nav_list").toggleClass("hidden");
+		classOnOff('#nav_pull_anchor', 'nav_pull_anchor_invisible', 'nav_pull_anchor_visibile');
+	} else {
+		$("#nav_list").toggleClass("hidden");
+		classOnOff('#nav_pull_anchor', 'nav_pull_anchor_visibile', 'nav_pull_anchor_invisible');
+	}
+	panel_state['#nav_pull_anchor'] = !panel_state['nav_pull_anchor'];
+});
+
+$('#left_pull_anchor').click(function(){
+	if(panel_state['#left_pull_anchor'] === undefined) {
+		panel_state['#left_pull_anchor'] = false;
+	}
+	if(panel_state['#left_pull_anchor']) {
+		$("#left_panel_content").toggleClass("hidden");
+		classOnOff('#left_pull_anchor', 'left_pull_anchor_invisible', 'left_pull_anchor_visibile');
+	} else {
+		console.log('here2');
+		$("#left_panel_content").toggleClass("hidden");
+		classOnOff('#left_pull_anchor', 'left_pull_anchor_visibile', 'left_pull_anchor_invisible');
+	}
+	panel_state['#left_pull_anchor'] = !panel_state['#left_pull_anchor'];
+});
+
+$('#right_pull_anchor').click(function(){
+	if(panel_state['#right_pull_anchor'] === undefined) {
+		panel_state['#right_pull_anchor'] = false;
+	}
+	if(panel_state['#right_pull_anchor']) {
+		$("#right_panel_content").toggleClass("hidden");
+		classOnOff('#right_pull_anchor', 'right_pull_anchor_invisible', 'right_pull_anchor_visibile');
+	} else {
+		console.log('here');
+		$("#right_panel_content").toggleClass("hidden");
+		classOnOff('#right_pull_anchor', 'right_pull_anchor_visibile', 'right_pull_anchor_invisible');
+	}
+	panel_state['#right_pull_anchor'] = !panel_state['#right_pull_anchor'];
+});
+
+$("#master_main_container").hide();
+$("#breakers_main_container").hide();
+$("#switches_main_container").hide();
