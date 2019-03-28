@@ -260,6 +260,32 @@ $("#master_switch_bat").click(function(){
 		}
 });
 
+$("#avn_bus1_switch").click(function(){
+   if ($("#avn_bus1_switch").hasClass("avn_bus1_off"))
+       {
+           classOnOff("#avn_bus1_switch", "avn_bus1_on", "avn_bus1_off");
+           schematicFlipMaster("switch_avn1_svg", true);
+       }
+    else
+        {
+           classOnOff("#avn_bus1_switch", "avn_bus1_off", "avn_bus1_on");
+           schematicFlipMaster("switch_avn1_svg", false);
+        }
+});
+
+$("#avn_bus2_switch").click(function(){
+   if ($("#avn_bus2_switch").hasClass("avn_bus2_off"))
+       {
+           classOnOff("#avn_bus2_switch", "avn_bus2_on", "avn_bus2_off");
+           schematicFlipMaster("switch_avn2_svg", true);
+       }
+    else
+        {
+           classOnOff("#avn_bus2_switch", "avn_bus2_off", "avn_bus2_on");
+           schematicFlipMaster("switch_avn2_svg", false);
+        }
+});
+
 /*
 	Navigation Bar Engine/EPU button responsiveness.
 */

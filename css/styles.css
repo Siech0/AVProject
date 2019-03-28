@@ -250,19 +250,43 @@ footer {
 }
 
 #avn_bus1_switch{
-    
+    position: absolute;
+	top: 148px;
+	left: 113px;
+    width: 14px;
+    height: 52px;
+	
+	padding: 25px 7px 0px 7px;
+	background-repeat: no-repeat;
+	background-size: auto;
 }
 
 #avn_bus2_switch{
-    
+    position: absolute;
+	top: 148px;
+	left: 128px;
+    width: 14px;
+    height: 52px;
+	
+	padding: 25px 7px 0px 7px;
+	background-repeat: no-repeat;
+	background-size: auto;
 }
 
-.avn_bus1_off{
-    
+.avn_bus1_on {
+    background-image: url(../images/avionicsOn.jpg)
 }
 
-.avn_bus2_off{
-    
+.avn_bus1_off {
+    background-image: url(../images/avionicsOff.jpg)
+}
+
+.avn_bus2_on {
+    background-image: url(../images/avionicsOn.jpg)    
+}
+
+.avn_bus2_off {
+    background-image: url(../images/avionicsOff.jpg)    
 }
 
 /* Styling for the switch containers */
