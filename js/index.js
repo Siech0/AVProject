@@ -161,10 +161,11 @@ var audio = function(id) {
 	};
 };
 
-/* When the document is loaded, it will hide all elements in the pop_up_list
+/* When the document is loaded, it will hide all elements in the pop_up_list*/
+/*
 $( document ).ready(function(){
-	$("#pop_up_list").children().hide();
-});
+    
+    }); */
 
 /*Function to display pop up box when clicking on the 'starter' svg element present in C172SSchematic.svg
   For some reason, I was able to make it work one time.  After I refreshed the page, it stopped working and I have no idea why.
@@ -418,6 +419,17 @@ $( "#svg_wrapper" ).load("images/C172SSchematic.svg", function(res, status, jqXH
 		}, false);
 
 	}
+    
+    /* Added by Matt to locate the legend relative to the SVG */
+    var svg = document.getElementById('svg1225');
+    var left = svg.getBoundingClientRect().right - 160;
+    var top = svg.getBoundingClientRect().top;
+    
+        
+    var legend = document.getElementById("legend");
+    legend.style.left = left + "px";
+    legend.style.top = top + "px";    
+    
 });	 
 
 //Enable draggable functionality for all draggable containers
