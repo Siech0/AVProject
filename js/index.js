@@ -91,8 +91,7 @@ var offStandbyBattery = function(){
 	$("#test_switch_off").removeClass("hidden");
 	
 	$("#standby_battery_paths").removeClass("on_standby_battery");
-};
-                        
+};                  
                         
 var classOnOff = function(id, classToAdd, classToRemove){
     $(id).removeClass(classToRemove);

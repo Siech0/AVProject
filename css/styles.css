@@ -105,6 +105,58 @@ main {
 		border-radius: 8px;
 }
 
+/* Beginning of legend CSS */
+
+#legend {
+    position: absolute;
+    z-index: 1;
+    height: 90px;
+    width: 170px;
+    top: 8.7%;
+    left: 82.6%;
+    background: #D3D3D3;
+    border: 1px solid black;
+    border-radius: 4px;
+    text-align: left;
+    font-size: 13px;
+}
+
+#legend_color_wrapper {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+#legend p {
+    font-size: 13px;
+    line-height: 13px;
+    margin-left: 24px;
+    padding: 2px;
+}
+
+#legend span {
+    position: absolute;
+    height: 11px;
+    width: 15px;
+    border: 1px solid black;
+}
+#color_battery span {
+    background-color: magenta;
+}
+
+#color_alternator span {
+    background-color: teal;
+}
+
+#color_standby_battery span {
+    background-color: blue;
+}
+
+#color_epu span {
+    background-color: orange;
+}
+
+/* End of legend CSS */
+
 #svg_wrapper svg {
 	height: 100%;
 	width: 100%;
@@ -195,6 +247,22 @@ footer {
 /*Styling for the master Switch On image -- BAT*/
 .master_switch_on_bat{
     background-image: url(../images/masterOn.jpg);      
+}
+
+#avn_bus1_switch{
+    
+}
+
+#avn_bus2_switch{
+    
+}
+
+.avn_bus1_off{
+    
+}
+
+.avn_bus2_off{
+    
 }
 
 /* Styling for the switch containers */
