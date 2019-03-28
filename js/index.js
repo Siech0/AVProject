@@ -425,10 +425,19 @@ $( "#svg_wrapper" ).load("images/C172SSchematic.svg", function(res, status, jqXH
     var left = svg.getBoundingClientRect().right - 160;
     var top = svg.getBoundingClientRect().top;
     
-        
     var legend = document.getElementById("legend");
     legend.style.left = left + "px";
-    legend.style.top = top + "px";    
+    legend.style.top = top + "px";
+    
+    $(window).resize(function(){
+        var left = svg.getBoundingClientRect().right - 160;
+        var top = svg.getBoundingClientRect().top;
+    
+        
+        var legend = document.getElementById("legend");
+        legend.style.left = left + "px";
+        legend.style.top = top + "px";
+    });
     
 });	 
 
