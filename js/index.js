@@ -439,6 +439,37 @@ $( "#svg_wrapper" ).load("images/C172SSchematic.svg", function(res, status, jqXH
         legend.style.top = top + "px";
     });
     
+    $("#standby_battery_arm").click(function(){
+        if ($("#standby_battery_switch").hasClass("standby_battery_off"))
+        {
+            classOnOff("#standby_battery_switch", "standby_battery_arm", "standby_battery_off");
+            $("#standby_battery_switch").css("top", "52px");
+            armStandbyBattery();
+        }
+        
+        if ($("#standby_battery_switch").hasClass("standby_battery_test"))
+        {
+            classOnOff("#standby_battery_switch", "standby_battery_off", "standby_battery_test");
+            offStandbyBattery();
+        }        
+    });
+    
+    $("#standby_battery_test").click(function(){
+        if ($("#standby_battery_switch").hasClass("standby_battery_off"))
+        {
+            classOnOff("#standby_battery_switch", "standby_battery_test", "standby_battery_off");
+            testStandbyBattery();
+        }
+        
+        if ($("#standby_battery_switch").hasClass("standby_battery_arm"))
+        {
+            classOnOff("#standby_battery_switch", "standby_battery_off", "standby_battery_arm");
+            $("#standby_battery_switch").css("top", "60px");
+            offStandbyBattery();
+        }        
+    });
+                
+    
 });	 
 
 //Enable draggable functionality for all draggable containers

@@ -155,6 +155,58 @@ main {
 
 /* End of legend CSS */
 
+/* Beginning of standby battery CSS */
+
+#standby_battery_switch {
+    position: absolute;
+    top: 60px;
+    left: 55px;
+    width: 17px;
+    height: 52px;
+    padding: 25px 7px 0px 7px;
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+#standby_battery_test {
+    position: absolute;
+    z-index:1;
+    top: 82px;
+    left: 60px;
+    width: 30px;
+    height: 25px;
+}
+
+#standby_battery_arm {
+    position: absolute;
+    top: 30px;
+    left: 60px;
+    width: 30px;
+    height: 25px;
+}
+
+#standby_battery_arm:hover {
+    background-image: url(../images/upArrow.png); !important
+}
+
+#standby_battery_test:hover {
+    background-image: url(../images/downArrow.png); !important
+}
+
+.standby_battery_off{
+    background-image: url(../images/stbyBattOff.png);
+}
+
+.standby_battery_test {
+    background-image: url(../images/stbyBattTest.png);
+}
+
+.standby_battery_arm {
+    background-image: url(../images/stbyBattArm.png);
+}
+
+/* End of standby battery CSS */
+
 #svg_wrapper svg {
 	height: 100%;
 	width: 100%;
