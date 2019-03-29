@@ -1,8 +1,8 @@
 
 //Ultimately this exists for debug purposes
-//We could realistically use local state closures
+//We could realistically use local state for closures
 var panel_state = {};
-var activeClass = "on";
+var activeClass = "on"; 
 
 
 // I want a function that takes advantage of my naming conventions to turn
@@ -75,6 +75,15 @@ var toogle = function(id, initial, rate) {
 //Function that generates a panel self close function
 var close = function(id, rate) {
 	$(id).hide(rate);
+};
+
+var remove = function(id, rate) {
+	var ele = $(id);
+	ele.hide(rate);
+	setTimeout(() => { 
+		ele.remove();
+		panel_state[id] = undefined;
+	}, rate);
 };
 
 //Function that plays audio {
@@ -286,64 +295,69 @@ $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
 	} else {
 		$("#diagram").replaceWith(data);
 		//Load info panel data and generate info panels
-		$.getJSON("itemInfo.json", function(json) {
-			info_panels = json.info_panels;
+		$.getJSON("itemInfo.json", function(json, err) {
+			let info_panels = json.info_panels;
 			var wrapper = $("#svg_wrapper");
-			for (var i = 0; i < info_panels.length; ++i) {
-				/*
-				var anchor = $("<div class='info_panel_anchor' id='info_panel_anchor_" + i + "'></div>");
-				anchor.css('top', info_panels[i].yPos + '%');
-				anchor.css('left', info_panels[i].xPos + '%');
-				anchor.css('width', info_panels[i].width + '%');
-				anchor.css('height', info_panels[i].height + '%');
-				anchor.click(toogle("#info_panel_"+i, false, 500));
-				anchor.appendTo(wrapper);
-				*/
+			var targets = document.getElementById("targets");	
+
+			targets.addEventListener("click", function (e){
+				//generate a new panel for this info
 				
-				var panel = $("<div class='info_panel generated_draggable' id='info_panel_" + i + "'></div>");
-				panel.hide(0);
-				panel.css('top', (info_panels[i].yPos + 5) + '%');
-				panel.css('left', (info_panels[i].xPos + 5) + '%');
-				var title = $("<div class='draggable_handle'></div>");
-				title.text(info_panels[i].title);
-				var closer = $("<span class='close' id='info_panel_close_'" + i + "'></span>");
-				closer.text('×');
-				closer.click(close("#info_panel_"+i, 500));
-				var content = $("<p></p>");
-				content.text(info_panels[i].text); 
-				closer.appendTo(title);
-				title.appendTo(panel);
-				content.appendTo(panel);
-				panel.appendTo(wrapper);
-			}
-			//Ensure that the generated elements can be dragged
-			$(".generated_draggable").draggable({handle: ".draggable_handle"});
+				if(info_panels[e.target.id] === undefined){ //We didnt define anything for this target
+					return;
+				}
+				
+				if(panel_state[e.target.id] === undefined) {
+					panel_state[e.target.id] = false;
+				} 
+				
+				if(panel_state[e.target.id] === false) {
+					var wrapper_pos = wrapper.position();
+					var panel = $("<div class='info_panel' id='info_panel_" + e.target.id + "'></div>");
+					panel.css('top', (e.pageY + 5 - wrapper_pos.top ) + 'px');
+					panel.css('left', (e.pageX + 5 - wrapper_pos.left ) + 'px');
+					var title = $("<div class='draggable_handle' id='info_panel_" + e.target.id + "_handle'></div>");
+					title.text(info_panels[e.target.id].title);
+					var closer = $("<span class='close' id='info_panel_close_'" + e.target.id + "'></span>");
+					closer.text('×');
+					closer.click(() => {
+						remove("#info_panel_"+ e.target.id, 500);
+						panel_state[e.target.id] = false;
+					});
+					var content = $("<p></p>");
+					content.text(info_panels[e.target.id].text); 
+					closer.appendTo(title);
+					title.appendTo(panel);
+					content.appendTo(panel);
+					panel.appendTo(wrapper);	
+					
+					//Ensure that this is draggable by its handle
+					panel.draggable({handle: "#info_panel_" + e.target.id + "_handle"});
+					
+					panel_state[e.target.id] = true;
+				}
+
+				
+				/*
+				//Ensure that the generated elements can be dragged
+				// this will move the info panel to where the user clicked
+				$("#info_panel").css("top", e.pageY+5 +"px");
+				$("#info_panel").css("left", e.pageX+5 +"px");
+				 
+				 
+				// show hide the info panel
+				toogle("#info_panel", false, 500);
+				 
+				// fill the info panel with the text from the json file according to the target chosen.
+				$("#info_panel_title").text(info_panels[e.target.id].title);
+				var closer = $("<span class='close' id='info_panel_close'>×</span>");
+				closer.click(toogle("#info_panel", false, 500));
+				closer.appendTo($("#info_panel_title"));
+				$("#info_panel_content").text(info_panels[e.target.id].text);
+				*/
+			}, false);
 		});
-		
-		var targets = document.getElementById("targets");
-		
-	  targets.addEventListener("click", function (e){
-		   console.log(e.target.id);
-			 console.log(e.clientX);
-			 
-			 // this will move the info panel to whereever the user clicked
-			 $("#info_panel").css("top", e.pageY+5 +"px");
-			 $("#info_panel").css("left", e.pageX+5 +"px");
-			 
-			 console.log(panel_state["#info_panel"]);
-			 console.log($("#info_panel_title").text());
-			 
-			 // show hide the info panel
-			 toogle("#info_panel", false, 500);
-			 
-			 // fill the info panel with the text from the json file according to the target chosen.
-			 $("#info_panel_title").text(info_panels[e.target.id].title);
-			 var closer = $("<span class='close' id='info_panel_close'>×</span>");
-			 closer.click(toogle("#info_panel", false, 500));
-			 closer.appendTo($("#info_panel_title"));
-			 $("#info_panel_content").text(info_panels[e.target.id].text);
-		   
-		}, false);
+
 
 	}
 }, "text");

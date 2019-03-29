@@ -1,14 +1,13 @@
 {
-	"info_panels": {"alternator":
+	"info_panels": {
+		"alternator":
 		{
 			"title": "Alternator",
-			"text": "This is does alternator stuff.",
-			"group": "stby_battery_controller"
+			"text": "This is does alternator stuff."
 		},
 		"starter":{
 			"title": "Starter",
-			"text": "This is does starter stuff.",
-			"group": "rec1951-fu"
+			"text": "This is does starter stuff."
 		}
 	}
 }
