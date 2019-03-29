@@ -50,34 +50,14 @@ var schematicFlipSwitch = function(name, toState){
 
         }
 };
-	
-
-                        
-                        
+	               
 var classOnOff = function(id, classToAdd, classToRemove){
     $(id).removeClass(classToRemove);
     $(id).addClass(classToAdd);
 
 };
     
-	//Function that generates toogle functionality for panel buttons.
 var toogle = function(id, initial, rate) {
-
-        if(panel_state[id] === undefined) {
-                panel_state[id] = initial;
-        }
-        return function() {
-                if(panel_state[id]) { 	//Active
-                        $(id).hide(rate);
-                } else { 				//Inactive
-                        $(id).show(rate);
-                }
-                panel_state[id] = !panel_state[id];
-        };
-};
-	
-var toogle2 = function(id, initial, rate) {
-
         if(panel_state[id] === undefined) {
                 panel_state[id] = initial;
         }
@@ -90,6 +70,18 @@ var toogle2 = function(id, initial, rate) {
         panel_state[id] = !panel_state[id];
         
 };
+
+
+//Function that generates a panel self close function
+var close = function(id, rate) {
+	$(id).hide(rate);
+};
+
+//Function that plays audio {
+var audio = function(id) {
+	$(id).trigger("play");
+};
+
 
     
 var schematicFlipMaster = function(name, toState){
@@ -107,20 +99,6 @@ var schematicFlipMaster = function(name, toState){
 };
 
 
-//Function that generates a panel self close function
-var close = function(id, rate) {
-	return function() {
-		$(id).hide(rate);
-	};
-};
-
-//Function that plays audio {
-var audio = function(id) {
-	return function () {
-		$(id).trigger("play");
-	};
-};
-
 /* When the document is loaded, it will hide all elements in the pop_up_list
 $( document ).ready(function(){
 	$("#pop_up_list").children().hide();
@@ -135,15 +113,15 @@ $(svg_starter).click(function(){
 */
 
 //Enable navigation button panel toogle functionality
-$("#master_button").click(toogle("#master_main_container", true, 500)); //Master
-$("#breakers_button").click(toogle("#breakers_main_container", true, 500)); //Breakers
-$("#switches_button").click(toogle("#switches_main_container", true, 500)); //Switches
+$("#master_button").click(() => toogle("#master_main_container", false, 500)); //Master
+$("#breakers_button").click(() => toogle("#breakers_main_container", false, 500)); //Breakers
+$("#switches_button").click(() => toogle("#switches_main_container", false, 500)); //Switches
 
 
 //Enable panel self close functionality
-$("#master_close").click(close("#master_main_container", 500)); //Master
-$("#breakers_close").click(close("#breakers_main_container", 500)); //Breakers
-$("#switches_close").click(close("#switches_main_container", 500)); //Switches
+$("#master_close").click(() => close("#master_main_container", 500)); //Master
+$("#breakers_close").click(() => close("#breakers_main_container", 500)); //Breakers
+$("#switches_close").click(() => close("#switches_main_container", 500)); //Switches
 
 //Toogle master_alt on and off, plays music.
 $("#master_switch_alt").click(function(){
@@ -277,6 +255,7 @@ switchPanel.each(function(){
 	});	
 });
 
+
 var breakerPanel = $("#breaker_switch_container").children();
 breakerPanel.each(function(){
 	$(this).click(function(){
@@ -296,21 +275,49 @@ breakerPanel.each(function(){
 	});
 });
 
+
 /*Load the SVG file into the SVG_WRAPPER and handle errors if they occur.*/
-$( "#svg_wrapper" ).load("images/C172SSchematic.svg", function(res, status, jqXHR) {
+/*We are using .get over .load because .load is destructive to other elements in the wrapper*/
+$.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
 	if(status === "error") {
 		//If an error occurs, display a message
 		var wrapper = $("#svg_wrapper");
 		$("<p>Error: Unable to load diagram file.</p>").appendTo(wrapper);
 	} else {
-		
-		var info_panels;
-		info_panels = $.getJSON("itemInfo.json", function(json) {
-			
+		$("#diagram").replaceWith(data);
+		//Load info panel data and generate info panels
+		$.getJSON("itemInfo.json", function(json) {
 			info_panels = json.info_panels;
-			console.log(info_panels);
-			
-			return info_panels;
+			var wrapper = $("#svg_wrapper");
+			for (var i = 0; i < info_panels.length; ++i) {
+				/*
+				var anchor = $("<div class='info_panel_anchor' id='info_panel_anchor_" + i + "'></div>");
+				anchor.css('top', info_panels[i].yPos + '%');
+				anchor.css('left', info_panels[i].xPos + '%');
+				anchor.css('width', info_panels[i].width + '%');
+				anchor.css('height', info_panels[i].height + '%');
+				anchor.click(toogle("#info_panel_"+i, false, 500));
+				anchor.appendTo(wrapper);
+				*/
+				
+				var panel = $("<div class='info_panel generated_draggable' id='info_panel_" + i + "'></div>");
+				panel.hide(0);
+				panel.css('top', (info_panels[i].yPos + 5) + '%');
+				panel.css('left', (info_panels[i].xPos + 5) + '%');
+				var title = $("<div class='draggable_handle'></div>");
+				title.text(info_panels[i].title);
+				var closer = $("<span class='close' id='info_panel_close_'" + i + "'></span>");
+				closer.text('×');
+				closer.click(close("#info_panel_"+i, 500));
+				var content = $("<p></p>");
+				content.text(info_panels[i].text); 
+				closer.appendTo(title);
+				title.appendTo(panel);
+				content.appendTo(panel);
+				panel.appendTo(wrapper);
+			}
+			//Ensure that the generated elements can be dragged
+			$(".generated_draggable").draggable({handle: ".draggable_handle"});
 		});
 		
 		var targets = document.getElementById("targets");
@@ -327,7 +334,7 @@ $( "#svg_wrapper" ).load("images/C172SSchematic.svg", function(res, status, jqXH
 			 console.log($("#info_panel_title").text());
 			 
 			 // show hide the info panel
-			 toogle2("#info_panel", false, 500);
+			 toogle("#info_panel", false, 500);
 			 
 			 // fill the info panel with the text from the json file according to the target chosen.
 			 $("#info_panel_title").text(info_panels[e.target.id].title);
@@ -339,10 +346,58 @@ $( "#svg_wrapper" ).load("images/C172SSchematic.svg", function(res, status, jqXH
 		}, false);
 
 	}
-});	 
+}, "text");
 
 //Enable draggable functionality for all draggable containers
 $(".draggable").draggable({handle: ".draggable_handle"});
 
 //Prevent annoying image drag 
 $('img').on('dragstart', function(event) { event.preventDefault(); });
+
+$('#nav_pull_anchor').click(function(){
+	if(panel_state['#nav_pull_anchor'] === undefined) {
+		panel_state['#nav_pull_anchor'] = true;
+	}
+	if(panel_state['#nav_pull_anchor']) {
+		$("#nav_list").toggleClass("hidden");
+		classOnOff('#nav_pull_anchor', 'nav_pull_anchor_invisible', 'nav_pull_anchor_visibile');
+	} else {
+		$("#nav_list").toggleClass("hidden");
+		classOnOff('#nav_pull_anchor', 'nav_pull_anchor_visibile', 'nav_pull_anchor_invisible');
+	}
+	panel_state['#nav_pull_anchor'] = !panel_state['nav_pull_anchor'];
+});
+
+$('#left_pull_anchor').click(function(){
+	if(panel_state['#left_pull_anchor'] === undefined) {
+		panel_state['#left_pull_anchor'] = false;
+	}
+	if(panel_state['#left_pull_anchor']) {
+		$("#left_panel_content").toggleClass("hidden");
+		classOnOff('#left_pull_anchor', 'left_pull_anchor_invisible', 'left_pull_anchor_visibile');
+	} else {
+
+		$("#left_panel_content").toggleClass("hidden");
+		classOnOff('#left_pull_anchor', 'left_pull_anchor_visibile', 'left_pull_anchor_invisible');
+	}
+	panel_state['#left_pull_anchor'] = !panel_state['#left_pull_anchor'];
+});
+
+$('#right_pull_anchor').click(function(){
+	if(panel_state['#right_pull_anchor'] === undefined) {
+		panel_state['#right_pull_anchor'] = false;
+	}
+	if(panel_state['#right_pull_anchor']) {
+		$("#right_panel_content").toggleClass("hidden");
+		classOnOff('#right_pull_anchor', 'right_pull_anchor_invisible', 'right_pull_anchor_visibile');
+	} else {
+		$("#right_panel_content").toggleClass("hidden");
+		classOnOff('#right_pull_anchor', 'right_pull_anchor_visibile', 'right_pull_anchor_invisible');
+	}
+	panel_state['#right_pull_anchor'] = !panel_state['#right_pull_anchor'];
+});
+
+$("#master_main_container").hide();
+$("#breakers_main_container").hide();
+$("#switches_main_container").hide();
+

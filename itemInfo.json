@@ -3,7 +3,7 @@
 		{
 			"title": "Alternator",
 			"text": "This is does alternator stuff.",
-			"group": "rect1951-35"
+			"group": "stby_battery_controller"
 		},
 		"starter":{
 			"title": "Starter",
