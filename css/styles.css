@@ -319,7 +319,7 @@ footer {
 #panel_content_master {
 	background-image: url(../images/masterPanelBg.jpg);
 	padding-top: 107.73%;
-	width: 9vmax;
+	width: 11vmax;
 	background-repeat: no-repeat;
 	background-size: contain;
 }
@@ -327,7 +327,7 @@ footer {
 #panel_content_breakers {
 	background-image: url(../images/breakerrPanelBg.jpg); 
 	padding-top: 32.39%;
-	width: 30.4vmax;
+	width: 37.1vmax;
 	background-repeat: no-repeat;
 	background-size: contain;
 }
@@ -335,7 +335,7 @@ footer {
 #panel_content_switches {
 	background-image: url(../images/switchesPanelBg.jpg); 
 	padding-top: 76.82%;
-	width: 12.7vmax;
+	width: 15.3vmax;
 	background-repeat: no-repeat;
 	background-size: contain;
 }

@@ -107,9 +107,9 @@ $(svg_starter).click(function(){
 */
 
 //Enable navigation button panel toogle functionality
-$("#master_button").click(toogle("#master_main_container", true, 500)); //Master
-$("#breakers_button").click(toogle("#breakers_main_container", true, 500)); //Breakers
-$("#switches_button").click(toogle("#switches_main_container", true, 500)); //Switches
+$("#master_button").click(toogle("#master_main_container", false, 500)); //Master
+$("#breakers_button").click(toogle("#breakers_main_container", false, 500)); //Breakers
+$("#switches_button").click(toogle("#switches_main_container", false, 500)); //Switches
 
 
 //Enable panel self close functionality
