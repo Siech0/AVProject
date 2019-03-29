@@ -1,4 +1,4 @@
-
+﻿
 //Ultimately this exists for debug purposes
 //We could realistically use local state for closures
 var panel_state = {};
@@ -411,7 +411,5 @@ $('#right_pull_anchor').click(function(){
 	panel_state['#right_pull_anchor'] = !panel_state['#right_pull_anchor'];
 });
 
-$("#master_main_container").hide();
-$("#breakers_main_container").hide();
-$("#switches_main_container").hide();
-
+$('.hidden').hide();
+$('.hidden').toogleClass('hidden');

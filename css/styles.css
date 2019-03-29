@@ -26,6 +26,10 @@ body {
 	cursor: move;
 }
 
+.hidden {
+	display: none;
+}
+
 /* Pull anchor css */
 .pull_anchor {
 	background-color: #777777;
@@ -347,7 +351,7 @@ footer {
 	padding-top: 30%;
 	
 	background-repeat: no-repeat;
-	background-size: contain;
+	background-size: 100% 100%;
 	overflow: hidden;
 }
 
@@ -359,7 +363,7 @@ footer {
 	padding-top: 30%;
 	
 	background-repeat: no-repeat;
-	background-size: contain;
+	background-size: 100% 100%;
 	overflow: hidden;
 }
 
