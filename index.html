@@ -78,15 +78,15 @@
 	<footer>
 		<div class="container">
 			<ul id="panel_list">
-				<li id="master_main_container" class="draggable panel_container hidden">
+				<li id="master_main_container" class="draggable panel_container start-hidden">
 					<div class="panel_header draggable_handle">Master<span class="close" id="master_close">&times;</span></div>
 					<div id="panel_content_master" class="panel_content" > 
-						<div id="master_switch_alt" class ="master_switch_off_alt"></div>
-						<div id="master_switch_bat" class ="master_switch_off_bat"></div>
+						<div id="master_switch_alt"></div>
+						<div id="master_switch_bat"></div>
 					</div>    
 				</li>
 				
-				<li id="breakers_main_container" class="draggable panel_container hidden">
+				<li id="breakers_main_container" class="draggable panel_container start-hidden">
 					<div class="panel_header draggable_handle">Circuit Breakers<span class="close" id="breakers_close">&times;</span></div>
 					<div id="panel_content_breakers" class="panel_content">
 						<div id="breaker_switch_container" class="switch_container">
@@ -133,7 +133,7 @@
 					</div>
 				</li>
 			
-				<li id="switches_main_container" class="draggable panel_container hidden">
+				<li id="switches_main_container" class="draggable panel_container start-hidden">
 					<div class="panel_header draggable_handle">Switches<span class="close" id="switches_close">&times;</span></div>
 					<div class="panel_content">
 						<div id="panel_content_switches">
@@ -181,7 +181,8 @@
     
 	<script src="js/jquery.js"></script>
 	<script src="js/jquery-ui.js"></script>
-	<script src="js/index.js"></script>
+	<script src="js/index-electrical.js"></script>
+	<script src="js/index-ui.js"></script>
 	
 </body>
 </html>

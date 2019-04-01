@@ -26,7 +26,7 @@ body {
 	cursor: move;
 }
 
-.hidden {
+.start-hidden {
 	display: none;
 }
 
@@ -55,11 +55,7 @@ body {
 	height: 15px;
 }
 
-.nav_pull_anchor_visible > img {
-	
-}
-
-.nav_pull_anchor_invisible > img {
+#nav_pull_anchor.content_hidden > img {
 	transform: rotate(180deg);
 }
 
@@ -220,14 +216,11 @@ main {
 
 #left_pull_anchor > img {
 	width: 15px;
+	transform: none;
 }
 
-.left_pull_anchor_visible > img {
-	transform: rotate(180deg)
-}
-
-.left_pull_anchor_invisible > img {
-
+#left_pull_anchor.content_hidden > img {
+	transform: rotate(180deg);
 }
 
 /* Right Panel Styles */
@@ -270,14 +263,11 @@ main {
 
 #right_pull_anchor > img {
 	width: 15px;
-}
-
-.right_pull_anchor_visible > img {
-
-}
-
-.right_pull_anchor_invisible > img {
 	transform: rotate(180deg);
+}
+
+#right_pull_anchor.content_hidden > img {
+	transform: none;
 }
 
 
@@ -350,9 +340,14 @@ footer {
 	width: 7.5%;
 	padding-top: 30%;
 	
+	background-image: url(../images/masterOff.jpg);     
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	overflow: hidden;
+}
+
+#master_switch_alt.active {
+    background-image: url(../images/masterOn.jpg);   	
 }
 
 #master_switch_bat {
@@ -362,30 +357,16 @@ footer {
     width: 7.5%;
 	padding-top: 30%;
 	
+    background-image: url(../images/masterOff.jpg); 
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	overflow: hidden;
 }
 
-/*Styling for the master Switch Off image  -- .master_switch_bat*/
-.master_switch_off_alt{
-    background-image: url(../images/masterOff.jpg);       
+#master_switch_bat.active {
+    background-image: url(../images/masterOn.jpg);      	
 }
 
-/*Styling for the master Switch On image */
-.master_switch_on_alt{
-    background-image: url(../images/masterOn.jpg);      
-}
-
-/*Styling for the master Switch Off image  -- BAT*/
-.master_switch_off_bat{
-    background-image: url(../images/masterOff.jpg);     
-}
-
-/*Styling for the master Switch On image -- BAT*/
-.master_switch_on_bat{
-    background-image: url(../images/masterOn.jpg);      
-}
 
 /* Styling for the switch containers */
 .switch_container {

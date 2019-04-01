@@ -157,7 +157,7 @@ $("#master_switch_alt").click(function(){
 	   }
 	else
 		{
-                    classOnOff("#master_switch_alt", "master_switch_off_alt", "master_switch_on_alt");
+			classOnOff("#master_switch_alt", "master_switch_off_alt", "master_switch_on_alt");
 
 		   // makes the paths turn off
 		   classOnOff("#alt_master_switch", "", "on");
@@ -336,8 +336,6 @@ $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
 					
 					panel_state[e.target.id] = true;
 				}
-
-				
 				/*
 				//Ensure that the generated elements can be dragged
 				// this will move the info panel to where the user clicked
