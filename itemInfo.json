@@ -28,6 +28,16 @@
 			"class_name": "on"
 		},
 		{
+			"id": "#battery_relay",
+			"source": false,
+			"edges": [
+				"#battery",
+				"#battery_master_switch",
+				"#alt_relay"
+			],
+			"passthrough": false
+		},
+		{
 			"id": "#battery_master_switch",
 			"source": false,
 			"edges": [
@@ -35,14 +45,7 @@
 			],
 			"passthrough": false
 		},
-		{
-			"id": "#battery_relay",
-			"source": false,
-			"edges": [
-				"#battery"
-			],
-			"passthrough": false
-		},
+
 		{
 			"id": "#alt_master_switch",
 			"source": false,

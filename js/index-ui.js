@@ -117,6 +117,7 @@ $("#master_switch_alt").click( () => {
 		
 		$("#audio_master").trigger("play");
 		
+		console.log("here");
 		schem.setPassthrough("#alt_master_switch", true);
 		schem.setPassthrough("#alt_relay", true);
 		schem.setPassthrough("#battery_relay", true);
