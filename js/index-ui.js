@@ -284,16 +284,16 @@ $('.start-hidden').toggleClass('start-hidden');
 $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
 	if(status === "error") {
 		//If an error occurs, display a message
-		var wrapper = $("#svg_wrapper");
+		let wrapper = $("#svg_wrapper");
 		$("<p>Error: Unable to load diagram file.</p>").appendTo(wrapper);
 	} else {
 		$("#diagram").replaceWith(data);
 		//Load info panel data and generate info panels
 		$.getJSON("itemInfo.json", function(json, err) {
 			let info_panels = json.info_panels;
-			var wrapper = $("#svg_wrapper");
-			var targets = document.getElementById("targets");	
-
+			
+			//Generate information panels and target events
+			let targets = document.getElementById("targets");	
 			targets.addEventListener("click", function (e){
 				//generate a new panel for this info
 				console.log("here");
@@ -330,6 +330,9 @@ $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
 					
 					panelState[e.target.id] = true;
 				}
+			
+		let
+			
 			}, false);
 		});
 	}
