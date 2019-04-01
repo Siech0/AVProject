@@ -30,8 +30,8 @@ let remove = function(id, rate) {
 }
 
 let flipMaster = function(name, toState){
-    var onId = "#" + name + "_on";
-    var offId = "#" + name + "_off";
+    var onId = name + "_on";
+    var offId = name + "_off";
     if (toState) {
         // that means we want to turn the switch on
         $(onId).removeClass("hidden");
@@ -47,18 +47,18 @@ let flipMaster = function(name, toState){
 // switches and breakers on and off
 // (Could we format this better, its incredibly hard to unserstand this code)
 let flipSwitch = function(name, toState){
-	var onId = "#" + name + "_on";
-	var offId = "#" + name + "_off";
-	var switchId = "#" + name;
+	var onId = name + "_on";
+	var offId = name + "_off";
+	var switchId = name;
 	var inheiritFrom = "";
 	var inheiritTo = "";
 	inheiritTo = name.replace("breaker", "switch");
 	inheiritFrom = name.replace("switch", "breaker");
-	inheiritClass = $("#"+inheiritFrom).prop("classList");
+	inheiritClass = $(inheiritFrom).prop("classList");
 	if (toState) {
 		$(switchId).addClass(inheiritClass[0]);
 		if (panelState[inheiritTo.replace("_svg","")]) {
-			$("#" + inheiritTo).addClass(inheiritClass[0]);
+			$(inheiritTo).addClass(inheiritClass[0]);
 		}
 		$(onId).removeClass("hidden");
 		$(offId).addClass("hidden");
@@ -99,15 +99,14 @@ $('#right_pull_anchor').click(function(){
 	panelState['#right_pull_anchor'] = !panelState['#right_pull_anchor'];
 });
 
-panelState["#master_switch_alt"] = false; //Switch starts inactive
 $("#master_switch_alt").click( () => {
-	if(panelState["#master_switch_alt"]){ //Switch active
+	if($("#master_switch_alt").hasClass("active")){ //Switch active
 		$("#master_switch_alt").toggleClass("active", false);
 		$("#alt_master_switch").toggleClass("active", false);
 		$("#alt_relay").toggleClass("on", false);
 		
-		flipMaster("alt_relay", false);
-		flipMaster("alt_master_switch", false);
+		flipMaster("#alt_relay", false);
+		flipMaster("#alt_master_switch", false);
 		
 	} else { //Switch inactive
 		$("#master_switch_alt").toggleClass("active", true);
@@ -120,17 +119,15 @@ $("#master_switch_alt").click( () => {
 		$("#battery_relay").toggleClass( "on", true);
 		$("#battery_master_switch").toggleClass("on", true);
 		
-		flipMaster("alt_relay", true);
-		flipMaster("alt_master_switch", true);
-		flipMaster("battery_master_switch", true);
-		flipMaster("battery_relay");
+		flipMaster("#alt_relay", true);
+		flipMaster("#alt_master_switch", true);
+		flipMaster("#battery_master_switch", true);
+		flipMaster("#battery_relay");
 	}
-	panelState["#master_switch_alt"] = !panelState["#master_switch_alt"];
 });
 
-panelState["#master_switch_bat"] = false; // Switch starts inactive
 $("#master_switch_bat").click( () => {
-	if(panelState["#master_switch_bat"]){ //Switch active
+	if($("#master_switch_bat").hasClass("active")){ //Switch active
 		$("#master_switch_bat").toggleClass("active", false);
 		$("#master_switch_alt").toggleClass("active", false);
 		
@@ -139,20 +136,50 @@ $("#master_switch_bat").click( () => {
 		$("#alt_master_switch").toggleClass("on", false);
 		$("#alt_relay").toggleClass("on", false);
 		
-		flipMaster("battery_master_switch", false);
-		flipMaster("battery_relay", false);
-		flipMaster("alt_master_switch", false);
-		flipMaster("alt_relay", false);
+		flipMaster("#battery_master_switch", false);
+		flipMaster("#battery_relay", false);
+		flipMaster("#alt_master_switch", false);
+		flipMaster("#alt_relay", false);
 	} else { //Switch inactive
 		$("#master_switch_bat").toggleClass("active", true);
-		$("master_switch_alt").toggleClass("active", true);
+		$("#master_switch_alt").toggleClass("active", true);
 		
 		$("#battery_master_switch").toggleClass("on", true);
 		$("#battery_relay").toggleClass("on", true);
 		
-		flipMaster("3battery_master_switch", true);
+		flipMaster("#battery_master_switch", true);
 		flipMaster("#battery_relay", true);
 	}
+});
+
+$("#avn_bus1_switch").click( () => {
+	if($("#avn_bus1_switch").hasClass("active")){ //active
+		$("#avn_bus1_switch").toggleClass("active", false);
+		flipMaster("switch_avn1_svg", false);
+	} else {
+		$("#avn_bus1_switch").toggleClass("active", true);
+		flipMaster("switch_avn1_svg", true);
+	}
+});
+
+$("#avn_bus2_switch").click( () => {
+	if($("#avn_bus2_switch").hasClass("active")){ //active
+		$("#avn_bus2_switch").toggleClass("active", false);
+		flipMaster("switch_avn2_svg", false);
+	} else {
+		$("#avn_bus2_switch").toggleClass("active", true);
+		flipMaster("switch_avn2_svg", true);
+	}
+});
+
+
+let stb_switch = $("#standby_battery_switch");
+stb_switch.click( () => {
+	if(stb_switch.hasClass("arm")){ //arm
+
+	} else if (stb_switch.hasClass("test")) { //test
+
+	} 
 });
 
 // if we name the div tags right, we can set this up in a loop to toggle
@@ -168,7 +195,7 @@ switchPanel.each(function(){
 		if (panelState[id] == undefined) {
 			panelState[id] = false;
 		}
-		schematicFlipSwitch(id+"_svg", !panelState[id]);
+		flipSwitch("#"+id+"_svg", !panelState[id]);
 		panelState[id] = !panelState[id];
 		
 		//cSwitch("#beacon_light_switch", true, "on");
@@ -197,7 +224,7 @@ breakerPanel.each(function(){
 			classOnOff("#"+id+"_svg", "", "on");
 			console.log("Turning off " + id);
 		}
-		schematicFlipSwitch(id+"_svg", panelState[id]);
+		flipSwitch("#"+id+"_svg", panelState[id]);
 	});
 });
 
@@ -269,7 +296,7 @@ $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
 
 			targets.addEventListener("click", function (e){
 				//generate a new panel for this info
-				
+				console.log("here");
 				if(info_panels[e.target.id] === undefined){ //We didnt define anything for this target
 					return;
 				}

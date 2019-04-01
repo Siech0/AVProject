@@ -43,6 +43,27 @@ body {
 }
 
 
+/* HEADER STYLES */
+header {
+	position: absolute;
+	width: 100%;
+	height: auto;
+	top: 0;
+	left: 0;
+	z-index: 5;
+}
+
+nav {
+	flex-direction: column !important;
+	pointer-events: none;
+	visibility: hidden;
+}
+
+nav * {
+	pointer-events: all;
+	visibility: visible;
+}
+
 /* Nav pull anchor */
 #nav_pull_anchor {
 	width: 100px;
@@ -57,21 +78,6 @@ body {
 
 #nav_pull_anchor.content_hidden > img {
 	transform: rotate(180deg);
-}
-
-/* HEADER STYLES */
-header {
-	position: absolute;
-	width: 100%;
-	height: auto;
-	top: 0;
-	left: 0;
-	z-index: 5;
-}
-
-nav {
-	flex-direction: column !important;
-
 }
 
 
@@ -169,6 +175,65 @@ main {
 		border-radius: 8px;
 		overflow: hidden;
 }
+
+/* Beginning of legend CSS */
+#legend {
+    z-index: 1;
+    position: absolute;
+	top: 20px;
+	right: 20px;
+	line-height: .8em;
+	font-size: .8em;
+
+    background: #D3D3D3;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+#legend_header {
+	padding: 4px;
+	font-weight: bold;
+	
+	border-bottom: 1px solid black;
+}
+
+
+#legend_content {
+	padding: 5px;
+}
+
+#legend_color_wrapper {
+
+}
+
+#legend_content p {
+    margin-left: 24px;
+    padding: 2px;
+}
+
+#legend_content span {
+    position: absolute;
+    height: 11px;
+    width: 15px;
+    border: 1px solid black;
+}
+
+#color_battery > span {
+    background-color: magenta;
+}
+
+#color_alternator > span {
+    background-color: teal;
+}
+
+#color_standby_battery > span {
+    background-color: blue;
+}
+
+#color_epu > span {
+    background-color: orange;
+}
+
 
 #svg_wrapper svg {
 	height: 100%;
@@ -307,9 +372,7 @@ footer {
 
 .panel_content {
 	padding: 2px;
-	width: 100%;
 	position: relative;
-	
 }
 
 #panel_content_master {
@@ -368,6 +431,83 @@ footer {
 }
 
 
+#avn_bus1_switch {
+    position: absolute;
+	top: 62%;
+	left: 62%;
+	width: 7.5%;
+	padding-top: 30%;
+	
+    background-image: url(../images/avionicsOff.jpg);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	overflow: hidden;
+}
+
+#avn_bus1_switch.active {
+
+    background-image: url(../images/avionicsOn.jpg);
+}
+
+#avn_bus2_switch{
+    position: absolute;
+	top: 62%;
+	left: 70%;
+	width: 7.5%;
+	padding-top: 30%;
+	
+    background-image: url(../images/avionicsOff.jpg);   
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	overflow: hidden;
+}
+
+#avn_bus2_switch.active {
+    background-image: url(../images/avionicsOn.jpg);
+}
+
+/* Beginning of standby battery CSS */
+
+#standby_battery_switch {
+    position: absolute;
+	top: 16%;
+	left: 28%;
+	width: 20%;
+    padding-top: 20%;
+	
+    background-image: url(../images/stbyBattOff.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+#standby_battery_switch.test {
+    position: absolute;
+    top: 16%;
+    left: 28%;
+    width: 19.3%;
+	padding-top: 30%;
+	
+	background-image: url(../images/stbyBattTest.png);
+}
+
+#standby_battery_switch.arm {
+    position: absolute;
+    top: 12%;
+    left: 28%;
+    width: 20%;
+	
+    background-image: url(../images/stbyBattArm.png);
+}
+
+#standby_battery_switch.test:hover {
+    background-image: url(../images/downArrow.png);
+}
+
+#standby_battery_switch.arm:hover {
+    background-image: url(../images/upArrow.png);
+}
+
+
 /* Styling for the switch containers */
 .switch_container {
 	position: absolute;
@@ -417,22 +557,6 @@ footer {
     font-weight: bold;
 }
 
-/* Styling for information panel anchor */
-.info_panel_anchor {
-	display: block;
-	position: absolute;	
-	z-index: 10;
-	width: 3vh;
-	height: 3vh;
-	background: rgba(0, 0, 0, 0);
-	border-radius: 4px;
-	border-color: rgba(0, 0, 0, .1);
-}
-
-.info_panel_anchor:hover {
-	background: rgba(0, 0, 0, 0.1);
-}
-
 /* Styling for information panels */
 
 
@@ -444,7 +568,9 @@ footer {
 	height: auto;
 	min-width: 7vw;
 	min-height: 5vh;
-	max-width: 10vw;
+	max-width: 30vw;
+	line-height: 1.1em;
+	font-size: 1em;
 	color: #DDD;
 	background-color: #555555;
 	border: 1px solid black;
@@ -462,7 +588,7 @@ footer {
 }
 
 .info_panel p {
-	margin: 2px
+	margin: 4px
 }
 
 

@@ -50,7 +50,53 @@ var schematicFlipSwitch = function(name, toState){
 
         }
 };
+<<<<<<< HEAD
 	               
+=======
+	
+// Someday I hope to reduce these into one function, but three will do
+var armStandbyBattery = function(){
+	offStandbyBattery();
+	$("#standby_battery_paths").addClass("on_standby_battery");
+	$("#test_switch_arm").addClass("on_standby_battery");
+	$("#test_switch_arm").removeClass("hidden");
+	$("#test_switch_off").addClass("hidden");
+	$("#on_off_control_on").removeClass("hidden");
+	$("#on_off_control_on").addClass("on_standby_battery");
+	$("#on_off_control_off").addClass("hidden");
+};
+
+var testStandbyBattery = function(){
+	offStandbyBattery();
+	$("#standby_battery_paths").addClass("on_standby_battery");
+	//$("#standby_battery_test_paths").addClass("on_standby_battery");
+	$("#test_voltage_sense").addClass("on_standby_battery");
+	$("#test_switch_test").addClass("on_standby_battery");
+	$("#test_switch_test").removeClass("hidden");
+	$("#test_led").addClass("on_standby_battery");
+	$("#on_off_control_on").removeClass("hidden");
+	$("#on_off_control_on").addClass("on_standby_battery");
+	$("#on_off_control_off").addClass("hidden");
+	$("#test_switch_off").addClass("hidden");
+};
+
+var offStandbyBattery = function(){
+	$("#test_switch_arm").removeClass("on_standby_battery");
+	$("#test_switch_test").removeClass("on_standby_battery");
+	$("#test_voltage_sense").removeClass("on_standby_battery");
+	$("#test_switch_arm").addClass("hidden");
+	$("#test_switch_test").addClass("hidden");
+	
+	$("#test_led").removeClass("on_standby_battery");
+	$("#on_off_control_on").addClass("hidden");
+	$("#on_off_control_on").removeClass("on_standby_battery");
+	$("#on_off_control_off").removeClass("hidden");
+	$("#test_switch_off").removeClass("hidden");
+	
+	$("#standby_battery_paths").removeClass("on_standby_battery");
+};                  
+                        
+>>>>>>> 99ed5193c2d0e63cbec818db25bfcc2b4b28eaa5
 var classOnOff = function(id, classToAdd, classToRemove){
     $(id).removeClass(classToRemove);
     $(id).addClass(classToAdd);
@@ -96,6 +142,7 @@ var audio = function(id) {
 var schematicFlipMaster = function(name, toState){
     var onId = "#" + name + "_on";
     var offId = "#" + name + "_off";
+	 console.log(onId);
     if (toState) {
         // that means we want to turn the switch on
         $(onId).removeClass("hidden");
@@ -108,10 +155,29 @@ var schematicFlipMaster = function(name, toState){
 };
 
 
+<<<<<<< HEAD
 /* When the document is loaded, it will hide all elements in the pop_up_list
+=======
+//Function that generates a panel self close function
+var close = function(id, rate) {
+	return function() {
+		$(id).hide(rate);
+	};
+};
+
+//Function that plays audio {
+var audio = function(id) {
+	return function () {
+		$(id).trigger("play");
+	};
+};
+
+/* When the document is loaded, it will hide all elements in the pop_up_list*/
+/*
+>>>>>>> 99ed5193c2d0e63cbec818db25bfcc2b4b28eaa5
 $( document ).ready(function(){
-	$("#pop_up_list").children().hide();
-});
+    
+    }); */
 
 /*Function to display pop up box when clicking on the 'starter' svg element present in C172SSchematic.svg
   For some reason, I was able to make it work one time.  After I refreshed the page, it stopped working and I have no idea why.
@@ -207,6 +273,32 @@ $("#master_switch_bat").click(function(){
 		}
 });
 
+$("#avn_bus1_switch").click(function(){
+   if ($("#avn_bus1_switch").hasClass("avn_bus1_off"))
+       {
+           classOnOff("#avn_bus1_switch", "avn_bus1_on", "avn_bus1_off");
+           schematicFlipMaster("switch_avn1_svg", true);
+       }
+    else
+        {
+           classOnOff("#avn_bus1_switch", "avn_bus1_off", "avn_bus1_on");
+           schematicFlipMaster("switch_avn1_svg", false);
+        }
+});
+
+$("#avn_bus2_switch").click(function(){
+   if ($("#avn_bus2_switch").hasClass("avn_bus2_off"))
+       {
+           classOnOff("#avn_bus2_switch", "avn_bus2_on", "avn_bus2_off");
+           schematicFlipMaster("switch_avn2_svg", true);
+       }
+    else
+        {
+           classOnOff("#avn_bus2_switch", "avn_bus2_off", "avn_bus2_on");
+           schematicFlipMaster("switch_avn2_svg", false);
+        }
+});
+
 /*
 	Navigation Bar Engine/EPU button responsiveness.
 */
@@ -264,6 +356,21 @@ switchPanel.each(function(){
 	});	
 });
 
+<<<<<<< HEAD
+=======
+var standbyBatterySwitch = $("#standby_battery_switch");
+standbyBatterySwitch.click(function(e){
+	if(e.target.id == "standby_battery_arm"){
+		armStandbyBattery();
+	} else if (e.target.id == "standby_battery_test") {
+      testStandbyBattery();
+   } else {
+		offStandbyBattery();
+	}
+	
+}
+);
+>>>>>>> 99ed5193c2d0e63cbec818db25bfcc2b4b28eaa5
 
 var breakerPanel = $("#breaker_switch_container").children();
 breakerPanel.each(function(){
@@ -358,7 +465,62 @@ $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
 
 
 	}
+<<<<<<< HEAD
 }, "text");
+=======
+    
+    /* Added by Matt to locate the legend relative to the SVG */
+    var svg = document.getElementById('svg1225');
+    var left = svg.getBoundingClientRect().right - 160;
+    var top = svg.getBoundingClientRect().top;
+    
+    var legend = document.getElementById("legend");
+    legend.style.left = left + "px";
+    legend.style.top = top + "px";
+    
+    $(window).resize(function(){
+        var left = svg.getBoundingClientRect().right - 160;
+        var top = svg.getBoundingClientRect().top;
+    
+        
+        var legend = document.getElementById("legend");
+        legend.style.left = left + "px";
+        legend.style.top = top + "px";
+    });
+    
+    $("#standby_battery_arm").click(function(){
+        if ($("#standby_battery_switch").hasClass("standby_battery_off"))
+        {
+            classOnOff("#standby_battery_switch", "standby_battery_arm", "standby_battery_off");
+            $("#standby_battery_switch").css("top", "52px");
+            armStandbyBattery();
+        }
+        
+        if ($("#standby_battery_switch").hasClass("standby_battery_test"))
+        {
+            classOnOff("#standby_battery_switch", "standby_battery_off", "standby_battery_test");
+            offStandbyBattery();
+        }        
+    });
+    
+    $("#standby_battery_test").click(function(){
+        if ($("#standby_battery_switch").hasClass("standby_battery_off"))
+        {
+            classOnOff("#standby_battery_switch", "standby_battery_test", "standby_battery_off");
+            testStandbyBattery();
+        }
+        
+        if ($("#standby_battery_switch").hasClass("standby_battery_arm"))
+        {
+            classOnOff("#standby_battery_switch", "standby_battery_off", "standby_battery_arm");
+            $("#standby_battery_switch").css("top", "60px");
+            offStandbyBattery();
+        }        
+    });
+                
+    
+});	 
+>>>>>>> 99ed5193c2d0e63cbec818db25bfcc2b4b28eaa5
 
 //Enable draggable functionality for all draggable containers
 $(".draggable").draggable({handle: ".draggable_handle"});

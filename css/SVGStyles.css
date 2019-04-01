@@ -23,7 +23,7 @@ text {
 
 
 #battery path, #battery circle, #battery ellipse {
-    stroke: pink;
+    stroke: magenta !important;
 }
 /*#battery_master_switch path, #battery_master_switch circle {
     stroke: blue;
@@ -33,10 +33,10 @@ text {
 /*    stroke: orange;*/
 /*}*/
 
-#feeder_a_breaker path, #feeder_a_breaker rect, #feeder_a_breaker circle {
+/*#feeder_a_breaker path, #feeder_a_breaker rect, #feeder_a_breaker circle {
     stroke: purple;
     fill: purple;
-}
+}*/
 
 #ACU_box {
     fill: white;
