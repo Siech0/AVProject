@@ -36,6 +36,7 @@ Schematic.prototype.addEdge = function(frm, to){
 Schematic.prototype.registerAlias = function(id) {
 	if(this.aliasTable[id] == null) {
 		this.aliasTable[id] = this.aliasTable.count++;
+		this.aliasTable[this.aliasTable[id]] = id;
 		return this.aliasTable[id];
 	}
 	return null;
@@ -105,7 +106,7 @@ Schematic.prototype.draw = function(){
 	for(let i = 0; i < this.vertices.length; ++i){
 		for(let j = 0; j < this.sources.length; ++j){
 			let src = this.vertices[this.sources[j]];
-			$("#"+this.vertices[i].id).toggleClass(src.cls, this.vertices[i].state[j]);
+			$(this.vertices[i].id).toggleClass(src.cls, this.vertices[i].state[j]);
 		}
 
 	}
@@ -134,34 +135,5 @@ function SourceVertex(id, passthrough, cls){
 	Vertex.call(this, id, passthrough);
 	this.cls = cls;
 }
-
-
-function generateGraph(graphData){
-	let graph = new Graph();
-	for(let i = 0; i < graphData.length; ++i) {
-		let vtx = graphData[i];
-		if(vtx.source){ // is source
-			graph.addSourceVertex(vtx.id, vtx.passthrough, vtx.class_name);
-		} else {
-			graph.addVertex(vtx.id, vtx.passthrough);
-		}
-	}
-	
-	for(let i = 0; i < graphData.length; ++i) {
-		let vtx = graphData[i];
-		for(let j = 0; j < vtx.edges.length; ++j) {
-			graph.addEdge(vtx.id, vtx.edges[j]);
-		}
-	}
-	return graph;
-}
-
-$.getJSON("itemInfo.json", function(json) {
-	let graphData = json.graphData;
-	diagramGraph = generateGraph(graphData);
-	diagramGraph.update();
-	diagramGraph.draw();
-});
-
 
 	

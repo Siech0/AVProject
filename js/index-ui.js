@@ -103,8 +103,11 @@ $("#master_switch_alt").click( () => {
 	if($("#master_switch_alt").hasClass("active")){ //Switch active
 		$("#master_switch_alt").toggleClass("active", false);
 		$("#alt_master_switch").toggleClass("active", false);
-		$("#alt_relay").toggleClass("on", false);
 		
+		schem.setPassthrough("#alt_relay", false);
+		/*
+		$("#alt_relay").toggleClass("on", false);
+		*/
 		flipMaster("#alt_relay", false);
 		flipMaster("#alt_master_switch", false);
 		
@@ -114,16 +117,23 @@ $("#master_switch_alt").click( () => {
 		
 		$("#audio_master").trigger("play");
 		
+		schem.setPassthrough("#alt_master_switch", true);
+		schem.setPassthrough("#alt_relay", true);
+		schem.setPassthrough("#battery_relay", true);
+		schem.setPassthrough("#battery_master_switch", true);
+		/*
 		$("#alt_master_switch").toggleClass("on", true);
 		$("#alt_relay").toggleClass( "on", true);
 		$("#battery_relay").toggleClass( "on", true);
 		$("#battery_master_switch").toggleClass("on", true);
-		
+		*/
 		flipMaster("#alt_relay", true);
 		flipMaster("#alt_master_switch", true);
 		flipMaster("#battery_master_switch", true);
 		flipMaster("#battery_relay");
 	}
+	schem.update();
+	schem.draw();
 });
 
 $("#master_switch_bat").click( () => {
@@ -131,10 +141,17 @@ $("#master_switch_bat").click( () => {
 		$("#master_switch_bat").toggleClass("active", false);
 		$("#master_switch_alt").toggleClass("active", false);
 		
+		schem.setPassthrough("#battery_master_switch", false);
+		schem.setPassthrough("#battery_relay", false);
+		schem.setPassthrough("#alt_master_switch", false);
+		schem.setPassthrough("#alt_relay", false);
+		/*
 		$("#battery_master_switch").toggleClass("on", false);
 		$("#battery_relay").toggleClass("on", false);
 		$("#alt_master_switch").toggleClass("on", false);
 		$("#alt_relay").toggleClass("on", false);
+		*/
+		
 		
 		flipMaster("#battery_master_switch", false);
 		flipMaster("#battery_relay", false);
@@ -144,12 +161,17 @@ $("#master_switch_bat").click( () => {
 		$("#master_switch_bat").toggleClass("active", true);
 		$("#master_switch_alt").toggleClass("active", true);
 		
+		schem.setPassthrough("#battery_master_switch", true);
+		schem.setPassthrough("#battery_relay", true);
+		/*
 		$("#battery_master_switch").toggleClass("on", true);
 		$("#battery_relay").toggleClass("on", true);
-		
+		*/
 		flipMaster("#battery_master_switch", true);
 		flipMaster("#battery_relay", true);
 	}
+	schem.update();
+	schem.draw();
 });
 
 $("#avn_bus1_switch").click( () => {
@@ -173,11 +195,11 @@ $("#avn_bus2_switch").click( () => {
 });
 
 
-let stb_switch = $("#standby_battery_switch");
-stb_switch.click( () => {
-	if(stb_switch.hasClass("arm")){ //arm
+let stbSwitch = $("#standby_battery_switch");
+stbSwitch.click( () => {
+	if(stbSwitch.hasClass("arm")){ //arm
 
-	} else if (stb_switch.hasClass("test")) { //test
+	} else if (stbSwitch.hasClass("test")) { //test
 
 	} 
 });
@@ -193,12 +215,12 @@ switchPanel.each(function(){
 	$(this).click(function(){
 		var id = $(this).attr('id');
 		if (panelState[id] == undefined) {
-			panelState[id] = false;
+			panelState[id] = true;
 		}
-		flipSwitch("#"+id+"_svg", !panelState[id]);
+		schem.setPassthrough("#" + id + "_svg");
+		flipSwitch("#"+id+"_svg", panelState[id]);
 		panelState[id] = !panelState[id];
 		
-		//cSwitch("#beacon_light_switch", true, "on");
 		if (panelState[id]) {
 			console.log("Turning on " + id);
 			//classOnOff("#"+id+"_svg", "on", "");    
@@ -296,7 +318,6 @@ $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
 			let targets = document.getElementById("targets");	
 			targets.addEventListener("click", function (e){
 				//generate a new panel for this info
-				console.log("here");
 				if(info_panels[e.target.id] === undefined){ //We didnt define anything for this target
 					return;
 				}
@@ -330,10 +351,24 @@ $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
 					
 					panelState[e.target.id] = true;
 				}
-			
-		let
-			
 			}, false);
+			
+			let graphData = json.graph_data;
+			for(let i = 0; i < graphData.length; ++i) {
+				let vtx = graphData[i];
+				if(vtx.source){ // is source
+					schem.addSourceVertex(vtx.id, vtx.passthrough, vtx.class_name);
+				} else {
+					schem.addVertex(vtx.id, vtx.passthrough);
+				}
+			}
+			
+			for(let i = 0; i < graphData.length; ++i) {
+				let vtx = graphData[i];
+				for(let j = 0; j < vtx.edges.length; ++j) {
+					schem.addEdge(vtx.id, vtx.edges[j]);
+				}
+			}
 		});
 	}
 }, "text");
