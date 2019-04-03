@@ -140,19 +140,10 @@ Schematic.prototype.draw = function(){
 		let vtx = this.vertices[i];
 		for(let j = 0; j < this.sources.length; ++j){
 			let src = this.vertices[this.sources[j]];
-			if(vtx.is_switch) {
-				let onId = vtx.id + "_on";
-				let offId = vtx.id + "_off";
-				if(vtx.passthrough == true) {
-					$(onId).toggleClass("hidden", false);
-					$(offId).toggleClass("hidden", true);
-					$(vtx.id).toggleClass(src.cls, vtx.state[j]);
-				} else {
-					$(onId).toggleClass("hidden", true);
-					$(offId).toggleClass("hidden", false);
-					$(vtx.id).toggleClass(src.cls, false);
-				}
-			} else if(vtx.is_breaker) {
+			if(vtx.id[0] === '_'){//Dummy element doesnt get drawn
+				continue;
+			}
+			if(vtx.is_switch || vtx.is_breaker) {
 				let onId = vtx.id + "_on";
 				let offId = vtx.id + "_off";
 				if(vtx.passthrough == true) {

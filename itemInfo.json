@@ -19,15 +19,48 @@
 	},
 	"graph_data": [
 		{
+			"id": "_battery_dummy",
+			"is_source": true,
+			"is_breaker": false,
+			"is_switch": false,
+			"edges": [
+				"#battery"
+			],
+			"passthrough": true,
+			"class_name": "on_battery"
+		},
+		{
 			"id": "#battery",
+			"is_source": false,
+			"is_switch": false,
+			"is_breaker": false,
+			"edges": [
+				"_battery_dummy",
+				"#switch_battery_master"
+			],
+			"passthrough": true
+		},
+		{
+			"id": "_alternator_dummy",
 			"is_source": true,
 			"is_switch": false,
 			"is_breaker": false,
 			"edges": [
-				"#switch_battery_master"
+				"#alt_input"
 			],
 			"passthrough": true,
-			"class_name": "on"
+			"class_name": "on_alternator"
+		},
+		{
+			"id": "#alt_input",
+			"is_source": false,
+			"is_switch": false,
+			"is_breaker": false,
+			"edges": [
+				"#alt_relay",
+				"_alternator_dummy"
+			],
+			"passthrough": true
 		},
 		{
 			"id": "#battery_relay",
@@ -50,7 +83,8 @@
 			"is_breaker": false,
 			"edges": [
 				"#battery_relay",
-				"#switch_alt_master"
+				"#switch_alt_master",
+				"#alt_input"
 			],
 			"passthrough": false
 		},

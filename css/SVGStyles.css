@@ -51,40 +51,40 @@ text {
     fill: magenta;
 }
 
-.on_external_power, .on_external_power path, .on_external_power circle, .on_external_power rect, .on_external_power ellipse {
-    stroke: blue;
-    /*fill: magenta;*/
-}
-
-.on_external_power path {
-    fill: blue;
-}
-
-.on_alternator, .on_alternator path, .on_alternator circle, .on_alternator rect, .on_alternator ellipse {
-    stroke: red;
-    /*fill: magenta;*/
-}
-
-.on_alternator path {
-    fill: red;
-}
-
-.on_standby_battery, .on_standby_battery path, .on_standby_battery circle, .on_standby_battery rect, .on_standby_battery ellipse {
-    stroke: teal;
-    /*fill: magenta;*/
-}
-
-.on_standby_battery path {
-    fill: teal;
-}
-
 .on_battery, .on_battery path, .on_battery circle, .on_battery rect, .on_battery ellipse {
-    stroke: goldenrod;
+    stroke: magenta;
     /*fill: magenta;*/
 }
 
 .on_battery path {
-    fill: goldenrod;
+    fill: magenta;
+}
+
+.on_alternator, .on_alternator path, .on_alternator circle, .on_alternator rect, .on_alternator ellipse {
+    stroke: teal;
+    /*fill: magenta;*/
+}
+
+.on_alternator path {
+    fill: teal;
+}
+
+.on_standby_battery, .on_standby_battery path, .on_standby_battery circle, .on_standby_battery rect, .on_standby_battery ellipse {
+    stroke: blue;
+    /*fill: magenta;*/
+}
+
+.on_standby_battery path {
+    fill: blue;
+}
+
+.on_external_power, .on_external_power path, .on_external_power circle, .on_external_power rect, .on_external_power ellipse {
+    stroke: orange;
+    /*fill: magenta;*/
+}
+
+.on_external_power path {
+    fill: orange;
 }
 
 .off, .off path, .off circle, .off ellipse {
