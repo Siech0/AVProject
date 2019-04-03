@@ -32,7 +32,7 @@
 		{
 			"id": "#battery_relay",
 			"is_source": false,
-			"is_switch": false,
+			"is_switch": true,
 			"is_breaker": false,
 			"edges": [
 				"#battery",
@@ -46,7 +46,7 @@
 		{
 			"id": "#alt_relay",
 			"is_source": false,
-			"is_switch": false,
+			"is_switch": true,
 			"is_breaker": false,
 			"edges": [
 				"#battery_relay",
