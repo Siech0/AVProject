@@ -445,7 +445,6 @@ footer {
 }
 
 #avn_bus1_switch.active {
-
     background-image: url(../images/avionicsOn.jpg);
 }
 
@@ -468,7 +467,7 @@ footer {
 
 /* Beginning of standby battery CSS */
 
-#standby_battery_switch {
+#standby_battery_switch.off {
     position: absolute;
 	top: 16%;
 	left: 28%;
@@ -480,11 +479,39 @@ footer {
     background-size: 100% 100%;
 }
 
+#standby_battery_arm {
+    position: absolute;
+    top: 1%;
+	left: 31%;
+	width: 20%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding-top: 16%;
+}
+
+#standby_battery_arm:hover {
+    background-image: url(../images/upArrow.png);
+}
+
+#standby_battery_test {
+    position: absolute;
+    top: 29%;
+	left: 31%;
+	width: 20%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding-top: 16%;
+}
+
+#standby_battery_test:hover {
+    background-image: url(../images/downArrow.png);
+}
+
 #standby_battery_switch.test {
     position: absolute;
     top: 16%;
-    left: 28%;
-    width: 19.3%;
+    left: 26%;
+    width: 24%;
 	padding-top: 30%;
 	
 	background-image: url(../images/stbyBattTest.png);
@@ -492,21 +519,13 @@ footer {
 
 #standby_battery_switch.arm {
     position: absolute;
-    top: 12%;
-    left: 28%;
-    width: 20%;
+    top: 10%;
+    left: 25%;
+    width: 25%;
+    padding-top: 22%;
 	
     background-image: url(../images/stbyBattArm.png);
 }
-
-#standby_battery_switch.test:hover {
-    background-image: url(../images/downArrow.png);
-}
-
-#standby_battery_switch.arm:hover {
-    background-image: url(../images/upArrow.png);
-}
-
 
 /* Styling for the switch containers */
 .switch_container {
