@@ -103,11 +103,9 @@ $("#avn_bus1_switch").click( () => {
 	if($("#avn_bus1_switch").hasClass("active")){ //active
 		$("#avn_bus1_switch").toggleClass("active", false);
 		schem.setPassthrough("#switch_avn1_svg", false);
-		flipMaster("switch_avn1_svg", false);
 	} else {
 		schem.setPassthrough("#switch_avn1_svg", true);
 		$("#avn_bus1_switch").toggleClass("active", true);
-		flipMaster("switch_avn1_svg", true);
 	}
 	schem.update();
 	schem.draw();
@@ -117,10 +115,8 @@ $("#avn_bus2_switch").click( () => {
 	if($("#avn_bus2_switch").hasClass("active")){ //active
 		$("#avn_bus2_switch").toggleClass("active", false);
 		schem.setPassthrough("#switch_avn2_svg", false);
-		flipMaster("switch_avn2_svg", false);
 	} else {
 		$("#avn_bus2_switch").toggleClass("active", true);
-		flipMaster("switch_avn2_svg", true);
 		schem.setPassthrough("#switch_avn2_svg", true);
 	}
 	schem.update();
@@ -232,51 +228,56 @@ $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
 		$("<p>Error: Unable to load diagram file.</p>").appendTo(wrapper);
 	} else {
 		$("#diagram").replaceWith(data);
-		//Load info panel data and generate info panels
-		$.getJSON("itemInfo.json", function(json, success) {
-			let info_panels = json.info_panels;
-			
-			//Generate information panels and target events
-			let targets = document.getElementById("targets");	
-			targets.addEventListener("click", function (e){
-				//generate a new panel for this info
-				if(info_panels[e.target.id] === undefined){ //We didnt define anything for this target
-					return;
-				}
-				
-				if(panelState[e.target.id] === undefined) {
-					panelState[e.target.id] = false;
-				} 
-				
-				if(panelState[e.target.id] === false) {
-					var wrapper_pos = wrapper.position();
-					var panel = $("<div class='info_panel' id='info_panel_" + e.target.id + "'></div>");
-					panel.css('top', (e.pageY + 5 - wrapper_pos.top ) + 'px');
-					panel.css('left', (e.pageX + 5 - wrapper_pos.left ) + 'px');
-					var title = $("<div class='draggable_handle' id='info_panel_" + e.target.id + "_handle'></div>");
-					title.text(info_panels[e.target.id].title);
-					var closer = $("<span class='close' id='info_panel_close_'" + e.target.id + "'></span>");
-					closer.text('×');
-					closer.click(() => {
-						remove("#info_panel_"+ e.target.id, 500);
+
+		$.ajax({
+			type: "GET",
+			dataType: "json",
+			url: "itemInfo.json",
+			mimeType: "application/json",
+			success: function(json){
+				let infoPanels = json.info_panels;	
+				//Generate information panels and target events
+				let targets = document.getElementById("targets");	
+				targets.addEventListener("click", function (e){
+					//generate a new panel for this info
+					if(infoPanels[e.target.id] === undefined){ //We didnt define anything for this target
+						return;
+					}
+					
+					if(panelState[e.target.id] === undefined) {
 						panelState[e.target.id] = false;
-					});
-					var content = $("<p></p>");
-					content.text(info_panels[e.target.id].text); 
-					closer.appendTo(title);
-					title.appendTo(panel);
-					content.appendTo(panel);
-					panel.appendTo(wrapper);	
+					} 
 					
-					//Ensure that this is draggable by its handle
-					panel.draggable({handle: "#info_panel_" + e.target.id + "_handle"});
-					
-					panelState[e.target.id] = true;
-				}
-			}, false);
-			
-			let graphData = json.graph_data;
-			schem = new Schematic(graphData);
+					if(panelState[e.target.id] === false) {
+						var wrapper_pos = wrapper.position();
+						var panel = $("<div class='info_panel' id='info_panel_" + e.target.id + "'></div>");
+						panel.css('top', (e.pageY + 5 - wrapper_pos.top ) + 'px');
+						panel.css('left', (e.pageX + 5 - wrapper_pos.left ) + 'px');
+						var title = $("<div class='draggable_handle' id='info_panel_" + e.target.id + "_handle'></div>");
+						title.text(infoPanels[e.target.id].title);
+						var closer = $("<span class='close' id='info_panel_close_'" + e.target.id + "'></span>");
+						closer.text('×');
+						closer.click(() => {
+							remove("#info_panel_"+ e.target.id, 500);
+							panelState[e.target.id] = false;
+						});
+						var content = $("<p></p>");
+						content.text(info_panels[e.target.id].text); 
+						closer.appendTo(title);
+						title.appendTo(panel);
+						content.appendTo(panel);
+						panel.appendTo(wrapper);	
+						
+						//Ensure that this is draggable by its handle
+						panel.draggable({handle: "#info_panel_" + e.target.id + "_handle"});		
+						panelState[e.target.id] = true;
+					}
+				});
+				
+				//Generate graph
+				let graphData = json.graph_data;
+				schem = new Schematic(graphData);
+			}
 		}).fail(function(jqXHR, textSatus, error) {
 			throw new Error("Error parsing schematic information file, schematic functionality will not be loaded: " + error);
 		});
