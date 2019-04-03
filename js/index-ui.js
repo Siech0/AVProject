@@ -235,6 +235,7 @@ $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
 			url: "itemInfo.json",
 			mimeType: "application/json",
 			success: function(json){
+				let wrapper = $("#svg_wrapper");
 				let infoPanels = json.info_panels;	
 				//Generate information panels and target events
 				let targets = document.getElementById("targets");	
@@ -262,7 +263,7 @@ $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
 							panelState[e.target.id] = false;
 						});
 						var content = $("<p></p>");
-						content.text(info_panels[e.target.id].text); 
+						content.text(infoPanels[e.target.id].text); 
 						closer.appendTo(title);
 						title.appendTo(panel);
 						content.appendTo(panel);
