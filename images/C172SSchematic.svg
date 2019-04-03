@@ -600,7 +600,7 @@
      y="205.29727"
      x="699.88129" />
   <g
-     id="feeder_a_breaker"
+     id="breaker_feeder_a_svg"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)"
      style="">
     <g
@@ -1674,7 +1674,7 @@
        sodipodi:nodetypes="cc" />
   </g>
   <g
-     id="feeder_b_breaker"
+     id="breaker_feeder_b_svg"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)"
      style="">
     <path
@@ -1706,7 +1706,7 @@
        
        id="path627" />
     <g
-       id="g810"
+       id="random-numbers"
        style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;">
       <path
          style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
@@ -1756,7 +1756,7 @@
        id="path347" />
     <g
        transform="translate(1.1220698,-67.707107)"
-       id="g6046-7"
+       id="random-stuff"
        style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;">
       <path
          inkscape:connector-curvature="0"
@@ -3963,7 +3963,7 @@
        r="2.7272727" />
   </g>
   <g
-     id="avn_nav1_eng"
+     id="breaker_avn_nav1_eng"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
@@ -6728,10 +6728,10 @@ Switch<br />
   <path
        style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none;"
        d="m 422.96657,265.37751 30.67363,-13.4508"
-       id="alt_master_switch_off"
+       id="switch_alt_master_off"
        inkscape:connector-curvature="0" />
   <g
-     id="alt_master_switch"
+     id="switch_alt_master"
      style="">
     
     <ellipse
@@ -6761,7 +6761,7 @@ Switch<br />
     <path
        sodipodi:nodetypes="cc"
        inkscape:connector-curvature="0"
-       id="alt_master_switch_on"
+       id="switch_alt_master_on"
        class="hidden"
        d="m 422.96657,266.3003 27.86609,0.0316"
        style="fill:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;" />
@@ -6769,10 +6769,10 @@ Switch<br />
   <path
        style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none;"
        d="m 417.42827,552.77631 30.67364,-13.4508"
-       id="battery_master_switch_off"
+       id="switch_battery_master_off"
        inkscape:connector-curvature="0" />
   <g
-     id="battery_master_switch"
+     id="switch_battery_master"
      style="">
     <path
        style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none;"
@@ -6820,7 +6820,7 @@ Switch<br />
        id="path1103" />
     <path
        inkscape:connector-curvature="0"
-       id="battery_master_switch_on"
+       id="switch_battery_master_on"
        class="hidden"
        d="M 445.48605,553.63442 H 418.08078"
        style="fill:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;" />

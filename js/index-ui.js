@@ -1,5 +1,5 @@
 let panelState = {};
-let schem = new Schematic();
+let schem = null;
 
 let toogle = function(id, initial, rate) {
 	if(panelState[id] == null){
@@ -43,33 +43,6 @@ let flipMaster = function(name, toState){
     }
 };
 
-// I want a function that takes advantage of my naming conventions to turn
-// switches and breakers on and off
-// (Could we format this better, its incredibly hard to unserstand this code)
-let flipSwitch = function(name, toState){
-	var onId = name + "_on";
-	var offId = name + "_off";
-	var switchId = name;
-	var inheiritFrom = "";
-	var inheiritTo = "";
-	inheiritTo = name.replace("breaker", "switch");
-	inheiritFrom = name.replace("switch", "breaker");
-	inheiritClass = $(inheiritFrom).prop("classList");
-	if (toState) {
-		$(switchId).addClass(inheiritClass[0]);
-		if (panelState[inheiritTo.replace("_svg","")]) {
-			$(inheiritTo).addClass(inheiritClass[0]);
-		}
-		$(onId).removeClass("hidden");
-		$(offId).addClass("hidden");
-	} else {
-		$("#"+inheiritTo).removeClass(activeClass);
-		$(switchId).removeClass(inheiritClass[0]);
-		$(offId).removeClass("hidden");
-		$(onId).addClass("hidden");
-	}
-};
-
 /*Implement all pull panel functionality*/
 $('#nav_pull_anchor').click(function(){
 	if(panelState['#nav_pull_anchor'] == null) {
@@ -102,14 +75,14 @@ $('#right_pull_anchor').click(function(){
 $("#master_switch_alt").click( () => {
 	if($("#master_switch_alt").hasClass("active")){ //Switch active
 		$("#master_switch_alt").toggleClass("active", false);
-		$("#alt_master_switch").toggleClass("active", false);
+		$("#switch_alt_master").toggleClass("active", false);
 		
 		schem.setPassthrough("#alt_relay", false);
 		/*
 		$("#alt_relay").toggleClass("on", false);
 		*/
 		flipMaster("#alt_relay", false);
-		flipMaster("#alt_master_switch", false);
+		flipMaster("#switch_alt_master", false);
 		
 	} else { //Switch inactive
 		$("#master_switch_alt").toggleClass("active", true);
@@ -117,20 +90,19 @@ $("#master_switch_alt").click( () => {
 		
 		$("#audio_master").trigger("play");
 		
-		console.log("here");
-		schem.setPassthrough("#alt_master_switch", true);
+		schem.setPassthrough("#switch_alt_master", true);
 		schem.setPassthrough("#alt_relay", true);
 		schem.setPassthrough("#battery_relay", true);
-		schem.setPassthrough("#battery_master_switch", true);
+		schem.setPassthrough("#switch_battery_master", true);
 		/*
-		$("#alt_master_switch").toggleClass("on", true);
+		$("#switch_alt_master").toggleClass("on", true);
 		$("#alt_relay").toggleClass( "on", true);
 		$("#battery_relay").toggleClass( "on", true);
-		$("#battery_master_switch").toggleClass("on", true);
+		$("#switch_battery_master").toggleClass("on", true);
 		*/
 		flipMaster("#alt_relay", true);
-		flipMaster("#alt_master_switch", true);
-		flipMaster("#battery_master_switch", true);
+		flipMaster("#switch_alt_master", true);
+		flipMaster("#switch_battery_master", true);
 		flipMaster("#battery_relay");
 	}
 	schem.update();
@@ -142,33 +114,33 @@ $("#master_switch_bat").click( () => {
 		$("#master_switch_bat").toggleClass("active", false);
 		$("#master_switch_alt").toggleClass("active", false);
 		
-		schem.setPassthrough("#battery_master_switch", false);
+		schem.setPassthrough("#switch_battery_master", false);
 		schem.setPassthrough("#battery_relay", false);
-		schem.setPassthrough("#alt_master_switch", false);
+		schem.setPassthrough("#switch_alt_master", false);
 		schem.setPassthrough("#alt_relay", false);
 		/*
-		$("#battery_master_switch").toggleClass("on", false);
+		$("#switch_battery_master").toggleClass("on", false);
 		$("#battery_relay").toggleClass("on", false);
-		$("#alt_master_switch").toggleClass("on", false);
+		$("#switch_alt_master").toggleClass("on", false);
 		$("#alt_relay").toggleClass("on", false);
 		*/
 		
 		
-		flipMaster("#battery_master_switch", false);
+		flipMaster("#switch_battery_master", false);
 		flipMaster("#battery_relay", false);
-		flipMaster("#alt_master_switch", false);
+		flipMaster("#switch_alt_master", false);
 		flipMaster("#alt_relay", false);
 	} else { //Switch inactive
 		$("#master_switch_bat").toggleClass("active", true);
 		$("#master_switch_alt").toggleClass("active", true);
 		
-		schem.setPassthrough("#battery_master_switch", true);
+		schem.setPassthrough("#switch_battery_master", true);
 		schem.setPassthrough("#battery_relay", true);
 		/*
-		$("#battery_master_switch").toggleClass("on", true);
+		$("#switch_battery_master").toggleClass("on", true);
 		$("#battery_relay").toggleClass("on", true);
 		*/
-		flipMaster("#battery_master_switch", true);
+		flipMaster("#switch_battery_master", true);
 		flipMaster("#battery_relay", true);
 	}
 	schem.update();
@@ -178,21 +150,29 @@ $("#master_switch_bat").click( () => {
 $("#avn_bus1_switch").click( () => {
 	if($("#avn_bus1_switch").hasClass("active")){ //active
 		$("#avn_bus1_switch").toggleClass("active", false);
+		schem.setPassthrough("#switch_avn1_svg", false);
 		flipMaster("switch_avn1_svg", false);
 	} else {
+		schem.setPassthrough("#switch_avn1_svg", true);
 		$("#avn_bus1_switch").toggleClass("active", true);
 		flipMaster("switch_avn1_svg", true);
 	}
+	schem.update();
+	schem.draw();
 });
 
 $("#avn_bus2_switch").click( () => {
 	if($("#avn_bus2_switch").hasClass("active")){ //active
 		$("#avn_bus2_switch").toggleClass("active", false);
+		schem.setPassthrough("#switch_avn2_svg", false);
 		flipMaster("switch_avn2_svg", false);
 	} else {
 		$("#avn_bus2_switch").toggleClass("active", true);
 		flipMaster("switch_avn2_svg", true);
+		schem.setPassthrough("#switch_avn2_svg", true);
 	}
+	schem.update();
+	schem.draw();
 });
 
 
@@ -215,20 +195,9 @@ var switchPanel = $("#switches_switch_container").children();
 switchPanel.each(function(){
 	$(this).click(function(){
 		var id = $(this).attr('id');
-		if (panelState[id] == undefined) {
-			panelState[id] = true;
-		}
 		schem.setPassthrough("#" + id + "_svg");
-		flipSwitch("#"+id+"_svg", panelState[id]);
-		panelState[id] = !panelState[id];
-		
-		if (panelState[id]) {
-			console.log("Turning on " + id);
-			//classOnOff("#"+id+"_svg", "on", "");    
-		} else {
-			//classOnOff("#"+id+"_svg", "", "on");
-			console.log("Turning off " + id);
-		}
+		schem.update();
+		schem.draw();
 	});	
 });
 
@@ -236,18 +205,9 @@ var breakerPanel = $("#breaker_switch_container").children();
 breakerPanel.each(function(){
 	$(this).click(function(){
 		var id = $(this).attr('id');
-		if (panelState[id] == undefined) {
-			panelState[id] = true;
-		}
-		panelState[id] = !panelState[id];
-		if (panelState[id]) {
-			console.log("Turning on " + id);
-			classOnOff("#"+id+"_svg", "on", "");    
-		} else {
-			classOnOff("#"+id+"_svg", "", "on");
-			console.log("Turning off " + id);
-		}
-		flipSwitch("#"+id+"_svg", panelState[id]);
+		schem.setPassthrough("#" + id + "_svg");
+		schem.update();
+		schem.draw();
 	});
 });
 
@@ -287,9 +247,18 @@ $("#breakers_button").click(() => toogle("#breakers_main_container", false, 500)
 $("#switches_button").click(() => toogle("#switches_main_container", false, 500)); //Switches
 
 //Enable bottom panel self close functionality
-$("#master_close").click(() => close("#master_main_container", 500)); //Master
-$("#breakers_close").click(() => close("#breakers_main_container", 500)); //Breakers
-$("#switches_close").click(() => close("#switches_main_container", 500)); //Switches
+$("#master_close").click(() => {
+	close("#master_main_container", 500);
+	panelState["#master_main_container"] = false;
+}); //Master
+$("#breakers_close").click(() => {
+	close("#breakers_main_container", 500);
+	panelState["#breakers_main_container"] = false;
+}); //Breakers
+$("#switches_close").click(() => {
+	close("#switches_main_container", 500);
+	panelState["#switches_main_container"] = false;
+}); //Switches
 
 
 //Enable draggable elements
@@ -312,7 +281,7 @@ $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
 	} else {
 		$("#diagram").replaceWith(data);
 		//Load info panel data and generate info panels
-		$.getJSON("itemInfo.json", function(json, err) {
+		$.getJSON("itemInfo.json", function(json, success) {
 			let info_panels = json.info_panels;
 			
 			//Generate information panels and target events
@@ -355,21 +324,9 @@ $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
 			}, false);
 			
 			let graphData = json.graph_data;
-			for(let i = 0; i < graphData.length; ++i) {
-				let vtx = graphData[i];
-				if(vtx.source){ // is source
-					schem.addSourceVertex(vtx.id, vtx.passthrough, vtx.class_name);
-				} else {
-					schem.addVertex(vtx.id, vtx.passthrough);
-				}
-			}
-			
-			for(let i = 0; i < graphData.length; ++i) {
-				let vtx = graphData[i];
-				for(let j = 0; j < vtx.edges.length; ++j) {
-					schem.addEdge(vtx.id, vtx.edges[j]);
-				}
-			}
+			schem = new Schematic(graphData);
+		}).fail(function(jqXHR, textSatus, error) {
+			throw new Error("Error parsing schematic information file, schematic functionality will not be loaded: " + error);
 		});
 	}
 }, "text");

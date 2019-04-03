@@ -1,7 +1,35 @@
-let Schematic = function(schematicData){
+let Schematic = function(graphData){
 	this.vertices = [];
 	this.aliasTable = { count: 0 };
 	this.sources = [];	
+	
+	if(graphData) {
+		this.generateFromData(graphData);
+	}
+}
+
+Schematic.prototype.generateFromData = function(graphData) {
+	if(graphData == null) {
+		throw new Error("Attempt to generate graph from invalid data source");
+	}
+	for(let i = 0; i < graphData.length; ++i) {
+		let vtx = graphData[i];
+		let node = null;
+		if(vtx.is_source){ // is source
+			node = this.addSourceVertex(vtx.id, vtx.passthrough, vtx.class_name, vtx.is_switch);
+		} else {
+			node = this.addVertex(vtx.id, vtx.passthrough, vtx.is_switch);
+		}
+		node.is_breaker = (vtx.is_breaker == null || vtx.is_breaker == false) ? false : true;
+		node.is_switch = (vtx.is_switch == null || vtx.is_switch == false) ? false : true;
+	}
+	
+	for(let i = 0; i < graphData.length; ++i) {
+		let vtx = graphData[i];
+		for(let j = 0; j < vtx.edges.length; ++j) {
+			this.addEdge(vtx.id, vtx.edges[j]);
+		}
+	}	
 }
 
 Schematic.prototype.addVertex = function(id, passthrough) {
@@ -11,6 +39,7 @@ Schematic.prototype.addVertex = function(id, passthrough) {
 	} else {
 		console.log("Attempted to register vertex that already exists: " + id);
 	}
+	return this.vertices[idx];
 }
 
 Schematic.prototype.addSourceVertex = function(id, passthrough, cls) {
@@ -21,6 +50,7 @@ Schematic.prototype.addSourceVertex = function(id, passthrough, cls) {
 	} else {
 		console.log("Attempted to register source vertex that already exists: " + id);
 	}
+	return this.vertices[idx];
 }
 
 Schematic.prototype.addEdge = function(frm, to){
@@ -49,11 +79,14 @@ Schematic.prototype.aliasLookup = function(id) {
 
 //Set passthrough of vertex to bool(val) if val is defined, otherwise, set passthrough to !passthrough
 Schematic.prototype.setPassthrough = function(id, val) {
+	let idx = this.aliasLookup(id);
+	if(idx == null) {
+		throw new Error("Attempted to set passthrough to invalid element with id: " + id);
+	}
+	
 	if(val === undefined || val === null) {
-		let idx = this.aliasLookup(id);
 		this.vertices[idx].passthrough = !this.vertices[idx].passthrough;
 	} else {
-		let idx = this.aliasLookup(id);
 		this.vertices[idx].passthrough = val;
 	}
 }
@@ -104,9 +137,36 @@ Schematic.prototype.update = function(){
 
 Schematic.prototype.draw = function(){
 	for(let i = 0; i < this.vertices.length; ++i){
+		let vtx = this.vertices[i];
 		for(let j = 0; j < this.sources.length; ++j){
 			let src = this.vertices[this.sources[j]];
-			$(this.vertices[i].id).toggleClass(src.cls, this.vertices[i].state[j]);
+			if(vtx.is_switch) {
+				let onId = vtx.id + "_on";
+				let offId = vtx.id + "_off";
+				if(vtx.passthrough == true) {
+					$(onId).toggleClass("hidden", false);
+					$(offId).toggleClass("hidden", true);
+					$(vtx.id).toggleClass(src.cls, vtx.state[j]);
+				} else {
+					$(onId).toggleClass("hidden", true);
+					$(offId).toggleClass("hidden", false);
+					$(vtx.id).toggleClass(src.cls, false);
+				}
+			} else if(vtx.is_breaker) {
+				let onId = vtx.id + "_on";
+				let offId = vtx.id + "_off";
+				if(vtx.passthrough == true) {
+					$(onId).toggleClass("hidden", false);
+					$(offId).toggleClass("hidden", true);
+					$(vtx.id).toggleClass(src.cls, vtx.state[j]);
+				} else {
+					$(onId).toggleClass("hidden", true);
+					$(offId).toggleClass("hidden", false);
+					$(vtx.id).toggleClass(src.cls, false);
+				}
+			} else {
+				$(vtx.id).toggleClass(src.cls, vtx.state[j]);	
+			}
 		}
 
 	}
@@ -124,7 +184,10 @@ function Vertex(id, passthrough) {
 	this.passthrough = passthrough;
 	this.edges = [];
 	this.state = [];
+	this.isSwitch = false;
+	this.isBreaker = false;
 }
+
 
 //Inherits from vertex, has some minor additional information
 function SourceVertex(id, passthrough, cls){
@@ -135,5 +198,7 @@ function SourceVertex(id, passthrough, cls){
 	Vertex.call(this, id, passthrough);
 	this.cls = cls;
 }
+
+
 
 	
