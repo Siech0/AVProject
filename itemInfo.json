@@ -57,7 +57,7 @@
 		{
 			"id": "#switch_battery_master",
 			"is_source": false,
-			"is_switch": false,
+			"is_switch": true,
 			"is_breaker": false,
 			"edges": [
 				"#battery_relay"
@@ -67,7 +67,7 @@
 		{
 			"id": "#switch_alt_master",
 			"is_source": false,
-			"is_switch": false,
+			"is_switch": true,
 			"is_breaker": false,
 			"edges": [
 				"#alt_relay",

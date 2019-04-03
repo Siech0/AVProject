@@ -29,20 +29,6 @@ let remove = function(id, rate) {
 	}, rate);
 }
 
-let flipMaster = function(name, toState){
-    var onId = name + "_on";
-    var offId = name + "_off";
-    if (toState) {
-        // that means we want to turn the switch on
-        $(onId).removeClass("hidden");
-        $(offId).addClass("hidden");
-        
-    } else {
-        $(offId).removeClass("hidden");
-        $(onId).addClass("hidden");
-    }
-};
-
 /*Implement all pull panel functionality*/
 $('#nav_pull_anchor').click(function(){
 	if(panelState['#nav_pull_anchor'] == null) {
@@ -77,13 +63,7 @@ $("#master_switch_alt").click( () => {
 		$("#master_switch_alt").toggleClass("active", false);
 		$("#switch_alt_master").toggleClass("active", false);
 		
-		schem.setPassthrough("#alt_relay", false);
-		/*
-		$("#alt_relay").toggleClass("on", false);
-		*/
-		flipMaster("#alt_relay", false);
-		flipMaster("#switch_alt_master", false);
-		
+		schem.setPassthrough("#alt_relay", false);		
 	} else { //Switch inactive
 		$("#master_switch_alt").toggleClass("active", true);
 		$("#master_switch_bat").toggleClass("active", true);
@@ -94,16 +74,6 @@ $("#master_switch_alt").click( () => {
 		schem.setPassthrough("#alt_relay", true);
 		schem.setPassthrough("#battery_relay", true);
 		schem.setPassthrough("#switch_battery_master", true);
-		/*
-		$("#switch_alt_master").toggleClass("on", true);
-		$("#alt_relay").toggleClass( "on", true);
-		$("#battery_relay").toggleClass( "on", true);
-		$("#switch_battery_master").toggleClass("on", true);
-		*/
-		flipMaster("#alt_relay", true);
-		flipMaster("#switch_alt_master", true);
-		flipMaster("#switch_battery_master", true);
-		flipMaster("#battery_relay");
 	}
 	schem.update();
 	schem.draw();
@@ -118,30 +88,12 @@ $("#master_switch_bat").click( () => {
 		schem.setPassthrough("#battery_relay", false);
 		schem.setPassthrough("#switch_alt_master", false);
 		schem.setPassthrough("#alt_relay", false);
-		/*
-		$("#switch_battery_master").toggleClass("on", false);
-		$("#battery_relay").toggleClass("on", false);
-		$("#switch_alt_master").toggleClass("on", false);
-		$("#alt_relay").toggleClass("on", false);
-		*/
-		
-		
-		flipMaster("#switch_battery_master", false);
-		flipMaster("#battery_relay", false);
-		flipMaster("#switch_alt_master", false);
-		flipMaster("#alt_relay", false);
 	} else { //Switch inactive
 		$("#master_switch_bat").toggleClass("active", true);
 		$("#master_switch_alt").toggleClass("active", true);
 		
 		schem.setPassthrough("#switch_battery_master", true);
 		schem.setPassthrough("#battery_relay", true);
-		/*
-		$("#switch_battery_master").toggleClass("on", true);
-		$("#battery_relay").toggleClass("on", true);
-		*/
-		flipMaster("#switch_battery_master", true);
-		flipMaster("#battery_relay", true);
 	}
 	schem.update();
 	schem.draw();
