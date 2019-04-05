@@ -7,9 +7,6 @@ svg path {
     fill: black;
 }
 
-text {
-    fill: blue;
-}
 #labels text, #labels div {
     fill: green;
     color: green;
@@ -23,7 +20,7 @@ text {
 
 
 #battery path, #battery circle, #battery ellipse {
-    stroke: pink;
+    stroke: magenta !important;
 }
 /*#battery_master_switch path, #battery_master_switch circle {
     stroke: blue;
@@ -33,16 +30,16 @@ text {
 /*    stroke: orange;*/
 /*}*/
 
-#feeder_a_breaker path, #feeder_a_breaker rect, #feeder_a_breaker circle {
+/*#feeder_a_breaker path, #feeder_a_breaker rect, #feeder_a_breaker circle {
     stroke: purple;
     fill: purple;
-}
+}*/
 
 #ACU_box {
     fill: white;
 }
 
-.on, .on path, .on circle, .on rect {
+.on, .on path, .on circle, .on rect, .on ellipse {
     stroke: magenta;
     /*fill: magenta;*/
 }
@@ -51,6 +48,33 @@ text {
     fill: magenta;
 }
 
+.on_battery, .on_battery path, .on_battery circle, .on_battery rect, .on_battery ellipse {
+    stroke: magenta;
+    fill: magenta;
+}
+
+.on_alternator, .on_alternator path, .on_alternator circle, .on_alternator rect, .on_alternator ellipse {
+    stroke: teal;
+    fill: teal;
+}
+
+.on_standby_battery, .on_standby_battery path, .on_standby_battery circle, .on_standby_battery rect, .on_standby_battery ellipse {
+    stroke: blue;
+    fill: blue;
+}
+
+.on_standby_battery path {
+    fill: blue;
+}
+
+.on_external_power, .on_external_power path, .on_external_power circle, .on_external_power rect, .on_external_power ellipse {
+    stroke: orange;
+    fill: orange;
+}
+
+.on_external_power path {
+    fill: orange;
+}
 
 .off, .off path, .off circle, .off ellipse {
     stroke: black;
@@ -85,5 +109,3 @@ text {
     stroke: none;
     fill: transparent;
 }
-
-

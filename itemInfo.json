@@ -1,14 +1,31 @@
 {
-	"info_panels" : [
+	"info_panels": {
+		"alternator":
 		{
 			"title": "Alternator",
-			"text": "This is does alternator stuff.",
-			"group": "rect1951-35"
-		},
-		{
+			"text": "A belt-driven, 28 volt, 60 ampere alternator powers the electrical system. The alternator is controlled by the red ALT MASTER switch found near the top of the pilot’s switch panel. Power from the X-FEED BUS via the ALT FIELD circuit breaker is required for the alternator to generate power."		},
+		"starter":{
 			"title": "Starter",
-			"text": "This is does starter stuff.",
-			"group": "rec1951-fu"
+			"text": "If power is available from the main battery or from an external power source, turning the ignition switch to START will close the starter relay and activate the starter motor, starting the engine."
+		},
+        "battery":{
+            "title": "Battery",
+			"text":  "The 24-volt main battery is located inside the engine cowling on the left firewall. The battery is controlled by the red BAT MASTER switch found near the top of the pilot’s switch panel. The battery provides power for starting the engine and for operating the electrical system when the alternator is not functioning."
+        },
+        "eis_target":{
+            "title": "EIS",
+            "text": "Electrical system data is displayed at the bottom of the Engine Indication System (EIS) bar along the left side of the MFD. Main bus voltage is measured at the WARN circuit breaker on the X-FEED BUS. Essential bus voltage is measured at the NAV1 ENG circuit breaker on the ESS BUS. \n Both voltage (VOLTS) and current (AMPS) indications are shown on the EIS. Main bus voltage is shown below the “M”. Essential bus voltage is shown below the “E”. Main battery current is shown below the “M”. Standby battery current is displayed below the “S”. A positive AMPS value means the battery is charging, a negative value means that the battery is discharging. \n Normal voltage readings with the alternator operating should be about 28.0 volts. If main or essential bus voltage rises above 32.0 volts, the numerical value and VOLTS text turns red. This warning indication, along with a HIGH VOLTS annunciation on the PFD, is an indicator that the alternator is supplying too high of a voltage and the ALT MASTER switch should be positioned to OFF. \n If main or essential bus voltage drops below 24.5 volts, the numeric value and VOLTS text turns red. This warning indication, along with a LOW VOLTS annunciation on the PFD, is an indication that the alternator is not supplying enough power. Voltages between 24.5 and 28.0 volts may occur during low engine RPM conditions."
+        }
+	},
+	"graphData": [
+		{
+			"id": "battery",
+			"source": true,
+			"edges": [
+	
+			],
+			"passthrough": true,
+			"class_name": "on_standby_battery"
 		}
 	]
 }

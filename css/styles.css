@@ -4,42 +4,103 @@ html {
 }
 
 body {
-	top: 0;
 	min-height: 100%;
 	min-width: 100%;
-	line-height: 1.25em;
+	line-height: 1.375em;
 	font-family: Helvetica Neue, Helvetica, Arial;
 	background: #333333;
 }
 
+/*Utility classes*/
 .container {
 	display: -webkit-flex; /* Safari Compat */
 	-webkit-justify-content: flex-center; /* Safari Compat */
 	display: flex;
 	justify-content: center;
-	margin: 0;
-	padding: 0;
+	
 	width: 100%;
 	align-items: center;
-	text-align: center;	
 }
 
 .draggable_handle {
 	cursor: move;
 }
 
+.start-hidden {
+	display: none;
+}
+
+/* Pull anchor css */
+.pull_anchor {
+	background-color: #777777;
+	border: 1px solid black;
+	z-index: 1;
+	padding: 1px;
+}
+
+.pull_anchor:hover {
+	background-color: #888888;
+}
+
 
 /* HEADER STYLES */
 header {
+	position: absolute;
 	width: 100%;
 	height: auto;
 	top: 0;
 	left: 0;
+	z-index: 5;
 }
+
+nav {
+	flex-direction: column !important;
+	pointer-events: none;
+	visibility: hidden;
+}
+
+nav * {
+	pointer-events: all;
+	visibility: visible;
+}
+
+/* Nav pull anchor */
+#nav_pull_anchor {
+	width: 100px;
+	border-bottom-left-radius: 16px;
+	border-bottom-right-radius: 16px;
+	border-top: 0;
+}
+
+#nav_pull_anchor > img {
+	height: 15px;
+}
+
+#nav_pull_anchor.content_hidden > img {
+	transform: rotate(180deg);
+}
+
 
 #nav_list {
 	list-style: none;
+	background: #555555;
+	border: 1px solid black;
+	border-bottom-right-radius: 4px;
+	border-bottom-left-radius: 4px;
+	margin-top: -2px;
+	overflow: hidden;
+		
+
+	max-height: 10vh;
+	transition-property: all;
+	transition-duration: .7s;
+	transition-timing-function: cubic-bezier(.7, .3, 0.3, .7);
 }
+
+#nav_list.hidden {
+	max-height: 0;
+}
+
 
 #nav_list > li {
 	display: -webkit-flex; /* Safari Compat */
@@ -48,22 +109,26 @@ header {
 	justify-content: center;
 	align-items: center;
 	float: left;
+	
 	min-width: 6vw;
 	min-height: 50px;
-	width: auto;
-	height: auto;
-	padding: 5px;
-	margin: 0 .25vw 0 .25vw;
+	padding: 3px;
+	padding-top: 4px;
+	
 	color: #DDD;
 	background: #555555;
-	border: 1px solid black;
-	border-radius: 0px 0px 4px 4px;
-	transform: translateY(-2px);
+	
 	-moz-user-select: none;
 	-webkit-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
 	cursor: pointer;
+	
+	border-right: 1px solid #233333;
+}
+
+#nav_list > li:last-of-type {
+	border-right: none;
 }
 
 #nav_list > li:hover {
@@ -89,43 +154,222 @@ header {
 }
 
 /* MAIN CONTENT STYLES */
+
 main {
-	width: 100%;
-	margin-top: 2px !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
 }
 
 #svg_wrapper{
     	position: relative;
-    	width: 1000px;
+		height: 85vh;
+		max-width: 90vw;
     	padding: 2%;
-    	margin: auto;
-    	background-color: white;
+    	margin: 2vmax;
+		background-color: white;
 		
 		border: 2px solid black;
 		border-radius: 8px;
+		overflow: hidden;
 }
+
+/* Beginning of legend CSS */
+#legend {
+    z-index: 1;
+    position: absolute;
+	top: 20px;
+	right: 20px;
+	line-height: .8em;
+	font-size: .8em;
+
+    background: #D3D3D3;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+#legend_header {
+	padding: 4px;
+	font-weight: bold;
+	
+	border-bottom: 1px solid black;
+}
+
+
+#legend_content {
+	padding: 5px;
+}
+
+#legend_color_wrapper {
+
+}
+
+#legend_content p {
+    margin-left: 24px;
+    padding: 2px;
+}
+
+#legend_content span {
+    position: absolute;
+    height: 11px;
+    width: 15px;
+    border: 1px solid black;
+}
+
+#color_battery > span {
+    background-color: magenta;
+}
+
+#color_alternator > span {
+    background-color: teal;
+}
+
+#color_standby_battery > span {
+    background-color: blue;
+}
+
+#color_epu > span {
+    background-color: orange;
+}
+
 
 #svg_wrapper svg {
 	height: 100%;
 	width: 100%;
 }
 
+/* Left Panel Styles */
+#left_panel {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	bottom: 0;	
+}
+
+#left_panel_content {
+	position: relative;
+	background-color: #666666;
+	max-width: 20vw;
+	width: 20vw;
+	height: 100%;
+	display: inline-block;
+	float: left;
+	
+	transition-property: all;
+	transition-duration: .7s;
+	transition-timing-function: cubic-bezier(.7, .3, 0.3, .7);
+}
+
+#left_panel_content.hidden {
+	max-width: 0vw;
+}
+
+/* Left pull anchor */
+#left_pull_anchor {
+	height: 100px;
+	border-top-right-radius: 16px;
+	border-bottom-right-radius: 16px;
+	border-left: 0;
+	float: right;
+}
+
+#left_pull_anchor > img {
+	width: 15px;
+	transform: none;
+}
+
+#left_pull_anchor.content_hidden > img {
+	transform: rotate(180deg);
+}
+
+/* Right Panel Styles */
+#right_panel {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 2;
+	top: 0;
+	right: 0;
+	bottom: 0;
+}
+
+#right_panel_content{
+	position: relative;
+	background-color: #666666;
+	max-width: 20vw;
+	width: 20vw;
+	height: 100%;
+	float: right;
+	
+	transition-property: all;
+	transition-duration: .7s;
+	transition-timing-function: cubic-bezier(.7, .3, 0.3, .7);
+}
+
+#right_panel_content.hidden {
+	max-width: 0vw;
+}
+
+/* right pull anchor */
+#right_pull_anchor {
+	height: 100px;
+	border-top-left-radius: 16px;
+	border-bottom-left-radius: 16px;
+	border-right: 0;
+	float: left;
+}
+
+#right_pull_anchor > img {
+	width: 15px;
+	transform: rotate(180deg);
+}
+
+#right_pull_anchor.content_hidden > img {
+	transform: none;
+}
+
+
 /* FOOTER STYLES */
 footer {
+	position: absolute;
+	bottom: 0;
+	z-index: 5;
 	width: 100%;
-	margin-top: 2px !important;
+	padding-bottom: 5px;
 }
 
 #panel_list {
 	list-style: none;
+
 } 
 
 #panel_list > li {
-	
 	float: left;
-	margin: 0 .1vw 0 .1vw;
+	margin: 0 1px 0 1px;
+    position: absolute;
 }
 
+#master_main_container {
+    top: -3800%;
+    left: 10%;
+}
+
+#breakers_main_container {
+    top: -3800%;
+    left: 25%;
+}
+
+#switches_main_container {
+    top: -3800%;
+    left: 73.3%;
+}
 
 /*Class for all lower box headers*/
 .panel_container {
@@ -142,66 +386,168 @@ footer {
 }
 
 .panel_content {
-	height: auto;
-	overflow: auto;
 	padding: 2px;
+	position: relative;
 }
 
-.panel_content img:first-of-type{
-	display: block;
-	/*width: 100%;*/
-	/*height: auto;*/
+#panel_content_master {
+	background-image: url(../images/masterPanelBg.jpg);
+	padding-top: 107.73%;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+#panel_content_breakers {
+	background-image: url(../images/breakerrPanelBg.jpg); 
+	padding-top: 32.39%;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+#panel_content_switches {
+	background-image: url(../images/switchesPanelBg.jpg); 
+	padding-top: 76.82%;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
 }
 
 #master_switch_alt {
 	position: absolute;
-	top: 148px;
-    left: 38px;
-    width: 14px;
-    height: 52px;
-
-	padding: 25px 7px 24px 7px;
+	top: 62%;
+    left: 20%;
+	width: 7.5%;
+	padding-top: 30%;
+	
+	background-image: url(../images/masterOff.jpg);     
 	background-repeat: no-repeat;
-	background-size: auto;
+	background-size: 100% 100%;
+	overflow: hidden;
+}
+
+#master_switch_alt.active {
+    background-image: url(../images/masterOn.jpg);   	
 }
 
 #master_switch_bat {
 	position: absolute;
-	top: 148px;
-	left: 53px;
-    width: 14px;
-    height: 52px;
+	top: 62%;
+    left: 28%;
+    width: 7.5%;
+	padding-top: 30%;
 	
-	padding: 25px 7px 24px 7px;
+    background-image: url(../images/masterOff.jpg); 
 	background-repeat: no-repeat;
-	background-size: auto;
+	background-size: 100% 100%;
+	overflow: hidden;
 }
 
-/*Styling for the master Switch Off image  -- .master_switch_bat*/
-.master_switch_off_alt{
-    background-image: url(../images/masterOff.jpg);       
+#master_switch_bat.active {
+    background-image: url(../images/masterOn.jpg);      	
 }
 
-/*Styling for the master Switch On image */
-.master_switch_on_alt{
-    background-image: url(../images/masterOn.jpg);      
+
+#avn_bus1_switch {
+    position: absolute;
+	top: 62%;
+	left: 62%;
+	width: 7.5%;
+	padding-top: 30%;
+	
+    background-image: url(../images/avionicsOff.jpg);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	overflow: hidden;
 }
 
-/*Styling for the master Switch Off image  -- BAT*/
-.master_switch_off_bat{
-    background-image: url(../images/masterOff.jpg);     
+#avn_bus1_switch.active {
+    background-image: url(../images/avionicsOn.jpg);
 }
 
-/*Styling for the master Switch On image -- BAT*/
-.master_switch_on_bat{
-    background-image: url(../images/masterOn.jpg);      
+#avn_bus2_switch{
+    position: absolute;
+	top: 62%;
+	left: 70%;
+	width: 7.5%;
+	padding-top: 30%;
+	
+    background-image: url(../images/avionicsOff.jpg);   
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	overflow: hidden;
+}
+
+#avn_bus2_switch.active {
+    background-image: url(../images/avionicsOn.jpg);
+}
+
+/* Beginning of standby battery CSS */
+
+#standby_battery_switch.off {
+    position: absolute;
+	top: 16%;
+	left: 28%;
+	width: 20%;
+    padding-top: 20%;
+	
+    background-image: url(../images/stbyBattOff.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+#standby_battery_arm {
+    position: absolute;
+    top: 1%;
+	left: 31%;
+	width: 20%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding-top: 16%;
+}
+
+#standby_battery_arm:hover {
+    background-image: url(../images/upArrow.png);
+}
+
+#standby_battery_test {
+    position: absolute;
+    top: 29%;
+	left: 31%;
+	width: 20%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding-top: 16%;
+}
+
+#standby_battery_test:hover {
+    background-image: url(../images/downArrow.png);
+}
+
+#standby_battery_switch.test {
+    position: absolute;
+    top: 16%;
+    left: 26%;
+    width: 24%;
+	padding-top: 30%;
+	
+	background-image: url(../images/stbyBattTest.png);
+}
+
+#standby_battery_switch.arm {
+    position: absolute;
+    top: 10%;
+    left: 25%;
+    width: 25%;
+    padding-top: 22%;
+	
+    background-image: url(../images/stbyBattArm.png);
 }
 
 /* Styling for the switch containers */
 .switch_container {
 	position: absolute;
+	top: 0;
+	left: 0;
 	width: 100%;
-	height: 100%;
 }
 
 .switch_container > button {
@@ -245,7 +591,9 @@ footer {
     font-weight: bold;
 }
 
-/* Styling for information pop-ups*/
+/* Styling for information panels */
+
+
 .info_panel {
 	display: block;
 	position: absolute;
@@ -254,7 +602,9 @@ footer {
 	height: auto;
 	min-width: 7vw;
 	min-height: 5vh;
-	max-width: 10vw;
+	max-width: 30vw;
+	line-height: 1.1em;
+	font-size: 1em;
 	color: #DDD;
 	background-color: #555555;
 	border: 1px solid black;
@@ -272,28 +622,63 @@ footer {
 }
 
 .info_panel p {
-	margin: 2px
+	margin: 4px
 }
 
-/* Class for popup box header
-.pop_up_header {
-    height: 30px;
-    color: white;
-    width: inherit;                
-    background-color: red;
-    font-size: 20px;
-    cursor: move;
+
+/* Tablet CSS */
+@media (max-width: 1024px) {
+	
+	html {
+		font-size: 1em;
+		line-height: 1.375em;
+	}
+	
+	.hide_on_mobile {
+		display: none !important;
+	}
+
+	#nav_list>li>img {
+		display: none !important;
+	}
+	
+	#nav_list > li {
+		min-width: 10vw;
+	}
 }
 
-/*Class to style pop_up panels
-.pop_up_panel {
-    position: absolute;
-    top: 32px;
-    left: 2px;
-    width: 181px;
-    height: 195px;
-    background-color: gray;
-    background-repeat: no-repeat;	
-    overflow: hidden;                
+/*Phone CSS */
+@media (max-width: 700px) {
+	html {
+		font-size: 1em;
+		line-height: 1.25em;
+	}
 }
-*/
+
+@media (min-aspect-ratio: 4/3){
+	#panel_content_master {
+		width: 11vmax;
+	}
+
+	#panel_content_breakers {
+		width: 37.1vmax;
+	}
+
+	#panel_content_switches {
+		width: 15.4vmax;
+	}
+}
+
+@media (max-aspect-ratio: 4/3){
+	#panel_content_master {
+		width: 14vmax;
+	}
+
+	#panel_content_breakers {
+		width: 47.2vmax;
+	}
+
+	#panel_content_switches {
+		width: 19.5vmax;
+	}
+}
