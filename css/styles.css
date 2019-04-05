@@ -176,64 +176,6 @@ main {
 		overflow: hidden;
 }
 
-/* Beginning of legend CSS */
-#legend {
-    z-index: 1;
-    position: absolute;
-	top: 20px;
-	right: 20px;
-	line-height: .8em;
-	font-size: .8em;
-
-    background: #D3D3D3;
-    border: 1px solid black;
-    border-radius: 4px;
-}
-
-#legend_header {
-	padding: 4px;
-	font-weight: bold;
-	
-	border-bottom: 1px solid black;
-}
-
-
-#legend_content {
-	padding: 5px;
-}
-
-#legend_color_wrapper {
-
-}
-
-#legend_content p {
-    margin-left: 24px;
-    padding: 2px;
-}
-
-#legend_content span {
-    position: absolute;
-    height: 11px;
-    width: 15px;
-    border: 1px solid black;
-}
-
-#color_battery > span {
-    background-color: magenta;
-}
-
-#color_alternator > span {
-    background-color: teal;
-}
-
-#color_standby_battery > span {
-    background-color: blue;
-}
-
-#color_epu > span {
-    background-color: orange;
-}
-
 
 #svg_wrapper svg {
 	height: 100%;
