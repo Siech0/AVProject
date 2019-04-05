@@ -7,9 +7,9 @@ let toogle = function(id, initial, rate) {
 	}
 	
 	if(panelState[id]){
-		$(id).hide(rate);
+		$(id).fadeOut(rate);
 	} else {
-		$(id).show(rate);
+		$(id).fadeIn(rate);
 	}
 	panelState[id] = !panelState[id];
 }
@@ -18,7 +18,7 @@ let close = function(id, rate) {
 	if(panelState[id] == undefined) {
 		panelState[id] = false;
 	}
-	$(id).hide(rate);
+	$(id).fadeOut(rate);
 }
 
 let remove = function(id, rate) {
@@ -331,7 +331,7 @@ $("#switches_close").click(() => close("#switches_main_container", 500)); //Swit
 
 
 //Enable draggable elements
-$(".draggable").draggable({handle: ".draggable_handle"});
+$(".draggable").draggable({handle: ".draggable_handle", containment: "window"});
 
 //Prevent annoying image drag 
 $('img').on('dragstart', function(event) { event.preventDefault(); });

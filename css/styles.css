@@ -353,8 +353,23 @@ footer {
 #panel_list > li {
 	float: left;
 	margin: 0 1px 0 1px;
+    position: absolute;
 }
 
+#master_main_container {
+    top: -3800%;
+    left: 10%;
+}
+
+#breakers_main_container {
+    top: -3800%;
+    left: 25%;
+}
+
+#switches_main_container {
+    top: -3800%;
+    left: 73.3%;
+}
 
 /*Class for all lower box headers*/
 .panel_container {
