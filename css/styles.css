@@ -467,10 +467,11 @@ footer {
 #standby_battery_switch.test {
     position: absolute;
     top: 16%;
-    left: 26%;
+    left: 25%;
     width: 24%;
 	padding-top: 30%;
-	
+	background-repeat: no-repeat;
+    background-size: 100% 100%;
 	background-image: url(../images/stbyBattTest.png);
 }
 
@@ -480,7 +481,8 @@ footer {
     left: 25%;
     width: 25%;
     padding-top: 22%;
-	
+    background-size: 100% 100%;
+	background-repeat: no-repeat;
     background-image: url(../images/stbyBattArm.png);
 }
 

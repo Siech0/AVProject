@@ -227,7 +227,8 @@ stb_arm.click( () => {
 	if(stb_switch.hasClass("off")){ //arming stb_switch
         classOnOff("#standby_battery_switch", "arm", "off");
         armStandbyBattery();
-	} else if (stb_switch.hasClass("test")) { //de-arming stb_switch
+	}
+    if (stb_switch.hasClass("test")) { //de-testing stb_switch
         classOnOff("#standby_battery_switch", "off", "test");
         offStandbyBattery();
 	} 
@@ -237,8 +238,9 @@ stb_test.click( () => {
 	if(stb_switch.hasClass("off")){ //testing stb_switch
         classOnOff("#standby_battery_switch", "test", "off");
         testStandbyBattery();
-	} else if (stb_switch.hasClass("arm")) { //de-testing stb_switch
-        classOnOff("#standby_battery_switch", "off", "test");
+	}
+    if (stb_switch.hasClass("arm")) { //de-arming stb_switch
+        classOnOff("#standby_battery_switch", "off", "arm");
         offStandbyBattery();
 	} 
 });
