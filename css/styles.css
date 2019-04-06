@@ -197,6 +197,10 @@ main {
 	border-bottom: 1px solid black;
 }
 
+.info_panels_textwrap{
+    white-space: pre-line;    
+}
+
 
 #legend_content {
 	padding: 5px;
