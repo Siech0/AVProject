@@ -74,6 +74,7 @@ $("#master_switch_alt").click( () => {
 		schem.setPassthrough("#alt_relay", true);
 		schem.setPassthrough("#battery_relay", true);
 		schem.setPassthrough("#switch_battery_master", true);
+		schem.setPassthrough("#external_power_relay", true);
 	}
 	schem.update();
 	schem.draw();
@@ -88,9 +89,9 @@ $("#master_switch_bat").click( () => {
 		schem.setPassthrough("#battery_relay", false);
 		schem.setPassthrough("#switch_alt_master", false);
 		schem.setPassthrough("#alt_relay", false);
+		schem.setPassthrough("#external_power_relay", false);
 	} else { //Switch inactive
 		$("#master_switch_bat").toggleClass("active", true);
-		$("#master_switch_alt").toggleClass("active", true);
 		
 		schem.setPassthrough("#switch_battery_master", true);
 		schem.setPassthrough("#battery_relay", true);
@@ -164,28 +165,40 @@ breakerPanel.each(function(){
 */
 panelState["#engine_button"] = false;
 $("#engine_button").click(function(){
-	var status = $("#engine_status");
-	if(panelState["#engine_button"]){
+	var status = $("#engine_status"); 
+	if(panelState["#engine_button"]){ //Active
 		status.css("color", "red");
 		status.text("OFFLINE");
+		schem.setPassthrough("#low_volt_indicator", true);
+		schem.setPassthrough("#alt_input", false)
 	} else {
 		status.css("color", "cyan");
 		status.text("ONLINE");
+		schem.setPassthrough("#low_volt_indicator", false);
+		schem.setPassthrough("#alt_input", true);
 	}
+	schem.update();
+	schem.draw();
 	panelState["#engine_button"] = !panelState["#engine_button"];
 });
 
 panelState["#epu_button"] = false;
 $("#epu_button").click(function(){
 	var status = $("#epu_status");
-	if(panelState["#epu_button"]){
+	if(panelState["#epu_button"]){ //Active
 		status.css("color", "red");
 		status.text("OFFLINE");
+		schem.setPassthrough("#external_power", false);
+		schem.setPassthrough("#external_power_relay", false);
 	} else {
 		status.css("color", "cyan");
 		status.text("ONLINE");
+		schem.setPassthrough("#external_power", true);
+		schem.setPassthrough("#external_power_relay", true);
 	}
 	panelState["#epu_button"] = !panelState["#epu_button"];
+	schem.update();
+	schem.draw();
 });
 
 
@@ -278,6 +291,8 @@ $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
 				//Generate graph
 				let graphData = json.graph_data;
 				schem = new Schematic(graphData);
+				schem.update();
+				schem.draw();
 			}
 		}).fail(function(jqXHR, textSatus, error) {
 			throw new Error("Error parsing schematic information file, schematic functionality will not be loaded: " + error);

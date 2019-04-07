@@ -15,13 +15,12 @@ Schematic.prototype.generateFromData = function(graphData) {
 	for(let i = 0; i < graphData.length; ++i) {
 		let vtx = graphData[i];
 		let node = null;
-		if(vtx.is_source){ // is source
-			node = this.addSourceVertex(vtx.id, vtx.passthrough, vtx.class_name, vtx.is_switch);
-		} else {
-			node = this.addVertex(vtx.id, vtx.passthrough, vtx.is_switch);
+		if(!vtx.is_source){ // is vertex
+			node = this.addVertex(vtx.id, vtx.passthrough, vtx.requires, vtx.shared);
+		} else { // is source
+			node = this.addSourceVertex(vtx.id, vtx.passthrough, vtx.class_name, vtx.requires, vtx.shared);
 		}
-		node.is_breaker = (vtx.is_breaker == null || vtx.is_breaker == false) ? false : true;
-		node.is_switch = (vtx.is_switch == null || vtx.is_switch == false) ? false : true;
+		node.hasOnOff = (vtx.has_on_off == null || vtx.has_on_off == false) ? false : true;
 	}
 	
 	for(let i = 0; i < graphData.length; ++i) {
@@ -32,20 +31,20 @@ Schematic.prototype.generateFromData = function(graphData) {
 	}	
 }
 
-Schematic.prototype.addVertex = function(id, passthrough) {
+Schematic.prototype.addVertex = function(id, passthrough, requires, shared) {
 	let idx = this.registerAlias(id);
 	if(idx != null && this.vertices[idx] == null) {
-		this.vertices[idx] = new Vertex(id, passthrough);
+		this.vertices[idx] = new Vertex(id, passthrough, requires, shared);
 	} else {
 		console.log("Attempted to register vertex that already exists: " + id);
 	}
 	return this.vertices[idx];
 }
 
-Schematic.prototype.addSourceVertex = function(id, passthrough, cls) {
+Schematic.prototype.addSourceVertex = function(id, passthrough, cls, requires, shared) {
 	let idx = this.registerAlias(id);
 	if(idx != null && this.vertices[idx] == null) {
-		this.vertices[idx] = new SourceVertex(id, passthrough, cls);
+		this.vertices[idx] = new SourceVertex(id, passthrough, cls, requires, shared);
 		this.sources.push(idx);		
 	} else {
 		console.log("Attempted to register source vertex that already exists: " + id);
@@ -83,12 +82,62 @@ Schematic.prototype.setPassthrough = function(id, val) {
 	if(idx == null) {
 		throw new Error("Attempted to set passthrough to invalid element with id: " + id);
 	}
+	if(this.sharedConflict(id) && val == true){
+		throw new Error("Attempt to set true passthrough to item in a shared conflict, set shared element to no passthrough first.");
+	}
 	
 	if(val === undefined || val === null) {
 		this.vertices[idx].passthrough = !this.vertices[idx].passthrough;
 	} else {
 		this.vertices[idx].passthrough = val;
 	}
+}
+
+Schematic.prototype.getPassthrough = function(id) {
+	let idx = this.aliasLookup(id);
+	if(idx == null){
+		throw new Error("Attempted to get passthrough on invalid element with id: " + id);
+	}
+	
+	return this.vertices[idx].passthrough;
+}
+
+//items with requires tag can only allow passthrough if their requirements allow passthrough
+Schematic.prototype.requirementsSatisfied = function(id) {
+	let idx = this.aliasLookup(id);
+	if(idx == null){
+		throw new Error("Attempted to check requirements on invalid element with id: " + id);
+	}
+	
+	let vtx = this.vertices[idx];
+	if(vtx.requires == null)
+		return true;
+	
+	for(let i = 0; i < vtx.requires.length; ++i) {
+		if(this.getPassthrough(vtx.requires[i]) == false) {
+			return false;
+		}
+	}
+	return true;
+}
+
+//Items with shared tag cannot exist at the same time, this changes switch draw logic
+Schematic.prototype.sharedConflict = function(id) {
+	let idx = this.aliasLookup(id);
+	if(idx == null) {
+		throw new Error("Attempted to check for shared conflict on invalid element with id: " + id);
+	}
+	
+	let vtx = this.vertices[idx];
+	if(vtx.shared == null)
+		return false;
+	
+	for(let i = 0; i < vtx.shared.length; ++i) {
+		if(this.getPassthrough(vtx.shared[i]) == true) {
+			return true;
+		}
+	}
+	return false;
 }
 
 Schematic.prototype.clearState = function(){
@@ -115,7 +164,7 @@ Schematic.prototype.update = function(){
 		while(S.length > 0){
 			let node = S.pop();
 			//If node isnt visited and it allows current through
-			if(!V[node] && this.vertices[node].passthrough){ 
+			if(!V[node] && this.vertices[node].passthrough && this.requirementsSatisfied(this.aliasLookup(node))){ 
 				V[node] = true; //We have now visited the node
 				//The source at sources[i] did reach the current node
 				this.vertices[node].state[i] = true; 
@@ -138,33 +187,79 @@ Schematic.prototype.update = function(){
 Schematic.prototype.draw = function(){
 	for(let i = 0; i < this.vertices.length; ++i){
 		let vtx = this.vertices[i];
+		//Determine if switch is draw open or closed
+		let reqState = this.requirementsSatisfied(vtx.id)
+		if(!reqState){
+			if(vtx.hasOnOff){
+				let id = vtx.id.substr(1, vtx.id.length); //cut # off
+				let onStmt = "[id*=" +id + "_on]";
+				let offStmt = "[id*=" +id + "_off]";
+				$(onStmt).toggleClass("hidden", true);
+				$(offStmt).toggleClass("hidden", false);
+			}
+		} else if(vtx.hasOnOff) {
+			let id = vtx.id.substr(1, vtx.id.length); //cut # off
+			let onStmt = "[id*=" +id + "_on]";
+			let offStmt = "[id*=" +id + "_off]";
+			if(vtx.passthrough == true) {
+				$(onStmt).toggleClass("hidden", false);
+				$(offStmt).toggleClass("hidden", true);
+
+			} else {
+				//Do not modify the offstate if there is a shared conflict
+				if(!this.sharedConflict(vtx.id)) {
+					$(offStmt).toggleClass("hidden", false);		
+				}
+				$(onStmt).toggleClass("hidden", true);
+			}
+		}
+		
 		for(let j = 0; j < this.sources.length; ++j){
 			let src = this.vertices[this.sources[j]];
 			if(vtx.id[0] === '_'){//Dummy element doesnt get drawn
 				continue;
 			}
-			if(vtx.is_switch || vtx.is_breaker) {
-				let onId = vtx.id + "_on";
-				let offId = vtx.id + "_off";
+			
+			//If the required state isnt met, don't light up
+			if(!reqState){ 
+				$(vtx.id).toggleClass(src.cls, false);	
+				/*
+				if(vtx.hasOnOff) {
+					$(vtx.id).toggleClass(src.cls, vtx.state[j]);				
+				} else {
+					$(vtx.id).toggleClass(src.cls, false);	
+				}*/
+				continue;
+				
+			//If its a switch, check if its currently closed
+			} else if(vtx.hasOnOff){
 				if(vtx.passthrough == true) {
-					$(onId).toggleClass("hidden", false);
-					$(offId).toggleClass("hidden", true);
 					$(vtx.id).toggleClass(src.cls, vtx.state[j]);
 				} else {
-					$(onId).toggleClass("hidden", true);
-					$(offId).toggleClass("hidden", false);
 					$(vtx.id).toggleClass(src.cls, false);
 				}
+			//Otherwise, just check if the state is valid
 			} else {
 				$(vtx.id).toggleClass(src.cls, vtx.state[j]);	
 			}
 		}
+	}
+}
 
+Schematic.prototype.isVertexPowered = function(idVert, idSource){
+	let vert = this.vertices[this.aliasLookup(idVert)];
+	let src = this.vertices[this.aliasLookup(idSource)];
+	let srcIdx = this.sources.indexOf(src);
+	if(srcIdx == -1){
+		//Can't check powered by non-source
+		throw new Error("Attempt to check if vertex '" + idVert + "' was powered by non-source vertex '" +idSource + "'");
+	} else {
+		return vert.state[srcIdx];
 	}
 }
 
 //Vertex class for map
-function Vertex(id, passthrough) {
+function Vertex(id, passthrough, requires, shared) {
 	if(id == null) {
 		throw new Error("Vertex: 'id' parameter cannot be null or undefined");
 	} else if(passthrough == null) {
@@ -174,19 +269,19 @@ function Vertex(id, passthrough) {
 	this.id = id;
 	this.passthrough = passthrough;
 	this.edges = [];
+	this.requires = requires == null ? null : requires;
+	this.shared = shared == null ? null : shared;
 	this.state = [];
-	this.isSwitch = false;
-	this.isBreaker = false;
 }
 
 
 //Inherits from vertex, has some minor additional information
-function SourceVertex(id, passthrough, cls){
+function SourceVertex(id, passthrough, cls, requires, shared){
 	if(cls == null) {
 		throw new Error("SourceVertex: 'class' parameter cannot be null or undefined");
 	}
 	
-	Vertex.call(this, id, passthrough);
+	Vertex.call(this, id, passthrough, requires, shared);
 	this.cls = cls;
 }
 
