@@ -7,9 +7,9 @@ let toogle = function(id, initial, rate) {
 	}
 	
 	if(panelState[id]){
-		$(id).hide(rate);
+		$(id).fadeOut(rate);
 	} else {
-		$(id).show(rate);
+		$(id).fadeIn(rate);
 	}
 	panelState[id] = !panelState[id];
 }
@@ -18,7 +18,7 @@ let close = function(id, rate) {
 	if(panelState[id] == undefined) {
 		panelState[id] = false;
 	}
-	$(id).hide(rate);
+	$(id).fadeOut(rate);
 }
 
 let remove = function(id, rate) {
@@ -28,6 +28,47 @@ let remove = function(id, rate) {
 		panelState[id] = undefined;
 	}, rate);
 }
+
+let armStandbyBattery = function(){
+	offStandbyBattery();
+	$("#standby_battery_paths").addClass("on_standby_battery");
+	$("#test_switch_arm").addClass("on_standby_battery");
+	$("#test_switch_arm").removeClass("hidden");
+	$("#test_switch_off").addClass("hidden");
+	$("#on_off_control_on").removeClass("hidden");
+	$("#on_off_control_on").addClass("on_standby_battery");
+	$("#on_off_control_off").addClass("hidden");
+};
+
+let offStandbyBattery = function(){
+	$("#test_switch_arm").removeClass("on_standby_battery");
+	$("#test_switch_test").removeClass("on_standby_battery");
+	$("#test_voltage_sense").removeClass("on_standby_battery");
+	$("#test_switch_arm").addClass("hidden");
+	$("#test_switch_test").addClass("hidden");
+	
+	$("#test_led").removeClass("on_standby_battery");
+	$("#on_off_control_on").addClass("hidden");
+	$("#on_off_control_on").removeClass("on_standby_battery");
+	$("#on_off_control_off").removeClass("hidden");
+	$("#test_switch_off").removeClass("hidden");
+	
+	$("#standby_battery_paths").removeClass("on_standby_battery");
+};  
+
+let testStandbyBattery = function(){
+	offStandbyBattery();
+	$("#standby_battery_paths").addClass("on_standby_battery");
+	//$("#standby_battery_test_paths").addClass("on_standby_battery");
+	$("#test_voltage_sense").addClass("on_standby_battery");
+	$("#test_switch_test").addClass("on_standby_battery");
+	$("#test_switch_test").removeClass("hidden");
+	$("#test_led").addClass("on_standby_battery");
+	$("#on_off_control_on").removeClass("hidden");
+	$("#on_off_control_on").addClass("on_standby_battery");
+	$("#on_off_control_off").addClass("hidden");
+	$("#test_switch_off").addClass("hidden");
+};
 
 /*Implement all pull panel functionality*/
 $('#nav_pull_anchor').click(function(){
@@ -125,12 +166,30 @@ $("#avn_bus2_switch").click( () => {
 });
 
 
-let stbSwitch = $("#standby_battery_switch");
-stbSwitch.click( () => {
-	if(stbSwitch.hasClass("arm")){ //arm
 
-	} else if (stbSwitch.hasClass("test")) { //test
+let stb_switch = $("#standby_battery_switch");
+let stb_arm = $("#standby_battery_arm");
+let stb_test = $("#standby_battery_test");
 
+stb_arm.click( () => {
+	if(stb_switch.hasClass("off")){ //arming stb_switch
+        classOnOff("#standby_battery_switch", "arm", "off");
+        armStandbyBattery();
+	}
+    if (stb_switch.hasClass("test")) { //de-testing stb_switch
+        classOnOff("#standby_battery_switch", "off", "test");
+        offStandbyBattery();
+	} 
+});
+
+stb_test.click( () => {
+	if(stb_switch.hasClass("off")){ //testing stb_switch
+        classOnOff("#standby_battery_switch", "test", "off");
+        testStandbyBattery();
+	}
+    if (stb_switch.hasClass("arm")) { //de-arming stb_switch
+        classOnOff("#standby_battery_switch", "off", "arm");
+        offStandbyBattery();
 	} 
 });
 
@@ -223,7 +282,7 @@ $("#switches_close").click(() => {
 
 
 //Enable draggable elements
-$(".draggable").draggable({handle: ".draggable_handle"});
+$(".draggable").draggable({handle: ".draggable_handle", containment: "window"});
 
 //Prevent annoying image drag 
 $('img').on('dragstart', function(event) { event.preventDefault(); });

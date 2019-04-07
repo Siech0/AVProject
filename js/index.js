@@ -50,9 +50,6 @@ var schematicFlipSwitch = function(name, toState){
 
         }
 };
-<<<<<<< HEAD
-	               
-=======
 	
 // Someday I hope to reduce these into one function, but three will do
 var armStandbyBattery = function(){
@@ -96,7 +93,6 @@ var offStandbyBattery = function(){
 	$("#standby_battery_paths").removeClass("on_standby_battery");
 };                  
                         
->>>>>>> 99ed5193c2d0e63cbec818db25bfcc2b4b28eaa5
 var classOnOff = function(id, classToAdd, classToRemove){
     $(id).removeClass(classToRemove);
     $(id).addClass(classToAdd);
@@ -154,8 +150,6 @@ var schematicFlipMaster = function(name, toState){
     }
 };
 
-
-<<<<<<< HEAD
 /* When the document is loaded, it will hide all elements in the pop_up_list
 =======
 //Function that generates a panel self close function
@@ -356,6 +350,8 @@ switchPanel.each(function(){
 	});	
 });
 
+/*
+
 <<<<<<< HEAD
 =======
 var standbyBatterySwitch = $("#standby_battery_switch");
@@ -370,7 +366,9 @@ standbyBatterySwitch.click(function(e){
 	
 }
 );
->>>>>>> 99ed5193c2d0e63cbec818db25bfcc2b4b28eaa5
+>>>>>>> 99ed5193c2d0e63cbec818db25bfcc2b4b28eaa5 
+
+*/
 
 var breakerPanel = $("#breaker_switch_container").children();
 breakerPanel.each(function(){
@@ -465,9 +463,6 @@ $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
 
 
 	}
-<<<<<<< HEAD
-}, "text");
-=======
     
     /* Added by Matt to locate the legend relative to the SVG */
     var svg = document.getElementById('svg1225');
@@ -489,9 +484,9 @@ $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
     });
     
     $("#standby_battery_arm").click(function(){
-        if ($("#standby_battery_switch").hasClass("standby_battery_off"))
+        if ($("#standby_battery_switch").hasClass("off"))
         {
-            classOnOff("#standby_battery_switch", "standby_battery_arm", "standby_battery_off");
+            classOnOff("#standby_battery_switch", "arm", "off");
             $("#standby_battery_switch").css("top", "52px");
             armStandbyBattery();
         }
@@ -520,7 +515,6 @@ $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
                 
     
 });	 
->>>>>>> 99ed5193c2d0e63cbec818db25bfcc2b4b28eaa5
 
 //Enable draggable functionality for all draggable containers
 $(".draggable").draggable({handle: ".draggable_handle"});

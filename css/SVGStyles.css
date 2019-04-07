@@ -7,9 +7,6 @@ svg path {
     fill: black;
 }
 
-text {
-    fill: blue;
-}
 #labels text, #labels div {
     fill: green;
     color: green;
