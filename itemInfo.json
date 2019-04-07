@@ -8,14 +8,254 @@
 			"title": "Starter",
 			"text": "If power is available from the main battery or from an external power source, turning the ignition switch to START will close the starter relay and activate the starter motor, starting the engine."
 		},
-        "battery":{
+        "info_battery":{
             "title": "Battery",
 			"text":  "The 24-volt main battery is located inside the engine cowling on the left firewall. The battery is controlled by the red BAT MASTER switch found near the top of the pilot’s switch panel. The battery provides power for starting the engine and for operating the electrical system when the alternator is not functioning."
         },
-        "eis_target":{
+        "info_eis":{
             "title": "EIS",
             "text": "Electrical system data is displayed at the bottom of the Engine Indication System (EIS) bar along the left side of the MFD. Main bus voltage is measured at the WARN circuit breaker on the X-FEED BUS. Essential bus voltage is measured at the NAV1 ENG circuit breaker on the ESS BUS. \n Both voltage (VOLTS) and current (AMPS) indications are shown on the EIS. Main bus voltage is shown below the “M”. Essential bus voltage is shown below the “E”. Main battery current is shown below the “M”. Standby battery current is displayed below the “S”. A positive AMPS value means the battery is charging, a negative value means that the battery is discharging. \n Normal voltage readings with the alternator operating should be about 28.0 volts. If main or essential bus voltage rises above 32.0 volts, the numerical value and VOLTS text turns red. This warning indication, along with a HIGH VOLTS annunciation on the PFD, is an indicator that the alternator is supplying too high of a voltage and the ALT MASTER switch should be positioned to OFF. \n If main or essential bus voltage drops below 24.5 volts, the numeric value and VOLTS text turns red. This warning indication, along with a LOW VOLTS annunciation on the PFD, is an indication that the alternator is not supplying enough power. Voltages between 24.5 and 28.0 volts may occur during low engine RPM conditions."
-        }
+        },
+		"info_acu_box": {
+			"title": "acu_box",
+			"text": ""
+		},
+		"info_bus_x-feed": {
+			"title": "x-feed bus",
+			"text": ""
+		},
+		"info_bus_avn1": {
+			"title": "avn1 bus",
+			"text": ""
+		},
+		"info_breaker_landing_lights": {
+			"title": "landing lights breaker",
+			"text": ""
+		},
+		"info_breaker_avn2_xpndr": {
+			"title": "avn2 xpndr breaker",
+			"text": ""
+		},
+		"info_breaker_avn2_nav2": {
+			"title": "avn2 nav2 breaker",
+			"text": ""
+		},
+		"info_breaker_avn2_comm2": {
+			"title": "avn2 comm2 breaker",
+			"text": ""
+		},
+		"info_breaker_avn2_audio": {
+			"title": "avn2 audio breaker",
+			"text": ""
+		},
+		"info_breaker_avn2_auto_pilot": {
+			"title": "avn2 auto pilot breaker",
+			"text": ""
+		},
+		"info_starter_relay": {
+			"title": "starter relay",
+			"text": ""
+		},
+		"info_battery_relay": {
+			"title": "battery relay",
+			"text": ""
+		},
+		"info_external_power_relay": {
+			"title": "external power relay",
+			"text": ""
+		},
+		"info_switch_alt_master": {
+			"title": "alternator master switch",
+			"text": ""
+		},
+		"info_ignition_switch": {
+			"title": "ignition switch",
+			"text": ""
+		},
+		"info_breaker_feeder_b": {
+			"title": "feeder b breaker",
+			"text": ""
+		},
+		"info_breaker_feeder_a": {
+			"title": "feeder a breaker",
+			"text": ""
+		},
+		"info_switch_battery_master": {
+			"title": "battery master switch",
+			"text": ""
+		},
+		"info_breaker_avn2": {
+			"title": "avn2 breaker",
+			"text": ""
+		},
+		"info_breaker_pitot_heat": {
+			"title": "pitot heat breaker",
+			"text": ""
+		},
+		"info_breaker_nav_lights": {
+			"title": "navigation lights breaker",
+			"text": ""
+		},
+		"info_breaker_taxi_lights": {
+			"title": "taxi lights breaker",
+			"text": ""
+		},
+		"info_breaker_strobe_lights": {
+			"title": "strobe lights breaker",
+			"text": ""
+		},
+		"info_breaker_panel_lights": {
+			"title": "panel_lights breaker",
+			"text": ""
+		},
+		"info_breaker_stdby_battery": {
+			"title": "standby battery breaker",
+			"text": ""
+		},
+		"info_breaker_stdby_ind_lights": {
+			"title": "standby ind lights breaker",
+			"text": ""
+		},
+		"info_breaker_ess_comm1": {
+			"title": "ess comm1 breaker",
+			"text": ""
+		},
+		"info_breaker_ess_nav1_eng": {
+			"title": "ess nav1 eng breaker",
+			"text": ""
+		},
+		"info_breaker_ess_adc_ahrs": {
+			"title": "ess adc ahrs breaker",
+			"text": ""
+		},
+		"info_breaker_ess_pfd": {
+			"title": "ess pfd breaker",
+			"text": ""
+		},
+		"info_breaker_warn": {
+			"title": "warn breaker",
+			"text": ""
+		},
+		"info_breaker_alt_field": {
+			"title": "alt field breaker",
+			"text": ""
+		},
+		"info_breaker_avn1": {
+			"title": "avn1 breaker",
+			"text": ""
+		},
+		"info_breaker_flaps": {
+			"title": "flaps breaker",
+			"text": ""
+		},
+		"info_breaker_cabin_lights": {
+			"title": "cabin lights breaker",
+			"text": ""
+		},
+		"info_breaker_beacon_lights": {
+			"title": "beacon lights breaker",
+			"text": ""
+		},
+		"info_breaker_fuel_pump": {
+			"title": "fuel pump breaker",
+			"text": ""
+		},
+		"info_breaker_avn1_pfd": {
+			"title": "avn1 pfd breaker",
+			"text": ""
+		},
+		"info_breaker_avn1_adc_ahrs": {
+			"title": "avn1 adc ahrs breaker",
+			"text": ""
+		},
+		"info_breaker_avn1_nav1_eng": {
+			"title": "avn1 nav1 eng breaker",
+			"text": ""
+		},
+		"info_standby_battery": {
+			"title": "standby battery",
+			"text": ""
+		},
+		"info_bus_elec1": {
+			"title": "electric bus 1",
+			"text": ""
+		},
+		"info_ess_bus": {
+			"title": "ess bus",
+			"text": ""
+		},
+		"info_bus_avn2": {
+			"title": "avn2 bus",
+			"text": ""
+		},
+		"info_breaker_avn2_mfd": {
+			"title": "avn2 mfd breaker",
+			"text": ""
+		},
+		"info_breaker_avn1_fis": {
+			"title": "avn1 fis",
+			"text": ""
+		},
+		"info_switch_standby_battery_master": {
+			"title": "standby battery switch",
+			"text": ""
+		},
+		"info_test_led": {
+			"title": "test led",
+			"text": ""
+		},
+		"info_standby_eis": {
+			"title": "standby eis",
+			"text": ""
+		},
+		"info_switch_test_overheat": {
+			"title": "test overheat switch",
+			"text": ""
+		},
+		"info_switch_fuel_pump": {
+			"title": "fuel pump switch",
+			"text": ""
+		},
+		"info_switch_beacon_lights": {
+			"title": "beacon lights switch",
+			"text": ""
+		},
+		"info_switch_landing_lights": {
+			"title": "landing lights switch",
+			"text": ""
+		},
+		"info_switch_cabin_lights": {
+			"title": "cabin lights switch",
+			"text": ""
+		},
+		"info_switch_avn1": {
+			"title": "avn1 switch",
+			"text": ""
+		},
+		"info_switch_avn2": {
+			"title": "avn switch",
+			"text": ""
+		},
+		"info_switch_pitot_heat": {
+			"title": "pitot heat switch",
+			"text": ""
+		},
+		"info_switch_nav_lights": {
+			"title": "navigation lights switch",
+			"text": ""
+		},
+		"info_switch_taxi_lights": {
+			"title": "taxi lights switch",
+			"text": ""
+		},
+		"info_switch_strobe_lights": {
+			"title": "strobe lights switch",
+			"text": ""
+		},
+		"info_switch_panel_lights": {
+			"title": "panel lights switch",
+			"text": ""
+		}
 	},
 	"graph_data": [
 		{

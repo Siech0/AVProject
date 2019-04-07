@@ -6610,7 +6610,7 @@ Switch<br />
      style="stroke-opacity:1">
     <path
        inkscape:connector-curvature="0"
-       id="stby_battery_controller_target"
+       id="info_stby_battery_controller"
        d="M 915.44874,225.47347 H 1027.9189 V 625.41064 H 915.44874 Z"
        style="stroke-opacity:1" />
     <path
@@ -6619,14 +6619,14 @@ Switch<br />
        d="M 111.96999,6.673761 H 397.4052 V 634.37783 H 111.96999 Z"
        style="stroke-opacity:1" />
     <rect
-       id="ACU_box_target"
+       id="info_acu_box"
        height="161.40962"
        width="127.80681"
        y="24.608164"
        x="132.4191"
        style="stroke-opacity:1" />
     <rect
-       id="x-feed_bus_target"
+       id="info_bus_x-feed"
        height="122.85065"
        width="20.449089"
        y="229.06033"
@@ -6637,7 +6637,7 @@ Switch<br />
        y="14.065047"
        width="20.240137"
        height="158.89746"
-       id="rect307-5"
+       id="info_bus_avn1"
        style="stroke-width:1.20895219;stroke-opacity:1" />
     <rect
        id="info_starter"
@@ -6654,21 +6654,21 @@ Switch<br />
        y="154.49115"
        style="stroke-opacity:1" />
     <rect
-       id="rect1951-35-0-15"
+       id="info_breaker_landing_lights"
        width="37.285927"
        height="34.150043"
        x="526.85706"
        y="74.251144"
        style="stroke-opacity:1" />
     <rect
-       id="rect1951-35-0-937"
+       id="info_switch_beacon_lights"
        width="44.692596"
        height="34.056713"
        x="589.40375"
        y="47.79781"
        style="stroke-width:1.09332955;stroke-opacity:1" />
     <rect
-       id="rect10073"
+       id="info_battery"
        width="62.646797"
        height="127.01092"
        x="24.426601"
@@ -6676,7 +6676,7 @@ Switch<br />
        style="stroke-opacity:1" />
     <!--place holder -->
     <rect
-       id="eis_target"
+       id="info_eis"
        width="68.163635"
        height="71.73761"
        x="32.303749"
@@ -6687,35 +6687,35 @@ Switch<br />
        x="757.35706"
        height="34.150043"
        width="37.285927"
-       id="rect1951-35-0-61"
+       id="info_breaker_avn2_xpndr"
        style="stroke-opacity:1" />
     <rect
        y="510.25116"
        x="756.85706"
        height="34.150043"
        width="37.285927"
-       id="rect1951-35-0-8"
+       id="info_breaker_avn2_nav2"
        style="stroke-opacity:1" />
     <rect
        y="539.75116"
        x="758.85706"
        height="34.150043"
        width="37.285927"
-       id="rect1951-35-0-7"
+       id="info_breaker_avn2_comm2"
        style="stroke-opacity:1" />
     <rect
        y="573.75116"
        x="757.35706"
        height="34.150043"
        width="37.285927"
-       id="rect1951-35-0-92"
+       id="info_breaker_avn2_audio"
        style="stroke-opacity:1" />
     <rect
        y="592.75116"
        x="757.85706"
        height="34.150043"
        width="37.285927"
-       id="rect1951-35-0-02"
+       id="info_breaker_avn2_auto_pilot"
        style="stroke-opacity:1" />
     <rect
        id="rect1951"
@@ -6725,140 +6725,140 @@ Switch<br />
        y="212.82617"
        style="stroke-opacity:1" />
     <rect
-       id="rect1951-3"
+       id="info_starter_relay"
        width="68.5"
        height="72.5"
        x="168.34982"
        y="352.49368"
        style="stroke-opacity:1" />
     <rect
-       id="rect1951-6"
+       id="info_battery_relay"
        width="68.5"
        height="72.5"
        x="187.25"
        y="448.57617"
        style="stroke-opacity:1" />
     <rect
-       id="rect1951-7"
+       id="info_external_power_relay"
        width="68.5"
        height="72.5"
        x="144.8634"
        y="515.24841"
        style="stroke-opacity:1" />
     <rect
-       id="rect1951-35-6"
+       id="info_switch_alt_master"
        width="58.805912"
        height="57.670029"
        x="408.59705"
        y="238.99115"
        style="stroke-opacity:1" />
     <rect
-       id="rect1951-35-2"
+       id="info_ignition_switch"
        width="58.805912"
        height="57.670029"
        x="398.59705"
        y="394.49115"
        style="stroke-opacity:1" />
     <rect
-       id="rect1951-35-9"
+       id="info_breaker_feeder_b"
        width="58.805912"
        height="57.670029"
        x="337.59705"
        y="270.99115"
        style="stroke-opacity:1" />
     <rect
-       id="rect1951-35-1"
+       id="info_breaker_feeder_a"
        width="58.805912"
        height="57.670029"
        x="335.59705"
        y="338.49115"
        style="stroke-opacity:1" />
     <rect
-       id="rect1951-35-27"
+       id="info_switch_battery_master"
        width="58.805912"
        height="57.670029"
        x="401.09705"
        y="529.49115"
        style="stroke-opacity:1" />
     <rect
-       id="rect1951-35-0"
+       id="info_breaker_avn2"
        width="37.285927"
        height="34.150043"
        x="531.35706"
        y="406.25113"
        style="stroke-opacity:1" />
     <rect
-       id="rect1951-35-0-9"
+       id="info_breaker_pitot_heat"
        width="37.285927"
        height="34.150043"
        x="531.85706"
        y="442.75116"
        style="stroke-opacity:1" />
     <rect
-       id="rect1951-35-0-3"
+       id="info_breaker_nav_lights"
        width="37.285927"
        height="34.150043"
        x="529.85706"
        y="475.25116"
        style="stroke-opacity:1" />
     <rect
-       id="rect1951-35-0-6"
+       id="info_breaker_taxi_lights"
        width="37.285927"
        height="34.150043"
        x="529.85706"
        y="505.25116"
        style="stroke-opacity:1" />
     <rect
-       id="rect1951-35-0-0"
+       id="info_breaker_strobe_lights"
        width="37.285927"
        height="34.150043"
        x="533.35706"
        y="538.75116"
        style="stroke-opacity:1" />
     <rect
-       id="rect1951-35-0-62"
+       id="info_breaker_panel_lights"
        width="37.285927"
        height="34.150043"
        x="533.35706"
        y="571.25116"
        style="stroke-opacity:1" />
     <rect
-       id="rect1951-35-0-37"
+       id="info_switch_pitot_heat"
        width="44.408363"
        height="34.130753"
        x="614.40259"
        y="446.79666"
        style="stroke-width:1.09103131;stroke-opacity:1" />
     <rect
-       id="rect1951-35-0-5"
+       id="info_switch_nav_lights"
        width="44.408363"
        height="34.130753"
        x="615.59357"
        y="484.27548"
        style="stroke-width:1.09103131;stroke-opacity:1" />
     <rect
-       id="rect1951-35-0-922"
+       id="info_switch_taxi_lights"
        width="44.408363"
        height="34.130753"
        x="615.59357"
        y="512.7594"
        style="stroke-width:1.09103131;stroke-opacity:1" />
     <rect
-       id="rect1951-35-0-89"
+       id="info_switch_strobe_lights"
        width="44.408363"
        height="34.130753"
        x="614.99811"
        y="542.24274"
        style="stroke-width:1.09103131;stroke-opacity:1" />
     <rect
-       id="rect1951-35-0-73"
+       id="info_switch_panel_lights"
        width="44.408363"
        height="34.130753"
        x="616.18909"
        y="573.72491"
        style="stroke-width:1.09103131;stroke-opacity:1" />
     <rect
-       id="rect1951-35-0-612"
+       id="info_switch_avn2"
        width="43.704559"
        height="34.068676"
        x="686.39777"
@@ -6869,164 +6869,164 @@ Switch<br />
        x="715.85706"
        height="34.150043"
        width="37.285927"
-       id="rect1951-35-0-93"
+       id="info_breaker_stdby_battery"
        style="stroke-opacity:1" />
     <rect
        y="341.25116"
        x="718.35706"
        height="34.150043"
        width="37.285927"
-       id="rect1951-35-0-1"
+       id="info_breaker_stdby_ind_lights"
        style="stroke-opacity:1" />
     <rect
        y="305.75116"
        x="716.35706"
        height="34.150043"
        width="37.285927"
-       id="rect1951-35-0-94"
+       id="info_breaker_ess_comm1"
        style="stroke-opacity:1" />
     <rect
        y="263.25116"
        x="718.35706"
        height="34.150043"
        width="37.285927"
-       id="rect1951-35-0-78"
+       id="info_breaker_ess_nav1_eng"
        style="stroke-opacity:1" />
     <rect
        y="228.75114"
        x="717.35706"
        height="34.150043"
        width="37.285927"
-       id="rect1951-35-0-4"
+       id="info_breaker_ess_adc_ahrs"
        style="stroke-opacity:1" />
     <rect
        y="194.25114"
        x="716.35706"
        height="34.150043"
        width="37.285927"
-       id="rect1951-35-0-50"
+       id="info_breaker_ess_pfd"
        style="stroke-opacity:1" />
     <rect
        y="277.75116"
        x="581.85706"
        height="34.150043"
        width="37.285927"
-       id="rect1951-35-0-36"
+       id="info_breaker_warn"
        style="stroke-opacity:1" />
     <rect
        y="254.16852"
        x="532.02838"
        height="34.150043"
        width="37.285927"
-       id="rect1951-35-0-10"
+       id="info_breaker_alt_field"
        style="stroke-opacity:1" />
     <rect
        y="183.25114"
        x="529.35706"
        height="34.150043"
        width="37.285927"
-       id="rect1951-35-0-63"
+       id="info_breaker_avn1"
        style="stroke-opacity:1" />
     <rect
        y="145.25114"
        x="529.35706"
        height="34.150043"
        width="37.285927"
-       id="rect1951-35-0-2"
+       id="info_breaker_flaps"
        style="stroke-opacity:1" />
     <rect
        y="114.25114"
        x="526.85706"
        height="34.150043"
        width="37.285927"
-       id="rect1951-35-0-06"
+       id="info_breaker_cabin_lights"
        style="stroke-opacity:1" />
     <rect
        y="42.251144"
        x="530.85706"
        height="34.150043"
        width="37.285927"
-       id="rect1951-35-0-54"
+       id="info_breaker_beacon_lights"
        style="stroke-opacity:1" />
     <rect
        y="-1.2488551"
        x="526.35706"
        height="34.150043"
        width="37.285927"
-       id="rect1951-35-0-76"
+       id="info_breaker_fuel_pump"
        style="stroke-opacity:1" />
     <rect
        y="9.8007746"
        x="589.90668"
        height="34.050781"
        width="45.186665"
-       id="rect1951-35-0-56"
+       id="info_switch_fuel_pump"
        style="stroke-width:1.09926045;stroke-opacity:1" />
     <rect
        y="82.285774"
        x="588.89166"
        height="34.08078"
        width="42.716663"
-       id="rect1951-35-0-45"
+       id="info_switch_landing_lights"
        style="stroke-width:1.06926489;stroke-opacity:1" />
     <rect
        y="133.30957"
        x="602.91547"
        height="34.033188"
        width="46.669071"
-       id="rect1951-35-0-25"
+       id="info_switch_cabin_lights"
        style="stroke-width:1.11685753;stroke-opacity:1" />
     <rect
        y="91.312477"
        x="696.4184"
        height="34.027386"
        width="47.163269"
-       id="rect1951-35-0-47"
+       id="info_switch_avn1"
        style="stroke-width:1.12265968;stroke-opacity:1" />
     <rect
        y="21.751144"
        x="772.85706"
        height="34.150043"
        width="37.285927"
-       id="rect1951-35-0-44"
+       id="info_breaker_avn1_pfd"
        style="stroke-opacity:1" />
     <rect
        y="61.751144"
        x="773.85706"
        height="34.150043"
        width="37.285927"
-       id="rect1951-35-0-30"
+       id="info_breaker_avn1_adc_ahrs"
        style="stroke-opacity:1" />
     <rect
        y="97.251137"
        x="771.35706"
        height="34.150043"
        width="37.285927"
-       id="rect1951-35-0-786"
+       id="info_breaker_avn1_nav1_eng"
        style="stroke-opacity:1" />
     <rect
        y="122.0555"
        x="912.16144"
        height="81.541306"
        width="50.677185"
-       id="rect1951-35-0-43"
+       id="info_standby_battery"
        style="stroke-opacity:1" />
     <rect
        x="511.57928"
        y="-0.5"
        width="20.449089"
        height="254.66852"
-       id="rect299-6"
+       id="info_bus_elec1"
        style="stroke-opacity:1" />
     <rect
        x="514.13544"
        y="325.90613"
        width="20.449089"
        height="286.95044"
-       id="rect243-7"
+       id="info_bus_elec2"
        style="stroke-opacity:1" />
     <rect
-       id="ess_bus_target"
+       id="info_ess_bus"
        height="233.14723"
        width="20.449089"
        y="193.29727"
@@ -7037,14 +7037,14 @@ Switch<br />
        y="453.21701"
        width="20.369345"
        height="181.56934"
-       id="rect305-3"
+       id="info_bus_avn2"
        style="stroke-width:1.07974517;stroke-opacity:1" />
     <rect
        y="445.2171"
        x="757.26031"
        height="34.150043"
        width="37.285927"
-       id="rect1951-35-0-61-5"
+       id="info_breaker_avn2_mfd"
        style="stroke-opacity:1" />
     <rect
        y="132.75113"
@@ -7055,7 +7055,7 @@ Switch<br />
        style="stroke-opacity:1" />
     <rect
        style="stroke-opacity:1"
-       id="rect10315"
+       id="info_breaker_avn1_fis"
        width="37.285927"
        height="34.150043"
        x="772.35706"
@@ -7065,7 +7065,7 @@ Switch<br />
        x="839.70007"
        height="84.964066"
        width="42.599941"
-       id="rect1951-35-0-93-9"
+       id="info_switch_standby_battery_master"
        style="stroke-width:1.68598628;stroke-opacity:1" />
     <rect
        y="409.02057"
@@ -7079,21 +7079,21 @@ Switch<br />
        x="845.21936"
        height="38.425426"
        width="98.561302"
-       id="rect1951-35-0-93-9-1-2"
+       id="info_test_led"
        style="stroke-width:1.72462416;stroke-opacity:1" />
     <rect
        y="537.24463"
        x="862.35052"
        height="36.163078"
        width="34.298954"
-       id="rect1951-35-0-93-9-1-2-7"
+       id="info_standby_eis"
        style="stroke-width:0.98697245;stroke-opacity:1" />
     <rect
        y="412.19434"
        x="835.80023"
        height="24.763655"
        width="40.399532"
-       id="rect1951-35-0-93-9-1-2-7-0"
+       id="info_switch_test_overheat"
        style="stroke-width:0.88639528;stroke-opacity:1" />
   </g>
   <rect
