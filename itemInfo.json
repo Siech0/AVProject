@@ -406,7 +406,8 @@
 				"#breaker_xpndr_svg",
 				"#breaker_nav2_svg",
 				"#breaker_comm2_svg",
-				"#breaker_audio_svg"
+				"#breaker_audio_svg",
+				"#breaker_auto_pilot_svg"
 			],
 			"passthrough": false
 		},
@@ -517,6 +518,14 @@
 				"#breaker_strobe_light_svg"
 			],
 			"passthrough": false
+		},
+		{
+			"id": "#breaker_auto_pilot_svg",
+			"has_on_off": true,
+			"edges": [
+				"#switch_avn2_svg"
+			],
+			"passthrough": true
 		},
 		{
 			"id": "#breaker_panel_lights_svg",
