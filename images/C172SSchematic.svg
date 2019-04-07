@@ -6615,7 +6615,7 @@ Switch<br />
        style="stroke-opacity:1" />
     <path
        inkscape:connector-curvature="0"
-       id="power_distribution_module_target"
+       id="info_power_distribution_module"
        d="M 111.96999,6.673761 H 397.4052 V 634.37783 H 111.96999 Z"
        style="stroke-opacity:1" />
     <rect
@@ -6718,7 +6718,7 @@ Switch<br />
        id="info_breaker_avn2_auto_pilot"
        style="stroke-opacity:1" />
     <rect
-       id="rect1951"
+       id="info_alt_relay"
        width="68.5"
        height="72.5"
        x="167.5"
@@ -7072,7 +7072,7 @@ Switch<br />
        x="889.37646"
        height="59.111206"
        width="23.247082"
-       id="rect1951-35-0-93-9-1"
+       id="info_test_load"
        style="stroke-width:1.03884566;stroke-opacity:1" />
     <rect
        y="490.11346"
