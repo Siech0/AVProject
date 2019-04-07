@@ -323,12 +323,11 @@ $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
 						//content.text(infoPanels[e.target.id].text);
                         var text = infoPanels[e.target.id].text;
                         var changed = text.replace(/"\n"/g,"<br/>");
-					    content_text.text(changed);     
-						
-								closer.appendTo(title);
-							title.appendTo(panel);
-								content_text.appendTo(content);
-							content.appendTo(panel);
+					    content_text.text(changed);					
+				        closer.appendTo(title);
+				        title.appendTo(panel);
+                        content_text.appendTo(content);
+				        content.appendTo(panel);
 						panel.appendTo(wrapper);	
 						
 						//Ensure that this is draggable by its handle

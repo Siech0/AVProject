@@ -13,249 +13,269 @@
 			"text":  "The 24-volt main battery is located inside the engine cowling on the left firewall. The battery is controlled by the red BAT MASTER switch found near the top of the pilot’s switch panel. The battery provides power for starting the engine and for operating the electrical system when the alternator is not functioning."
         },
         "info_eis":{
-            "title": "EIS",
+            "title": "Engine Indication System",
             "text": "Electrical system data is displayed at the bottom of the Engine Indication System (EIS) bar along the left side of the MFD. Main bus voltage is measured at the WARN circuit breaker on the X-FEED BUS. Essential bus voltage is measured at the NAV1 ENG circuit breaker on the ESS BUS. \n Both voltage (VOLTS) and current (AMPS) indications are shown on the EIS. Main bus voltage is shown below the “M”. Essential bus voltage is shown below the “E”. Main battery current is shown below the “M”. Standby battery current is displayed below the “S”. A positive AMPS value means the battery is charging, a negative value means that the battery is discharging. \n Normal voltage readings with the alternator operating should be about 28.0 volts. If main or essential bus voltage rises above 32.0 volts, the numerical value and VOLTS text turns red. This warning indication, along with a HIGH VOLTS annunciation on the PFD, is an indicator that the alternator is supplying too high of a voltage and the ALT MASTER switch should be positioned to OFF. \n If main or essential bus voltage drops below 24.5 volts, the numeric value and VOLTS text turns red. This warning indication, along with a LOW VOLTS annunciation on the PFD, is an indication that the alternator is not supplying enough power. Voltages between 24.5 and 28.0 volts may occur during low engine RPM conditions."
         },
 		"info_acu_box": {
-			"title": "acu_box",
-			"text": ""
+			"title": "Alternator Control Unit",
+			"text": "The alternator control unit (ACU) controls several functions of the alternator circuit. The ACU adjusts the alternator field current to regulate alternator output, supplying the main bus with approximately 28.5 volts. The ACU also monitors main bus voltage and activates the LOW VOLTS annunciator below approximately 24.5 volts. \n In the event of an overvoltage condition (or other alternator fault), the ACU will automatically open the ALT FIELD circuit breaker, removing alternator field current and stopping alternator output. The ALT FIELD circuit breaker can be reset to energize the ACU and enable the alternator. \n Since the ACU will normally disconnect the alternator in a high volts situation, illumination of the HIGH VOLTS annunciator indicates that the normal alternator shutdown circuit is not operational and the pilot should turn the alternator off manually but switching the ALT MASTER switch OFF."
 		},
 		"info_bus_x-feed": {
-			"title": "x-feed bus",
-			"text": ""
+			"title": "X-Feed Bus",
+			"text": "The crossfeed bus (X-FEED BUS) ensures that power is available from either ELEC BUS 1 or ELEC BUS 2 for the ALT FIELD and WARN circuits. Despite the name, the crossfeed bus does not allow power to crossfeed from one primary bus to the other. For example, the diodes installed in the circuit connecting ELEC BUS 2 to the X-FEED BUS will not allow power to flow from ELEC BUS 1 to ELEC BUS 2 via the X-FEED BUS. Therefore, if the FEEDER A circuit breaker is open, there will be no power available to ELEC BUS 2."
 		},
 		"info_bus_avn1": {
-			"title": "avn1 bus",
-			"text": ""
+			"title": "Avionics Bus 1",
+			"text": "Avionics Bus 1 (AVN BUS 1) is powered when the MASTER switch and the AVIONICS BUS 1 switch are in the ON position. The avionics on AVN BUS 1 can also be powered via the ESS BUS. This redundancy allows for these essential avionics to be operated in the event that the standby battery is the only power source available. \n CAUTION: Both AVIONICS BUS 1 and AVIONICS BUS 2 switches should be turned OFF to prevent any harmful transient voltage from damaging the avionics equipment prior to turning the MASTER switch ON or OFF, starting the engine, or applying an external power source."
 		},
 		"info_breaker_landing_lights": {
-			"title": "landing lights breaker",
-			"text": ""
+			"title": "Landing Lights Circuit Breaker",
+			"text": "The landing light circuit is protected by a 10-amp LAND LT circuit breaker, located on ELEC BUS 1."
 		},
 		"info_breaker_avn2_xpndr": {
-			"title": "avn2 xpndr breaker",
-			"text": ""
+			"title": "XPNDR Circuit Breaker",
+			"text": "The G1000 Transponder init is protected by a 5-amp XPNDR circuit breaker, located on AVN BUS 2"
 		},
 		"info_breaker_avn2_nav2": {
-			"title": "avn2 nav2 breaker",
-			"text": ""
+			"title": "NAV 2 Circuit Breaker",
+			"text": "The Navigation #2 unit and Aft Avionics Cooling Fan are protected by a 5-amp NAV 2 circuit breaker, located on AVN BUS 2."
 		},
 		"info_breaker_avn2_comm2": {
-			"title": "avn2 comm2 breaker",
-			"text": ""
+			"title": "Comm 2 Circuit Breaker",
+			"text": "The G1000 VHF Communication #2 unit is protected by a 5-amp COMM 2 circuit breaker, located on AVN BUS 2."
 		},
 		"info_breaker_avn2_audio": {
-			"title": "avn2 audio breaker",
-			"text": ""
+			"title": "Audio Circuit Breaker",
+			"text": "The G1000 Audio Panel unit is protected by a 5-amp AUDIO circuit breaker, located on AVN BUS 2."
 		},
 		"info_breaker_avn2_auto_pilot": {
-			"title": "avn2 auto pilot breaker",
-			"text": ""
+			"title": "Auto Pilot Circuit Breaker",
+			"text": "The G1000 Auto Pilot unit is protected by a 5-amp AUTO PILOT circuit breaker, located on AVN BUS 2."
 		},
 		"info_starter_relay": {
-			"title": "starter relay",
-			"text": ""
+			"title": "Starter Relay",
+			"text": "The starter relay is energized by the ignition switch. The relay closes the circuit between the battery (or external power source) and the starter motor."
 		},
 		"info_battery_relay": {
-			"title": "battery relay",
-			"text": ""
+			"title": "Battery Relay",
+			"text": "The battery relay closes the circuit between the battery (or external power source) and the rest of the electrical system. Turning the BAT MASTER switch ON will energize the battery relay."
 		},
 		"info_external_power_relay": {
-			"title": "external power relay",
-			"text": ""
+			"title": "External Power Relay",
+			"text": "As long as the BAT MASTER switch is ON, the external power relay and battery relay will both automatically close when a power source is plugged into the external power receptacle. This will allow the external power source to act as the aircraft’s battery, providing power to the entire electrical system."
 		},
 		"info_switch_alt_master": {
-			"title": "alternator master switch",
-			"text": ""
+			"title": "Alternator Master Switch",
+			"text": "The ALT side of the red MASTER switch controls the alternator system. If ALT FIELD power is available at the ESS BUS, turning the ALT MASTER switch ON will energize the alternator relay and connect the alternator to the electrical system. \n In normal operation, both sides of the switch (ALT and BAT) are operated simultaneously. However, the BAT side of the switch may be selected separately as necessary. The ALT side cannot be set to ON without the BAT side also being set to ON."
 		},
 		"info_ignition_switch": {
-			"title": "ignition switch",
-			"text": ""
+			"title": "Ignition Switch",
+			"text": "If power is available from the main battery or from an external power source, turning the ignition switch to START will close the starter relay, engage the starter, and start the engine."
 		},
 		"info_breaker_feeder_b": {
-			"title": "feeder b breaker",
-			"text": ""
+			"title": "Feeder B Circuit Breaker",
+			"text": "The power distribution module uses three push-to-reset circuit breakers for the electrical bus feeders. A fast blow automotive type fuse is used at the standby battery. The standby battery current shunt circuit uses two field replaceable fuses located on the standby battery controller printed circuit board."
 		},
 		"info_breaker_feeder_a": {
-			"title": "feeder a breaker",
-			"text": ""
+			"title": "Feeder A Circuit Breaker",
+			"text": "The power distribution module uses three push-to-reset circuit breakers for the electrical bus feeders. A fast blow automotive type fuse is used at the standby battery. The standby battery current shunt circuit uses two field replaceable fuses located on the standby battery controller printed circuit board."
 		},
 		"info_switch_battery_master": {
-			"title": "battery master switch",
-			"text": ""
+			"title": "Battery Master Switch",
+			"text": "The BAT side of the MASTER switch controls the main battery electrical power to the airplane. When the BAT MASTER is switched ON, the battery relay is energized and the battery is connected to the electrical system. \n In normal operation, both sides of the switch (ALT and BAT) are operated simultaneously. However, the BAT side of the switch may be selected separately as necessary. The ALT side cannot be set to ON without the BAT side also being set to ON."
 		},
 		"info_breaker_avn2": {
-			"title": "avn2 breaker",
-			"text": ""
+			"title": "AVN 2 Circuit Breaker",
+			"text": "Power to AVN BUS 2 is fed from ELEC BUS 2 through a 15-amp AVN 2 circuit breaker."
 		},
 		"info_breaker_pitot_heat": {
-			"title": "pitot heat breaker",
-			"text": ""
+			"title": "Pitot Heat Circuit Breaker",
+			"text": "The pitot heat circuit is protected by a 5-amp PITOT HEAT circuit breaker, located on ELEC BUS 2."
 		},
 		"info_breaker_nav_lights": {
-			"title": "navigation lights breaker",
-			"text": ""
+			"title": "Navigation Lights Circuit Breaker",
+			"text": "The navigation lights and control wheel map light circuits are protected by a 5-amp NAV LTS circuit breaker, located on ELEC BUS 2."
 		},
 		"info_breaker_taxi_lights": {
-			"title": "taxi lights breaker",
-			"text": ""
+			"title": "Taxi Lights Circuit Breaker",
+			"text": "The taxi light circuit is protected by a 10-amp TAXI LT circuit breaker, located on ELEC BUS 2."
 		},
 		"info_breaker_strobe_lights": {
-			"title": "strobe lights breaker",
-			"text": ""
+			"title": "Strobe Lights Circuit Breaker",
+			"text": "The strobe lights circuit is protected by a 5-amp STROBE LTS circuit breaker, located on ELEC BUS 2."
 		},
 		"info_breaker_panel_lights": {
-			"title": "panel_lights breaker",
-			"text": ""
+			"title": "Panel Lights Circuit Breaker",
+			"text": "The panel lights circuit is protected by a 5-amp PANEL LTS circuit breaker, located on ELEC BUS 2."
 		},
 		"info_breaker_stdby_battery": {
-			"title": "standby battery breaker",
-			"text": ""
+			"title": "Standby Battery Circuit Breaker",
+			"text": "Power to and from the standby battery system flows through a 20-amp STDBY BATT circuit breaker, located on the ESS BUS."
 		},
 		"info_breaker_stdby_ind_lights": {
-			"title": "standby ind lights breaker",
-			"text": ""
+			"title": "Standby IND Lights Circuit Breaker",
+			"text": "The lighting system for the standby flight instruments is protected by a 5-amp STDBY IND LTS circuit breaker, located on the ESS BUS."
 		},
 		"info_breaker_ess_comm1": {
-			"title": "ess comm1 breaker",
-			"text": ""
+			"title": "COMM 1 Circuit Breaker",
+			"text": "The G1000 VHF Communication #1 unit is protected by a 5-amp COMM 1 circuit breaker, located on the ESS BUS."
 		},
 		"info_breaker_ess_nav1_eng": {
-			"title": "ess nav1 eng breaker",
-			"text": ""
+			"title": "NAV 1 ENG Circuit Breaker",
+			"text": "The G1000 Navigation #1 and Engine/Airframe units are protected by a 15-amp NAV1 ENG circuit breaker, located on the ESS BUS. In the event that there is no power available for AVN BUS 1 or if operating on standby battery power, the Navigation #1 and Engine/Airframe units can be powered by the ESS BUS through this circuit breaker."
 		},
 		"info_breaker_ess_adc_ahrs": {
-			"title": "ess adc ahrs breaker",
-			"text": ""
+			"title": "ADC AHRS Circuit Breaker",
+			"text": "The G1000 Air Data Computer and Attitude Heading Reference System are protected by a 10-amp ADC AHRS circuit breaker, located on the ESS BUS. In the event that there is no power available for AVN BUS 1 or if operating on standby battery power, the ADC and AHRS can be powered by the ESS BUS through this circuit breaker."
 		},
 		"info_breaker_ess_pfd": {
-			"title": "ess pfd breaker",
-			"text": ""
+			"title": "PFD Circuit Breaker",
+			"text": "The G1000 Primary Flight Display is protected by a 5-amp PFD circuit breaker, located on the ESS BUS. Note that this circuit allows the PFD to be powered by any available power source, including the standby battery. Utilizing this circuit, the PFD can operate even with the AVIONICS switches OFF."
 		},
 		"info_breaker_warn": {
-			"title": "warn breaker",
-			"text": ""
+			"title": "WARN Circuit Breaker",
+			"text": "Power is fed from the WARN circuit breaker on the X-FEED bus to the stall warning, ELT, main bus voltmeter, hourmeter, starter relay, standby battery, and main bus sense circuits."
 		},
 		"info_breaker_alt_field": {
-			"title": "alt field breaker",
-			"text": ""
+			"title": "ALT FIELD Circuit Breaker",
+			"text": "In the event of an overvoltage condition (or other alternator fault), the ALT FIELD circuit breaker is automatically opened by the alternator control unit (ACU), removing alternator field current and stopping alternator output. The ALT FIELD circuit breaker can be reset to energize the ACU and enable the alternator. If warning annunciators are extinguished and the main battery is charging, then normal alternator output has been restored. If the LOW VOLTS annunciator comes on again or the ALT FIELD circuit breaker opens again, an alternator malfunction has occurred. The ALT FIELD circuit breaker should not be reset again. \n The ALT FIELD circuit breaker may open on occasion during normal engine starts due to transient voltages. Provided that normal alternator function is restored when the circuit breaker is reset, this can be considered a nuisance event."
 		},
 		"info_breaker_avn1": {
-			"title": "avn1 breaker",
-			"text": ""
+			"title": "AVN 1 Circuit Breaker",
+			"text": "Power to AVN BUS 1 is fed from ELEC BUS 1 through a 15-amp AVN 1 circuit breaker."
 		},
 		"info_breaker_flaps": {
-			"title": "flaps breaker",
-			"text": ""
+			"title": "Flaps Circuit Breaker",
+			"text": "The wing flaps circuit is protected by a 10-amp FLAPS circuit breaker, located on ELEC BUS 1."
 		},
 		"info_breaker_cabin_lights": {
-			"title": "cabin lights breaker",
-			"text": ""
+			"title": "Cabin Lights Circuit Breaker",
+			"text": "The overhead lights and 12V cabin power circuits are protected by a 5-amp CABIN LTS/PWR circuit breaker, located on ELEC BUS 1."
 		},
 		"info_breaker_beacon_lights": {
-			"title": "beacon lights breaker",
-			"text": ""
+			"title": "Beacon Lights Circuit Breaker",
+			"text": "The flashing beacon circuit is protected by a 5-amp BCN LT circuit breaker, located on ELEC BUS 1."
 		},
 		"info_breaker_fuel_pump": {
-			"title": "fuel pump breaker",
-			"text": ""
+			"title": "Fuel Pump Circuit Breaker",
+			"text": "The auxiliary (electric) fuel pump is protected by a 5-amp FUEL PUMP circuit breaker, located on ELEC BUS 1."
 		},
 		"info_breaker_avn1_pfd": {
-			"title": "avn1 pfd breaker",
-			"text": ""
+			"title": "PFD Circuit Breaker",
+			"text": "The G1000 Primary Flight Display and cooling fans are protected by a 5-amp PFD circuit breaker, located on AVN BUS 1. In the event that power is not available to AVN BUS 1, the PFD and cooling fans can get power via an identical circuit breaker on the ESS BUS."
 		},
 		"info_breaker_avn1_adc_ahrs": {
-			"title": "avn1 adc ahrs breaker",
-			"text": ""
+			"title": "ADC AHRS Circuit Breaker",
+			"text": "The G1000 Air Data Computer and Attitude Heading Reference System are protected by a 10-amp ADC AHRS circuit breaker, located on AVN BUS 1. In the event that power is not available to AVN BUS 1, the ADC and AHRS can get power via an identical circuit breaker on the ESS BUS."
 		},
 		"info_breaker_avn1_nav1_eng": {
-			"title": "avn1 nav1 eng breaker",
-			"text": ""
+			"title": "NAV 1 ENG Circuit Breaker",
+			"text": "The G1000 Navigation #1 and Engine/Airframe units are protected by a 15-amp NAV1 ENG circuit breaker, located on AVN BUS 1. In the event that power is not available to AVN BUS 1, these units can get power via an identical circuit breaker on the ESS BUS."
 		},
 		"info_standby_battery": {
-			"title": "standby battery",
-			"text": ""
+			"title": "Standby Battery",
+			"text": "The standby battery is located between the firewall and the instrument panel, behind the PFD, and is controlled by the STBY BATT switch. This battery is available to supply 30 minutes of power to the ESS BUS in the event that alternator and main battery power sources have both failed. \n The STBY BATT annunciator will illuminate when discharge rates are greater than 0.5 amps for more than 10 seconds. \n The standby battery is charged during flight when the STBY BATT switch is placed in the ARM position. At 20 Volts, the standby battery has little or no capacity remaining."
 		},
 		"info_bus_elec1": {
-			"title": "electric bus 1",
-			"text": ""
+			"title": "Electric Bus 1",
+			"text": "Each electrical bus provides a common distribution point that feeds power to the aircraft’s various electrical components. Power is supplied to most electrical circuits through two primary buses, ELEC BUS 1 and ELEC BUS 2."
 		},
 		"info_ess_bus": {
-			"title": "ess bus",
-			"text": ""
+			"title": "ESS Bus",
+			"text": "The essential bus (ESS BUS) isolates essential equipment on a single bus. The essential bus can receive power from the main battery or alternator via ELEC BUS 1 or ELEC BUS 2. Unlike the other buses in the system, the ESS BUS is the only bus that can receive power from the standby battery. Diodes in the circuits connecting the ESS BUS to the primary buses will not allow standby battery power to flow to the primary buses. In the event that the standby battery is the only power source, power will only be available to the components on the ESS BUS."
 		},
 		"info_bus_avn2": {
-			"title": "avn2 bus",
-			"text": ""
+			"title": "AVN 2 Bus",
+			"text": "Avionics Bus 2 (AVN BUS 2) is powered when the MASTER switch and the AVIONICS BUS 2 switch are in the ON position. The avionics on this bus are considered non-essential and will not function when the standby battery is the only source of power available. \n CAUTION: Both AVIONICS BUS 1 and AVIONICS BUS 2 switches should be turned OFF to prevent any harmful transient voltage from damaging the avionics equipment prior to turning the MASTER switch ON or OFF, starting the engine, or applying an external power source."
 		},
 		"info_breaker_avn2_mfd": {
-			"title": "avn2 mfd breaker",
-			"text": ""
+			"title": "MFD Circuit Breaker",
+			"text": "The G1000 Multi-Function Display and MFD Fan circuits are protected by a 5-amp MFD circuit breaker, located on AVN BUS 2."
 		},
 		"info_breaker_avn1_fis": {
-			"title": "avn1 fis",
-			"text": ""
+			"title": "FIS Circuit Breaker",
+			"text": "The G1000 FIS unit is protected by a 5-amp FIS circuit breaker, located on AVN BUS 1."
 		},
 		"info_switch_standby_battery_master": {
-			"title": "standby battery switch",
-			"text": ""
+			"title": "Standby Battery Switch",
+			"text": "The standby battery (STBY BATT) switch is a three-position switch (ARM-OFF-TEST) that tests and controls the standby battery system. The standby battery energy level can be tested by placing the switch in the momentary TEST position for 10 seconds and observing the correct illumination of the TEST lamp. \n Placing the switch in the ARM position during engine start allows the standby battery to help regulate and filter ESS BUS voltage during the start cycle. \n The switch is set to the ARM position during normal flight operation to allow the standby battery to charge and to be ready to power the ESS BUS in the event of alternator and main battery failure. \n Placing the switch in the OFF position disconnects the standby battery from the ESS BUS. Operation in the OFF position prevents the standby battery from charging and from automatically providing power should an electrical system failure occur."
 		},
 		"info_test_led": {
-			"title": "test led",
-			"text": ""
+			"title": "Test LED",
+			"text": "The TEST LED is illuminated when the STBY BATT switch is moved to the TEST position. To test the standby battery, the switch should be held in the TEST position for 10 seconds. During the test, if the LED is not illuminated continuously, the standby battery test has failed."
 		},
 		"info_standby_eis": {
-			"title": "standby eis",
-			"text": ""
+			"title": "Engine Indication System",
+			"text": "Electrical system data is displayed at the bottom of the Engine Indication System (EIS) bar along the left side of the MFD. Main bus voltage is measured at the WARN circuit breaker on the X-FEED BUS. Essential bus voltage is measured at the NAV1 ENG circuit breaker on the ESS BUS. \n Both voltage (VOLTS) and current (AMPS) indications are shown on the EIS. Main bus voltage is shown below the “M”. Essential bus voltage is shown below the “E”. Main battery current is shown below the “M”. Standby battery current is displayed below the “S”. A positive AMPS value means the battery is charging, a negative value means that the battery is discharging. \n Normal voltage readings with the alternator operating should be about 28.0 volts. If main or essential bus voltage rises above 32.0 volts, the numerical value and VOLTS text turns red. This warning indication, along with a HIGH VOLTS annunciation on the PFD, is an indicator that the alternator is supplying too high of a voltage and the ALT MASTER switch should be positioned to OFF. \n If main or essential bus voltage drops below 24.5 volts, the numeric value and VOLTS text turns red. This warning indication, along with a LOW VOLTS annunciation on the PFD, is an indication that the alternator is not supplying enough power. Voltages between 24.5 and 28.0 volts may occur during low engine RPM conditions."
 		},
 		"info_switch_test_overheat": {
-			"title": "test overheat switch",
-			"text": ""
+			"title": "Test Overheat Switch",
+			"text": "The test load can get hot during the standby battery test. If the circuit gets too hot, the test overheat switch will open, preventing damage to the load and anything else located nearby."
 		},
 		"info_switch_fuel_pump": {
-			"title": "fuel pump switch",
-			"text": ""
+			"title": "Fuel Pump Switch",
+			"text": "The FUEL PUMP switch is used by the pilot to activate the auxiliary (electric) fuel pump."
 		},
 		"info_switch_beacon_lights": {
-			"title": "beacon lights switch",
-			"text": ""
+			"title": "Beacon Lights Switch",
+			"text": "The BEACON switch is used by the pilot to activate the red flashing beacon on top of the vertical stabilizer."
 		},
 		"info_switch_landing_lights": {
-			"title": "landing lights switch",
-			"text": ""
+			"title": "Landing Lights Switch",
+			"text": "The LAND switch is used by the pilot to activate the landing light in the left wing. Note that the PULSELITE switch (not shown in the schematic) can also be used to activate the taxi and landing lights."
 		},
 		"info_switch_cabin_lights": {
-			"title": "cabin lights switch",
-			"text": ""
+			"title": "Cabin Lights Switch",
+			"text": "The CABIN LTS/PWR switch depicted in the schematic represents both the various cabin lighting controls available to the pilot as well as the CABIN PWR 12V switch."
 		},
 		"info_switch_avn1": {
-			"title": "avn1 switch",
-			"text": ""
+			"title": "Avionics Bus 1 Switch",
+			"text": "The BUS 1 side of the AVIONICS switch controls electrical power to avionics bus 1 (AVN BUS 1). Both sides of the AVIONICS switch should be placed in the OFF position before turning the MASTER switch ON or OFF, starting the engine, or applying an external power source. "
 		},
 		"info_switch_avn2": {
-			"title": "avn switch",
-			"text": ""
+			"title": "Avionics Bus 2 Switch",
+			"text": "The BUS 2 side of the AVIONICS switch controls electrical power to avionics bus 2 (AVN BUS 2). Both sides of the AVIONICS switch should be placed in the OFF position before turning the MASTER switch ON or OFF, starting the engine, or applying an external power source."
 		},
 		"info_switch_pitot_heat": {
-			"title": "pitot heat switch",
-			"text": ""
+			"title": "Pitot Heat Switch",
+			"text": "The PITOT HEAT switch is used by the pilot to activate the pitot heat."
 		},
 		"info_switch_nav_lights": {
-			"title": "navigation lights switch",
-			"text": ""
+			"title": "Navigation Lights Switch",
+			"text": "The NAV switch is used by the pilot to activate the navigation lights on the wingtips and tail, and the control wheel map light."
 		},
 		"info_switch_taxi_lights": {
-			"title": "taxi lights switch",
-			"text": ""
+			"title": "Taxi Lights Switch",
+			"text": "The TAXI switch is used by the pilot to activate the taxi light in the left wing. Note that the PULSELITE switch (not shown in the schematic) can also be used to activate the taxi and landing lights."
 		},
 		"info_switch_strobe_lights": {
-			"title": "strobe lights switch",
-			"text": ""
+			"title": "Strobe Lights Switch",
+			"text": "The STROBE switch is used by the pilot to activate the strobe lights on the wingtips."
 		},
 		"info_switch_panel_lights": {
-			"title": "panel lights switch",
-			"text": ""
+			"title": "Panel Lights switch",
+			"text": "The PANEL LTS switch in the schematic represents the various controls available to the pilot for activating instrument panel illumination, including the SW/CB PANELS, PEDESTAL, and AVIONICS rheostats (not shown in this trainer)."
+		},
+        "info_alt_relay": {
+			"title": "Alternator Relay",
+			"text": "The alternator relay closes the circuit between the alternator and the rest of the electrical system. This relay is energized by turning the ALT MASTER switch ON. A different power source is required to close this relay, such as the main battery or an external power source."
+		},
+        "info_power_distribution_module": {
+			"title": "Power Distribution Module",
+			"text": "The power distribution module, located on the left forward side of the firewall, houses all the relays used in the electrical system. The alternator control unit (ACU), current sensor, and the external power connector are also housed within this module. \n The power distribution module includes two circuit breakers for the circuits that feed ELEC BUS 1 and ELEC BUS 2. These circuit breakers are not accessible in flight, but users of this trainer can click on the circuit breakers in the schematic to open and close them. \n The external power receptacle is integral to the power distribution module and allows the use of an external power source for cold weather starting or for lengthy maintenance work on electrical and avionics equipment. An external door on the left side of the cowling can be opened to access the receptacle. "
+		},
+        "info_stby_battery_controller": {
+			"title": "Standby Battery Controller",
+			"text": "The standby battery controller is a solid-state unit that controls and monitors the release of electrical power to and from the standby battery."
+		},
+        "info_test_load": {
+			"title": "Test Load",
+			"text": "During the standby battery test, placing a load on the standby battery ensures that available energy levels are sufficient and that the battery can provide a consistent voltage."
 		}
+        
+        
+        
+
 	},
 	"graph_data": [
 		{
