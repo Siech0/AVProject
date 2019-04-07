@@ -634,7 +634,7 @@ footer {
 }
 
 .info_panel_content {
-	overflow-y: scroll;
+	overflow-y: auto;
 	position: relative;
 	white-space: pre-line;
 }
