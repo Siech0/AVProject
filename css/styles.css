@@ -176,6 +176,62 @@ main {
 		overflow: hidden;
 }
 
+#legend {
+    z-index: 1;
+    position: absolute;
+	top: 20px;
+	right: 20px;
+	line-height: .8em;
+	font-size: .8em;
+
+    background: #D3D3D3;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+#legend_header {
+	padding: 4px;
+	font-weight: bold;
+	
+	border-bottom: 1px solid black;
+}
+
+
+#legend_content {
+	padding: 5px;
+}
+
+#legend_color_wrapper {
+
+}
+
+#legend_content p {
+    margin-left: 24px;
+    padding: 2px;
+}
+
+#legend_content span {
+    position: absolute;
+    height: 11px;
+    width: 15px;
+    border: 1px solid black;
+}
+
+#color_battery > span {
+    background-color: magenta;
+}
+
+#color_alternator > span {
+    background-color: teal;
+}
+
+#color_standby_battery > span {
+    background-color: blue;
+}
+
+#color_epu > span {
+    background-color: orange;
+}
 
 #svg_wrapper svg {
 	height: 100%;
@@ -438,8 +494,8 @@ footer {
 
 #standby_battery_arm {
     position: absolute;
-    top: 1%;
-	left: 31%;
+    top: 2%;
+	left: 30%;
 	width: 20%;
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -453,7 +509,7 @@ footer {
 #standby_battery_test {
     position: absolute;
     top: 29%;
-	left: 31%;
+	left: 30%;
 	width: 20%;
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -538,26 +594,38 @@ footer {
 /* Styling for information panels */
 
 
-.info_panel {
-	display: block;
-	position: absolute;
-	z-index: 11;
-	width: auto;
-	height: auto;
-	min-width: 7vw;
-	min-height: 5vh;
-	max-width: 30vw;
-	line-height: 1.1em;
-	font-size: 1em;
-	color: #DDD;
-	background-color: #555555;
-	border: 1px solid black;
-	border-radius: 4px;
-	box-shadow: 2px 2px #222;
+
+.info_panels_textwrap{
+    white-space: pre-line;    
 }
 
 
-.info_panel div {
+.info_panel {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+
+	z-index: 11;
+	min-width: 15vw;
+	max-width: 20vw;
+	min-height: 7vh;
+	max-height: 20vh;
+
+	line-height: 1.1em;
+	font-size: 1em;
+	
+	color: #DDD;
+	background-color: #555555;
+	
+	border: 1px solid black;
+	border-radius: 4px;
+	box-shadow: 2px 2px #222;
+	
+	overflow: hidden;
+}
+
+
+.info_panel_header {
 	width: 100%;
 	background-color: #777777;
 	border-bottom: 1px solid black;
@@ -565,8 +633,14 @@ footer {
 	padding: 2px 0 2px 0;
 }
 
-.info_panel p {
-	margin: 4px
+.info_panel_content {
+	overflow-y: scroll;
+	position: relative;
+	white-space: pre-line;
+}
+
+.info_panel_content > p {
+	padding: 8px;
 }
 
 

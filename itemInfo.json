@@ -1,10 +1,10 @@
 {
 	"info_panels": {
-		"alternator":
+		"info_alternator":
 		{
 			"title": "Alternator",
 			"text": "A belt-driven, 28 volt, 60 ampere alternator powers the electrical system. The alternator is controlled by the red ALT MASTER switch found near the top of the pilot’s switch panel. Power from the X-FEED BUS via the ALT FIELD circuit breaker is required for the alternator to generate power."		},
-		"starter":{
+		"info_starter":{
 			"title": "Starter",
 			"text": "If power is available from the main battery or from an external power source, turning the ignition switch to START will close the starter relay and activate the starter motor, starting the engine."
 		},
@@ -532,7 +532,6 @@
 			"id": "#switch_stb_test",
 			"has_on_off": true,
 			"edges": [
-				"#breaker_ess_stdby_battery_svg",
 				"#standby_battery_paths",
 				"#standby_battery_test_paths",
 				"#test_led"
@@ -557,7 +556,7 @@
 			"edges": [
 				"#standby_battery_paths"
 			],
-			"passthrough": false
+			"passthrough": true
 		},
 		{
 			"id": "#standby_battery_test_paths",

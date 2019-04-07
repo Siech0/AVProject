@@ -29,47 +29,6 @@ let remove = function(id, rate) {
 	}, rate);
 }
 
-let armStandbyBattery = function(){
-	offStandbyBattery();
-	$("#standby_battery_paths").addClass("on_standby_battery");
-	$("#test_switch_arm").addClass("on_standby_battery");
-	$("#test_switch_arm").removeClass("hidden");
-	$("#test_switch_off").addClass("hidden");
-	$("#on_off_control_on").removeClass("hidden");
-	$("#on_off_control_on").addClass("on_standby_battery");
-	$("#on_off_control_off").addClass("hidden");
-};
-
-let offStandbyBattery = function(){
-	$("#test_switch_arm").removeClass("on_standby_battery");
-	$("#test_switch_test").removeClass("on_standby_battery");
-	$("#test_voltage_sense").removeClass("on_standby_battery");
-	$("#test_switch_arm").addClass("hidden");
-	$("#test_switch_test").addClass("hidden");
-	
-	$("#test_led").removeClass("on_standby_battery");
-	$("#on_off_control_on").addClass("hidden");
-	$("#on_off_control_on").removeClass("on_standby_battery");
-	$("#on_off_control_off").removeClass("hidden");
-	$("#test_switch_off").removeClass("hidden");
-	
-	$("#standby_battery_paths").removeClass("on_standby_battery");
-};  
-
-let testStandbyBattery = function(){
-	offStandbyBattery();
-	$("#standby_battery_paths").addClass("on_standby_battery");
-	//$("#standby_battery_test_paths").addClass("on_standby_battery");
-	$("#test_voltage_sense").addClass("on_standby_battery");
-	$("#test_switch_test").addClass("on_standby_battery");
-	$("#test_switch_test").removeClass("hidden");
-	$("#test_led").addClass("on_standby_battery");
-	$("#on_off_control_on").removeClass("hidden");
-	$("#on_off_control_on").addClass("on_standby_battery");
-	$("#on_off_control_off").addClass("hidden");
-	$("#test_switch_off").addClass("hidden");
-};
-
 /*Implement all pull panel functionality*/
 $('#nav_pull_anchor').click(function(){
 	if(panelState['#nav_pull_anchor'] == null) {
@@ -165,32 +124,57 @@ $("#avn_bus2_switch").click( () => {
 	schem.draw();
 });
 
-
-
 let stb_switch = $("#standby_battery_switch");
 let stb_arm = $("#standby_battery_arm");
 let stb_test = $("#standby_battery_test");
-
 stb_arm.click( () => {
 	if(stb_switch.hasClass("off")){ //arming stb_switch
-        classOnOff("#standby_battery_switch", "arm", "off");
-        armStandbyBattery();
-	}
-    if (stb_switch.hasClass("test")) { //de-testing stb_switch
-        classOnOff("#standby_battery_switch", "off", "test");
-        offStandbyBattery();
+        $("#standby_battery_switch").removeClass("off").addClass("arm");
+		schem.setPassthrough("#switch_stb_test", false);
+		schem.setPassthrough("#switch_stb_arm", true);
+		schem.setPassthrough("#switch_stb_active", true);	
+	} else if (stb_switch.hasClass("test")) { //This should never happen, but for the sake of it we check.
+		$("#standby_battery_switch").removeClass("test").addClass("off");
+        schem.setPassthrough("#switch_stb_arm", false);
+		schem.setPassthrough("#switch_stb_test", false);
+		schem.setPassthrough("#switch_stb_active", false);	
 	} 
+	schem.update();
+	schem.draw();
 });
 
-stb_test.click( () => {
+stb_test.mousedown( () => {
 	if(stb_switch.hasClass("off")){ //testing stb_switch
-        classOnOff("#standby_battery_switch", "test", "off");
-        testStandbyBattery();
-	}
-    if (stb_switch.hasClass("arm")) { //de-arming stb_switch
-        classOnOff("#standby_battery_switch", "off", "arm");
-        offStandbyBattery();
+		$("#standby_battery_switch").removeClass("off").addClass("test");
+		schem.setPassthrough("#switch_stb_arm", false);
+		schem.setPassthrough("#switch_stb_test", true);
+		schem.setPassthrough("#switch_stb_active", true);
+		schem.update();
+		schem.draw();
+
+		//The test switch should automatically switch itself back up
+		stb_test.off("mouseup");
+		stb_test.mouseup( () => {
+			$("#standby_battery_switch").removeClass("test").addClass("off");
+			schem.setPassthrough("#switch_stb_arm", false);
+			schem.setPassthrough("#switch_stb_test", false);
+			schem.setPassthrough("#switch_stb_active", false);			
+			schem.update();
+			schem.draw();	
+		});
+
+	} else if (stb_switch.hasClass("arm")) { //de-arming stb_switch
+		stb_test.off("mouseup");
+		stb_test.mouseup( () => {
+			$("#standby_battery_switch").removeClass("arm").addClass("off");
+			schem.setPassthrough("#switch_stb_arm", false);
+			schem.setPassthrough("#switch_stb_test", false);
+			schem.setPassthrough("#switch_stb_active", false);	
+			schem.update();
+			schem.draw();	
+		});
 	} 
+
 });
 
 // if we name the div tags right, we can set this up in a loop to toggle
@@ -314,7 +298,7 @@ $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
 				targets.addEventListener("click", function (e){
 					//generate a new panel for this info
 					if(infoPanels[e.target.id] === undefined){ //We didnt define anything for this target
-						return;
+						throw new Error("Attempt to open info panel from anchor with id: '" + e.target.id + "' failed because the information is not defined");
 					}
 					
 					if(panelState[e.target.id] === undefined) {
@@ -326,7 +310,7 @@ $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
 						var panel = $("<div class='info_panel' id='info_panel_" + e.target.id + "'></div>");
 						panel.css('top', (e.pageY + 5 - wrapper_pos.top ) + 'px');
 						panel.css('left', (e.pageX + 5 - wrapper_pos.left ) + 'px');
-						var title = $("<div class='draggable_handle' id='info_panel_" + e.target.id + "_handle'></div>");
+						var title = $("<div class='info_panel_header draggable_handle' id='info_panel_" + e.target.id + "_handle'></div>");
 						title.text(infoPanels[e.target.id].title);
 						var closer = $("<span class='close' id='info_panel_close_'" + e.target.id + "'></span>");
 						closer.text('×');
@@ -334,11 +318,17 @@ $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
 							remove("#info_panel_"+ e.target.id, 500);
 							panelState[e.target.id] = false;
 						});
-						var content = $("<p></p>");
-						content.text(infoPanels[e.target.id].text); 
-						closer.appendTo(title);
-						title.appendTo(panel);
-						content.appendTo(panel);
+						var content = $("<div class='info_panel_content'></div>");
+						var content_text = $("<p class='info_panels_textwrap'></p>");
+						//content.text(infoPanels[e.target.id].text);
+                        var text = infoPanels[e.target.id].text;
+                        var changed = text.replace(/"\n"/g,"<br/>");
+					    content_text.text(changed);     
+						
+								closer.appendTo(title);
+							title.appendTo(panel);
+								content_text.appendTo(content);
+							content.appendTo(panel);
 						panel.appendTo(wrapper);	
 						
 						//Ensure that this is draggable by its handle
