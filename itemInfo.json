@@ -272,10 +272,6 @@
 			"title": "Test Load",
 			"text": "During the standby battery test, placing a load on the standby battery ensures that available energy levels are sufficient and that the battery can provide a consistent voltage."
 		}
-        
-        
-        
-
 	},
 	"graph_data": [
 		{
