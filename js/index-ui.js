@@ -275,8 +275,11 @@ $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
 							remove("#info_panel_"+ e.target.id, 500);
 							panelState[e.target.id] = false;
 						});
-						var content = $("<p></p>");
-						content.text(infoPanels[e.target.id].text); 
+						var content = $("<p class='info_panels_textwrap'></p>");
+						//content.text(infoPanels[e.target.id].text);
+                        var text = infoPanels[e.target.id].text;
+                        var changed = text.replace(/"\n"/g,"<br/>");
+					    content.text(changed);                        
 						closer.appendTo(title);
 						title.appendTo(panel);
 						content.appendTo(panel);

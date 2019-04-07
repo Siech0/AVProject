@@ -431,13 +431,18 @@ $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
 						remove("#info_panel_"+ e.target.id, 500);
 						panel_state[e.target.id] = false;
 					});
-					var content = $("<p></p>");
-					content.text(info_panels[e.target.id].text); 
-					closer.appendTo(title);
+                    
+					var content = $("<p class=''Matts_experiment'></p>");
+                    var text = JSON.parse(info_panels[e.target.id].text);
+                    json.body = body = json.body.replace(/\n/g, "<br/> <br/>");
+                    var changed = JSON.stringify(json);
+                    //var changed = text.replace(/"\\n"/g,"<br/>");
+					content.text(changed);
+                    closer.appendTo(title);
 					title.appendTo(panel);
 					content.appendTo(panel);
-					panel.appendTo(wrapper);	
-					
+					panel.appendTo(wrapper);
+                    
 					//Ensure that this is draggable by its handle
 					panel.draggable({handle: "#info_panel_" + e.target.id + "_handle"});
 					
