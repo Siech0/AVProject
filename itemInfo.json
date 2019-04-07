@@ -667,7 +667,8 @@
 				"#breaker_avn1_svg",
 				"#breaker_avn1_pfd_svg",
 				"#breaker_avn1_adc_ahrs_svg",
-				"#breaker_avn_nav1_eng"
+				"#breaker_avn1_nav1_eng",
+				"#breaker_avn1_fis_svg"
 			],
 			"passthrough": false
 		},
@@ -688,7 +689,15 @@
 			"passthrough": true
 		},
 		{
-			"id": "#breaker_avn_nav1_eng",
+			"id": "#breaker_avn1_nav1_eng",
+			"has_on_off": true,
+			"edges": [
+				"#switch_avn1_svg"
+			],
+			"passthrough": true
+		},
+		{
+			"id": "#breaker_avn1_fis_svg",
 			"has_on_off": true,
 			"edges": [
 				"#switch_avn1_svg"

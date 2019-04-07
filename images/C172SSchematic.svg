@@ -3595,7 +3595,7 @@
   <g
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,75.5)"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-     id="breaker_fis_svg">
+     id="breaker_avn1_fis_svg">
     <path
        id="path10157"
        stroke-miterlimit="10"
@@ -3603,7 +3603,7 @@
        inkscape:connector-curvature="0"
        style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1" />
     <g
-       id="breaker_fis_svg_on"
+       id="breaker_avn1_fis_svg_on"
        transform="translate(496.22908,-322.2151)"
        style="stroke-opacity:1">
       <path
@@ -3628,7 +3628,7 @@
     </g>
     <g
        class="hidden"
-       id="breaker_fis_svg_off"
+       id="breaker_avn1_fis_svg_off"
        style="stroke-opacity:1">
       <path
          inkscape:connector-curvature="0"
@@ -3733,7 +3733,7 @@
        r="2.7272727" />
   </g>
   <g
-     id="breaker_avn_nav1_eng"
+     id="breaker_avn1_nav1_eng"
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-36.5)">
     <path
