@@ -53,6 +53,10 @@ svg path {
     fill: blue;
 }
 
+#legend_standby_battery {
+	fill: blue;
+}
+
 .on_battery, .on_battery path, .on_battery circle, .on_battery rect, .on_battery ellipse {
     stroke: magenta;
     /*fill: magenta;*/
@@ -60,6 +64,10 @@ svg path {
 
 .on_battery path {
     fill: magenta;
+}
+
+#legend_battery {
+	fill: magenta;
 }
 
 .on_external_power, .on_external_power path, .on_external_power circle, .on_external_power rect, .on_external_power ellipse {
@@ -71,6 +79,9 @@ svg path {
     fill: orange;
 }
 
+#legend_epu {
+	fill: orange;
+}
 
 .on_alternator, .on_alternator path, .on_alternator circle, .on_alternator rect, .on_alternator ellipse {
     stroke: teal;
@@ -79,6 +90,10 @@ svg path {
 
 .on_alternator path {
     fill: teal;
+}
+
+#legend_alternator {
+	fill: teal;
 }
 
 .off, .off path, .off circle, .off ellipse {
