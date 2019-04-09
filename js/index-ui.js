@@ -1,5 +1,5 @@
 let panelState = {};
-let schem = null;
+let schem = new Schematic();
 
 let toogle = function(id, initial, rate) {
 	if(panelState[id] == null){
@@ -338,7 +338,7 @@ $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
 				
 				//Generate graph
 				let graphData = json.graph_data;
-				schem = new Schematic(graphData);
+				schem.generateFromData(graphData);
 				schem.update();
 				schem.draw();
 			}
@@ -347,3 +347,11 @@ $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
 		});
 	}
 }, "text");
+
+schem.addEventListener("dataLoaded", function() {
+	schem.addVertexEventListener("#alt_relay", "powerChanged", function(source, state) {
+		console.log(this);
+		console.log("Alt relay power status change. (Source: " + source + ", state: " + state + ')');
+	});
+});
+

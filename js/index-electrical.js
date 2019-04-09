@@ -2,6 +2,7 @@ let Schematic = function(graphData){
 	this.vertices = [];
 	this.aliasTable = { count: 0 };
 	this.sources = [];	
+	this.evt = {};
 	
 	if(graphData) {
 		this.generateFromData(graphData);
@@ -29,6 +30,7 @@ Schematic.prototype.generateFromData = function(graphData) {
 			this.addEdge(vtx.id, vtx.edges[j]);
 		}
 	}	
+	this.emitEvent("dataLoaded");
 }
 
 Schematic.prototype.addVertex = function(id, passthrough, requires, shared) {
@@ -46,6 +48,9 @@ Schematic.prototype.addSourceVertex = function(id, passthrough, cls, requires, s
 	if(idx != null && this.vertices[idx] == null) {
 		this.vertices[idx] = new SourceVertex(id, passthrough, cls, requires, shared);
 		this.sources.push(idx);		
+		for(let i = 0; i < this.vertices.length; ++i) {
+			this.vertices[i].state.length = this.sources.length;
+		}
 	} else {
 		console.log("Attempted to register source vertex that already exists: " + id);
 	}
@@ -53,8 +58,8 @@ Schematic.prototype.addSourceVertex = function(id, passthrough, cls, requires, s
 }
 
 Schematic.prototype.addEdge = function(frm, to){
-	let idxFrom = this.aliasLookup(frm);
-	let idxTo = this.aliasLookup(to);
+	let idxFrom = this.lookupAlias(frm);
+	let idxTo = this.lookupAlias(to);
 	if(idxFrom != null && idxTo != null) {
 		this.vertices[idxFrom].edges.push(idxTo);
 	} else {
@@ -71,14 +76,14 @@ Schematic.prototype.registerAlias = function(id) {
 	return null;
 }
 
-Schematic.prototype.aliasLookup = function(id) {
+Schematic.prototype.lookupAlias = function(id) {
 	if(id == null) return null;
 	return this.aliasTable[id] == null ? null : this.aliasTable[id];
 }
 
 //Set passthrough of vertex to bool(val) if val is defined, otherwise, set passthrough to !passthrough
 Schematic.prototype.setPassthrough = function(id, val) {
-	let idx = this.aliasLookup(id);
+	let idx = this.lookupAlias(id);
 	if(idx == null) {
 		throw new Error("Attempted to set passthrough to invalid element with id: " + id);
 	}
@@ -94,7 +99,7 @@ Schematic.prototype.setPassthrough = function(id, val) {
 }
 
 Schematic.prototype.getPassthrough = function(id) {
-	let idx = this.aliasLookup(id);
+	let idx = this.lookupAlias(id);
 	if(idx == null){
 		throw new Error("Attempted to get passthrough on invalid element with id: " + id);
 	}
@@ -104,7 +109,7 @@ Schematic.prototype.getPassthrough = function(id) {
 
 //items with requires tag can only allow passthrough if their requirements allow passthrough
 Schematic.prototype.requirementsSatisfied = function(id) {
-	let idx = this.aliasLookup(id);
+	let idx = this.lookupAlias(id);
 	if(idx == null){
 		throw new Error("Attempted to check requirements on invalid element with id: " + id);
 	}
@@ -123,7 +128,7 @@ Schematic.prototype.requirementsSatisfied = function(id) {
 
 //Items with shared tag cannot exist at the same time, this changes switch draw logic
 Schematic.prototype.sharedConflict = function(id) {
-	let idx = this.aliasLookup(id);
+	let idx = this.lookupAlias(id);
 	if(idx == null) {
 		throw new Error("Attempted to check for shared conflict on invalid element with id: " + id);
 	}
@@ -140,6 +145,21 @@ Schematic.prototype.sharedConflict = function(id) {
 	return false;
 }
 
+Schematic.prototype.deepCopyState = function() {
+	let cloneObject = function(obj) {
+		let clone = {};
+		for(let i in obj) {
+			if(obj[i] != null && typeof(obj[i])=="object") {
+				clone[i] = cloneObject(obj[i]);
+			} else {
+				clone[i] = obj[i];
+			}
+		}
+		return clone;
+	}
+	return cloneObject(this.vertices);
+}
+
 Schematic.prototype.clearState = function(){
 	for(let i = 0; i < this.vertices.length; ++i){
 		this.vertices[i].state.length = this.sources.length;
@@ -148,8 +168,9 @@ Schematic.prototype.clearState = function(){
 }
 
 Schematic.prototype.update = function(){
+	let oldState = this.deepCopyState();
 	this.clearState();
-
+	
 	for(let i = 0; i < this.sources.length; ++i){
 		//Do DFS from each source
 		let S = [];
@@ -164,7 +185,7 @@ Schematic.prototype.update = function(){
 		while(S.length > 0){
 			let node = S.pop();
 			//If node isnt visited and it allows current through
-			if(!V[node] && this.vertices[node].passthrough && this.requirementsSatisfied(this.aliasLookup(node))){ 
+			if(!V[node] && this.vertices[node].passthrough && this.requirementsSatisfied(this.lookupAlias(node))){ 
 				V[node] = true; //We have now visited the node
 				//The source at sources[i] did reach the current node
 				this.vertices[node].state[i] = true; 
@@ -179,6 +200,17 @@ Schematic.prototype.update = function(){
 				if(!V[child]){ //If we havent visited this child
 					S.push(child);
 				}
+			}
+		}
+	}
+	
+	for(let i = 0; i < this.vertices.length; ++i) {
+		let vtx = this.vertices[i];
+		let oldVtx = oldState[i];
+		for(let j = 0; j < this.sources.length; ++j) {
+			if(vtx.state[j] != oldVtx.state[j] && oldVtx.state[j] != null) {
+				//console.log(`State Change: \n\tvtx: ${this.lookupAlias(i)} \n\tsrc: ${this.lookupAlias(j)} \n\tvtx.state[j]: ${vtx.state[j]} \n\toldVtx.state[j]: ${oldVtx.state[j]} `);
+				this.emitVertexEvent(this.vertices[i], "powerChanged", this.lookupAlias(this.sources[j]), this.vertices[i].state[j]); 
 			}
 		}
 	}
@@ -246,9 +278,79 @@ Schematic.prototype.draw = function(){
 	}
 }
 
+//Return a list of sources that are reachable from this vertex
+Schematic.prototype.getReachedSources = function(id) {
+	let sources = [];
+	let vtx = this.lookupAlias(id);
+	for(let i = 0; i < vtx.state.length; ++i) {
+		sources.push(this.lookupAlias(vtx.sources[j]));
+	}
+	return sources;
+}
+
+Schematic.prototype.addEventListener = function(evtName, func) {
+	if(this.evt[evtName] == null) {
+		this.evt[evtName] = [];
+	}
+	this.evt[evtName].push(func);
+}
+
+Schematic.prototype.addVertexEventListener = function(id, evtName, func){
+	let vtx = this.vertices[this.lookupAlias(id)];
+	if(vtx.evt[evtName] == null) {
+		vtx.evt[evtName] = [];
+	}
+	vtx.evt[evtName].push(func);
+}
+
+Schematic.prototype.removeEventListener = function(evtName, func) {
+	if(this.evt[evtName] == null || this.evt[evtName].length <= 0) {
+		return;
+	}
+	
+	for(let i = 0; i <this.evt[evtName].length; ++i) {
+		if(this.evt[evtName][i] == func) {
+			this.evt[evtName].splice(i, 1);
+		}
+	}
+}
+
+Schematic.prototype.removeVertexEventListener = function(id, evtName, func) {
+	let vtx = this.vertices[this.lookupAlias(id)];
+	if(vtx.evt[evtName] == null || vtx.evt[evtName].length <= 0) {
+		return;
+	}
+	
+	for(let i = 0; i < vtx.evt[evtName].length; ++i){
+		if(vtx.evt[evtName][i] == func) {
+			vtx.evt[evtName].splice(i, 1);
+		}
+	}
+}
+
+Schematic.prototype.emitEvent = function(evtName, ...args) {
+	if(this.evt[evtName] != null && this.evt[evtName].length > 0) {
+		for(let i = 0; i < this.evt[evtName].length; ++i) { 
+			this.evt[evtName][i].call(this, ...args);
+		}
+	}
+}
+
+Schematic.prototype.emitVertexEvent = function(vtx, evtName, ...args) {
+	if(vtx == null || !(vtx instanceof Vertex || vtx instanceof SourceVertex) ) {
+		throw new Error("Schematic.emitEvent: attempt to emit event to invalid vertex: " + vtx);
+	}
+	
+	if(vtx.evt[evtName] != null && vtx.evt[evtName].length > 0) {
+		for(let i = 0; i < vtx.evt[evtName].length; ++i) {
+			vtx.evt[evtName][i].call(vtx, ...args);
+		}
+	}
+}
+
 Schematic.prototype.isVertexPowered = function(idVert, idSource){
-	let vert = this.vertices[this.aliasLookup(idVert)];
-	let src = this.vertices[this.aliasLookup(idSource)];
+	let vert = this.vertices[this.lookupAlias(idVert)];
+	let src = this.vertices[this.lookupAlias(idSource)];
 	let srcIdx = this.sources.indexOf(src);
 	if(srcIdx == -1){
 		//Can't check powered by non-source
@@ -268,10 +370,11 @@ function Vertex(id, passthrough, requires, shared) {
 	
 	this.id = id;
 	this.passthrough = passthrough;
-	this.edges = [];
+	this.edges = []; 	//array<int>
 	this.requires = requires == null ? null : requires;
-	this.shared = shared == null ? null : shared;
-	this.state = [];
+	this.shared = shared == null ? null : shared; 
+	this.state = []; 	// array<bool>
+	this.evt = {}; 		// map<str, [func]>
 }
 
 
