@@ -40,12 +40,12 @@
      id="namedview1227"
      showgrid="false"
      inkscape:zoom="2"
-     inkscape:cx="648.25023"
-     inkscape:cy="66.213752"
+     inkscape:cx="928.25023"
+     inkscape:cy="506.21375"
      inkscape:window-x="65"
      inkscape:window-y="24"
      inkscape:window-maximized="1"
-     inkscape:current-layer="targets"
+     inkscape:current-layer="standby_battery"
      showguides="false"
      inkscape:guide-bbox="true"
      fit-margin-top="0"
@@ -3807,60 +3807,60 @@
      style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
     <path
-       d="m 1099.5891,148.01908 c 0,-16.66667 -0.4614,-18.10741 -0.4614,-34.77407 L 1058.3842,113.7064 1057,350 h -24.5"
+       d="m 1099.5891,161.40118 c 0,-16.66667 -0.4614,-4.72531 -0.4614,-21.39197 L 1058.3842,140.4706 1057,350 l -24.5,0"
        stroke-miterlimit="10"
        id="path871"
        inkscape:connector-curvature="0"
        style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        sodipodi:nodetypes="ccccc" />
     <g
-       transform="translate(82.589111,-59.980918)"
+       transform="translate(82.589111,-48.829168)"
        id="g6094"
        style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1">
       <path
-         d="m 997.20842,207.93403 h 39.74678"
+         d="m 997.20842,207.93403 39.74678,0"
          stroke-miterlimit="10"
          id="path263-5"
          inkscape:connector-curvature="0"
          style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1" />
       <path
-         d="m 1005.1577,215.8834 h 23.8481"
+         d="m 1005.1577,215.8834 23.8481,0"
          stroke-miterlimit="10"
          id="path265-4"
          inkscape:connector-curvature="0"
          style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1" />
       <path
-         d="m 997.20842,224.6277 h 39.74678"
+         d="m 997.20842,224.6277 39.74678,0"
          stroke-miterlimit="10"
          id="path267-0"
          inkscape:connector-curvature="0"
          style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1" />
       <path
-         d="m 1005.1577,232.57707 h 23.8481"
+         d="m 1005.1577,232.57707 23.8481,0"
          stroke-miterlimit="10"
          id="path269-1"
          inkscape:connector-curvature="0"
          style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1" />
       <path
-         d="m 997.20842,239.73151 h 39.74678"
+         d="m 997.20842,239.73151 39.74678,0"
          stroke-miterlimit="10"
          id="path271-8"
          inkscape:connector-curvature="0"
          style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1" />
       <path
-         d="m 1005.1577,247.68088 h 23.8481"
+         d="m 1005.1577,247.68088 23.8481,0"
          stroke-miterlimit="10"
          id="path273-7"
          inkscape:connector-curvature="0"
          style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1" />
       <path
-         d="m 997.20842,256.42518 h 39.74678"
+         d="m 997.20842,256.42518 39.74678,0"
          stroke-miterlimit="10"
          id="path275-5"
          inkscape:connector-curvature="0"
          style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1" />
       <path
-         d="m 1005.1577,264.37455 h 23.8481"
+         d="m 1005.1577,264.37455 23.8481,0"
          stroke-miterlimit="10"
          id="path277-1"
          inkscape:connector-curvature="0"
@@ -3868,25 +3868,25 @@
       <path
          inkscape:connector-curvature="0"
          style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-         d="m 1016.4469,265.38785 v 11.4114"
+         d="m 1016.4469,265.38785 0,11.4114"
          stroke-miterlimit="10"
          id="path1089-7-7" />
       <path
          inkscape:connector-curvature="0"
          style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-         d="m 1007.6981,277.17963 h 17.4975"
+         d="m 1007.6981,277.17963 17.4975,0"
          stroke-miterlimit="10"
          id="path1093-3-9" />
       <path
          inkscape:connector-curvature="0"
          style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-         d="m 1010.6118,281.74419 h 11.6701"
+         d="m 1010.6118,281.74419 11.6701,0"
          stroke-miterlimit="10"
          id="path1095-3-0" />
       <path
          inkscape:connector-curvature="0"
          style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-         d="m 1015.2829,285.54799 h 2.9137"
+         d="m 1015.2829,285.54799 2.9137,0"
          stroke-miterlimit="10"
          id="path1097-2-1" />
     </g>
@@ -4364,6 +4364,7 @@
 
 
 
+
 Relay<br />
 </div>
           </div>
@@ -4407,6 +4408,7 @@ Relay<br />
 
 
 
+
 Relay<br />
 </div>
           </div>
@@ -4436,6 +4438,7 @@ Relay<br />
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 33px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
             <div
                style="display:inline-block;text-align:inherit;text-decoration:inherit;">Alt<br />
+
 
 
 
@@ -4626,7 +4629,7 @@ Relay<br />
     </g>
     <g
        id="g329"
-       transform="translate(946.27587,182.35196)"
+       transform="translate(946.27587,193.50371)"
        style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1">
       <switch
          id="switch327"
@@ -4818,6 +4821,7 @@ Relay<br />
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 33px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
             <div
                style="display:inline-block;text-align:inherit;text-decoration:inherit;">Panel<br />
+
 
 
 
@@ -5813,6 +5817,7 @@ LTS<br />
 
 
 
+
 Switch<br />
 </div>
           </div>
@@ -5837,6 +5842,7 @@ Switch<br />
                    style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 41px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
                   <div
                      style="display:inline-block;text-align:inherit;text-decoration:inherit;">Ignition<br />
+
 
 
 
@@ -7005,7 +7011,7 @@ Switch<br />
        id="info_breaker_avn1_nav1_eng"
        style="stroke-opacity:1" />
     <rect
-       y="122.0555"
+       y="138.0555"
        x="912.16144"
        height="81.541306"
        width="50.677185"
@@ -7101,16 +7107,16 @@ Switch<br />
      id="rect10127"
      width="165.67046"
      height="89.802177"
-     x="850.57605"
-     y="4.0975142"
+     x="862.57605"
+     y="0.097514153"
      rx="0"
      ry="5.729094" />
   <rect
      id="legend_battery"
      width="22.152061"
      height="12.222454"
-     x="859.82806"
-     y="14.873966"
+     x="871.82806"
+     y="10.873966"
      rx="0"
      ry="0"
      class="on_battery"
@@ -7119,8 +7125,8 @@ Switch<br />
      id="legend_alternator"
      width="22.152061"
      height="12.222454"
-     x="859.82806"
-     y="33.10405"
+     x="871.82806"
+     y="29.10405"
      rx="0"
      ry="0"
      class="on_alternator"
@@ -7129,8 +7135,8 @@ Switch<br />
      id="legend_standby_battery"
      width="22.152061"
      height="12.222454"
-     x="859.82806"
-     y="50.937824"
+     x="871.82806"
+     y="46.937824"
      rx="0"
      ry="0"
      class="on_standby_battery"
@@ -7139,38 +7145,38 @@ Switch<br />
      id="legend_epu"
      width="22.152061"
      height="12.222454"
-     x="859.82806"
-     y="70.356834"
+     x="871.82806"
+     y="66.356834"
      rx="0"
      ry="0"
      class="on_external_power"
      style="stroke-opacity:1" />
   <text
-     transform="scale(1.0025576,0.99744889)"
+     transform="scale(1.0025576,0.99744892)"
      id="text1011-7-2"
      font-size="12px"
-     y="42.416958"
-     x="916.07397"
-     style="font-size:12.09270096px;font-family:Helvetica;text-anchor:middle;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1;">Alternator</text>
+     y="38.406727"
+     x="928.04321"
+     style="font-size:12.09270096px;font-family:Helvetica;text-anchor:middle;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1">Alternator</text>
   <text
-     transform="scale(1.0025576,0.99744889)"
+     transform="scale(1.0025576,0.99744892)"
      id="text1011-7-9"
      font-size="12px"
-     y="61.885624"
-     x="932.50372"
-     style="font-size:12.09270096px;font-family:Helvetica;text-anchor:middle;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1;">Standby Battery</text>
+     y="57.875389"
+     x="944.47296"
+     style="font-size:12.09270096px;font-family:Helvetica;text-anchor:middle;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1">Standby Battery</text>
   <text
-     transform="scale(1.0025576,0.99744889)"
+     transform="scale(1.0025576,0.99744892)"
      id="text1011-7-1"
      font-size="12px"
-     y="81.478928"
-     x="942.4234"
-     style="font-size:12.09270096px;font-family:Helvetica;text-anchor:middle;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1;">External Power Unit</text>
+     y="77.468704"
+     x="954.39264"
+     style="font-size:12.09270096px;font-family:Helvetica;text-anchor:middle;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1">External Power Unit</text>
   <text
-     transform="scale(1.0025576,0.99744889)"
+     transform="scale(1.0025576,0.99744892)"
      id="text1011-7-2-7"
      font-size="12px"
-     y="24.127327"
-     x="908.21649"
-     style="font-size:12.09270096px;font-family:Helvetica;text-anchor:middle;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1;">Battery</text>
+     y="20.117096"
+     x="920.18573"
+     style="font-size:12.09270096px;font-family:Helvetica;text-anchor:middle;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1">Battery</text>
 </svg>
