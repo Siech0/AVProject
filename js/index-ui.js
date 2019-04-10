@@ -331,7 +331,7 @@ $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
 						panel.appendTo(wrapper);	
 						
 						//Ensure that this is draggable by its handle
-						panel.draggable({handle: "#info_panel_" + e.target.id + "_handle"});		
+						panel.draggable({handle: "#info_panel_" + e.target.id + "_handle", containment: "#svg_wrapper"});		
 						panelState[e.target.id] = true;
 					}
 				});
