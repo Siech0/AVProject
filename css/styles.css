@@ -445,7 +445,6 @@ footer {
     background-image: url(../images2/MasterSwitchOn.png);      	
 }
 
-
 #avn_bus1_switch {
     position: absolute;
 	top: 57%;
@@ -492,6 +491,17 @@ footer {
     padding-top: 20%;
 	
     background-image: url(../images/stbyBattOff.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+#standby_led {
+    position: absolute;
+    top: 9%;
+    left: 42.5%;
+    width: 40%;
+    padding-top:30%;
+    background-image: url(../images2/TestLed.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
