@@ -537,23 +537,23 @@ footer {
 #standby_battery_switch.test {
     position: absolute;
     top: 17%;
-    left: 36%;
+    left: 37%;
     width: 24%;
 	padding-top: 30%;
 	background-repeat: no-repeat;
     background-size: 60% 70%;
-	background-image: url(../images2/StdbyBattSwitchTest.svg);
+	background-image: url(../images2/StdbyBattSwitchTest.png);
 }
 
 #standby_battery_switch.arm {
     position: absolute;
     top: 10%;
-    left: 35%;
+    left: 36%;
     width: 25%;
     padding-top: 22%;
     background-size: 60% 100%;
 	background-repeat: no-repeat;
-    background-image: url(../images2/StbbyBattArm.svg);
+    background-image: url(../images2/StdbyBattSwitchArm.png);
 }
 
 /* Styling for the switch containers */
