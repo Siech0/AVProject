@@ -40,12 +40,12 @@
      id="namedview1227"
      showgrid="false"
      inkscape:zoom="2"
-     inkscape:cx="928.25023"
-     inkscape:cy="506.21375"
+     inkscape:cx="648.25023"
+     inkscape:cy="66.213752"
      inkscape:window-x="65"
      inkscape:window-y="24"
      inkscape:window-maximized="1"
-     inkscape:current-layer="standby_battery"
+     inkscape:current-layer="svg1225"
      showguides="false"
      inkscape:guide-bbox="true"
      fit-margin-top="0"
@@ -228,12 +228,6 @@
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)" />
   <path
      style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-     d="m 732.5,660 36,-15"
-     id="switch_panel_lights_svg_off"
-     inkscape:connector-curvature="0"
-     transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)" />
-  <path
-     style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
      d="m 731,592.5 36,-15"
      id="switch_taxi_light_svg_off"
      inkscape:connector-curvature="0"
@@ -298,33 +292,6 @@
        style="fill:none;stroke-width:1.14403725px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
        d="m 764.89108,627.18096 h -32.8621"
        id="switch_strobe_light_svg_on"
-       inkscape:connector-curvature="0"
-       class="hidden" />
-  </g>
-  <g
-     id="switch_panel_lights_svg"
-     style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-     transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)">
-    <path
-       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-       d="m 771.5,661 h 15"
-       id="path557" />
-    <circle
-       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-       r="3"
-       cx="769"
-       cy="661"
-       id="ellipse559" />
-    <circle
-       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-       r="3"
-       cx="730"
-       cy="661"
-       id="ellipse561" />
-    <path
-       style="fill:none;stroke-width:1.14403725px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
-       d="m 766.03218,660.89139 h -32.8621"
-       id="switch_panel_lights_svg_on"
        inkscape:connector-curvature="0"
        class="hidden" />
   </g>
@@ -6855,13 +6822,6 @@ Switch<br />
        height="34.130753"
        x="614.99811"
        y="542.24274"
-       style="stroke-width:1.09103131;stroke-opacity:1" />
-    <rect
-       id="info_switch_panel_lights"
-       width="44.408363"
-       height="34.130753"
-       x="616.18909"
-       y="573.72491"
        style="stroke-width:1.09103131;stroke-opacity:1" />
     <rect
        id="info_switch_avn2"
