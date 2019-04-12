@@ -1,0 +1,153 @@
+#switch_beacon_light.on {
+    position: absolute;
+    margin-top: 13%;
+    left: 4%;
+    width: 24%;
+	padding-top: 30%;
+	background-repeat: no-repeat;
+    background-size: 60% 70%;
+	background-image: url(../images2/WhiteSwitchOn.png);
+}
+
+#switch_beacon_light.off {
+    position: absolute;
+    margin-top: 13%;
+    left: 4%;
+    width: 24%;
+	padding-top: 30%;
+	background-repeat: no-repeat;
+    background-size: 60% 70%;
+	background-image: url(../images2/WhiteSwitchOff.png);
+}
+
+#switch_land_light.on {
+    position: absolute;
+    margin-top: 13%;
+    left: 65%;
+    width: 24%;
+	padding-top: 30%;
+	background-repeat: no-repeat;
+    background-size: 60% 70%;
+	background-image: url(../images2/WhiteSwitchOn.png);
+}
+
+#switch_land_light.off {
+    position: absolute;
+    margin-top: 13%;
+    left: 65%;
+    width: 24%;
+	padding-top: 30%;
+	background-repeat: no-repeat;
+    background-size: 60% 70%;
+	background-image: url(../images2/WhiteSwitchOff.png);
+}
+
+#switch_nav_light.on {
+    position: absolute;
+    margin-top: 13%;
+    left: 23%;
+    width: 24%;
+	padding-top: 30%;
+	background-repeat: no-repeat;
+    background-size: 60% 70%;
+	background-image: url(../images2/WhiteSwitchOn.png);
+}
+
+
+#switch_nav_light.off {
+    position: absolute;
+    margin-top: 13%;
+    left: 23%;
+    width: 24%;
+	padding-top: 30%;
+	background-repeat: no-repeat;
+    background-size: 60% 70%;
+	background-image: url(../images2/WhiteSwitchOff.png);
+}
+
+#switch_strobe_light.on {
+    position: absolute;
+    margin-top: 13%;
+    left: 45%;
+    width: 24%;
+	padding-top: 30%;
+	background-repeat: no-repeat;
+    background-size: 60% 70%;
+	background-image: url(../images2/WhiteSwitchOn.png);
+}
+
+
+#switch_strobe_light.off {
+    position: absolute;
+    margin-top: 13%;
+    left: 45%;
+    width: 24%;
+	padding-top: 30%;
+	background-repeat: no-repeat;
+    background-size: 60% 70%;
+	background-image: url(../images2/WhiteSwitchOff.png);
+}
+
+#switch_pitot_heat.on {
+    position: absolute;
+    margin-top: 45%;
+    left: 24%;
+    width: 24%;
+	padding-top: 30%;
+	background-repeat: no-repeat;
+    background-size: 60% 70%;
+	background-image: url(../images2/GreenSwitchOn.png);
+}
+
+#switch_pitot_heat.off {
+    position: absolute;
+    margin-top: 45%;
+    left: 24%;
+    width: 24%;
+	padding-top: 30%;
+	background-repeat: no-repeat;
+    background-size: 60% 70%;
+	background-image: url(../images2/GreenSwitchOff.png);
+}
+
+#switch_fuel_pump.on {
+    position: absolute;
+    margin-top: 45%;
+    left: 5%;
+    width: 24%;
+	padding-top: 30%;
+	background-repeat: no-repeat;
+    background-size: 60% 70%;
+	background-image: url(../images2/WhiteSwitchOn.png);
+}
+#switch_fuel_pump.off {
+    position: absolute;
+    margin-top: 45%;
+    left: 4%;
+    width: 24%;
+	padding-top: 30%;
+	background-repeat: no-repeat;
+    background-size: 60% 70%;
+	background-image: url(../images2/WhiteSwitchOff.png);
+}
+#switch_cabin_lights.on {
+    position: absolute;
+    margin-top: 45%;
+    left: 45%;
+    width: 24%;
+	padding-top: 30%;
+	background-repeat: no-repeat;
+    background-size: 60% 70%;
+	background-image: url(../images2/WhiteSwitchOn.png);
+}
+
+#switch_cabin_lights.off {
+    position: absolute;
+    margin-top: 45%;
+    left: 45%;
+    width: 24%;
+	padding-top: 30%;
+	background-repeat: no-repeat;
+    background-size: 60% 70%;
+	background-image: url(../images2/WhiteSwitchOff.png);
+}

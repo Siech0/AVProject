@@ -564,7 +564,7 @@ footer {
 	width: 100%;
 }
 
-.switch_container > button {
+/*.switch_container > button {
 	display: inline-block;
 	float: left;
 	padding: 1px;
@@ -574,9 +574,9 @@ footer {
 	border-radius: 4px;
 	cursor: pointer;
 	z-index: 10;
-}
+}*/
 
-.switch_container > button:hover {
+/*.switch_container > button:hover {
 	background-color: #DDD;
 }
 
@@ -584,7 +584,7 @@ footer {
 	background-color: #DDD;
 	box-shadow: 0 3px #666;
 	transform: translateY(1px);
-}
+}*/
 
 
 

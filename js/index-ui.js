@@ -187,6 +187,8 @@ var switchPanel = $("#switches_switch_container").children();
 switchPanel.each(function(){
 	$(this).click(function(){
 		var id = $(this).attr('id');
+		$(this).toggleClass("off");
+		$(this).toggleClass("on");
 		schem.setPassthrough("#" + id + "_svg");
 		schem.update();
 		schem.draw();
