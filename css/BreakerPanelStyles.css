@@ -1,3 +1,5 @@
+/* Elec Bus 1 */
+
 #breaker_alt_field.off {
     position: absolute;
     background-image: url(../images2/Breaker5Off.png);
@@ -37,3 +39,148 @@
     width: 7%;
     transform: translate(150%, 40%);
 }
+
+#breaker_fuel_pump.off {
+    position: absolute;
+    background-image: url(../images2/Breaker5Off.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(54%, 162%);
+}
+
+#breaker_fuel_pump.on {
+    position: absolute;
+    background-image: url(../images2/Breaker5On.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(54%, 162%);
+}
+
+#breaker_beacon_light.off {
+    position: absolute;
+    background-image: url(../images2/Breaker5Off.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(154%, 162%);
+}
+
+#breaker_beacon_light.on {
+    position: absolute;
+    background-image: url(../images2/Breaker5On.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(154%, 162%);
+}
+
+#breaker_land_light.off {
+    position: absolute;
+    background-image: url(../images2/Breaker5Off.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(241%, 162%);
+}
+
+#breaker_land_light.on {
+    position: absolute;
+    background-image: url(../images2/Breaker5On.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(241%, 162%);
+}
+
+#breaker_cabin_lights.off {
+    position: absolute;
+    background-image: url(../images2/Breaker5Off.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(337%, 162%);
+}
+
+#breaker_cabin_lights.on {
+    position: absolute;
+    background-image: url(../images2/Breaker5On.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(337%, 162%);
+}
+
+#breaker_flaps.off {
+    position: absolute;
+    background-image: url(../images2/Breaker10Off.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(427%, 162%);
+}
+
+#breaker_flaps.on {
+    position: absolute;
+    background-image: url(../images2/Breaker10On.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(427%, 162%);
+}
+
+#breaker_avn1.off {
+    position: absolute;
+    background-image: url(../images2/Breaker15Off.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(517%, 162%);
+}
+
+#breaker_avn1.on {
+    position: absolute;
+    background-image: url(../images2/Breaker15On.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(517%, 162%);
+}
+
+/* Elec Bus 1 End ----------------------------------------- */
+
+/* Elec Bus 2 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
