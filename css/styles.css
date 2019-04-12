@@ -389,7 +389,7 @@ footer {
 }
 
 #panel_content_master {
-	background-image: url(../images2/MasterSwitchPanel.svg);
+	background-image: url(../images2/MasterSwitch.jpg);
 	padding-top: 107.73%;
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
@@ -411,71 +411,75 @@ footer {
 
 #master_switch_alt {
 	position: absolute;
-	top: 57%;
-    left: 24%;
-	width: 7.5%;
+	top: 55%;
+    left: 21.5%;
+	width: 11%;
 	padding-top: 30%;
+    height: 4%;
 	
-	background-image: url(../images2/MasterSwitchOff.svg);     
+	background-image: url(../images2/MasterSwitchOff.png);     
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	overflow: hidden;
 }
 
 #master_switch_alt.active {
-    background-image: url(../images2/MasterSwitchOn.svg);   	
+    background-image: url(../images2/MasterSwitchOn.png);   	
 }
 
 #master_switch_bat {
 	position: absolute;
-	top: 57%;
-    left: 31%;
-    width: 7.5%;
+	top: 55%;
+    left: 29.5%;
+    width: 11%;
 	padding-top: 30%;
-	
-    background-image: url(../images2/MasterSwitchOff.svg); 
+	height: 4%;
+    
+    background-image: url(../images2/MasterSwitchOff.png); 
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	overflow: hidden;
 }
 
 #master_switch_bat.active {
-    background-image: url(../images2/MasterSwitchOn.svg);      	
+    background-image: url(../images2/MasterSwitchOn.png);      	
 }
 
 
 #avn_bus1_switch {
     position: absolute;
-	top: 62%;
-	left: 62%;
-	width: 7.5%;
+	top: 57%;
+	left: 58.5%;
+	width: 15%;
 	padding-top: 30%;
+    height: 4%;
 	
-    background-image: url(../images2/AvnSwitchOff.svg);
+    background-image: url(../images2/AvSwitchOff.png);
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	overflow: hidden;
 }
 
 #avn_bus1_switch.active {
-    background-image: url(../images2/AvnSwitchOn.svg);
+    background-image: url(../images2/AvSwitchOn.png);
 }
 
 #avn_bus2_switch{
     position: absolute;
-	top: 62%;
-	left: 70%;
-	width: 7.5%;
+	top: 57%;
+	left: 65.5%;
+	width: 15%;
 	padding-top: 30%;
-	
-    background-image: url(../images2/AvnSwitchOff.svg);   
+	height: 4%;
+    
+    background-image: url(../images2/AvSwitchOff.png);   
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	overflow: hidden;
 }
 
 #avn_bus2_switch.active {
-    background-image: url(../images2/AvnSwitchOn.svg);
+    background-image: url(../images2/AvSwitchOn.png);
 }
 
 /* Beginning of standby battery CSS */
