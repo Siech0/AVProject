@@ -13,6 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="css/styles.css"/>
 	<link rel="stylesheet" type="text/css" href="css/SVGStyles.css"/>
 	<link rel="stylesheet" type="text/css" href="css/SwitchPanelStyles.css"/>
+    <link rel="stylesheet" type="text/css" href="css/BreakerPanelStyles.css"/>
 	
 	<link rel="manifest" href="manifest.json"/> <!-- Attempt to keep horizontal, will need testing -->
 </head>
@@ -91,7 +92,7 @@
 						<div id="standby_battery_arm"></div>
 						<div id="standby_battery_switch" class="off"></div>
 						<div id="standby_battery_test"></div>
-                        <div id = "standby_led"></div>
+                        <div id = "standby_led" class="off"></div>
 					</div>                
 				</li>
 				
@@ -100,46 +101,46 @@
 					<div id="panel_content_breakers" class="panel_content">
 						<div id="breaker_switch_container" class="switch_container">
 						
-							<!-- Feeders -->
+							<!-- Feeders
 							<button id="breaker_feeder_a">feeder a</button>
-							<button id="breaker_feeder_b">feeder b</button>
+							<button id="breaker_feeder_b">feeder b</button> -->
 							
 							<!-- x-feed bus-->
-							<button id="breaker_alt_field">alt field</button>
-							<button id="breaker_warn">warn</button>
+							<div id="breaker_alt_field" class="off"></div>
+							<div id="breaker_warn" class="off"></div>
 							<!-- Electrical bus 1-->
-							<button id="breaker_fuel_pump">fuel pump</button>
-							<button id="breaker_beacon_light">Beacon</button>
-							<button id="breaker_land_light">Landing</button>
-							<button id="breaker_cabin_lights">cabin lights</button>
-							<button id="breaker_flaps">flaps</button>
+							<div id="breaker_fuel_pump" class="off"></div>
+							<div id="breaker_beacon_light" class="off"></div>
+							<div id="breaker_land_light" class="off"></div>
+							<div id="breaker_cabin_lights" class="off"></div>
+							<div id="breaker_flaps" class="off"></div>
 							
 							<!-- Electrical bus 2-->
-							<button id="breaker_pitot_heat">pitot heat</button>
-							<button id="breaker_nav_light">Nav</button>
-							<button id="breaker_taxi_light">Taxi</button>
-							<button id="breaker_strobe_light">strobe</button>
-							<button id="breaker_panel_lights">panel lights</button>
+							<div id="breaker_pitot_heat" class="off"></div>
+							<div id="breaker_nav_light" class="off"></div>
+							<div id="breaker_taxi_light" class="off"></div>
+							<div id="breaker_strobe_light" class="off"></div>
+							<div id="breaker_panel_lights" class="off"></div>
 							
 							<!-- Ess bus-->
-							<button id="breaker_ess_pfd">pfd</button>
-							<button id="breaker_ess_adc_ahrs">adc ahrs</button>
-							<button id="breaker_ess_nav1_eng">nav1 eng</button>
-							<button id="breaker_ess_comm1">comm1</button>
-							<button id="breaker_ess_stdby_ind_lts">stdby ind lights</button>
-							<button id="breaker_ess_stdby_battery">stdby battery</button>
+							<div id="breaker_ess_pfd" class="off"></div>
+							<div id="breaker_ess_adc_ahrs" class="off"></div>
+							<div id="breaker_ess_nav1_eng" class="off"></div>
+							<div id="breaker_ess_comm1" class="off"></div>
+							<div id="breaker_ess_stdby_ind_lts" class="off"></div>
+							<div id="breaker_ess_stdby_battery" class="off"></div>
 							
 							<!-- avn1 bus-->
-							<button id="breaker_avn1_pfd">pfd</button>
-							<button id="breaker_avn1_adc_ahrs">adc ahrs</button>
-							<button id="breaker_avn1_nav1_eng">nav1 eng</button>
+							<div id="breaker_avn1_pfd" class="off"></div>
+							<div id="breaker_avn1_adc_ahrs" class="off"></div>
+							<div id="breaker_avn1_nav1_eng" class="off"></div>
 							
 							<!-- avn2 bus -->
-							<button id="breaker_mfd">mfd</button>
-							<button id="breaker_xpndr">xpndr</button>
-							<button id="breaker_nav2">nav2</button>
-							<button id="breaker_comm2">comm2</button>
-							<button id="breaker_audio">audio</button>
+							<div id="breaker_mfd" class="off"></div>
+							<div id="breaker_xpndr" class="off"></div>
+							<div id="breaker_nav2" class="off"></div>
+							<div id="breaker_comm2" class="off"></div>
+							<div id="breaker_audio" class="off"></div>
 						</div>
 					</div>
 				</li>

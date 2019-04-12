@@ -1,0 +1,39 @@
+#breaker_alt_field.off {
+    position: absolute;
+    background-image: url(../images2/Breaker5Off.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(54%, 40%);
+}
+
+#breaker_alt_field.on {
+    position: absolute;
+    background-image: url(../images2/Breaker5On.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(54%, 40%);
+}
+
+#breaker_warn.off {
+    position: absolute;
+    background-image: url(../images2/Breaker5Off.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(150%, 40%);
+}
+
+#breaker_warn.on {
+    position: absolute;
+    background-image: url(../images2/Breaker5On.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(150%, 40%);
+}

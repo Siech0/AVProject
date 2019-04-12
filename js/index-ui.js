@@ -146,6 +146,7 @@ stb_arm.click( () => {
 stb_test.mousedown( () => {
 	if(stb_switch.hasClass("off")){ //testing stb_switch
 		$("#standby_battery_switch").removeClass("off").addClass("test");
+        $("#standby_led").removeClass("off").addClass("test");
 		schem.setPassthrough("#switch_stb_arm", false);
 		schem.setPassthrough("#switch_stb_test", true);
 		schem.setPassthrough("#switch_stb_active", true);
@@ -156,6 +157,7 @@ stb_test.mousedown( () => {
 		stb_test.off("mouseup");
 		stb_test.mouseup( () => {
 			$("#standby_battery_switch").removeClass("test").addClass("off");
+            $("#standby_led").removeClass("test").addClass("off");
 			schem.setPassthrough("#switch_stb_arm", false);
 			schem.setPassthrough("#switch_stb_test", false);
 			schem.setPassthrough("#switch_stb_active", false);			
@@ -198,6 +200,18 @@ switchPanel.each(function(){
 var breakerPanel = $("#breaker_switch_container").children();
 breakerPanel.each(function(){
 	$(this).click(function(){
+        
+        if ($(this).hasClass("off"))
+        {
+            $(this).removeClass("off");
+            $(this).addClass("on");
+        }
+        else
+        {
+            $(this).removeClass("on");
+            $(this).addClass("off");                
+        }
+        
 		var id = $(this).attr('id');
 		schem.setPassthrough("#" + id + "_svg");
 		schem.update();
