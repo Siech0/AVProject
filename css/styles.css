@@ -389,21 +389,21 @@ footer {
 }
 
 #panel_content_master {
-	background-image: url(../images/masterPanelBg.jpg);
+	background-image: url(../images2/MasterSwitchPanel.svg);
 	padding-top: 107.73%;
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 }
 
 #panel_content_breakers {
-	background-image: url(../images/breakerrPanelBg.jpg); 
+	background-image: url(../images2/BreakerPanel.jpg); 
 	padding-top: 32.39%;
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 }
 
 #panel_content_switches {
-	background-image: url(../images/switchesPanelBg.jpg); 
+	background-image: url(../images2/SwitchPanel.jpg); 
 	padding-top: 76.82%;
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
@@ -411,36 +411,36 @@ footer {
 
 #master_switch_alt {
 	position: absolute;
-	top: 62%;
-    left: 20%;
+	top: 57%;
+    left: 24%;
 	width: 7.5%;
 	padding-top: 30%;
 	
-	background-image: url(../images/masterOff.jpg);     
+	background-image: url(../images2/MasterSwitchOff.svg);     
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	overflow: hidden;
 }
 
 #master_switch_alt.active {
-    background-image: url(../images/masterOn.jpg);   	
+    background-image: url(../images2/MasterSwitchOn.svg);   	
 }
 
 #master_switch_bat {
 	position: absolute;
-	top: 62%;
-    left: 28%;
+	top: 57%;
+    left: 31%;
     width: 7.5%;
 	padding-top: 30%;
 	
-    background-image: url(../images/masterOff.jpg); 
+    background-image: url(../images2/MasterSwitchOff.svg); 
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	overflow: hidden;
 }
 
 #master_switch_bat.active {
-    background-image: url(../images/masterOn.jpg);      	
+    background-image: url(../images2/MasterSwitchOn.svg);      	
 }
 
 
@@ -451,14 +451,14 @@ footer {
 	width: 7.5%;
 	padding-top: 30%;
 	
-    background-image: url(../images/avionicsOff.jpg);
+    background-image: url(../images2/AvnSwitchOff.svg);
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	overflow: hidden;
 }
 
 #avn_bus1_switch.active {
-    background-image: url(../images/avionicsOn.jpg);
+    background-image: url(../images2/AvnSwitchOn.svg);
 }
 
 #avn_bus2_switch{
@@ -468,22 +468,22 @@ footer {
 	width: 7.5%;
 	padding-top: 30%;
 	
-    background-image: url(../images/avionicsOff.jpg);   
+    background-image: url(../images2/AvnSwitchOff.svg);   
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	overflow: hidden;
 }
 
 #avn_bus2_switch.active {
-    background-image: url(../images/avionicsOn.jpg);
+    background-image: url(../images2/AvnSwitchOn.svg);
 }
 
 /* Beginning of standby battery CSS */
 
 #standby_battery_switch.off {
     position: absolute;
-	top: 16%;
-	left: 28%;
+	top: 16.5%;
+	left: 30.5%;
 	width: 20%;
     padding-top: 20%;
 	
@@ -522,24 +522,24 @@ footer {
 
 #standby_battery_switch.test {
     position: absolute;
-    top: 16%;
-    left: 25%;
+    top: 17%;
+    left: 36%;
     width: 24%;
 	padding-top: 30%;
 	background-repeat: no-repeat;
-    background-size: 100% 100%;
-	background-image: url(../images/stbyBattTest.png);
+    background-size: 60% 70%;
+	background-image: url(../images2/StdbyBattSwitchTest.svg);
 }
 
 #standby_battery_switch.arm {
     position: absolute;
     top: 10%;
-    left: 25%;
+    left: 35%;
     width: 25%;
     padding-top: 22%;
-    background-size: 100% 100%;
+    background-size: 60% 100%;
 	background-repeat: no-repeat;
-    background-image: url(../images/stbyBattArm.png);
+    background-image: url(../images2/StbbyBattArm.svg);
 }
 
 /* Styling for the switch containers */
