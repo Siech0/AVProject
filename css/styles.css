@@ -411,11 +411,11 @@ footer {
 
 #master_switch_alt {
 	position: absolute;
-	top: 55%;
+	top: 56.5%;
     left: 21.5%;
-	width: 11%;
+	width: 9.5%;
 	padding-top: 30%;
-    height: 4%;
+    height: 2%;
 	
 	background-image: url(../images2/MasterSwitchOff.png);     
 	background-repeat: no-repeat;
@@ -429,11 +429,11 @@ footer {
 
 #master_switch_bat {
 	position: absolute;
-	top: 55%;
-    left: 29.5%;
-    width: 11%;
+	top: 56.5%;
+    left: 30.5%;
+    width: 9.5%;
 	padding-top: 30%;
-	height: 4%;
+	height: 2%;
     
     background-image: url(../images2/MasterSwitchOff.png); 
 	background-repeat: no-repeat;
@@ -449,10 +449,10 @@ footer {
 #avn_bus1_switch {
     position: absolute;
 	top: 57%;
-	left: 58.5%;
-	width: 15%;
+	left: 61.5%;
+	width: 9%;
 	padding-top: 30%;
-    height: 4%;
+    height: 2%;
 	
     background-image: url(../images2/AvSwitchOff.png);
 	background-repeat: no-repeat;
@@ -467,10 +467,10 @@ footer {
 #avn_bus2_switch{
     position: absolute;
 	top: 57%;
-	left: 65.5%;
-	width: 15%;
+	left: 69.5%;
+	width: 9%;
 	padding-top: 30%;
-	height: 4%;
+	height: 2%;
     
     background-image: url(../images2/AvSwitchOff.png);   
 	background-repeat: no-repeat;
