@@ -307,12 +307,13 @@ $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
 			url: "itemInfo.json",
 			mimeType: "application/json",
 			success: function(json){
-				let wrapper = $("#svg_wrapper");
+
 				let infoPanels = json.info_panels;	
 				//Generate information panels and target events
 				let targets = document.getElementById("targets");	
 				targets.addEventListener("click", function (e){
 					//generate a new panel for this info
+					let wrapper = $("#svg_wrapper");
 					if(infoPanels[e.target.id] === undefined){ //We didnt define anything for this target
 						throw new Error("Attempt to open info panel from anchor with id: '" + e.target.id + "' failed because the information is not defined");
 					}
@@ -321,34 +322,53 @@ $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
 						panelState[e.target.id] = false;
 					} 
 					
+					let positionPanel = function(e, panel) {
+						let wrapperPos = wrapper.position();
+						let wrapperX = e.pageX - wrapperPos.left;
+						let wrapperY = e.pageY - wrapperPos.top;
+						console.log(`page: (${e.pageX}, ${e.pageY}), wrapper; (${wrapperX}, ${wrapperY}), dimensions: ${wrapper.width()}*${wrapper.height()}`);
+						if(wrapperX + panel.innerWidth() < wrapper.innerWidth() - 40) {
+							panel.css('left', wrapperX + 'px');
+						} else {
+							panel.css('right', wrapper.outerWidth() - wrapperX + 40 + 'px');							
+						}
+						
+						if(wrapperY + panel.innerHeight() < wrapper.innerHeight() - 40) {
+							panel.css('top', (wrapperY + 5) + 'px');
+						} else {
+							panel.css('bottom', wrapper.outerHeight() - wrapperY + 40 + 'px');
+						}	
+					}
+					
 					if(panelState[e.target.id] === false) {
-						var wrapper_pos = wrapper.position();
-						var panel = $("<div class='info_panel' id='info_panel_" + e.target.id + "'></div>");
-						panel.css('top', (e.pageY + 5 - wrapper_pos.top ) + 'px');
-						panel.css('left', (e.pageX + 5 - wrapper_pos.left ) + 'px');
-						var title = $("<div class='info_panel_header draggable_handle' id='info_panel_" + e.target.id + "_handle'></div>");
+						let panel = $("<div class='info_panel' id='info_panel_" + e.target.id + "'></div>")
+						let title = $("<div class='info_panel_header draggable_handle' id='info_panel_" + e.target.id + "_handle'></div>");
 						title.text(infoPanels[e.target.id].title);
-						var closer = $("<span class='close' id='info_panel_close_'" + e.target.id + "'></span>");
+						let closer = $("<span class='close' id='info_panel_close_'" + e.target.id + "'></span>");
 						closer.text('×');
 						closer.click(() => {
 							remove("#info_panel_"+ e.target.id, 500);
 							panelState[e.target.id] = false;
 						});
-						var content = $("<div class='info_panel_content'></div>");
-						var content_text = $("<p class='info_panels_textwrap'></p>");
+						let content = $("<div class='info_panel_content'></div>");
+						let content_text = $("<p class='info_panels_textwrap'></p>");
 						//content.text(infoPanels[e.target.id].text);
-                        var text = infoPanels[e.target.id].text;
-                        var changed = text.replace(/"\n"/g,"<br/>");
+                        let text = infoPanels[e.target.id].text;
+                        let changed = text.replace(/"\n"/g,"<br/>");
 					    content_text.text(changed);					
 				        closer.appendTo(title);
 				        title.appendTo(panel);
                         content_text.appendTo(content);
 				        content.appendTo(panel);
-						panel.appendTo(wrapper);	
+						panel.appendTo(wrapper);
+						positionPanel(e, panel);
 						
-						//Ensure that this is draggable by its handle
-						panel.draggable({handle: "#info_panel_" + e.target.id + "_handle", containment: "#svg_wrapper"});		
+						//Ensure that the infobox is draggable by its handle						
+						panel.draggable({handle: "#info_panel_" + e.target.id + "_handle", containment: "#svg_wrapper"});	
+						
 						panelState[e.target.id] = true;
+					} else {
+						positionPanel(e, $("#info_panel_" + e.target.id));
 					}
 				});
 				
