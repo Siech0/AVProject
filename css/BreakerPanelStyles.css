@@ -164,10 +164,185 @@
 
 /* Elec Bus 2 */
 
+#breaker_pitot_heat.off {
+    position: absolute;
+    background-image: url(../images2/Breaker5Off.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(54%, 289%);
+}
 
+#breaker_pitot_heat.on {
+    position: absolute;
+    background-image: url(../images2/Breaker5On.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(54%, 289%);
+}
 
+#breaker_nav_light.off {
+    position: absolute;
+    background-image: url(../images2/Breaker5Off.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(154%, 289%);
+}
 
+#breaker_nav_light.on {
+    position: absolute;
+    background-image: url(../images2/Breaker5On.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(154%, 289%);
+}
 
+#breaker_taxi_light.off {
+    position: absolute;
+    background-image: url(../images2/Breaker5Off.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(241%, 289%);
+}
+
+#breaker_taxi_light.on {
+    position: absolute;
+    background-image: url(../images2/Breaker5On.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(241%, 289%);
+}
+
+#breaker_strobe_light.off {
+    position: absolute;
+    background-image: url(../images2/Breaker5Off.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(337%, 289%);
+}
+
+#breaker_strobe_light.on {
+    position: absolute;
+    background-image: url(../images2/Breaker5On.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(337%, 289%);
+}
+
+#breaker_panel_lights.off {
+    position: absolute;
+    background-image: url(../images2/Breaker5Off.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(427%, 289%);
+}
+
+#breaker_panel_lights.on {
+    position: absolute;
+    background-image: url(../images2/Breaker5On.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(427%, 289%);
+}
+
+#breaker_panel_lights.off {
+    position: absolute;
+    background-image: url(../images2/Breaker5Off.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(427%, 289%);
+}
+
+#breaker_panel_lights.on {
+    position: absolute;
+    background-image: url(../images2/Breaker5On.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(427%, 289%);
+}
+
+#breaker_avn2.off {
+    position: absolute;
+    background-image: url(../images2/Breaker15Off.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(517%, 289%);
+}
+
+#breaker_avn2.on {
+    position: absolute;
+    background-image: url(../images2/Breaker15On.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(517%, 289%);
+}
+
+#breaker_ess_pfd.off {
+    position: absolute;
+    background-image: url(../images2/Breaker15Off.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(730%, 40%);
+}
+
+#breaker_ess_pfd.on {
+    position: absolute;
+    background-image: url(../images2/Breaker15On.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(730%, 40%);
+}
+
+#breaker_ess_adc_ahrs.off {
+    position: absolute;
+    background-image: url(../images2/Breaker15Off.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(825%, 40%);
+}
+
+#breaker_ess_adc_ahrs.on {
+    position: absolute;
+    background-image: url(../images2/Breaker15On.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(825%, 40%);
+}
 
 
 
