@@ -186,8 +186,42 @@ stb_test.mousedown( () => {
 // we get the id, and concatenate it with svg to access the switchon the schematic
 var switchPanel = $("#switches_switch_container").children();
 switchPanel.each(function(){
-	$(this).click(function(){
+	$(this).click(function(){        
 		var id = $(this).attr('id');
+        
+        //Special 3 position switch case
+        if (id == "switch_land_light")
+        {
+            if ($(this).hasClass("off"))
+            {
+                $(this).removeClass("off");
+                $(this).addClass("taxi");
+                schem.setPassthrough("#switch_taxi_light_svg");
+		        schem.update();
+		        schem.draw();
+                return;
+            }
+            else if ($(this).hasClass("taxi"))
+            {
+                $(this).removeClass("taxi");
+                $(this).addClass("land");
+                schem.setPassthrough("#" + id + "_svg");
+                schem.setPassthrough("#switch_taxi_light_svg");
+		        schem.update();
+		        schem.draw();
+                return;
+            }
+            else if ($(this).hasClass("land"))
+            {
+                $(this).removeClass("land");
+                $(this).addClass("off");
+                schem.setPassthrough("#" + id + "_svg");
+		        schem.update();
+		        schem.draw();
+                return;
+            }             
+        }
+        
 		$(this).toggleClass("off");
 		$(this).toggleClass("on");
 		schem.setPassthrough("#" + id + "_svg");

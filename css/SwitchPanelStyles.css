@@ -33,13 +33,35 @@
 
 #switch_land_light.off {
     position: absolute;
-    margin-top: 13%;
+    margin-top: 16%;
     left: 65%;
     width: 24%;
-	padding-top: 30%;
+	padding-top: 23%;
 	background-repeat: no-repeat;
     background-size: 60% 70%;
-	background-image: url(../images2/WhiteSwitchOff.png);
+	background-image: url(../images2/White3WayDown.png);
+}
+
+#switch_land_light.taxi {
+    position: absolute;
+    margin-top: 16%;
+    left: 65%;
+    width: 24%;
+	padding-top: 23%;
+	background-repeat: no-repeat;
+    background-size: 60% 70%;
+	background-image: url(../images2/White3WayMid.png);
+}
+
+#switch_land_light.land {
+    position: absolute;
+    margin-top: 16%;
+    left: 65%;
+    width: 24%;
+	padding-top: 23%;
+	background-repeat: no-repeat;
+    background-size: 60% 70%;
+	background-image: url(../images2/White3WayUp.png);
 }
 
 #switch_nav_light.on {
@@ -52,7 +74,6 @@
     background-size: 60% 70%;
 	background-image: url(../images2/WhiteSwitchOn.png);
 }
-
 
 #switch_nav_light.off {
     position: absolute;
