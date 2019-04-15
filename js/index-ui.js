@@ -63,7 +63,8 @@ $("#master_switch_alt").click( () => {
 		$("#master_switch_alt").toggleClass("active", false);
 		$("#switch_alt_master").toggleClass("active", false);
 		
-		schem.setPassthrough("#alt_relay", false);		
+		schem.setPassthrough("#alt_relay", false);	
+        schem.setPassthrough("#switch_alt_master");
 	} else { //Switch inactive
 		$("#master_switch_alt").toggleClass("active", true);
 		$("#master_switch_bat").toggleClass("active", true);
@@ -74,7 +75,6 @@ $("#master_switch_alt").click( () => {
 		schem.setPassthrough("#alt_relay", true);
 		schem.setPassthrough("#battery_relay", true);
 		schem.setPassthrough("#switch_battery_master", true);
-		schem.setPassthrough("#external_power_relay", true);
 	}
 	schem.update();
 	schem.draw();
@@ -89,7 +89,6 @@ $("#master_switch_bat").click( () => {
 		schem.setPassthrough("#battery_relay", false);
 		schem.setPassthrough("#switch_alt_master", false);
 		schem.setPassthrough("#alt_relay", false);
-		schem.setPassthrough("#external_power_relay", false);
 	} else { //Switch inactive
 		$("#master_switch_bat").toggleClass("active", true);
 		

@@ -189,7 +189,7 @@ Schematic.prototype.update = function(){
 				V[node] = true; //We have now visited the node
 				//The source at sources[i] did reach the current node
 				this.vertices[node].state[i] = true; 
-			} else if (this.vertices[node].passthrough === false) {
+			} else {
 				continue;
 			}
 			
