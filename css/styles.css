@@ -519,7 +519,7 @@ footer {
 #standby_battery_arm {
     position: absolute;
     top: 2%;
-	left: 30%;
+	left: 34%;
 	width: 20%;
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -533,7 +533,7 @@ footer {
 #standby_battery_test {
     position: absolute;
     top: 29%;
-	left: 30%;
+	left: 34%;
 	width: 20%;
     background-repeat: no-repeat;
     background-size: 100% 100%;
