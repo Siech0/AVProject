@@ -304,9 +304,11 @@
     transform: translate(517%, 289%);
 }
 
+/* ESS BUS */
+
 #breaker_ess_pfd.off {
     position: absolute;
-    background-image: url(../images2/Breaker15Off.png);
+    background-image: url(../images2/Breaker5Off.png);
     background-size: 100% 100%;
     padding-top: 8%;
     background-repeat: no-repeat;
@@ -316,7 +318,7 @@
 
 #breaker_ess_pfd.on {
     position: absolute;
-    background-image: url(../images2/Breaker15On.png);
+    background-image: url(../images2/Breaker5On.png);
     background-size: 100% 100%;
     padding-top: 8%;
     background-repeat: no-repeat;
@@ -326,7 +328,7 @@
 
 #breaker_ess_adc_ahrs.off {
     position: absolute;
-    background-image: url(../images2/Breaker15Off.png);
+    background-image: url(../images2/Breaker10Off.png);
     background-size: 100% 100%;
     padding-top: 8%;
     background-repeat: no-repeat;
@@ -336,7 +338,7 @@
 
 #breaker_ess_adc_ahrs.on {
     position: absolute;
-    background-image: url(../images2/Breaker15On.png);
+    background-image: url(../images2/Breaker10On.png);
     background-size: 100% 100%;
     padding-top: 8%;
     background-repeat: no-repeat;
@@ -344,9 +346,85 @@
     transform: translate(825%, 40%);
 }
 
+#breaker_ess_nav1_eng.off {
+    position: absolute;
+    background-image: url(../images2/Breaker15Off.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(914%, 40%);
+}
 
+#breaker_ess_nav1_eng.on {
+    position: absolute;
+    background-image: url(../images2/Breaker15On.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(914%, 40%);
+}
 
+#breaker_ess_comm1.off {
+    position: absolute;
+    background-image: url(../images2/Breaker15Off.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(1012%, 40%);
+}
 
+#breaker_ess_comm1.on {
+    position: absolute;
+    background-image: url(../images2/Breaker15On.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(1012%, 40%);
+}
+
+#breaker_ess_stdby_ind_lts.off {
+    position: absolute;
+    background-image: url(../images2/Breaker15Off.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(1112%, 40%);
+}
+
+#breaker_ess_stdby_ind_lts.on {
+    position: absolute;
+    background-image: url(../images2/Breaker15On.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(1112%, 40%);
+}
+
+#breaker_ess_stdby_ind_lts.off {
+    position: absolute;
+    background-image: url(../images2/Breaker15Off.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(1112%, 40%);
+}
+
+#breaker_ess_stdby_ind_lts.on {
+    position: absolute;
+    background-image: url(../images2/Breaker15On.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(1112%, 40%);
+}
 
 
 
