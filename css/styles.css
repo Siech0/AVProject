@@ -635,8 +635,6 @@ footer {
 	min-height: 7vh;
 	max-height: 20vh;
 
-	line-height: 1.1em;
-	font-size: 1em;
 	
 	color: #DDD;
 	background-color: #555555;
@@ -650,6 +648,7 @@ footer {
 
 
 .info_panel_header {
+
 	width: 100%;
 	background-color: #777777;
 	border-bottom: 1px solid black;
@@ -658,6 +657,8 @@ footer {
 }
 
 .info_panel_content {
+	font-size: 0.8em;
+	line-height: 1.1em;
 	overflow-y: auto;
 	position: relative;
 	white-space: pre-line;
