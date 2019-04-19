@@ -368,7 +368,7 @@
 
 #breaker_ess_comm1.off {
     position: absolute;
-    background-image: url(../images2/Breaker15Off.png);
+    background-image: url(../images2/Breaker5Off.png);
     background-size: 100% 100%;
     padding-top: 8%;
     background-repeat: no-repeat;
@@ -378,7 +378,7 @@
 
 #breaker_ess_comm1.on {
     position: absolute;
-    background-image: url(../images2/Breaker15On.png);
+    background-image: url(../images2/Breaker5On.png);
     background-size: 100% 100%;
     padding-top: 8%;
     background-repeat: no-repeat;
@@ -388,7 +388,7 @@
 
 #breaker_ess_stdby_ind_lts.off {
     position: absolute;
-    background-image: url(../images2/Breaker15Off.png);
+    background-image: url(../images2/Breaker5Off.png);
     background-size: 100% 100%;
     padding-top: 8%;
     background-repeat: no-repeat;
@@ -398,7 +398,7 @@
 
 #breaker_ess_stdby_ind_lts.on {
     position: absolute;
-    background-image: url(../images2/Breaker15On.png);
+    background-image: url(../images2/Breaker5On.png);
     background-size: 100% 100%;
     padding-top: 8%;
     background-repeat: no-repeat;
@@ -406,33 +406,270 @@
     transform: translate(1112%, 40%);
 }
 
-#breaker_ess_stdby_ind_lts.off {
+#breaker_ess_stdby_battery.off {
+    position: absolute;
+    background-image: url(../images2/Breaker20Off.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(1204%, 40%);
+}
+
+#breaker_ess_stdby_battery.on {
+    position: absolute;
+    background-image: url(../images2/Breaker20On.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(1204%, 40%);
+}
+
+/* AVN bus ---------------------------------------*/
+
+#breaker_avn1_pfd.off {
+    position: absolute;
+    background-image: url(../images2/Breaker5Off.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(730%, 162%);
+}
+
+#breaker_avn1_pfd.on {
+    position: absolute;
+    background-image: url(../images2/Breaker5On.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(730%, 162%);
+}
+
+#breaker_avn1_pfd.off {
+    position: absolute;
+    background-image: url(../images2/Breaker5Off.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(730%, 162%);
+}
+
+#breaker_avn1_pfd.on {
+    position: absolute;
+    background-image: url(../images2/Breaker5On.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(730%, 162%);
+}
+
+#breaker_avn1_pfd.off {
+    position: absolute;
+    background-image: url(../images2/Breaker5Off.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(730%, 162%);
+}
+
+#breaker_avn1_pfd.on {
+    position: absolute;
+    background-image: url(../images2/Breaker5On.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(730%, 162%);
+}
+
+#breaker_avn1_adc_ahrs.off {
+    position: absolute;
+    background-image: url(../images2/Breaker10Off.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(825%, 162%);
+}
+
+#breaker_avn1_adc_ahrs.on {
+    position: absolute;
+    background-image: url(../images2/Breaker10On.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(825%, 162%);
+}
+
+#breaker_avn1_nav1_eng.off {
     position: absolute;
     background-image: url(../images2/Breaker15Off.png);
     background-size: 100% 100%;
     padding-top: 8%;
     background-repeat: no-repeat;
     width: 7%;
-    transform: translate(1112%, 40%);
+    transform: translate(914%, 162%);
 }
 
-#breaker_ess_stdby_ind_lts.on {
+#breaker_avn1_nav1_eng.on {
     position: absolute;
     background-image: url(../images2/Breaker15On.png);
     background-size: 100% 100%;
     padding-top: 8%;
     background-repeat: no-repeat;
     width: 7%;
-    transform: translate(1112%, 40%);
+    transform: translate(914%, 162%);
+}
+
+/* AVN bus 2 --------------------------------*/
+
+#breaker_mfd.off {
+    position: absolute;
+    background-image: url(../images2/Breaker5Off.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(730%, 289%);
+}
+
+#breaker_mfd.on {
+    position: absolute;
+    background-image: url(../images2/Breaker5On.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(730%, 289%);
+}
+
+#breaker_xpndr.off {
+    position: absolute;
+    background-image: url(../images2/Breaker3Off.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(825%, 289%);
+}
+
+#breaker_xpndr.on {
+    position: absolute;
+    background-image: url(../images2/Breaker3On.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(825%, 289%);
+}
+
+#breaker_nav2.off {
+    position: absolute;
+    background-image: url(../images2/Breaker5Off.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(914%, 289%);
+}
+
+#breaker_nav2.on {
+    position: absolute;
+    background-image: url(../images2/Breaker5On.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(914%, 289%);
+}
+
+#breaker_comm2.off {
+    position: absolute;
+    background-image: url(../images2/Breaker5Off.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(1012%, 289%);
+}
+
+#breaker_comm2.on {
+    position: absolute;
+    background-image: url(../images2/Breaker5On.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(1012%, 289%);
 }
 
 
+#breaker_audio.off {
+    position: absolute;
+    background-image: url(../images2/Breaker5Off.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(1012%, 289%);
+}
 
+#breaker_audio.on {
+    position: absolute;
+    background-image: url(../images2/Breaker5On.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(1119%, 289%);
+}
 
+#breaker_audio.off {
+    position: absolute;
+    background-image: url(../images2/Breaker5Off.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(1119%, 289%);
+}
 
+#breaker_audio.on {
+    position: absolute;
+    background-image: url(../images2/Breaker5On.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(1119%, 289%);
+}
 
+#breaker_auto_pilot.off {
+    position: absolute;
+    background-image: url(../images2/BreakerAutoPilotOff.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(1228%, 289%);
+}
 
-
+#breaker_auto_pilot.on {
+    position: absolute;
+    background-image: url(../images2/BreakerAutoPilot.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(1228%, 289%);
+}
 
 
 

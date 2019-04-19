@@ -246,7 +246,7 @@ breakerPanel.each(function(){
         }
         
 		var id = $(this).attr('id');
-		schem.setPassthrough("#" + id + "_svg");
+        schem.setPassthrough("#" + id + "_svg");
 		schem.update();
 		schem.draw();
 	});
