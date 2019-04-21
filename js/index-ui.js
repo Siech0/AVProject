@@ -1,7 +1,21 @@
 let panelState = {};
 let schem = new Schematic();
 
-let toogle = function(id, initial, rate) {
+/* 
+	SCHEMATIC EVENT SETUP
+*/
+schem.addEventListener("dataLoaded", function() {
+	schem.addVertexEventListener("alt_relay", "powerChanged", function(source, state) {
+		console.log(this);
+		console.log("Alt relay power status change. (Source: " + source + ", state: " + state + ')');
+	});
+});
+
+
+/* 
+	UTILITY FUNCTIONS
+*/
+let toggle = function(id, initial, rate) {
 	if(panelState[id] == null){
 		panelState[id] = initial;
 	}
@@ -29,7 +43,9 @@ let remove = function(id, rate) {
 	}, rate);
 }
 
-/*Implement all pull panel functionality*/
+/*
+	PULL ANCHORS
+*/
 $('#nav_pull_anchor').click(function(){
 	if(panelState['#nav_pull_anchor'] == null) {
 		panelState['#nav_pull_anchor'] = true;
@@ -58,23 +74,68 @@ $('#right_pull_anchor').click(function(){
 	panelState['#right_pull_anchor'] = !panelState['#right_pull_anchor'];
 });
 
+/*
+	Navigation Bar Engine/EPU button responsiveness.
+*/
+panelState["#engine_button"] = false;
+$("#engine_button").click(function(){
+	var status = $("#engine_status"); 
+	if(panelState["#engine_button"]){ //Active
+		status.css("color", "red");
+		status.text("OFFLINE");
+		schem.setVertexState("low_volt_indicator", "active");
+		schem.setVertexState("alternator", "inactive")
+	} else {
+		status.css("color", "cyan");
+		status.text("ONLINE");
+		schem.setVertexState("low_volt_indicator", "inactive");
+		schem.setVertexState("alternator", "active");
+	}
+	schem.update();
+	schem.draw();
+	panelState["#engine_button"] = !panelState["#engine_button"];
+});
+
+panelState["#epu_button"] = false;
+$("#epu_button").click(function(){
+	var status = $("#epu_status");
+	if(panelState["#epu_button"]){ //Active
+		status.css("color", "red");
+		status.text("OFFLINE");
+		schem.setVertexState("external_power", "inactive");
+		schem.setVertexState("external_power_relay", "inactive");
+	} else {
+		status.css("color", "cyan");
+		status.text("ONLINE");
+		schem.setVertexState("external_power", "active");
+		schem.setVertexState("external_power_relay", "active");
+	}
+	panelState["#epu_button"] = !panelState["#epu_button"];
+	schem.update();
+	schem.draw();
+});
+
+/* 
+	MASTER SWITCH CONTAINER
+*/
 $("#master_switch_alt").click( () => {
 	if($("#master_switch_alt").hasClass("active")){ //Switch active
 		$("#master_switch_alt").toggleClass("active", false);
 		$("#switch_alt_master").toggleClass("active", false);
 		
-		schem.setPassthrough("#alt_relay", false);	
-        schem.setPassthrough("#switch_alt_master");
+		schem.setVertexState("alt_relay", "inactive");	
+		let state = schem.getVertexState("switch_alt_master");
+        schem.setVertexState("switch_alt_master", state == "active" ? "inactive" : "active");
 	} else { //Switch inactive
 		$("#master_switch_alt").toggleClass("active", true);
 		$("#master_switch_bat").toggleClass("active", true);
 		
 		$("#audio_master").trigger("play");
 		
-		schem.setPassthrough("#switch_alt_master", true);
-		schem.setPassthrough("#alt_relay", true);
-		schem.setPassthrough("#battery_relay", true);
-		schem.setPassthrough("#switch_battery_master", true);
+		schem.setVertexState("switch_alt_master", "active");
+		schem.setVertexState("alt_relay", "active");
+		schem.setVertexState("battery_relay", "active");
+		schem.setVertexState("switch_battery_master", "active");
 	}
 	schem.update();
 	schem.draw();
@@ -85,15 +146,15 @@ $("#master_switch_bat").click( () => {
 		$("#master_switch_bat").toggleClass("active", false);
 		$("#master_switch_alt").toggleClass("active", false);
 		
-		schem.setPassthrough("#switch_battery_master", false);
-		schem.setPassthrough("#battery_relay", false);
-		schem.setPassthrough("#switch_alt_master", false);
-		schem.setPassthrough("#alt_relay", false);
+		schem.setVertexState("switch_battery_master", "inactive");
+		schem.setVertexState("battery_relay", "inactive");
+		schem.setVertexState("switch_alt_master", "inactive");
+		schem.setVertexState("alt_relay", "inactive");
 	} else { //Switch inactive
 		$("#master_switch_bat").toggleClass("active", true);
 		
-		schem.setPassthrough("#switch_battery_master", true);
-		schem.setPassthrough("#battery_relay", true);
+		schem.setVertexState("switch_battery_master", "active");
+		schem.setVertexState("battery_relay", "active");
 	}
 	schem.update();
 	schem.draw();
@@ -102,9 +163,9 @@ $("#master_switch_bat").click( () => {
 $("#avn_bus1_switch").click( () => {
 	if($("#avn_bus1_switch").hasClass("active")){ //active
 		$("#avn_bus1_switch").toggleClass("active", false);
-		schem.setPassthrough("#switch_avn1_svg", false);
+		schem.setVertexState("switch_avn1_svg", "inactive");
 	} else {
-		schem.setPassthrough("#switch_avn1_svg", true);
+		schem.setVertexState("switch_avn1_svg", "active");
 		$("#avn_bus1_switch").toggleClass("active", true);
 	}
 	schem.update();
@@ -114,10 +175,10 @@ $("#avn_bus1_switch").click( () => {
 $("#avn_bus2_switch").click( () => {
 	if($("#avn_bus2_switch").hasClass("active")){ //active
 		$("#avn_bus2_switch").toggleClass("active", false);
-		schem.setPassthrough("#switch_avn2_svg", false);
+		schem.setVertexState("switch_avn2_svg", "inactive");
 	} else {
 		$("#avn_bus2_switch").toggleClass("active", true);
-		schem.setPassthrough("#switch_avn2_svg", true);
+		schem.setVertexState("switch_avn2_svg", "active");
 	}
 	schem.update();
 	schem.draw();
@@ -129,14 +190,12 @@ let stb_test = $("#standby_battery_test");
 stb_arm.click( () => {
 	if(stb_switch.hasClass("off")){ //arming stb_switch
         $("#standby_battery_switch").removeClass("off").addClass("arm");
-		schem.setPassthrough("#switch_stb_test", false);
-		schem.setPassthrough("#switch_stb_arm", true);
-		schem.setPassthrough("#switch_stb_active", true);	
+		schem.setVertexState("switch_stb", "arm");
+		schem.setVertexState("switch_stb_active", "active");
 	} else if (stb_switch.hasClass("test")) { //This should never happen, but for the sake of it we check.
 		$("#standby_battery_switch").removeClass("test").addClass("off");
-        schem.setPassthrough("#switch_stb_arm", false);
-		schem.setPassthrough("#switch_stb_test", false);
-		schem.setPassthrough("#switch_stb_active", false);	
+		schem.setVertexState("switch_stb", "inactive");
+		schem.setVertexState("switch_stb_active", "inactive");
 	} 
 	schem.update();
 	schem.draw();
@@ -146,9 +205,8 @@ stb_test.mousedown( () => {
 	if(stb_switch.hasClass("off")){ //testing stb_switch
 		$("#standby_battery_switch").removeClass("off").addClass("test");
         $("#standby_led").removeClass("off").addClass("test");
-		schem.setPassthrough("#switch_stb_arm", false);
-		schem.setPassthrough("#switch_stb_test", true);
-		schem.setPassthrough("#switch_stb_active", true);
+		schem.setVertexState("switch_stb", "test");
+		schem.setVertexState("switch_stb_active", "active");
 		schem.update();
 		schem.draw();
 
@@ -157,9 +215,8 @@ stb_test.mousedown( () => {
 		stb_test.mouseup( () => {
 			$("#standby_battery_switch").removeClass("test").addClass("off");
             $("#standby_led").removeClass("test").addClass("off");
-			schem.setPassthrough("#switch_stb_arm", false);
-			schem.setPassthrough("#switch_stb_test", false);
-			schem.setPassthrough("#switch_stb_active", false);			
+			schem.setVertexState("switch_stb", "inactive");
+			schem.setVertexState("switch_stb_active", "inactive");	
 			schem.update();
 			schem.draw();	
 		});
@@ -168,9 +225,8 @@ stb_test.mousedown( () => {
 		stb_test.off("mouseup");
 		stb_test.mouseup( () => {
 			$("#standby_battery_switch").removeClass("arm").addClass("off");
-			schem.setPassthrough("#switch_stb_arm", false);
-			schem.setPassthrough("#switch_stb_test", false);
-			schem.setPassthrough("#switch_stb_active", false);	
+			schem.setVertexState("switch_stb", "inactive");
+			schem.setVertexState("switch_stb_active", "inactive");	
 			schem.update();
 			schem.draw();	
 		});
@@ -178,58 +234,10 @@ stb_test.mousedown( () => {
 
 });
 
-// if we name the div tags right, we can set this up in a loop to toggle
-// the switches in the switches panel...
-// also we can set it to the "active" class
-// how it's gonna work is
-// forall the switches in the panel
-// we get the id, and concatenate it with svg to access the switchon the schematic
-var switchPanel = $("#switches_switch_container").children();
-switchPanel.each(function(){
-	$(this).click(function(){        
-		var id = $(this).attr('id');
-        
-        //Special 3 position switch case
-        if (id == "switch_land_light")
-        {
-            if ($(this).hasClass("off"))
-            {
-                $(this).removeClass("off");
-                $(this).addClass("taxi");
-                schem.setPassthrough("#switch_taxi_light_svg");
-		        schem.update();
-		        schem.draw();
-                return;
-            }
-            else if ($(this).hasClass("taxi"))
-            {
-                $(this).removeClass("taxi");
-                $(this).addClass("land");
-                schem.setPassthrough("#" + id + "_svg");
-                schem.setPassthrough("#switch_taxi_light_svg");
-		        schem.update();
-		        schem.draw();
-                return;
-            }
-            else if ($(this).hasClass("land"))
-            {
-                $(this).removeClass("land");
-                $(this).addClass("off");
-                schem.setPassthrough("#" + id + "_svg");
-		        schem.update();
-		        schem.draw();
-                return;
-            }             
-        }
-        
-		$(this).toggleClass("off");
-		$(this).toggleClass("on");
-		schem.setPassthrough("#" + id + "_svg");
-		schem.update();
-		schem.draw();
-	});	
-});
 
+/* 
+	BREAKER PANEL CONTAINER 
+*/
 var breakerPanel = $("#breaker_switch_container").children();
 breakerPanel.each(function(){
 	$(this).click(function(){
@@ -246,58 +254,67 @@ breakerPanel.each(function(){
         }
         
 		var id = $(this).attr('id');
-        schem.setPassthrough("#" + id + "_svg");
+		let state = schem.getVertexState(id + "_svg");
+		schem.setVertexState(id + "_svg", state == "active" ? "inactive" : "active");
 		schem.update();
 		schem.draw();
 	});
 });
 
-/*
-	Navigation Bar Engine/EPU button responsiveness.
+
+
+/* 
+	SWITCH PANEL CONTAINER
 */
-panelState["#engine_button"] = false;
-$("#engine_button").click(function(){
-	var status = $("#engine_status"); 
-	if(panelState["#engine_button"]){ //Active
-		status.css("color", "red");
-		status.text("OFFLINE");
-		schem.setPassthrough("#low_volt_indicator", true);
-		schem.setPassthrough("#alt_input", false)
-	} else {
-		status.css("color", "cyan");
-		status.text("ONLINE");
-		schem.setPassthrough("#low_volt_indicator", false);
-		schem.setPassthrough("#alt_input", true);
-	}
-	schem.update();
-	schem.draw();
-	panelState["#engine_button"] = !panelState["#engine_button"];
+// if we name the div tags right, we can set this up in a loop to toggle
+// the switches in the switches panel...
+// also we can set it to the "active" class
+// how it's gonna work is
+// forall the switches in the panel
+// we get the id, and concatenate it with svg to access the switchon the schematic
+var switchPanel = $("#switches_switch_container > *:not('#switch_land_light')");
+switchPanel.each(function(){
+	let _this = $(this);
+	_this.click(function(){        
+		var id = $(this).attr('id');
+		_this.toggleClass("off");
+		_this.toggleClass("on");
+		
+		let state = schem.getVertexState(id + "_svg");
+		schem.setVertexState(id + "_svg", state == "active" ? "inactive" : "active");
+		schem.update();
+		schem.draw();
+	});	
 });
 
-panelState["#epu_button"] = false;
-$("#epu_button").click(function(){
-	var status = $("#epu_status");
-	if(panelState["#epu_button"]){ //Active
-		status.css("color", "red");
-		status.text("OFFLINE");
-		schem.setPassthrough("#external_power", false);
-		schem.setPassthrough("#external_power_relay", false);
-	} else {
-		status.css("color", "cyan");
-		status.text("ONLINE");
-		schem.setPassthrough("#external_power", true);
-		schem.setPassthrough("#external_power_relay", true);
+//We filter out this specific id from the above code because its a special case.
+$("#switch_land_light").click( () => {
+	let _this = $("#switch_land_light");
+	if(_this.hasClass("off")) {
+		console.log("test2");
+		_this.removeClass("off").addClass("taxi");
+		schem.setVertexState("switch_taxi_light_svg", "active");
+		schem.update();
+		schem.draw();
+	} else if (_this.hasClass("taxi")) {
+		_this.removeClass("taxi").addClass("land");
+		schem.setVertexState("switch_land_light_svg", "active");
+		schem.setVertexState("switch_taxi_light_svg", "inactive");
+		schem.update();
+		schem.draw();
+	} else if (_this.hasClass("land")) {
+		_this.removeClass("land").addClass("off");
+		schem.setVertexState("switch_land_light_svg", "inactive");
+		schem.update();
+		schem.draw();
 	}
-	panelState["#epu_button"] = !panelState["#epu_button"];
-	schem.update();
-	schem.draw();
 });
 
 
-//Enable navigation button panel toogle functionality
-$("#master_button").click(() => toogle("#master_main_container", false, 500)); //Master
-$("#breakers_button").click(() => toogle("#breakers_main_container", false, 500)); //Breakers
-$("#switches_button").click(() => toogle("#switches_main_container", false, 500)); //Switches
+//Enable navigation button panel toggle functionality
+$("#master_button").click(() => toggle("#master_main_container", false, 500)); //Master
+$("#breakers_button").click(() => toggle("#breakers_main_container", false, 500)); //Breakers
+$("#switches_button").click(() => toggle("#switches_main_container", false, 500)); //Switches
 
 //Enable bottom panel self close functionality
 $("#master_close").click(() => {
@@ -407,7 +424,7 @@ $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
 				
 				//Generate graph
 				let graphData = json.graph_data;
-				schem.generateFromData(graphData);
+				schem.loadData(graphData);
 				schem.update();
 				schem.draw();
 			}
@@ -416,11 +433,3 @@ $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
 		});
 	}
 }, "text");
-
-schem.addEventListener("dataLoaded", function() {
-	schem.addVertexEventListener("#alt_relay", "powerChanged", function(source, state) {
-		console.log(this);
-		console.log("Alt relay power status change. (Source: " + source + ", state: " + state + ')');
-	});
-});
-

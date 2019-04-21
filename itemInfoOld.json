@@ -273,1157 +273,599 @@
 			"text": "During the standby battery test, placing a load on the standby battery ensures that available energy levels are sufficient and that the battery can provide a consistent voltage."
 		}
 	},
-	"graph_data": {
-		"classes": {
-			"active": {
-				"name": "active",
-				"passthrough": true
-			},
-			"inactive": {
-				"name": "inactive",
-				"passthrough": false,
-				"edges": [],
-				"is_failure": true
-			}
+	"graph_data": [
+		{
+			"id": "#battery",
+			"is_source": true,
+			"has_on_off": false,
+			"edges": [
+				"#battery_relay",
+				"#external_power_relay"
+			],
+			"passthrough": true,
+			"class_name": "on_battery"
 		},
-		"vertices": [
-			{
-				"name": "battery",
-				"parent_id": "#battery",
-				"states": [
-					{
-						"class_id": "active",
-						"edges": [
-							"battery_relay",
-							"external_power_relay"
-						]
-					},
-					{
-						"class_id": "inactive"
-					}
-				],
-				"class_name": "on_battery"
-			},
-			{
-				"name": "alternator",
-				"parent_id": "#alt_input",
-				"states": [
-					{
-						"class_id": "active",
-						"edges": [
-							"alt_relay"
-						],
-						"requires": [
-							"alt_relay"
-						]
-					},
-					{
-						"class_id": "inactive",
-						"is_default": true
-					}
-				],
-				"class_name": "on_alternator"
-			},
-			{
-				"name": "external_power",
-				"parent_id": "#external_power",
-				"states": [
-					{
-						"class_id": "active",
-						"edges": [
-							"external_power_relay"
-						]
-					},
-					{
-						"class_id": "inactive",
-						"is_default": true
-					}
-				],
-				"class_name": "on_external_power"
-			},
-			{
-				"name": "standby_battery",
-				"parent_id": "#standby_battery",
-				"states": [
-					{
-						"class_id": "active",
-						"edges": [
-							"switch_stb"
-						]
-					}
-				],
-				"class_name": "on_standby_battery"
-			},
-			{
-				"name": "low_volt_indicator",
-				"parent_id": "#low_volt_indicator",
-				"states": [
-					{
-						"class_id": "active",
-						"edges": [
-							"alt_relay"
-						],
-						"is_default": true
-					},
-					{
-						"class_id": "inactive"
-					}
-				]
-			}, 
-			{
-				"name": "external_power_relay",
-				"parent_id": "#external_power_relay",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#external_power_relay_on",
-						"edges": [
-							"external_power",
-							"battery",
-							"ground"
-						],
-						"requires": [
-							"switch_battery_master",
-							"external_power"
-						]
-					},
-					{
-						"class_id": "inactive",
-						"id": "#external_power_relay_off",
-						"is_default": true
-					}
-				]
-			},
+		{
+			"id": "#alt_input",
+			"is_source": true,
+			"has_on_off": false,
+			"edges": [
+				"#alt_relay"
+			],
+			"requires": [
+				"#alt_relay"
+			],
+			"passthrough": false,
+			"class_name": "on_alternator"
+		},
+		{
+			"id": "#external_power",
+			"is_source": true,
+			"has_on_off": false,
+			"edges": [
+				"#external_power_relay"
+			],
+			"passthrough": false,
+			"class_name": "on_external_power"
+		},
+		{
+			"id": "#standby_battery",
+			"is_source": true,
+			"has_on_off": false,
+			"edges": [
+				"#switch_stb_arm",
+				"#switch_stb_test"
+			],
+			"passthrough": true,
+			"class_name": "on_standby_battery"
+		},
+		{
+			"id": "#low_volt_indicator",
+			"has_on_off": false,
+			"edges": [
+				"#alt_relay"
+			],
+			"passthrough": true
+		},
+		{
+			"id": "#external_power_relay",
+			"has_on_off": true,
+			"edges": [
+				"#external_power",
+				"#battery",
+				"#ground"
+			],
+			"requires": [
+				"#switch_battery_master",
+				"#external_power"
+			],
+			"passthrough": false
+		},
+		{
+			"id": "#ground",
+			"has_on_off": false,
+			"edges" : [
+				"#external_power_relay"
+			],
+			"passthrough": true
+		},
+		{
+			"id": "#battery_relay",
+			"has_on_off": true,
+			"edges": [
+				"#battery",
+				"#switch_battery_master",
+				"#alt_relay",
+				"#breaker_feeder_a_svg",
+				"#breaker_feeder_b_svg",
+				"#low_volt_indicator"
+			],
+			"passthrough": false
+		},
+		{
+			"id": "#alt_relay",
+			"has_on_off": true,
+			"edges": [
+				"#battery_relay",
+				"#switch_alt_master"
+			],
+			"passthrough": false
+		},
+		{
+			"id": "#switch_battery_master",
+			"has_on_off": true,
+			"edges": [
+				"#battery_relay"
+			],
+			"passthrough": false
+		},
+		{
+			"id": "#switch_alt_master",
+			"has_on_off": true,
+			"edges": [
+				"#alt_relay",
+				"#breaker_alt_field_svg"
+			],
+			"passthrough": false
+		},
+		{
+			"id": "#breaker_feeder_a_svg",
+			"has_on_off": true,
+			"edges": [
+				"#battery_relay",
+				"#breaker_avn2_svg",
+				"#breaker_pitot_heat_svg",
+				"#breaker_nav_light_svg",
+				"#breaker_taxi_light_svg",
+				"#breaker_strobe_light_svg",
+				"#breaker_panel_lights_svg",
+				"#x-feed_bus",
+				"#ess_bus"
+			],
+			"passthrough": true
+		},
+		{
+			"id": "#breaker_avn2_svg",
+			"has_on_off": true,
+			"edges": [
+				"#breaker_feeder_a_svg",
+				"#switch_avn2_svg"
+			],
+			"passthrough": true
+		},
+		{
+			"id": "#switch_avn2_svg",
+			"has_on_off": true,
+			"edges": [
+				"#breaker_avn2_svg",
+				"#breaker_mfd_svg",
+				"#breaker_xpndr_svg",
+				"#breaker_nav2_svg",
+				"#breaker_comm2_svg",
+				"#breaker_audio_svg",
+				"#breaker_auto_pilot_svg"
+			],
+			"passthrough": false
+		},
+		{
+			"id": "#breaker_mfd_svg",
+			"has_on_off": true,
+			"edges": [
+				"#switch_avn2_svg"
+			],
+			"passthrough": true
+		},
+		{
+			"id": "#breaker_xpndr_svg",
+			"has_on_off": true,
+			"edges": [
+				"#switch_avn2_svg"
+			],
+			"passthrough": true
+		},
+		{
+			"id": "#breaker_nav2_svg",
+			"has_on_off": true,
+			"edges": [
+				"#switch_avn2_svg"
+			],
+			"passthrough": true
+		},
+		{
+			"id": "#breaker_comm2_svg",
+			"has_on_off": true,
+			"edges": [
+				"#switch_avn2_svg"
+			],
+			"passthrough": true
+		},
+		{
+			"id": "#breaker_audio_svg",
+			"has_on_off": true,
+			"edges": [
+				"#switch_avn2_svg"
+			],
+			"passthrough": true
+		},
+		{
+			"id": "#breaker_pitot_heat_svg",
+			"has_on_off": true,
+			"edges": [
+				"#breaker_feeder_a_svg",
+				"#switch_pitot_heat_svg"
+			],
+			"passthrough": true
+		},
+		{
+			"id": "#switch_pitot_heat_svg",
+			"has_on_off": true,
+			"edges": [
+				"#breaker_pitot_heat_svg"
+			],
+			"passthrough": false
+		},
+		{
+			"id": "#breaker_nav_light_svg",
+			"has_on_off": true,
+			"edges": [
+				"#breaker_feeder_a_svg",
+				"#switch_nav_light_svg"
+			],
+			"passthrough": true
+		},
+		{
+			"id": "#switch_nav_light_svg",
+			"has_on_off": true,
+			"edges": [
+				"#breaker_nav_light_svg"
+			],
+			"passthrough": false
+		},
+		{
+			"id": "#breaker_taxi_light_svg",
+			"has_on_off": true,
+			"edges": [
+				"#breaker_feeder_a_svg",
+				"#switch_taxi_light_svg"
+			],
+			"passthrough": true
+		},
+		{
+			"id": "#switch_taxi_light_svg",
+			"has_on_off": true,
+			"edges": [
+				"#breaker_taxi_light_svg"
+			],
+			"passthrough": false
+		},
+		{
+			"id": "#breaker_strobe_light_svg",
+			"has_on_off": true,
+			"edges": [
+				"#breaker_feeder_a_svg",
+				"#switch_strobe_light_svg"
+			],
+			"passthrough": true
+		},
+		{
+			"id": "#switch_strobe_light_svg",
+			"has_on_off": true,
+			"edges": [
+				"#breaker_strobe_light_svg"
+			],
+			"passthrough": false
+		},
+		{
+			"id": "#breaker_auto_pilot_svg",
+			"has_on_off": true,
+			"edges": [
+				"#switch_avn2_svg"
+			],
+			"passthrough": true
+		},
+		{
+			"id": "#breaker_panel_lights_svg",
+			"has_on_off": true,
+			"edges": [
+				"#breaker_feeder_a_svg",
+				"#switch_panel_lights_svg"
+			],
+			"passthrough": true
+		},
+		{
+			"id": "#switch_panel_lights_svg",
+			"has_on_off": true,
+			"edges": [
+				"#breaker_panel_lights_svg"
+			],
+			"passthrough": false
+		},
+		{
+			"id": "#breaker_feeder_b_svg",
+			"has_on_off": true,
+			"edges": [
+				"#battery_relay",
+				"#breaker_fuel_pump_svg",
+				"#breaker_beacon_light_svg",
+				"#breaker_land_light_svg",
+				"#breaker_cabin_lights_svg",
+				"#breaker_flaps_svg",
+				"#breaker_avn1_svg",
+				"#ess_bus"
+			],
+			"passthrough": true
+		},
+		{
+			"id": "#breaker_fuel_pump_svg",
+			"has_on_off": true,
+			"edges": [
+				"#breaker_feeder_b_svg",
+				"#switch_fuel_pump_svg"
+			],
+			"passthrough": true
+		},	
+		{
+			"id": "#switch_fuel_pump_svg",
+			"has_on_off": true,
+			"edges": [
+				"#breaker_fuel_pump_svg"
+			],
+			"passthrough": false
+		},
+				{
+			"id": "#breaker_beacon_light_svg",
+			"has_on_off": true,
+			"edges": [
+				"#breaker_feeder_b_svg",
+				"#switch_beacon_light_svg"
+			],
+			"passthrough": true
+		},	
+		{
+			"id": "#switch_beacon_light_svg",
+			"has_on_off": true,
+			"edges": [
+				"#breaker_beacon_light_svg"
+			],
+			"passthrough": false
+		},
+				{
+			"id": "#breaker_land_light_svg",
+			"has_on_off": true,
+			"edges": [
+				"#breaker_feeder_b_svg",
+				"#switch_land_light_svg"
+			],
+			"passthrough": true
+		},	
+		{
+			"id": "#switch_land_light_svg",
+			"has_on_off": true,
+			"edges": [
+				"#breaker_land_light_svg"
+			],
+			"passthrough": false
+		},
+		{
+			"id": "#breaker_cabin_lights_svg",
+			"has_on_off": true,
+			"edges": [
+				"#breaker_feeder_b_svg",
+				"#switch_cabin_lights_svg"
+			],
+			"passthrough": true
+		},	
+		{
+			"id": "#switch_cabin_lights_svg",
+			"has_on_off": true,
+			"edges": [
+				"#breaker_cabin_lights_svg"
+			],
+			"passthrough": false
+		},
+		{
+			"id": "#breaker_flaps_svg",
+			"has_on_off": true,
+			"edges": [
+				"#breaker_feeder_b_svg"
+			],
+			"passthrough": true
+		},
+		{
+			"id": "#breaker_avn1_svg",
+			"has_on_off": true,
+			"edges": [
+				"#breaker_feeder_b_svg",
+				"#switch_avn1_svg"
+			],
+			"passthrough": true
+		},
+		{
+			"id": "#switch_avn1_svg",
+			"has_on_off": true,
+			"edges": [
+				"#breaker_avn1_svg",
+				"#breaker_avn1_pfd_svg",
+				"#breaker_avn1_adc_ahrs_svg",
+				"#breaker_avn1_nav1_eng",
+				"#breaker_avn1_fis_svg"
+			],
+			"passthrough": false
+		},
+		{
+			"id": "#breaker_avn1_pfd_svg",
+			"has_on_off": true,
+			"edges": [
+				"#switch_avn1_svg"
+			],
+			"passthrough": true
+		},
+		{
+			"id": "#breaker_avn1_adc_ahrs_svg",
+			"has_on_off": true,
+			"edges": [
+				"#switch_avn1_svg"
+			],
+			"passthrough": true
+		},
+		{
+			"id": "#breaker_avn1_nav1_eng",
+			"has_on_off": true,
+			"edges": [
+				"#switch_avn1_svg"
+			],
+			"passthrough": true
+		},
+		{
+			"id": "#breaker_avn1_fis_svg",
+			"has_on_off": true,
+			"edges": [
+				"#switch_avn1_svg"
+			],
+			"passthrough": true
+		},
+		{
+			"id": "#x-feed_bus",
+			"has_on_off": false,
+			"edges": [
+				"#breaker_warn_svg"
+			],
+			"passthrough": true
+		},
+		{
+			"id": "#breaker_alt_field_svg",
+			"has_on_off": true,
+			"edges": [
+				"#switch_alt_master",
+				"#x-feed_bus"
+			],
+			"passthrough": true
+		},	
+		{
+			"id": "#breaker_warn_svg",
+			"has_on_off": true,
+			"edges": [
+				"#x-feed_bus"
+			],
+			"passthrough": true
+		},
+		{
+			"id": "#ess_bus",
+			"has_on_off": false,
+			"edges": [
+				"#breaker_ess_pfd_svg",
+				"#breaker_ess_adc_ahrs_svg",
+				"#breaker_ess_nav1_eng_svg",
+				"#breaker_ess_comm1_svg",
+				"#breaker_ess_stdby_ind_lts_svg",
+				"#breaker_ess_stdby_battery_svg"
+			],
+			"passthrough": true
+		},
+		{
+			"id": "#breaker_ess_pfd_svg",
+			"has_on_off": true,
+			"edges": [
+				"#ess_bus"
+			],
+			"passthrough": true
+		},
+		{
+			"id": "#breaker_ess_adc_ahrs_svg",
+			"has_on_off": true,
+			"edges": [
+				"#ess_bus"
+			],
+			"passthrough": true
+		},
+		{
+			"id": "#breaker_ess_nav1_eng_svg",
+			"has_on_off": true,
+			"edges": [
+				"#ess_bus"
+			],
+			"passthrough": true
+		},
+		{
+			"id": "#breaker_ess_comm1_svg",
+			"has_on_off": true,
+			"edges": [
+				"#ess_bus"
+			],
+			"passthrough": true
+		},
+		{
+			"id": "#breaker_ess_stdby_ind_lts_svg",
+			"has_on_off": true,
+			"edges": [
+				"#ess_bus"
+			],
+			"passthrough": true
+		},
+		{
+			"id": "#breaker_ess_stdby_battery_svg",
+			"has_on_off": true,
+			"edges": [
+				"#ess_bus"
+			],
+			"passthrough": true
+		},
+		{
+			"id": "#switch_stb_arm",
+			"has_on_off": true,
+			"edges": [
+				"#breaker_ess_stdby_battery_svg",
+				"#standby_battery_paths"
+			],
+			"shared": [
+				"#switch_stb_test"
+			],
+			"passthrough": false
+		},
+		{
+			"id": "#switch_stb_test",
+			"has_on_off": true,
+			"edges": [
+				"#standby_battery_paths",
+				"#standby_battery_test_paths",
+				"#test_led"
+			],
+			"shared": [
+				"#switch_stb_arm"
+			],
+			"passthrough": false
+		},
+		{
+			"id": "#standby_battery_paths",
+			"has_on_off": false,
+			"edges": [
+				"#switch_stb_arm",
+				"#switch_stb_test"
+			],
+			"passthrough": true
+		},
+		{
+			"id": "#switch_stb_active",
+			"has_on_off": true,
+			"edges": [
+				"#standby_battery_paths"
+			],
+			"passthrough": true
+		},
+		{
+			"id": "#standby_battery_test_paths",
+			"has_on_off": false,
+			"edges": [
+				"#switch_stb_test"
+			],
+			"passthrough": true
+		},
+		{
+			"id": "#test_voltage_sense",
+			"has_on_off": false,
+			"edges": [
+				"#standby_battery_test_paths"
+			],
+			"passthrough": true
+		},
+		{
+			"id": "#test_led",
+			"has_on_off": false,
+			"edges": [
+				"#switch_stb_test"
+			],
+			"passthrough": true
+		}
+	]
+}
+
 			{
 				"name": "ground",
 				"parent_id": "#ground",
 				"states": [
-					{
-						"class_id": "active",
-						"edges": [
-							"external_power_relay"
-						]
-					}
+					"class_id": "active",
+					"edges": [
+						"external_power_relay"
+					]
 				]
 			},
-			{
-				"name": "battery_relay",
-				"parent_id": "#battery_relay",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#battery_relay_on",
-						"edges": [
-							"battery",
-							"switch_battery_master",
-							"alt_relay",
-							"breaker_feeder_a_svg",
-							"breaker_feeder_b_svg",
-							"low_volt_indicator"
-						]
-					},
-					{
-						"class_id": "inactive",
-						"id": "#battery_relay_off",
-						"is_default": true
-					}
-				]
-			},
-			{
-				"name": "alt_relay",
-				"parent_id": "#alt_relay",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#alt_relay_on",
-						"edges": [
-							"battery_relay",
-							"switch_alt_master"
-						]
-					},
-					{
-						"class_id": "inactive",
-						"id": "#alt_relay_off",
-						"is_default": true
-					}
-				]
-			},
-			{
-				"name": "switch_battery_master",
-				"parent_id": "#switch_battery_master",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#switch_battery_master_on",
-						"edges": [
-							"battery_relay"
-						]
-					}, 
-					{
-						"class_id": "inactive",
-						"id": "#switch_battery_master_off",
-						"is_default": true
-					}
-				]
-			},
-			{
-				"name": "switch_alt_master",
-				"parent_id": "#switch_alt_master",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#switch_alt_master_on",
-						"edges": [
-							"alt_relay",
-							"breaker_alt_field_svg"
-						]
-					},
-					{
-						"class_id": "inactive",
-						"id": "#switch_alt_master_off",
-						"is_default": true
-					}
-				]
-			},
-			{
-				"name": "breaker_feeder_a_svg",
-				"parent_id": "#breaker_feeder_a_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#breaker_feeder_a_svg_on",
-						"edges": [
-							"battery_relay",
-							"breaker_avn2_svg",
-							"breaker_pitot_heat_svg",
-							"breaker_nav_light_svg",
-							"breaker_taxi_light_svg",
-							"breaker_strobe_light_svg",
-							"breaker_panel_lights_svg",
-							"x-feed_bus",
-							"ess_bus"
-						],
-						"is_default": true
-					},
-					{
-						"class_id": "inactive",
-						"id": "#breaker_feeder_a_svg_off"
-					}
-				]
-			},
-			{
-				"name": "breaker_avn2_svg",
-				"parent_id": "#breaker_avn2_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#breaker_avn2_svg_on",
-						"edges": [
-							"breaker_feeder_a_svg",
-							"switch_avn2_svg"
-						],
-						"is_default": true
-					},
-					{
-						"class_id": "inactive",
-						"id": "#breaker_avn2_svg_off"
-					}
-				]
-			},
-			{
-				"name": "switch_avn2_svg",
-				"parent_id": "#switch_avn2_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#switch_avn2_svg_on",
-						"edges": [
-							"breaker_avn2_svg",
-							"breaker_mfd_svg",
-							"breaker_xpndr_svg",
-							"breaker_nav2_svg",
-							"breaker_comm2_svg",
-							"breaker_audio_svg",
-							"breaker_auto_pilot_svg"
-						]
-					},
-					{
-						"class_id": "inactive",
-						"id": "#switch_avn2_svg_off",
-						"is_default": true
-					}
-				]
-			},
-			{
-				"name": "breaker_mfd_svg",
-				"parent_id": "#breaker_mfd_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#breaker_mfd_svg_on",
-						"edges": [
-							"switch_avn2_svg"
-						],
-						"is_default": true
-					}, 
-					{
-						"class_id": "inactive",
-						"id": "#breaker_mfd_svg_off"
-					}
-				]
-			},
-			{
-				"name": "breaker_xpndr_svg",
-				"parent_id": "#breaker_xpndr_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#breaker_xpndr_svg_on",
-						"edges": [
-							"switch_avn2_svg"
-						],
-						"is_default": true
-					},
-					{
-						"class_id": "inactive",
-						"id": "#breaker_xpndr_svg_off"
-					}
-				]
-			},
-			{
-				"name": "breaker_nav2_svg",
-				"parent_id": "#breaker_nav2_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#breaker_nav2_svg_on",
-						"edges": [
-							"switch_avn2_svg"
-						],
-						"is_default": true
-					},
-					{
-						"class_id": "inactive",
-						"id": "#breaker_nav2_svg_off"
-					}
-				]
-			},
-			{
-				"name": "breaker_comm2_svg",
-				"parent_id": "#breaker_comm2_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#breaker_comm2_svg_on",
-						"edges": [
-							"switch_avn2_svg"
-						],
-						"is_default": true
-					},
-					{
-						"class_id": "inactive",
-						"id": "#breaker_comm2_svg_off"
-					}
-				]
-			},
-			{
-				"name": "breaker_audio_svg",
-				"parent_id": "#breaker_audio_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#breaker_audio_svg_on",
-						"edges": [
-							"switch_avn2_svg"
-						],
-						"is_default": true
-					},
-					{
-						"class_id": "inactive",
-						"id": "#breaker_audio_svg_off"
-					}
-				]
-			},
-			{
-				"name": "breaker_pitot_heat_svg",
-				"parent_id": "#breaker_pitot_heat_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#breaker_pitot_heat_svg_on",
-						"edges": [
-							"breaker_feeder_a_svg",
-							"switch_pitot_heat_svg"
-						],
-						"is_default": true
-					},
-					{
-						"class_id": "inactive",
-						"id": "#breaker_pitot_heat_svg_off"
-					}
-				]
-			},
-			{
-				"name": "switch_pitot_heat_svg",
-				"parent_id": "#switch_pitot_heat_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#switch_pitot_heat_svg_on",
-						"edges": [
-							"breaker_pitot_heat_svg"
-						]
-					},
-					{
-						"class_id": "inactive",
-						"id": "#switch_pitot_heat_svg_off",
-						"is_default": true
-					}
-				]
-			},
-			{
-				"name": "breaker_nav_light_svg",
-				"parent_id": "#breaker_nav_light_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#breaker_nav_light_svg_on",
-						"edges": [
-							"breaker_feeder_a_svg",
-							"switch_nav_light_svg"
-						],
-						"is_default": true
-					},
-					{
-						"class_id": "inactive",
-						"id": "#breaker_nav_light_svg_off"
-					}
-				]
-			},
-			{
-				"name": "switch_nav_light_svg",
-				"parent_id": "#switch_nav_light_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#switch_nav_light_svg_on",
-						"edges": [
-							"breaker_nav_light_svg"
-						]
-					},
-					{
-						"class_id": "inactive",
-						"id": "#switch_nav_light_svg_off",
-						"is_default": true
-					}
-				]
-			},
-			{
-				"name": "breaker_taxi_light_svg",
-				"parent_id": "#breaker_taxi_light_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#breaker_taxi_light_svg_on",
-						"edges": [
-							"breaker_feeder_a_svg",
-							"switch_taxi_light_svg"
-						],
-						"is_default": true
-					},
-					{
-						"class_id": "inactive",
-						"id": "#breaker_taxi_light_svg_off"
-					}
-				]
-			},
-			{
-				"name": "switch_taxi_light_svg",
-				"parent_id": "#switch_taxi_light_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#switch_taxi_light_svg_on",
-						"edges": [
-							"breaker_taxi_light_svg"
-						]
-					},
-					{
-						"class_id": "inactive",
-						"id": "#switch_taxi_light_svg_off",
-						"is_default": true
-					}
-				]
-			},
-			{
-				"name": "breaker_strobe_light_svg",
-				"parent_id": "#breaker_strobe_light_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#breaker_strobe_light_svg_on",
-						"edges": [
-							"breaker_feeder_a_svg",
-							"switch_strobe_light_svg"
-						],
-						"is_default": true
-					},
-					{
-						"class_id": "inactive",
-						"id": "#breaker_strobe_light_svg_off"
-					}
-				]
-			},
-			{
-				"name": "switch_strobe_light_svg",
-				"parent_id": "#switch_strobe_light_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#switch_strobe_light_svg_on",
-						"edges": [
-							"breaker_strobe_light_svg"
-						]
-					},
-					{
-						"class_id": "inactive",
-						"id": "#switch_strobe_light_svg_off",
-						"is_default": true
-					}
-				]
-			},
-			{
-				"name": "breaker_auto_pilot_svg",
-				"parent_id": "#breaker_auto_pilot_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#breaker_auto_pilot_svg_on",
-						"edges": [
-							"switch_avn2_svg"
-						],
-						"is_default": true
-					},
-					{
-						"class_id": "inactive",
-						"id": "#breaker_auto_pilot_svg_off"
-					}
-				]
-			},
-			{
-				"name": "breaker_panel_lights_svg",
-				"parent_id": "#breaker_panel_lights_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#breaker_panel_lights_svg_on",
-						"edges": [
-							"breaker_feeder_a_svg",
-							"switch_panel_lights_svg"
-						],
-						"is_default": true
-					},
-					{
-						"class_id": "inactive",
-						"id": "#breaker_panel_lights_svg_off"
-					}
-				]
-			},
-			{
-				"name": "switch_panel_lights_svg",
-				"parent_id": "#switch_panel_lights_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#switch_panel_lights_svg_on",
-						"edges": [
-							"breaker_panel_lights_svg"
-						]
-					},
-					{
-						"class_id": "inactive",
-						"id": "#switch_panel_lights_svg_off",
-						"is_default": true
-					}
-				]
-			},
-			{
-				"name": "breaker_feeder_b_svg",
-				"parent_id": "#breaker_feeder_b_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#breaker_feeder_b_svg_on",
-						"edges": [
-							"battery_relay",
-							"breaker_fuel_pump_svg",
-							"breaker_beacon_light_svg",
-							"breaker_land_light_svg",
-							"breaker_cabin_lights_svg",
-							"breaker_flaps_svg",
-							"breaker_avn1_svg",
-							"ess_bus"
-						],
-						"is_default": true
-					},
-					{
-						"class_id": "inactive",
-						"id": "#breaker_feeder_b_svg_off"
-					}
-				]
-			},
-			{
-				"name": "breaker_fuel_pump_svg",
-				"parent_id": "#breaker_fuel_pump_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#breaker_fuel_pump_svg_on",
-						"edges": [
-							"breaker_feeder_b_svg",
-							"switch_fuel_pump_svg"
-						],
-						"is_default": true
-					},
-					{
-						"class_id": "inactive",
-						"id": "#breaker_fuel_pump_svg_off"
-					}
-				]
-			},
-			{
-				"name": "switch_fuel_pump_svg",
-				"parent_id": "#switch_fuel_pump_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#switch_fuel_pump_svg_on",
-						"edges": [
-							"breaker_fuel_pump_svg"
-						]
-					},
-					{
-						"class_id": "inactive",
-						"id": "#switch_fuel_pump_svg_off",
-						"is_default": true
-					}
-				]
-			},
-			{
-				"name": "breaker_beacon_light_svg",
-				"parent_id": "#breaker_beacon_light_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#breaker_beacon_light_svg_on",
-						"edges": [
-							"breaker_feeder_b_svg",
-							"switch_beacon_light_svg"
-						],
-						"is_default": true
-					},
-					{
-						"class_id": "inactive",
-						"id": "#breaker_beacon_light_svg_off"
-					}
-				]
-			},
-			{
-				"name": "switch_beacon_light_svg",
-				"parent_id": "#switch_beacon_light_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#switch_beacon_light_svg_on",
-						"edges": [
-							"breaker_beacon_light_svg"
-						]
-					},
-					{
-						"class_id": "inactive",
-						"id": "#switch_beacon_light_svg_off",
-						"is_default": true
-					}
-				]
-			},
-			{
-				"name": "breaker_land_light_svg",
-				"parent_id": "#breaker_land_light_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#breaker_land_light_svg_on",
-						"edges": [
-							"breaker_feeder_b_svg",
-							"switch_land_light_svg"
-						],
-						"is_default": true
-					},
-					{
-						"class_id": "inactive",
-						"id": "#breaker_land_light_svg_off"
-					}
-				]
-			},
-			{
-				"name": "switch_land_light_svg",
-				"parent_id": "#switch_land_light_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#switch_land_light_svg_on",
-						"edges": [
-							"breaker_land_light_svg"
-						]
-					},
-					{
-						"class_id": "inactive",
-						"id": "#switch_land_light_svg_off",
-						"is_default": true
-					}
-				]
-			},
-			{
-				"name": "breaker_cabin_lights_svg",
-				"parent_id": "#breaker_cabin_lights_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#breaker_cabin_lights_svg_on",
-						"edges": [
-							"breaker_feeder_b_svg",
-							"switch_cabin_lights_svg"
-						],
-						"is_default": true
-					},
-					{
-						"class_id": "inactive",
-						"id": "#breaker_cabin_lights_svg_off"
-					}
-				]
-			},
-			{
-				"name": "switch_cabin_lights_svg",
-				"parent_id": "#switch_cabin_lights_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#switch_cabin_lights_svg_on",
-						"edges": [
-							"breaker_cabin_lights_svg"
-						]
-					},
-					{
-						"class_id": "inactive",
-						"id": "#switch_cabin_lights_svg_off",
-						"is_default": true
-					}
-				]
-			},
-			{
-				"name": "breaker_flaps_svg",
-				"parent_id": "#breaker_flaps_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#breaker_flaps_svg_on",
-						"edges": [
-							"breaker_feeder_b_svg"
-						],
-						"is_default": true
-					},
-					{
-						"class_id": "inactive",
-						"id": "#breaker_flaps_svg_off"
-					}
-				]
-			},
-			{
-				"name": "breaker_avn1_svg",
-				"parent_id": "#breaker_avn1_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#breaker_avn1_svg_on",
-						"edges": [
-							"breaker_feeder_b_svg",
-							"switch_avn1_svg"
-						],
-						"is_default": true
-					},
-					{
-						"class_id": "inactive",
-						"id": "#breaker_avn1_svg_off"
-					}
-				]
-			},
-			{
-				"name": "switch_avn1_svg",
-				"parent_id": "#switch_avn1_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#switch_avn1_svg_on",
-						"edges": [
-							"breaker_avn1_svg",
-							"breaker_avn1_pfd_svg",
-							"breaker_avn1_adc_ahrs_svg",
-							"breaker_avn1_nav1_eng_svg",
-							"breaker_avn1_fis_svg"
-						]
-					},
-					{
-						"class_id": "inactive",
-						"id": "#switch_avn1_svg_off",
-						"is_default": true
-					}
-				]
-			},
-			{
-				"name": "breaker_avn1_pfd_svg",
-				"parent_id": "#breaker_avn1_pfd_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#breaker_avn1_pfd_svg_on",
-						"edges": [
-							"switch_avn1_svg"
-						],
-						"is_default": true
-					},
-					{
-						"class_id": "inactive",
-						"id": "#breaker_avn1_pfd_svg_off"
-					}
-				]
-			},
-			{
-				"name": "breaker_avn1_adc_ahrs_svg",
-				"parent_id": "#breaker_avn1_adc_ahrs_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#breaker_avn1_adc_ahrs_svg_on",
-						"edges": [
-							"switch_avn1_svg"
-						],
-						"is_default": true
-					},
-					{
-						"class_id": "inactive",
-						"id": "#breaker_avn1_adc_ahrs_svg_off"
-					}
-				]
-			},
-			{
-				"name": "breaker_avn1_nav1_eng_svg",
-				"parent_id": "#breaker_avn1_nav1_eng_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#breaker_avn1_nav1_eng_svg_on",
-						"edges": [
-							"switch_avn1_svg"
-						],
-						"is_default": true
-					},
-					{
-						"class_id": "inactive",
-						"id": "#breaker_avn1_nav1_eng_svg_off"
-					}
-				]
-			},
-			{
-				"name": "breaker_avn1_fis_svg",
-				"parent_id": "#breaker_avn1_fis_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#breaker_avn1_fis_svg_on",
-						"edges": [
-							"switch_avn1_svg"
-						],
-						"is_default": true
-					},
-					{
-						"class_id": "inactive",
-						"id": "#breaker_avn1_fis_svg_off"
-					}
-				]
-			},
-			{
-				"name": "x-feed_bus",
-				"parent_id": "#x-feed_bus",
-				"states": [
-					{
-						"class_id": "active",
-						"edges": [
-							"breaker_warn_svg"
-						]
-					}
-				]
-			},
-			{
-				"name": "breaker_alt_field_svg",
-				"parent_id": "#breaker_alt_field_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#breaker_alt_field_svg_on",
-						"edges": [
-							"switch_alt_master",
-							"x-feed_bus"
-						],
-						"is_default": true
-					},
-					{
-						"class_id": "inactive",
-						"id": "#breaker_alt_field_svg_off"
-					}
-				]
-			},
-			{
-				"name": "breaker_warn_svg",
-				"parent_id": "#breaker_warn_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#breaker_warn_svg_on",
-						"edges": [
-							"x-feed_bus"
-						],
-						"is_default": true
-					},
-					{
-						"class_id": "inactive",
-						"id": "#breaker_warn_svg_off"
-					}
-				]
-			},
-			{
-				"name": "ess_bus",
-				"parent_id": "#ess_bus",
-				"states": [
-					{
-						"class_id": "active",
-						"edges": [
-							"breaker_ess_pfd_svg",
-							"breaker_ess_adc_ahrs_svg",
-							"breaker_ess_nav1_eng_svg",
-							"breaker_ess_comm1_svg",
-							"breaker_ess_stdby_ind_lts_svg",
-							"breaker_ess_stdby_battery_svg"
-						]
-					}
-				]
-			},
-			{
-				"name": "breaker_ess_pfd_svg",
-				"parent_id": "#breaker_ess_pfd_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#breaker_ess_pfd_svg_on",
-						"edges": [
-							"ess_bus"
-						],
-						"is_default": true
-					},
-					{
-						"class_id": "inactive",
-						"id": "#breaker_ess_pfd_svg_off"
-					}
-				]
-			},
-			{
-				"name": "breaker_ess_adc_ahrs_svg",
-				"parent_id": "#breaker_ess_adc_ahrs_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#breaker_ess_adc_ahrs_svg_on",
-						"edges": [
-							"ess_bus"
-						],
-						"is_default": true
-					},
-					{
-						"class_id": "inactive",
-						"id": "#breaker_ess_adc_ahrs_svg_off"
-					}
-				]
-			},
-			{
-				"name": "breaker_ess_nav1_eng_svg",
-				"parent_id": "#breaker_ess_nav1_eng_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#breaker_ess_nav1_eng_svg_on",
-						"edges": [
-							"ess_bus"
-						],
-						"is_default": true
-					},
-					{
-						"class_id": "inactive",
-						"id": "#breaker_ess_nav1_eng_svg_off"
-					}
-				]
-			},
-			{
-				"name": "breaker_ess_comm1_svg",
-				"parent_id": "#breaker_ess_comm1_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#breaker_ess_comm1_svg_on",
-						"edges": [
-							"ess_bus"
-						],
-						"is_default": true
-					},
-					{
-						"class_id": "inactive",
-						"id": "#breaker_ess_comm1_svg_off"
-					}
-				]
-			},
-			{
-				"name": "breaker_ess_stdby_ind_lts_svg",
-				"parent_id": "#breaker_ess_stdby_ind_lts_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#breaker_ess_stdby_ind_lts_svg_on",
-						"edges": [
-							"ess_bus"
-						],
-						"is_default": true
-					},
-					{
-						"class_id": "inactive",
-						"id": "#breaker_ess_stdby_ind_lts_svg_off"
-					}
-				]
-			},
-			{
-				"name": "breaker_ess_stdby_battery_svg",
-				"parent_id": "#breaker_ess_stdby_battery_svg",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#breaker_ess_stdby_battery_svg_on",
-						"edges": [
-							"ess_bus"
-						],
-						"is_default": true
-					},
-					{
-						"class_id": "inactive",
-						"id": "#breaker_ess_stdby_battery_svg_off"
-					}
-				]
-			},
-			{
-				"name": "switch_stb",
-				"parent_id": "#switch_stb",
-				"states": [
-					{
-						"name": "arm",
-						"id": "#switch_stb_arm_on",
-						"edges": [
-							"breaker_ess_stdby_battery_svg",
-							"standby_battery_paths"
-						],
-						"passthrough": true
-					},
-					{
-						"name": "test",
-						"id": "#switch_stb_test_on",
-						"edges": [
-							"standby_battery_paths",
-							"standby_battery_test_paths",
-							"test_led"
-						],
-						"passthrough": true
-					},
-					{
-						"name": "inactive",
-						"id": "#switch_stb_off",
-						"edges": [],
-						"passthrough": false,
-						"is_default": true
-					}
-				]
-			},
-			{
-				"name": "switch_stb_active",
-				"parent_id": "#switch_stb_active",
-				"states": [
-					{
-						"class_id": "active",
-						"id": "#switch_stb_active_on",
-						"edges": [
-							"standby_battery_paths"
-						]
-					},
-					{
-						"class_id": "inactive",
-						"id": "#switch_stb_active_off",
-						"is_default": true
-					}
-				]
-			},
-			{
-				"name": "standby_battery_paths",
-				"parent_id": "#standby_battery_paths",
-				"states": [
-					{
-						"class_id": "active",
-						"edges": [
-							"switch_stb"
-						]
-					}
-				]
-			},
-			{
-				"name": "standby_battery_test_paths",
-				"parent_id": "#standby_battery_test_paths",
-				"states": [
-					{
-						"class_id": "active",
-						"edges": [
-							"switch_stb"
-						]
-					}
-				]
-			},
-			{
-				"name": "test_voltage_sense",
-				"parent_id": "#test_voltage_sense",
-				"states": [
-					{
-						"class_id": "active",
-						"edges": [
-							"standby_battery_test_paths"
-						]
-					}
-				]
-			},
-			{
-				"name": "test_led",
-				"parent_id": "#test_led",
-				"states": [
-					{
-						"class_id": "active",
-						"edges": [
-							"switch_stb"
-						]
-					}
-				]
-				
-			}
-		]
-	}
-}
