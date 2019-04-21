@@ -665,20 +665,38 @@
      width="34.11935"
      y="537.44287"
      x="863.41473" />
-  <g
-     id="switch_stb_active_off"
-     style="stroke-opacity:1">
-    <path
-       style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-       d="M 973.38784,354.74464 V 323.96921"
-       id="path5694"
-       inkscape:connector-curvature="0" />
-    <path
-       style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-       d="m 954.83034,339.75148 h 18.5575"
-       id="path873"
-       inkscape:connector-curvature="0" />
-  </g>
+	<g id="switch_stb_active" class="on_battery">
+		<g
+		 id="switch_stb_active_off"
+		 style="stroke-opacity:1">
+			<path
+			   style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+			   d="M 973.38784,354.74464 V 323.96921"
+			   id="path5694"
+			   inkscape:connector-curvature="0" />
+			<path
+			   style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+			   d="m 954.83034,339.75148 h 18.5575"
+			   id="path873"
+			   inkscape:connector-curvature="0" />
+		</g>
+		<g
+		 transform="translate(-4.4526057,-0.40575577)"
+		 id="switch_stb_active_on"
+		 style="stroke-opacity:1"
+		 class="hidden">
+			<path
+			   style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+			   d="M 973.38784,354.74464 V 323.96921"
+			   id="path5694-6"
+			   inkscape:connector-curvature="0" />
+			<path
+			   style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+			   d="m 954.83034,339.75148 h 18.5575"
+			   id="path873-0"
+			   inkscape:connector-curvature="0" />
+		</g>
+	</g>
   <path
      style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
      d="M 856.60656,435.4203 V 415.88973"
@@ -6296,9 +6314,12 @@ Switch<br />
          style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
          inkscape:connector-curvature="0" />
     </g>
+	<g 
+		id="switch_stb"
+	>
     <g
        transform="translate(-0.78778772,-0.928269)"
-       id="switch_stb_arm_off switch_stb_test_off"
+       id="switch_stb_off"
        style="stroke-opacity:1">
       <path
          inkscape:connector-curvature="0"
@@ -6366,6 +6387,7 @@ Switch<br />
          stroke-miterlimit="10"
          d="M 858.12501,376.29219 V 321.11015" />
     </g>
+  </g>
   </g>
   <g
      id="arm_off_test_arrows"
@@ -6564,22 +6586,6 @@ Switch<br />
        x="155.36031"
        style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
        ry="0.76224494" />
-  </g>
-  <g
-     transform="translate(-4.4526057,-0.40575577)"
-     id="switch_stb_active_on"
-     style="stroke-opacity:1"
-     class="hidden">
-    <path
-       style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-       d="M 973.38784,354.74464 V 323.96921"
-       id="path5694-6"
-       inkscape:connector-curvature="0" />
-    <path
-       style="fill:none;stroke-width:0.87409741;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-       d="m 954.83034,339.75148 h 18.5575"
-       id="path873-0"
-       inkscape:connector-curvature="0" />
   </g>
   <g
      id="targets"

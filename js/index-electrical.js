@@ -1,393 +1,557 @@
-let Schematic = function(graphData){
-	this.vertices = [];
-	this.aliasTable = { count: 0 };
-	this.sources = [];	
-	this.evt = {};
-	
-	if(graphData) {
-		this.generateFromData(graphData);
-	}
-}
-
-Schematic.prototype.generateFromData = function(graphData) {
-	if(graphData == null) {
-		throw new Error("Attempt to generate graph from invalid data source");
-	}
-	for(let i = 0; i < graphData.length; ++i) {
-		let vtx = graphData[i];
-		let node = null;
-		if(!vtx.is_source){ // is vertex
-			node = this.addVertex(vtx.id, vtx.passthrough, vtx.requires, vtx.shared);
-		} else { // is source
-			node = this.addSourceVertex(vtx.id, vtx.passthrough, vtx.class_name, vtx.requires, vtx.shared);
-		}
-		node.hasOnOff = (vtx.has_on_off == null || vtx.has_on_off == false) ? false : true;
-	}
-	
-	for(let i = 0; i < graphData.length; ++i) {
-		let vtx = graphData[i];
-		for(let j = 0; j < vtx.edges.length; ++j) {
-			this.addEdge(vtx.id, vtx.edges[j]);
-		}
-	}	
-	this.emitEvent("dataLoaded");
-}
-
-Schematic.prototype.addVertex = function(id, passthrough, requires, shared) {
-	let idx = this.registerAlias(id);
-	if(idx != null && this.vertices[idx] == null) {
-		this.vertices[idx] = new Vertex(id, passthrough, requires, shared);
-	} else {
-		console.log("Attempted to register vertex that already exists: " + id);
-	}
-	return this.vertices[idx];
-}
-
-Schematic.prototype.addSourceVertex = function(id, passthrough, cls, requires, shared) {
-	let idx = this.registerAlias(id);
-	if(idx != null && this.vertices[idx] == null) {
-		this.vertices[idx] = new SourceVertex(id, passthrough, cls, requires, shared);
-		this.sources.push(idx);		
-		for(let i = 0; i < this.vertices.length; ++i) {
-			this.vertices[i].state.length = this.sources.length;
-		}
-	} else {
-		console.log("Attempted to register source vertex that already exists: " + id);
-	}
-	return this.vertices[idx];
-}
-
-Schematic.prototype.addEdge = function(frm, to){
-	let idxFrom = this.lookupAlias(frm);
-	let idxTo = this.lookupAlias(to);
-	if(idxFrom != null && idxTo != null) {
-		this.vertices[idxFrom].edges.push(idxTo);
-	} else {
-		console.log("Attempted to register edge to vertex that doesnt exist: ( " + frm + ", " + to + " )");
-	}
-}
-
-Schematic.prototype.registerAlias = function(id) {
-	if(this.aliasTable[id] == null) {
-		this.aliasTable[id] = this.aliasTable.count++;
-		this.aliasTable[this.aliasTable[id]] = id;
-		return this.aliasTable[id];
-	}
-	return null;
-}
-
-Schematic.prototype.lookupAlias = function(id) {
-	if(id == null) return null;
-	return this.aliasTable[id] == null ? null : this.aliasTable[id];
-}
-
-//Set passthrough of vertex to bool(val) if val is defined, otherwise, set passthrough to !passthrough
-Schematic.prototype.setPassthrough = function(id, val) {
-	let idx = this.lookupAlias(id);
-	if(idx == null) {
-		throw new Error("Attempted to set passthrough to invalid element with id: " + id);
-	}
-	if(this.sharedConflict(id) && val == true){
-		throw new Error("Attempt to set true passthrough to item in a shared conflict, set shared element to no passthrough first.");
-	}
-	
-	if(val === undefined || val === null) {
-		this.vertices[idx].passthrough = !this.vertices[idx].passthrough;
-	} else {
-		this.vertices[idx].passthrough = val;
-	}
-}
-
-Schematic.prototype.getPassthrough = function(id) {
-	let idx = this.lookupAlias(id);
-	if(idx == null){
-		throw new Error("Attempted to get passthrough on invalid element with id: " + id);
-	}
-	
-	return this.vertices[idx].passthrough;
-}
-
-//items with requires tag can only allow passthrough if their requirements allow passthrough
-Schematic.prototype.requirementsSatisfied = function(id) {
-	let idx = this.lookupAlias(id);
-	if(idx == null){
-		throw new Error("Attempted to check requirements on invalid element with id: " + id);
-	}
-	
-	let vtx = this.vertices[idx];
-	if(vtx.requires == null)
-		return true;
-	
-	for(let i = 0; i < vtx.requires.length; ++i) {
-		if(this.getPassthrough(vtx.requires[i]) == false) {
-			return false;
-		}
-	}
-	return true;
-}
-
-//Items with shared tag cannot exist at the same time, this changes switch draw logic
-Schematic.prototype.sharedConflict = function(id) {
-	let idx = this.lookupAlias(id);
-	if(idx == null) {
-		throw new Error("Attempted to check for shared conflict on invalid element with id: " + id);
-	}
-	
-	let vtx = this.vertices[idx];
-	if(vtx.shared == null)
-		return false;
-	
-	for(let i = 0; i < vtx.shared.length; ++i) {
-		if(this.getPassthrough(vtx.shared[i]) == true) {
-			return true;
-		}
-	}
-	return false;
-}
-
-Schematic.prototype.deepCopyState = function() {
-	let cloneObject = function(obj) {
-		let clone = {};
-		for(let i in obj) {
-			if(obj[i] != null && typeof(obj[i])=="object") {
-				clone[i] = cloneObject(obj[i]);
-			} else {
-				clone[i] = obj[i];
-			}
-		}
-		return clone;
-	}
-	return cloneObject(this.vertices);
-}
-
-Schematic.prototype.clearState = function(){
-	for(let i = 0; i < this.vertices.length; ++i){
-		this.vertices[i].state.length = this.sources.length;
-		this.vertices[i].state.fill(false); //set it so that no source has reached this node
-	}
-}
-
-Schematic.prototype.update = function(){
-	let oldState = this.deepCopyState();
-	this.clearState();
-	
-	for(let i = 0; i < this.sources.length; ++i){
-		//Do DFS from each source
-		let S = [];
-		S.push(this.sources[i]); 
-		
-		//Initialize the visited array with null
-		let V = [];
-		V.length = this.vertices.length;
-		V.fill(false);
-		
-		//While stack not empty
-		while(S.length > 0){
-			let node = S.pop();
-			//If node isnt visited and it allows current through
-			if(!V[node] && this.vertices[node].passthrough && this.requirementsSatisfied(this.lookupAlias(node))){ 
-				V[node] = true; //We have now visited the node
-				//The source at sources[i] did reach the current node
-				this.vertices[node].state[i] = true; 
-			} else {
-				continue;
-			}
-			
-			//For each child in the current node (god this is wordy)
-			for(let j = 0; j < this.vertices[node].edges.length; ++j){
-				//Push each child onto the stack;
-				let child = this.vertices[node].edges[j];
-				if(!V[child]){ //If we havent visited this child
-					S.push(child);
-				}
-			}
-		}
-	}
-	
-	for(let i = 0; i < this.vertices.length; ++i) {
-		let vtx = this.vertices[i];
-		let oldVtx = oldState[i];
-		for(let j = 0; j < this.sources.length; ++j) {
-			if(vtx.state[j] != oldVtx.state[j] && oldVtx.state[j] != null) {
-				//console.log(`State Change: \n\tvtx: ${this.lookupAlias(i)} \n\tsrc: ${this.lookupAlias(j)} \n\tvtx.state[j]: ${vtx.state[j]} \n\toldVtx.state[j]: ${oldVtx.state[j]} `);
-				this.emitVertexEvent(this.vertices[i], "powerChanged", this.lookupAlias(this.sources[j]), this.vertices[i].state[j]); 
-			}
-		}
-	}
-}
-
-Schematic.prototype.draw = function(){
-	for(let i = 0; i < this.vertices.length; ++i){
-		let vtx = this.vertices[i];
-		//Determine if switch is draw open or closed
-		let reqState = this.requirementsSatisfied(vtx.id)
-		if(!reqState){
-			if(vtx.hasOnOff){
-				let id = vtx.id.substr(1, vtx.id.length); //cut # off
-				let onStmt = "[id*=" +id + "_on]";
-				let offStmt = "[id*=" +id + "_off]";
-				$(onStmt).toggleClass("hidden", true);
-				$(offStmt).toggleClass("hidden", false);
-			}
-		} else if(vtx.hasOnOff) {
-			let id = vtx.id.substr(1, vtx.id.length); //cut # off
-			let onStmt = "[id*=" +id + "_on]";
-			let offStmt = "[id*=" +id + "_off]";
-			if(vtx.passthrough == true) {
-				$(onStmt).toggleClass("hidden", false);
-				$(offStmt).toggleClass("hidden", true);
-
-			} else {
-				//Do not modify the offstate if there is a shared conflict
-				if(!this.sharedConflict(vtx.id)) {
-					$(offStmt).toggleClass("hidden", false);		
-				}
-				$(onStmt).toggleClass("hidden", true);
-			}
-		}
-		
-		for(let j = 0; j < this.sources.length; ++j){
-			let src = this.vertices[this.sources[j]];
-			if(vtx.id[0] === '_'){//Dummy element doesnt get drawn
-				continue;
-			}
-			
-			//If the required state isnt met, don't light up
-			if(!reqState){ 
-				$(vtx.id).toggleClass(src.cls, false);	
-				/*
-				if(vtx.hasOnOff) {
-					$(vtx.id).toggleClass(src.cls, vtx.state[j]);				
-				} else {
-					$(vtx.id).toggleClass(src.cls, false);	
-				}*/
-				continue;
-				
-			//If its a switch, check if its currently closed
-			} else if(vtx.hasOnOff){
-				if(vtx.passthrough == true) {
-					$(vtx.id).toggleClass(src.cls, vtx.state[j]);
-				} else {
-					$(vtx.id).toggleClass(src.cls, false);
-				}
-			//Otherwise, just check if the state is valid
-			} else {
-				$(vtx.id).toggleClass(src.cls, vtx.state[j]);	
-			}
-		}
-	}
-}
-
-//Return a list of sources that are reachable from this vertex
-Schematic.prototype.getReachedSources = function(id) {
-	let sources = [];
-	let vtx = this.lookupAlias(id);
-	for(let i = 0; i < vtx.state.length; ++i) {
-		sources.push(this.lookupAlias(vtx.sources[j]));
-	}
-	return sources;
-}
-
-Schematic.prototype.addEventListener = function(evtName, func) {
-	if(this.evt[evtName] == null) {
-		this.evt[evtName] = [];
-	}
-	this.evt[evtName].push(func);
-}
-
-Schematic.prototype.addVertexEventListener = function(id, evtName, func){
-	let vtx = this.vertices[this.lookupAlias(id)];
-	if(vtx.evt[evtName] == null) {
-		vtx.evt[evtName] = [];
-	}
-	vtx.evt[evtName].push(func);
-}
-
-Schematic.prototype.removeEventListener = function(evtName, func) {
-	if(this.evt[evtName] == null || this.evt[evtName].length <= 0) {
-		return;
-	}
-	
-	for(let i = 0; i <this.evt[evtName].length; ++i) {
-		if(this.evt[evtName][i] == func) {
-			this.evt[evtName].splice(i, 1);
-		}
-	}
-}
-
-Schematic.prototype.removeVertexEventListener = function(id, evtName, func) {
-	let vtx = this.vertices[this.lookupAlias(id)];
-	if(vtx.evt[evtName] == null || vtx.evt[evtName].length <= 0) {
-		return;
-	}
-	
-	for(let i = 0; i < vtx.evt[evtName].length; ++i){
-		if(vtx.evt[evtName][i] == func) {
-			vtx.evt[evtName].splice(i, 1);
-		}
-	}
-}
-
-Schematic.prototype.emitEvent = function(evtName, ...args) {
-	if(this.evt[evtName] != null && this.evt[evtName].length > 0) {
-		for(let i = 0; i < this.evt[evtName].length; ++i) { 
-			this.evt[evtName][i].call(this, ...args);
-		}
-	}
-}
-
-Schematic.prototype.emitVertexEvent = function(vtx, evtName, ...args) {
-	if(vtx == null || !(vtx instanceof Vertex || vtx instanceof SourceVertex) ) {
-		throw new Error("Schematic.emitEvent: attempt to emit event to invalid vertex: " + vtx);
-	}
-	
-	if(vtx.evt[evtName] != null && vtx.evt[evtName].length > 0) {
-		for(let i = 0; i < vtx.evt[evtName].length; ++i) {
-			vtx.evt[evtName][i].call(vtx, ...args);
-		}
-	}
-}
-
-Schematic.prototype.isVertexPowered = function(idVert, idSource){
-	let vert = this.vertices[this.lookupAlias(idVert)];
-	let src = this.vertices[this.lookupAlias(idSource)];
-	let srcIdx = this.sources.indexOf(src);
-	if(srcIdx == -1){
-		//Can't check powered by non-source
-		throw new Error("Attempt to check if vertex '" + idVert + "' was powered by non-source vertex '" +idSource + "'");
-	} else {
-		return vert.state[srcIdx];
-	}
-}
-
-//Vertex class for map
-function Vertex(id, passthrough, requires, shared) {
-	if(id == null) {
-		throw new Error("Vertex: 'id' parameter cannot be null or undefined");
-	} else if(passthrough == null) {
-		throw new Error("Vertex: 'passthrough' parameter cannot be null or undefined");
-	} 
-	
-	this.id = id;
-	this.passthrough = passthrough;
-	this.edges = []; 	//array<int>
-	this.requires = requires == null ? null : requires;
-	this.shared = shared == null ? null : shared; 
-	this.state = []; 	// array<bool>
-	this.evt = {}; 		// map<str, [func]>
-}
-
-
-//Inherits from vertex, has some minor additional information
-function SourceVertex(id, passthrough, cls, requires, shared){
-	if(cls == null) {
-		throw new Error("SourceVertex: 'class' parameter cannot be null or undefined");
-	}
-	
-	Vertex.call(this, id, passthrough, requires, shared);
-	this.cls = cls;
-}
-
-
-
-	
+var VertexState = /** @class */ (function () {
+    function VertexState(name, id, passthrough, edges, opt) {
+        this._name = name;
+        this._id = id;
+        this._passthrough = passthrough;
+        this._edges = edges;
+        this._requires = opt.requires == null ? [] : opt.requires;
+    }
+    Object.defineProperty(VertexState.prototype, "name", {
+        get: function () {
+            return this._name;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(VertexState.prototype, "id", {
+        get: function () {
+            return this._id;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(VertexState.prototype, "passthrough", {
+        get: function () {
+            return this._passthrough;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(VertexState.prototype, "edges", {
+        get: function () {
+            return this._edges;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(VertexState.prototype, "requires", {
+        get: function () {
+            return this._requires;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return VertexState;
+}());
+var Vertex = /** @class */ (function () {
+    function Vertex(name, parentID) {
+        this._states = new Map();
+        this._currentState = null;
+        this._name = name;
+        this._parentID = parentID;
+        this._events = new Map();
+    }
+    Object.defineProperty(Vertex.prototype, "states", {
+        get: function () {
+            return this._states;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Vertex.prototype, "currentState", {
+        get: function () {
+            return this._currentState;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Vertex.prototype, "defaultState", {
+        get: function () {
+            return this._defaultState;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Vertex.prototype, "failureState", {
+        get: function () {
+            return this._failureState;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Vertex.prototype, "name", {
+        get: function () {
+            return this._name;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Vertex.prototype, "parentID", {
+        get: function () {
+            return this._parentID;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Vertex.prototype, "events", {
+        get: function () {
+            return this._events;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Vertex.prototype.addState = function (name, id, passthrough, edges, opt) {
+        this.states.set(name, new VertexState(name, id, passthrough, edges, opt));
+        if (opt.isDefault || this.states.size == 1) { //First state or specified to be default.
+            this.setCurrentState(name);
+            this._defaultState = this.states.get(name);
+            if (this.failureState == null) {
+                this._failureState = this.states.get(name);
+            }
+        }
+        if (opt.isFailure) {
+            this._failureState = this.states.get(name);
+        }
+    };
+    Vertex.prototype.getState = function (name) {
+        return this.states.get(name);
+    };
+    Vertex.prototype.setCurrentState = function (name) {
+        var state = this.states.get(name);
+        if (state == null) {
+            throw new Error("Vertex.setCurrentState(): Attempt to set current state to an unregistered state: " + name);
+        }
+        this._currentState = state;
+    };
+    Vertex.prototype.setToDefaultState = function () {
+        this.setCurrentState(this.defaultState.name);
+    };
+    return Vertex;
+}());
+var Source = /** @class */ (function () {
+    function Source(name, className) {
+        this._name = name;
+        this._className = className;
+        this._connections = new Set();
+    }
+    Object.defineProperty(Source.prototype, "name", {
+        get: function () {
+            return this._name;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Source.prototype, "className", {
+        get: function () {
+            return this._className;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Source.prototype, "connections", {
+        get: function () {
+            return this._connections;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Source.prototype.clear = function () {
+        this._connections.clear();
+    };
+    Source.prototype.addConnection = function (vertexName) {
+        this.connections.add(vertexName);
+    };
+    Source.prototype.hasConnection = function (vertexName) {
+        return this.connections.has(vertexName);
+    };
+    Source.prototype.forEachConnection = function (func) {
+        this.connections.forEach(func);
+    };
+    return Source;
+}());
+var Schematic = /** @class */ (function () {
+    function Schematic(graphData) {
+        /* General Functions */
+        this.clearState = function () {
+            this.sources.forEach(function (source, key, map) {
+                source.clear();
+            });
+        };
+        /* Event Handling */
+        this.addEventListener = function (evtName, func) {
+            if (this.events.get(evtName) == null) {
+                this.events.set(evtName, new Array());
+            }
+            this.events.get(evtName).push(func);
+        };
+        this.removeEventListener = function (evtName, func) {
+            if (this.events.get(evtName) == null || this.events.get(evtName).length <= 0) {
+                return;
+            }
+            var events = this.events.get(evtName);
+            for (var i = 0; i < events.length; ++i) {
+                if (events[i] == func) {
+                    events.splice(i, 1);
+                }
+            }
+        };
+        if (graphData != null) {
+            this.loadData(graphData);
+        }
+        this._vertices = new Map();
+        this._sources = new Map();
+        this._stateClasses = new Map();
+        this._events = new Map();
+    }
+    Object.defineProperty(Schematic.prototype, "vertices", {
+        get: function () {
+            return this._vertices;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Schematic.prototype, "sources", {
+        get: function () {
+            return this._sources;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Schematic.prototype, "stateClasses", {
+        get: function () {
+            return this._stateClasses;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Schematic.prototype, "events", {
+        get: function () {
+            return this._events;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Schematic.prototype.loadData = function (data) {
+        if (data == null) {
+            throw new Error("Attempt to generate schematic graph from null data");
+        }
+        //Phase one, load state classes
+        if (data.classes != null) {
+            for (var k in data.classes) {
+                var cls = data.classes[k];
+                this.addStateClass(k, {
+                    name: cls.name,
+                    id: cls.id,
+                    passthrough: cls.passthrough,
+                    edges: cls.edges,
+                    requires: cls.requires,
+                    className: cls.class_name,
+                    isDefault: cls.is_default
+                });
+            }
+        }
+        else {
+            console.log("Schematic.loadData(): No classes array defined.");
+        }
+        //Phase two, load vertex information
+        if (data.vertices == null) {
+            throw new Error("Schematic.loadData(): Attempt to load data but vertices array is undefined.");
+        }
+        for (var i = 0; i < data.vertices.length; ++i) {
+            //This can throw, but we assume that if there is an error reading the json
+            //Then all of the information in it could be incorrect
+            var dataVertex = data.vertices[i];
+            this.addVertex(dataVertex.name, dataVertex.parent_id);
+            if (dataVertex.class_name != null) { // Has information to be a source vertex
+                this.registerSource(dataVertex.name, dataVertex.class_name);
+            }
+        }
+        //Phase three, load states into each vertex after doing class inheritance and edge validation.
+        for (var i = 0; i < data.vertices.length; ++i) {
+            var dataVertex = data.vertices[i];
+            var vertex = this.vertices.get(dataVertex.name);
+            if (dataVertex.states == null) {
+                throw new Error("Schematic.loadData(): Attempt to load data with data vertex '" + dataVertex.name + "' where states array is not defined.");
+            }
+            for (var j = 0; j < dataVertex.states.length; ++j) {
+                //function(name, id, passthrough, edges, opt)
+                var dataState = dataVertex.states[j];
+                var opt = { requires: dataState.requires, isDefault: dataState.is_default, isFailure: dataState.is_failure };
+                //If no state id is provided, default to using the parent id.
+                var id = dataState.id == null ? vertex.parentID : dataState.id;
+                //Add the state, inherit it from a class if neeeded.
+                if (dataState.class_id != null) {
+                    this.addVertexStateFromClass(dataVertex.name, dataState.class_id, dataState.name, dataState.id, dataState.passthrough, dataState.edges, opt);
+                }
+                else {
+                    this.addVertexState(vertex.name, dataState.name, dataState.id, dataState.passthrough, dataState.edges, opt);
+                }
+            }
+        }
+        this.emitEvent("dataLoaded");
+    };
+    /* Vertex Management */
+    Schematic.prototype.addVertex = function (name, parentID) {
+        if (this.vertices.get(name) != null) {
+            throw new Error("Schematic.addVertex(): Attempt to add vertex with name '" + name + "' that is already registered");
+        }
+        this.vertices.set(name, new Vertex(name, parentID));
+    };
+    Schematic.prototype.getVertexPassthrough = function (name) {
+        var vertex = this.vertices.get(name);
+        if (vertex == null) {
+            throw new Error("Schematic.checkVertexPassthrough(): Attempted to check passthrough on invalid vertex with name '" + name + "'");
+        }
+        return vertex.currentState.passthrough;
+    };
+    Schematic.prototype.checkVertexRequirements = function (name) {
+        var vertex = this.vertices.get(name);
+        if (vertex == null) {
+            throw new Error("Schematic.checkVertexRequirements(): Attempted to check requirements on invalid vertex with name '" + name + "'");
+        }
+        if (vertex.currentState.requires == null) {
+            return true;
+        }
+        else {
+            var requires = vertex.currentState.requires;
+            for (var i = 0; i < requires.length; ++i) {
+                if (this.getVertexPassthrough(requires[i]) === false) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    };
+    Schematic.prototype.isVertexPowered = function (vertexName, sourceName) {
+        var source = this.sources.get(sourceName);
+        if (source == null) {
+            throw new Error("Schematic.isVertexPowered(): Attempt to check if vertex is connected to invalid source '" + sourceName + "'");
+        }
+        var vertex = this.vertices.get(vertexName);
+        if (vertex == null) {
+            throw new Error("Schematic.isVertexPowered(): Attempt to check if invalid vertex '" + vertexName + "' is connected to source");
+        }
+        return source.hasConnection(vertexName);
+    };
+    /* Source Management */
+    Schematic.prototype.registerSource = function (name, className) {
+        if (this.sources.get(name) != null) {
+            throw new Error("Schematic.registerSource(): Attempt to register vertex with name '" + name + "' that is already registered as a source vertex");
+        }
+        this.sources.set(name, new Source(name, className));
+    };
+    /* State Management */
+    Schematic.prototype.addVertexState = function (vertexName, name, id, passthrough, edges, opt) {
+        if (vertexName == null) {
+            throw new Error("Schematic.addVertexState(): Required parameter 'vertexName' undefined or null");
+        }
+        else if (name == null) {
+            throw new Error("Schematic.addVertexState(): Required parameter 'name' undefined or null");
+        }
+        else if (passthrough == null) {
+            throw new Error("Schematic.addVertexState(): Required parameter 'passthrough' undefined or null");
+        }
+        else if (edges == null) {
+            throw new Error("Schematic.addVertexState(): Required parameter 'edges' undefined or null");
+        }
+        else if (opt == null) {
+            opt = {};
+        }
+        var vertex = this.vertices.get(vertexName);
+        if (vertex == null) {
+            throw new Error("Schematic.addVertexState(): Attempt to add state to invalid vertex '" + vertexName + "'");
+        }
+        //Verify edges
+        for (var i = 0; i < edges.length; ++i) {
+            if (this.vertices.get(edges[i]) == null) {
+                throw new Error("Schematic.addVertexState() attempt to add state to vertex '" + vertexName +
+                    "' which contains edge to unregistered vertex '" + edges[i] + "'");
+            }
+        }
+        //Verify requirements
+        if (opt.requires != null) {
+            for (var i = 0; i < opt.requires.length; ++i) {
+                if (this.vertices.get(opt.requires[i]) == null) {
+                    throw new Error("Schematic.addVertexState() attempt to add state to vertex '" + vertexName +
+                        "' which contains requirement to unregistered vertex '" + opt.requires[i] + "'");
+                }
+            }
+        }
+        vertex.addState(name, id, passthrough, edges, opt);
+    };
+    Schematic.prototype.addVertexStateFromClass = function (vertexName, clsName, name, id, passthrough, edges, opt) {
+        if (vertexName == null) {
+            throw new Error("Schematic.addVertexStateFromClass(): Required parameter 'vertexName' undefined or null");
+        }
+        else if (clsName == null) {
+            throw new Error("Schematic.addVertexStateFromClass(): Required parameter 'clsName' undefined or null");
+        }
+        var cls = this.stateClasses.get(clsName);
+        if (cls == null) {
+            throw new Error("Schematic.addVertexStateFromClass(): Attempt to create state inheriting from invalid class '" + clsName + "'");
+        }
+        var newName = (name == null ? cls.name : name);
+        var newID = (id == null ? cls.id : id);
+        var newPassthrough = (passthrough == null ? cls.passthrough : passthrough);
+        var newEdges = (edges == null ? cls.edges : edges);
+        var newOpt = {
+            requires: opt.requires == null ? cls.requires : opt.requires,
+            isDefault: opt.isDefault == null ? cls.isDefault : opt.isDefault,
+            isFailure: opt.isFailure == null ? cls.isFailure : opt.isFailure
+        };
+        this.addVertexState(vertexName, newName, newID, newPassthrough, newEdges, newOpt);
+    };
+    Schematic.prototype.setVertexState = function (vertexName, state) {
+        var vertex = this.vertices.get(vertexName);
+        if (vertex == null) {
+            throw new Error("Schematic.setVertexState(): Attempt to set state of invalid vertex '" + vertexName + "'");
+        }
+        vertex.setCurrentState(state);
+    };
+    Schematic.prototype.getVertexState = function (vertexName) {
+        var vertex = this.vertices.get(vertexName);
+        if (vertex == null) {
+            throw new Error("Schematic.getVertexState(): Attempt to get state of invalid vertex '" + vertexName + "'");
+        }
+        return vertex.currentState.name;
+    };
+    /* State Class Management */
+    Schematic.prototype.addStateClass = function (name, opt) {
+        if (this.stateClasses.get(name) != null) {
+            throw new Error("Schematic.addStateClass(): Attempt to add state class  '" + name + "' that is already registered");
+        }
+        this.stateClasses.set(name, {
+            name: opt.name,
+            id: opt.id,
+            passthrough: opt.passthrough,
+            edges: opt.edges,
+            requires: opt.requires,
+            classID: opt.className,
+            isDefault: opt.isDefault,
+            isFailure: opt.isFailure
+        });
+    };
+    Schematic.prototype.update = function () {
+        var _this = this;
+        /*
+        let cloneObject = function (obj:any): any {
+            let clone = {};
+            for (let i in obj) {
+                if (obj[i] != null && typeof (obj[i]) == "object") {
+                    clone[i] = cloneObject(obj[i]);
+                } else {
+                    clone[i] = obj[i];
+                }
+            }
+            return clone;
+        }
+        */
+        this.clearState();
+        //Perform depth-first-search from each registered soruce.
+        this.sources.forEach(function (source, key, sources) {
+            var stack = new Array();
+            stack.push(_this.vertices.get(key));
+            var visited = new Map();
+            _this.vertices.forEach(function (value, key, map) {
+                //Initialize everything in visited to false.
+                visited.set(key, false);
+            });
+            while (stack.length > 0) {
+                var vertex = stack.pop();
+                if (!visited.get(vertex.name)
+                    && vertex.currentState.passthrough
+                    && _this.checkVertexRequirements(vertex.name)) {
+                    visited.set(vertex.name, true);
+                    source.addConnection(vertex.name);
+                }
+                else {
+                    continue;
+                    //If this vertex doesnt meet the requirements to allow passthrough
+                    //Don't look at its children.
+                }
+                //For each child, check if it has been visited, if not, add it to the stack for later.
+                var edges = vertex.currentState.edges;
+                for (var j in edges) {
+                    var child = edges[j];
+                    if (!visited.get(child)) {
+                        stack.push(_this.vertices.get(child));
+                    }
+                }
+            }
+        });
+    };
+    Schematic.prototype.draw = function () {
+        var _this = this;
+        this.vertices.forEach(function (vertex, vertexName, vertices) {
+            //Hide all other elements of the vertex
+            vertex.states.forEach(function (state, name, states) {
+                $(state.id).toggleClass("hidden", true);
+            });
+            if (_this.checkVertexRequirements(vertex.name)) {
+                $(vertex.currentState.id).toggleClass("hidden", false);
+                _this.sources.forEach(function (src, srcName, sources) {
+                    $(vertex.parentID).toggleClass(src.className, src.hasConnection(vertex.name));
+                });
+            }
+            else {
+                $(vertex.failureState.id).toggleClass("hidden", false);
+                _this.sources.forEach(function (src, srcName, sources) {
+                    $(vertex.parentID).toggleClass(src.className, false);
+                });
+            }
+        });
+    };
+    Schematic.prototype.addVertexEventListener = function (vertexName, evtName, func) {
+        var vertex = this.vertices.get(vertexName);
+        if (vertex == null) {
+            throw new Error("Schematic.addVertexEventListener(): Attempt to attach listener to invalid vertex '" + vertexName + "'");
+        }
+        if (vertex.events.get(evtName) == null) {
+            vertex.events.set(evtName, new Array());
+        }
+        vertex.events.get(evtName).push(func);
+    };
+    Schematic.prototype.removeVertexEventListener = function (vertexName, evtName, func) {
+        var vertex = this.vertices.get(vertexName);
+        if (vertex == null) {
+            throw new Error("Schematic.removeEventListener(): Attempt to remove listener from invalid vertex '" + vertexName + "'");
+        }
+        var events = vertex.events.get(evtName);
+        for (var i = 0; i < events.length; ++i) {
+            if (events[i] == func) {
+                events.splice(i, 1);
+            }
+        }
+    };
+    Schematic.prototype.emitEvent = function (evtName) {
+        var _a;
+        var args = [];
+        for (var _i = 1; _i < arguments.length; _i++) {
+            args[_i - 1] = arguments[_i];
+        }
+        if (this.events.get(evtName) != null && this.events.get(evtName).length > 0) {
+            var events = this.events.get(evtName);
+            for (var i = 0; i < events.length; ++i) {
+                (_a = events[i]).call.apply(_a, [this].concat(args));
+            }
+        }
+    };
+    Schematic.prototype.emitVertexEvent = function (vertexName, evtName) {
+        var _a;
+        var args = [];
+        for (var _i = 2; _i < arguments.length; _i++) {
+            args[_i - 2] = arguments[_i];
+        }
+        var vertex = this.vertices.get(vertexName);
+        if (vertex == null || !(vertex.constructor === Vertex)) {
+            throw new Error("Schematic.emitVertexEvent(): attempt to emit event to invalid vertex: " + vertexName);
+        }
+        if (vertex.events.get(evtName) != null && vertex.events.get(evtName).length > 0) {
+            var events = vertex.events.get(evtName);
+            for (var i = 0; i < events.length; ++i) {
+                (_a = events[i]).call.apply(_a, [vertex].concat(args));
+            }
+        }
+    };
+    return Schematic;
+}());
