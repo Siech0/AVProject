@@ -246,7 +246,8 @@ var Schematic = /** @class */ (function () {
                     edges: cls.edges,
                     requires: cls.requires,
                     className: cls.class_name,
-                    isDefault: cls.is_default
+                    isDefault: cls.is_default,
+					isFailure: cls.is_failure
                 });
             }
         }
