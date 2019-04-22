@@ -99,17 +99,18 @@ $("#engine_button").mousedown(function(){
 		status.text("OFFLINE");
 		schem.setVertexState("low_volt_indicator", "active");
 		schem.setVertexState("alternator", "inactive");
-	} else {
+		panelState["#engine_button"] = false;
+	} else if(schem.isVertexPowered("battery_relay", "battery")) { //Engine can only activate if battery is on
 		status.css("color", "cyan");
 		status.text("ONLINE");
 		schem.setVertexState("low_volt_indicator", "inactive");
 		schem.setVertexState("alternator", "active");
-		console.log("something");
 		schem.setVertexState("starter_relay_svg", "active");
+		panelState["#engine_button"] = true;
 	}
 	schem.update();
 	schem.draw();
-	panelState["#engine_button"] = !panelState["#engine_button"];
+
 });
 
 $("#engine_button").mouseup(function(){

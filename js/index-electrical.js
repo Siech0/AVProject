@@ -447,6 +447,17 @@ var Schematic = /** @class */ (function () {
         }
         return vertex.currentState.name;
     };
+    Schematic.prototype.isVertexPowered = function (vertexName, sourceName) {
+        var vertex = this.vertices.get(vertexName);
+        if (vertex == null) {
+            throw new Error("Schematic.isVertexPowered(): Attempt to get power state of invalid vertex '" + vertexName + "'");
+        }
+        var source = this.sources.get(sourceName);
+        if (source == null) {
+            throw new Error("Schematic.isVertexPowered(): Attempt to get power state vertex from invalid source'" + sourceName + "'");
+        }
+        return source.hasConnection(vertexName);
+    };
     /* State Class Management */
     Schematic.prototype.addStateClass = function (name, opt) {
         if (this.stateClasses.get(name) != null) {
