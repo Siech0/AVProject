@@ -112,6 +112,7 @@ var Vertex = /** @class */ (function () {
         if (opt.isFailure) {
             this._failureState = this.states.get(name);
         }
+        this.emitEvent("stateAdded", name);
     };
     Vertex.prototype.getState = function (name) {
         return this.states.get(name);
@@ -122,9 +123,37 @@ var Vertex = /** @class */ (function () {
             throw new Error("Vertex.setCurrentState(): Attempt to set current state to an unregistered state: " + name);
         }
         this._currentState = state;
+        this.emitEvent("stateChanged", name);
     };
     Vertex.prototype.setToDefaultState = function () {
         this.setCurrentState(this.defaultState.name);
+    };
+    Vertex.prototype.addEventListener = function (evtName, func) {
+        if (this.events.get(evtName) == null) {
+            this.events.set(evtName, new Array());
+        }
+        this.events.get(evtName).push(func);
+    };
+    Vertex.prototype.removeEventListener = function (evtName, func) {
+        var events = this.events.get(evtName);
+        for (var i = 0; i < events.length; ++i) {
+            if (events[i] == func) {
+                events.splice(i, 1);
+            }
+        }
+    };
+    Vertex.prototype.emitEvent = function (evtName) {
+        var _a;
+        var args = [];
+        for (var _i = 1; _i < arguments.length; _i++) {
+            args[_i - 1] = arguments[_i];
+        }
+        if (this.events.get(evtName) != null && this.events.get(evtName).length > 0) {
+            var events = this.events.get(evtName);
+            for (var i = 0; i < events.length; ++i) {
+                (_a = events[i]).call.apply(_a, [this].concat(args));
+            }
+        }
     };
     return Vertex;
 }());
@@ -247,7 +276,7 @@ var Schematic = /** @class */ (function () {
                     requires: cls.requires,
                     className: cls.class_name,
                     isDefault: cls.is_default,
-					isFailure: cls.is_failure
+                    isFailure: cls.is_failure
                 });
             }
         }
@@ -297,6 +326,7 @@ var Schematic = /** @class */ (function () {
             throw new Error("Schematic.addVertex(): Attempt to add vertex with name '" + name + "' that is already registered");
         }
         this.vertices.set(name, new Vertex(name, parentID));
+        this.emitEvent("vertexAdded", name);
     };
     Schematic.prototype.getVertexPassthrough = function (name) {
         var vertex = this.vertices.get(name);
@@ -340,6 +370,7 @@ var Schematic = /** @class */ (function () {
             throw new Error("Schematic.registerSource(): Attempt to register vertex with name '" + name + "' that is already registered as a source vertex");
         }
         this.sources.set(name, new Source(name, className));
+        this.emitEvent("sourceRegistered", name, className);
     };
     /* State Management */
     Schematic.prototype.addVertexState = function (vertexName, name, id, passthrough, edges, opt) {
@@ -431,25 +462,24 @@ var Schematic = /** @class */ (function () {
             isDefault: opt.isDefault,
             isFailure: opt.isFailure
         });
+        this.emitEvent("classAdded");
     };
     Schematic.prototype.update = function () {
         var _this = this;
-        /*
-        let cloneObject = function (obj:any): any {
-            let clone = {};
-            for (let i in obj) {
-                if (obj[i] != null && typeof (obj[i]) == "object") {
-                    clone[i] = cloneObject(obj[i]);
-                } else {
-                    clone[i] = obj[i];
-                }
-            }
-            return clone;
-        }
-        */
+        //Deep copy old data for future comparisons
+        var oldData = new Map();
+        this.sources.forEach(function (source, key, sources) {
+            oldData.set(key, new Set());
+            var oldSource = oldData.get(key);
+            source.forEachConnection(function (connection, _0, _1) {
+                oldSource.add(connection);
+            });
+        });
+        //Clear the previous state so that we dont accidentally leave any vertex untouched
         this.clearState();
         //Perform depth-first-search from each registered soruce.
         this.sources.forEach(function (source, key, sources) {
+            //Copy old data so we can check for differences after the update
             var stack = new Array();
             stack.push(_this.vertices.get(key));
             var visited = new Map();
@@ -479,7 +509,19 @@ var Schematic = /** @class */ (function () {
                     }
                 }
             }
+            //get the symetrical difference of the set
+            source.forEachConnection(function (connection, _0, _1) {
+                if (!oldData.has(connection)) {
+                    _this.emitVertexEvent(connection, "powerChanged", true);
+                }
+            });
+            oldData.get(key).forEach(function (connection, _0, _1) {
+                if (!source.hasConnection(connection)) {
+                    _this.emitVertexEvent(connection, "powerChanged", false);
+                }
+            });
         });
+        this.emitEvent("load");
     };
     Schematic.prototype.draw = function () {
         var _this = this;
@@ -501,31 +543,9 @@ var Schematic = /** @class */ (function () {
                 });
             }
         });
-    };
-    Schematic.prototype.addVertexEventListener = function (vertexName, evtName, func) {
-        var vertex = this.vertices.get(vertexName);
-        if (vertex == null) {
-            throw new Error("Schematic.addVertexEventListener(): Attempt to attach listener to invalid vertex '" + vertexName + "'");
-        }
-        if (vertex.events.get(evtName) == null) {
-            vertex.events.set(evtName, new Array());
-        }
-        vertex.events.get(evtName).push(func);
-    };
-    Schematic.prototype.removeVertexEventListener = function (vertexName, evtName, func) {
-        var vertex = this.vertices.get(vertexName);
-        if (vertex == null) {
-            throw new Error("Schematic.removeEventListener(): Attempt to remove listener from invalid vertex '" + vertexName + "'");
-        }
-        var events = vertex.events.get(evtName);
-        for (var i = 0; i < events.length; ++i) {
-            if (events[i] == func) {
-                events.splice(i, 1);
-            }
-        }
+        this.emitEvent("draw");
     };
     Schematic.prototype.emitEvent = function (evtName) {
-        var _a;
         var args = [];
         for (var _i = 1; _i < arguments.length; _i++) {
             args[_i - 1] = arguments[_i];
@@ -533,26 +553,34 @@ var Schematic = /** @class */ (function () {
         if (this.events.get(evtName) != null && this.events.get(evtName).length > 0) {
             var events = this.events.get(evtName);
             for (var i = 0; i < events.length; ++i) {
-                (_a = events[i]).call.apply(_a, [this].concat(args));
+                events[i].call(this, args);
             }
         }
     };
+    Schematic.prototype.addVertexEventListener = function (vertexName, evtName, func) {
+        var vertex = this.vertices.get(vertexName);
+        if (vertex == null) {
+            throw new Error("Schematic.addVertexEventListener(): Attempt to attach listener to invalid vertex '" + vertexName + "'");
+        }
+        vertex.addEventListener(evtName, func);
+    };
+    Schematic.prototype.removeVertexEventListener = function (vertexName, evtName, func) {
+        var vertex = this.vertices.get(vertexName);
+        if (vertex == null) {
+            throw new Error("Schematic.removeEventListener(): Attempt to remove listener from invalid vertex '" + vertexName + "'");
+        }
+        vertex.removeEventListener(evtName, func);
+    };
     Schematic.prototype.emitVertexEvent = function (vertexName, evtName) {
-        var _a;
         var args = [];
         for (var _i = 2; _i < arguments.length; _i++) {
             args[_i - 2] = arguments[_i];
         }
         var vertex = this.vertices.get(vertexName);
-        if (vertex == null || !(vertex.constructor === Vertex)) {
-            throw new Error("Schematic.emitVertexEvent(): attempt to emit event to invalid vertex: " + vertexName);
+        if (vertex == null) {
+            throw new Error("Schematic.emitVertexEvent(): Attempt to emit vertex event for invalid vertex '" + vertexName + "'");
         }
-        if (vertex.events.get(evtName) != null && vertex.events.get(evtName).length > 0) {
-            var events = vertex.events.get(evtName);
-            for (var i = 0; i < events.length; ++i) {
-                (_a = events[i]).call.apply(_a, [vertex].concat(args));
-            }
-        }
+        vertex.emitEvent.apply(vertex, [evtName].concat(args));
     };
     return Schematic;
 }());

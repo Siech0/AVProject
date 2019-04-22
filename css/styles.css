@@ -268,6 +268,17 @@ main {
 	max-width: 0vw;
 }
 
+#pfd {
+	width: 100%;
+	height: 100%;
+	background-color: purple;
+}
+
+#pfd.hidden {
+	display: none !important;
+}
+
+
 /* Left pull anchor */
 #left_pull_anchor {
 	height: 100px;
@@ -285,6 +296,8 @@ main {
 #left_pull_anchor.content_hidden > img {
 	transform: rotate(180deg);
 }
+
+
 
 /* Right Panel Styles */
 #right_panel {
@@ -313,6 +326,16 @@ main {
 
 #right_panel_content.hidden {
 	max-width: 0vw;
+}
+
+#mfd {
+	width: 100%;
+	height: 100%;
+	background-color: purple;
+}
+
+#mfd.hidden {
+	display: none !important;
 }
 
 /* right pull anchor */
@@ -482,7 +505,6 @@ footer {
 }
 
 /* Beginning of standby battery CSS */
-
 #standby_battery_switch.off {
     position: absolute;
 	top: 16.5%;

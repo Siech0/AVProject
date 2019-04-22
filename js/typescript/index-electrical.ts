@@ -91,6 +91,7 @@ class Vertex {
         if (opt.isFailure) {
             this._failureState = this.states.get(name);
         }
+		this.emitEvent("stateAdded", name);
     }
 
     public getState(name: string): VertexState {
@@ -103,10 +104,37 @@ class Vertex {
             throw new Error("Vertex.setCurrentState(): Attempt to set current state to an unregistered state: "  + name);
         }
         this._currentState = state;
+		this.emitEvent("stateChanged", name);
     }
 
     public setToDefaultState(): void {
         this.setCurrentState(this.defaultState.name);
+    }
+	
+	
+	public addEventListener(evtName: string, func: Function): void {
+        if (this.events.get(evtName) == null) {
+            this.events.set(evtName, new Array<Function>());
+        }
+        this.events.get(evtName).push(func);
+    }
+	
+    public removeEventListener(evtName: string, func: Function) {
+        let events = this.events.get(evtName);
+        for (let i = 0; i < events.length; ++i) {
+            if (events[i] == func) {
+                events.splice(i, 1);
+            }
+        }
+    }
+	
+    public emitEvent(evtName: string, ...args: any): void {
+        if (this.events.get(evtName) != null && this.events.get(evtName).length > 0) {
+            let events = this.events.get(evtName);
+            for (let i = 0; i < events.length; ++i) {
+                events[i].call(this, ...args);
+            }
+        }
     }
 }
 
@@ -195,7 +223,8 @@ class Schematic {
 					edges: cls.edges,
 					requires: cls.requires,
 					className: cls.class_name,
-					isDefault: cls.is_default
+					isDefault: cls.is_default,
+					isFailure: cls.is_failure
 				});
 			}
 		} else {
@@ -246,6 +275,7 @@ class Schematic {
             throw new Error("Schematic.addVertex(): Attempt to add vertex with name '" + name + "' that is already registered");
         }
         this.vertices.set(name, new Vertex(name, parentID));
+		this.emitEvent("vertexAdded", name);
     }
 
     public getVertexPassthrough(name: string): boolean {
@@ -293,6 +323,7 @@ class Schematic {
             throw new Error("Schematic.registerSource(): Attempt to register vertex with name '" + name + "' that is already registered as a source vertex");
         }
 		this.sources.set(name, new Source(name, className));
+		this.emitEvent("sourceRegistered", name, className);
     }
 
     /* State Management */
@@ -389,6 +420,7 @@ class Schematic {
             isDefault: opt.isDefault,
             isFailure: opt.isFailure
         });
+		this.emitEvent("classAdded");
     }
 
 
@@ -400,23 +432,23 @@ class Schematic {
     }
     
     public update(): void {
-		/*
-        let cloneObject = function (obj:any): any {
-            let clone = {};
-            for (let i in obj) {
-                if (obj[i] != null && typeof (obj[i]) == "object") {
-                    clone[i] = cloneObject(obj[i]);
-                } else {
-                    clone[i] = obj[i];
-                }
-            }
-            return clone;
-        }
-		*/
+		//Deep copy old data for future comparisons
+		let oldData = new Map<string, Set<string>>();
+		this.sources.forEach((source: Source, key: string, sources: Map<string, Source>) => {
+			oldData.set(key, new Set<string>());
+			let oldSource = oldData.get(key);
+			source.forEachConnection((connection: string, _0: string, _1: Set<string>) => {
+				oldSource.add(connection);
+			});
+		});
+		
+		//Clear the previous state so that we dont accidentally leave any vertex untouched
         this.clearState();
 
         //Perform depth-first-search from each registered soruce.
         this.sources.forEach((source: Source, key: string, sources: Map<string, Source>) => {
+			//Copy old data so we can check for differences after the update
+					
             let stack = new Array<Vertex>();
             stack.push(this.vertices.get(key));
 
@@ -449,7 +481,20 @@ class Schematic {
                     }
                 }
             }
+			
+			//get the symetrical difference of the set
+			source.forEachConnection((connection: string, _0: string, _1: Set<string>) => {
+				if(!oldData.has(connection)) {
+					this.emitVertexEvent(connection, "powerChanged", true);
+				}
+			});
+			oldData.get(key).forEach((connection: string, _0: string, _1: Set<string>) => {
+				if(!source.hasConnection(connection)) {
+					this.emitVertexEvent(connection, "powerChanged", false);
+				}
+			});
         });
+		this.emitEvent("load");
     }
 
     public draw(): void {
@@ -472,7 +517,7 @@ class Schematic {
             }
 
         });
-
+		this.emitEvent("draw");
     }
 
     /* Event Handling */
@@ -483,7 +528,7 @@ class Schematic {
         this.events.get(evtName).push(func);
     }
 
-    public removeEventListener = function (evtName:string , func: Function) {
+    public removeEventListener = function (evtName:string , func: Function): void {
         if (this.events.get(evtName) == null || this.events.get(evtName).length <= 0) {
             return;
         }
@@ -495,53 +540,37 @@ class Schematic {
             }
         }
     }
-
+	
+	public emitEvent(evtName: string, ...args: any): void {
+        if (this.events.get(evtName) != null && this.events.get(evtName).length > 0) {
+            let events = this.events.get(evtName);
+            for (let i = 0; i < events.length; ++i) {
+                events[i].call(this, args);
+            }
+        }
+    }
+	
     public addVertexEventListener(vertexName: string, evtName: string, func: Function): void {
         let vertex = this.vertices.get(vertexName);
         if (vertex == null) {
             throw new Error("Schematic.addVertexEventListener(): Attempt to attach listener to invalid vertex '" + vertexName + "'");
         }
-
-        if (vertex.events.get(evtName) == null) {
-            vertex.events.set(evtName, new Array<Function>());
-        }
-        vertex.events.get(evtName).push(func);
+		vertex.addEventListener(evtName, func);
     }
 
-    public removeVertexEventListener(vertexName: string, evtName: string, func: Function) {
+    public removeVertexEventListener(vertexName: string, evtName: string, func: Function): void {
         let vertex = this.vertices.get(vertexName);
         if (vertex == null) {
             throw new Error("Schematic.removeEventListener(): Attempt to remove listener from invalid vertex '" + vertexName + "'");
         }
-
-        let events = vertex.events.get(evtName);
-        for (let i = 0; i < events.length; ++i) {
-            if (events[i] == func) {
-                events.splice(i, 1);
-            }
-        }
+		vertex.removeEventListener(evtName, func);
     }
-
-    public emitEvent(evtName: string, ...args: any): void {
-        if (this.events.get(evtName) != null && this.events.get(evtName).length > 0) {
-            let events = this.events.get(evtName);
-            for (let i = 0; i < events.length; ++i) {
-                events[i].call(this, ...args);
-            }
-        }
-    }
-
-    public emitVertexEvent(vertexName: string, evtName: string, ...args: any): void {
-        let vertex = this.vertices.get(vertexName);
-        if (vertex == null || !(vertex.constructor === Vertex)) {
-            throw new Error("Schematic.emitVertexEvent(): attempt to emit event to invalid vertex: " + vertexName);
-        }
-
-        if (vertex.events.get(evtName) != null && vertex.events.get(evtName).length > 0) {
-            let events = vertex.events.get(evtName);
-            for (let i = 0; i < events.length; ++i) {
-                events[i].call(vertex, ...args);
-            }
-        }
-    }
+	
+	public emitVertexEvent(vertexName: string, evtName: string, ...args: any): void {
+		let vertex = this.vertices.get(vertexName);
+		if(vertex == null) {
+			throw new Error("Schematic.emitVertexEvent(): Attempt to emit vertex event for invalid vertex '" + vertexName + "'");
+		}
+		vertex.emitEvent(evtName, ...args);	
+	}
 }

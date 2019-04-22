@@ -5,9 +5,19 @@ let schem = new Schematic();
 	SCHEMATIC EVENT SETUP
 */
 schem.addEventListener("dataLoaded", function() {
-	schem.addVertexEventListener("alt_relay", "powerChanged", function(source, state) {
-		console.log(this);
-		console.log("Alt relay power status change. (Source: " + source + ", state: " + state + ')');
+	let mfd_powered = false;
+	schem.addVertexEventListener("breaker_mfd_svg", "powerChanged", function(value) {
+		mfd_powered = value;
+	});
+	
+	let pfd_powered = false;
+	schem.addVertexEventListener("breaker_ess_pfd_svg", "powerChanged", function(value) {
+		pfd_powered = value;
+	});
+	
+	schem.addEventListener("draw", function() {	
+		$("#mfd").toggleClass("hidden", !mfd_powered);
+		$("#pfd").toggleClass("hidden", !pfd_powered);
 	});
 });
 
