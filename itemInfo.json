@@ -1,4 +1,4 @@
-{
+﻿{
 	"info_panels": {
 		"info_alternator":
 		{
@@ -1339,7 +1339,8 @@
 						"class_id": "active",
 						"id": "#breaker_ess_stdby_battery_svg_on",
 						"edges": [
-							"ess_bus"
+							"ess_bus",
+							"switch_stb_dummy"
 						],
 						"is_default": true
 					},
@@ -1349,38 +1350,57 @@
 					}
 				]
 			},
-			{
-				"name": "switch_stb",
-				"parent_id": "#switch_stb",
-				"states": [
-					{
-						"name": "arm",
-						"id": "#switch_stb_arm_on",
-						"edges": [
-							"breaker_ess_stdby_battery_svg",
-							"standby_battery_paths"
-						],
-						"passthrough": true
-					},
-					{
-						"name": "test",
-						"id": "#switch_stb_test_on",
-						"edges": [
-							"standby_battery_paths",
-							"standby_battery_test_paths",
-							"test_led"
-						],
-						"passthrough": true
-					},
-					{
-						"name": "inactive",
-						"id": "#switch_stb_off",
-						"edges": [],
-						"passthrough": false,
-						"is_default": true
-					}
-				]
-			},
+      {
+        "name": "switch_stb",
+        "parent_id": "#switch_stb",
+        "states": [
+          {
+            "name": "arm",
+            "id": "#switch_stb_arm_on",
+            "edges": [
+              "switch_stb_dummy",
+              "standby_battery_paths",
+              "standby_battery"
+            ],
+            "passthrough": true
+          },
+          {
+            "name": "test",
+            "id": "#switch_stb_test_on",
+            "edges": [
+              "standby_battery_paths",
+              "standby_battery_test_paths",
+              "test_led",
+              "standby_battery"
+            ],
+            "passthrough": true
+          },
+          {
+            "name": "inactive",
+            "id": "#switch_stb_off",
+            "edges": [],
+            "passthrough": false,
+            "is_default": true
+          }
+        ]
+      },
+      {
+        "name": "switch_stb_dummy",
+        "parent_id": "_",
+        "states": [
+          {
+            "class_id": "active",
+            "edges": [
+              "switch_stb",
+              "breaker_ess_stdby_battery_svg"
+            ],
+	    "is_default": true
+          },
+          { 
+            "class_id":  "inactive"
+          }
+        ]
+      },
 			{
 				"name": "switch_stb_active",
 				"parent_id": "#switch_stb_active",

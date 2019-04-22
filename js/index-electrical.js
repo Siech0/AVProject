@@ -530,6 +530,10 @@ var Schematic = /** @class */ (function () {
             vertex.states.forEach(function (state, name, states) {
                 $(state.id).toggleClass("hidden", true);
             });
+            //Skip dummy nodes for draw info
+            if (vertex.parentID[0] != "#") {
+                return;
+            }
             if (_this.checkVertexRequirements(vertex.name)) {
                 $(vertex.currentState.id).toggleClass("hidden", false);
                 _this.sources.forEach(function (src, srcName, sources) {

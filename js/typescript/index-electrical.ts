@@ -503,7 +503,11 @@ class Schematic {
             vertex.states.forEach((state: VertexState, name: string, states: Map<string, VertexState>) => {
                 $(state.id).toggleClass("hidden", true);
             });
-
+	    //Skip dummy nodes for draw info
+	    if (vertex.parentID[0] != "#"){
+	        return;
+	    }
+	    
             if (this.checkVertexRequirements(vertex.name)) {
                 $(vertex.currentState.id).toggleClass("hidden", false);
                 this.sources.forEach((src: Source, srcName: string, sources: Map<string, Source>) => {
@@ -517,7 +521,7 @@ class Schematic {
             }
 
         });
-		this.emitEvent("draw");
+	this.emitEvent("draw");
     }
 
     /* Event Handling */
