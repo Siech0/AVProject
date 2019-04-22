@@ -205,10 +205,12 @@ stb_arm.click( () => {
 	if(stb_switch.hasClass("off")){ //arming stb_switch
         $("#standby_battery_switch").removeClass("off").addClass("arm");
 		schem.setVertexState("switch_stb", "arm");
+		schem.setVertexState("switch_stb_dummy", "active");
 		schem.setVertexState("switch_stb_active", "active");
 	} else if (stb_switch.hasClass("test")) { //This should never happen, but for the sake of it we check.
 		$("#standby_battery_switch").removeClass("test").addClass("off");
 		schem.setVertexState("switch_stb", "inactive");
+		schem.setVertexState("switch_stb_dummy", "inactive");
 		schem.setVertexState("switch_stb_active", "inactive");
 	} 
 	schem.update();
@@ -220,6 +222,7 @@ stb_test.mousedown( () => {
 		$("#standby_battery_switch").removeClass("off").addClass("test");
         $("#standby_led").removeClass("off").addClass("test");
 		schem.setVertexState("switch_stb", "test");
+		schem.setVertexState("switch_stb_dummy", "inactive");
 		schem.setVertexState("switch_stb_active", "active");
 		schem.update();
 		schem.draw();
@@ -230,6 +233,7 @@ stb_test.mousedown( () => {
 			$("#standby_battery_switch").removeClass("test").addClass("off");
             $("#standby_led").removeClass("test").addClass("off");
 			schem.setVertexState("switch_stb", "inactive");
+			schem.setVertexState("switch_stb_dummy", "inactive");
 			schem.setVertexState("switch_stb_active", "inactive");	
 			schem.update();
 			schem.draw();	
@@ -240,7 +244,8 @@ stb_test.mousedown( () => {
 		stb_test.mouseup( () => {
 			$("#standby_battery_switch").removeClass("arm").addClass("off");
 			schem.setVertexState("switch_stb", "inactive");
-			schem.setVertexState("switch_stb_active", "inactive");	
+			schem.setVertexState("switch_stb_dummy", "inactive");
+			schem.setVertexState("switch_stb_active", "active");	
 			schem.update();
 			schem.draw();	
 		});
