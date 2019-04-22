@@ -1,0 +1,87 @@
+
+svg path, svg rect, svg circle, svg ellipse {
+    stroke: black;
+    fill: none;
+}
+svg path {
+    fill: black;
+}
+
+text {
+    fill: blue;
+}
+#labels text, #labels div {
+    fill: green;
+    color: green;
+}
+
+#starter rect, #starter path, #alternator rect, #alternator path, #ignition_switch rect, #ignition_switch path {
+    fill: white;
+    stroke: black;
+    pointer-events: all;
+}
+
+
+#battery path, #battery circle, #battery ellipse {
+    stroke: pink;
+}
+/*#battery_master_switch path, #battery_master_switch circle {
+    stroke: blue;
+}*/
+
+/*#battery_relay path, #battery_relay circle  {*/
+/*    stroke: orange;*/
+/*}*/
+
+#feeder_a_breaker path, #feeder_a_breaker rect, #feeder_a_breaker circle {
+    stroke: purple;
+    fill: purple;
+}
+
+#ACU_box {
+    fill: white;
+}
+
+.on, .on path, .on circle, .on rect {
+    stroke: magenta;
+    /*fill: magenta;*/
+}
+
+.on path {
+    fill: magenta;
+}
+
+
+.off, .off path, .off circle, .off ellipse {
+    stroke: black;
+}
+
+.off path {
+    fill: black;
+}
+
+.hidden, .hidden path, .hidden circle, .hidden ellipse {
+    stroke: none;
+}
+
+.hidden path {
+    fill: none;
+}
+
+.box {
+    fill: red;
+    pointer-events: all;
+}
+
+.box:hover {
+    fill: red;
+}
+
+#targets rect:hover, #targets path:hover {
+    stroke: purple;
+}
+
+#targets rect, #targets path{
+    stroke: none;
+    fill: transparent;
+}

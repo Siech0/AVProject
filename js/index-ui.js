@@ -92,22 +92,30 @@ $('#right_pull_anchor').click(function(){
 	Navigation Bar Engine/EPU button responsiveness.
 */
 panelState["#engine_button"] = false;
-$("#engine_button").click(function(){
+$("#engine_button").mousedown(function(){
 	var status = $("#engine_status"); 
 	if(panelState["#engine_button"]){ //Active
 		status.css("color", "red");
 		status.text("OFFLINE");
 		schem.setVertexState("low_volt_indicator", "active");
-		schem.setVertexState("alternator", "inactive")
+		schem.setVertexState("alternator", "inactive");
 	} else {
 		status.css("color", "cyan");
 		status.text("ONLINE");
 		schem.setVertexState("low_volt_indicator", "inactive");
 		schem.setVertexState("alternator", "active");
+		console.log("something");
+		schem.setVertexState("starter_relay_svg", "active");
 	}
 	schem.update();
 	schem.draw();
 	panelState["#engine_button"] = !panelState["#engine_button"];
+});
+
+$("#engine_button").mouseup(function(){
+	schem.setVertexState("starter_relay_svg", "inactive");
+	schem.update();
+	schem.draw();
 });
 
 panelState["#epu_button"] = false;

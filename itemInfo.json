@@ -325,6 +325,29 @@
 				"class_name": "on_alternator"
 			},
 			{
+				"name": "starter_relay_svg",
+				"parent_id": "#starter_relay_svg",
+				"states": [
+					{
+						"class_id": "active",
+						"id": "starter_relay_svg_on",
+						"edges": [
+							"battery_relay",
+							"alt_relay"
+						],
+						"requires": [
+							"battery_relay"
+						]
+					},
+					{
+						"class_id": "inactive",
+						"id": "starter_relay_svg_off",
+						"is_default": true
+						
+					}
+				]
+			},
+			{
 				"name": "external_power",
 				"parent_id": "#external_power",
 				"states": [
@@ -415,6 +438,7 @@
 						"id": "#battery_relay_on",
 						"edges": [
 							"battery",
+							"starter_relay_svg",
 							"switch_battery_master",
 							"alt_relay",
 							"breaker_feeder_a_svg",
