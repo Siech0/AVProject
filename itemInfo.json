@@ -330,7 +330,7 @@
 				"states": [
 					{
 						"class_id": "active",
-						"id": "starter_relay_svg_on",
+						"id": "#starter_relay_svg_on",
 						"edges": [
 							"battery_relay",
 							"alt_relay"
@@ -341,7 +341,7 @@
 					},
 					{
 						"class_id": "inactive",
-						"id": "starter_relay_svg_off",
+						"id": "#starter_relay_svg_off",
 						"is_default": true
 						
 					}
