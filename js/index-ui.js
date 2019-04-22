@@ -1,4 +1,4 @@
-let panelState = {};
+﻿let panelState = {};
 let schem = new Schematic();
 
 /* 
@@ -11,13 +11,17 @@ schem.addEventListener("dataLoaded", function() {
 	});
 	
 	let pfd_powered = false;
+	let pfd_avn1_powered = false;
 	schem.addVertexEventListener("breaker_ess_pfd_svg", "powerChanged", function(value) {
 		pfd_powered = value;
 	});
+	schem.addVertexEventListener("breaker_avn1_pfd_svg", "powerChanged", function(value) {
+		pfd_avn1_powered = value;
+	});
 	
-	schem.addEventListener("draw", function() {	
+	schem.addEventListener("draw", function() {		
 		$("#mfd").toggleClass("hidden", !mfd_powered);
-		$("#pfd").toggleClass("hidden", !pfd_powered);
+		$("#pfd").toggleClass("hidden", !(pfd_powered || pfd_avn1_powered));
 	});
 });
 
