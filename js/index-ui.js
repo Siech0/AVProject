@@ -124,12 +124,17 @@ $("#engine_button").mousedown(function(){
 		
 		schem.setVertexState("low_volt_indicator", "active");
 		schem.setVertexState("alternator", "inactive");
+		$("#main_volts").text("24.0");
+		$("#main_amps").text("5");
+			
 		panelState["#engine_button"] = false;
 	} else if(schem.isVertexPowered("battery_relay", "battery")) { //Engine can only activate if battery is on
 		status.css("color", "cyan");
 		status.text("ONLINE");
 		if (schem.isVertexPowered("alt_relay", "battery")) {
             schem.setVertexState("low_volt_indicator", "inactive");
+			$("#main_volts").text("32.0");
+			$("#main_amps").text("5");
         }
 		
 		schem.setVertexState("alternator", "active");
@@ -176,6 +181,8 @@ $("#master_switch_alt").click( () => {
 		
 		schem.setVertexState("alt_relay", "inactive");
 		schem.setVertexState("low_volt_indicator", "active");
+		$("#main_volts").text("24.0");
+		$("#main_amps").text("5");
 		let state = schem.getVertexState("switch_alt_master");
         schem.setVertexState("switch_alt_master", state == "active" ? "inactive" : "active");
 	} else { //Switch inactive
@@ -192,6 +199,8 @@ $("#master_switch_alt").click( () => {
 		schem.update();
 		if (schem.isVertexPowered("alt_relay", "alternator")) {
             schem.setVertexState("low_volt_indicator", "inactive");
+			$("#main_volts").text("32.0");
+			$("#main_amps").text("5");
         }
 	}
 	schem.update();
@@ -209,7 +218,8 @@ $("#master_switch_bat").click( () => {
 		schem.setVertexState("alt_relay", "inactive");
 	} else { //Switch inactive
 		$("#master_switch_bat").toggleClass("active", true);
-		
+		$("#main_volts").text("24.0");
+		$("#main_amps").text("5");
 		schem.setVertexState("switch_battery_master", "active");
 		schem.setVertexState("battery_relay", "active");
 	}
