@@ -314,6 +314,19 @@ main {
 	/*z-index: -1;*/
 }
 
+#low_oil_pressure_warning {
+    font-size: .9em;
+	padding: .05em;
+	background-color: gray;
+    color: red;
+    border-color:black;
+    border: solid 1px black;
+}
+
+#low_oil_pressure_warning.hidden {
+    display: none;
+}
+
 #warnings {
 	position: relative;
 	float: right;

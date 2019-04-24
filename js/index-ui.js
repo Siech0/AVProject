@@ -36,14 +36,21 @@ schem.addEventListener("dataLoaded", function() {
 	let has_alt_input = true;
 	schem.addVertexEventListener("alternator_indicator", "powerChanged", function(value){
 		has_alt_input = value;
-		console.log("alt", value);
+		console.log("has_alt_input", value);
 	});
+    
+    let has_oil_pressure = false;
+	schem.addVertexEventListener("low_volt_indicator", "powerChanged", function(value){
+		has_oil_pressure = value;
+		console.log("oil_pressure", value);
+	}); 
 	
 	schem.addEventListener("draw", function() {		
 		$("#mfd").toggleClass("hidden", !mfd_powered);
 		$("#pfd").toggleClass("hidden", !(pfd_powered || pfd_avn1_powered));
 		$("#low_volts_warning").toggleClass("hidden", !(pfd_powered || pfd_avn1_powered) || !has_volts);
 		$("#engine_off_warning").toggleClass("hidden", !(pfd_powered || pfd_avn1_powered) || has_alt_input);
+        $("#low_oil_pressure_warning").toggleClass("hidden", !(pfd_powered || pfd_avn1_powered) || !has_oil_pressure);
 	});
 	
 	
