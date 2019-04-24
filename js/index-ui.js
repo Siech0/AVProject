@@ -25,7 +25,7 @@ schem.addEventListener("dataLoaded", function() {
 		if (has_volts) {
             console.log("warning when pfd is up");
         }
-		if (has_volts && !(pfd_powered &&pfd_avn1_powered)) {
+		if (has_volts && !(pfd_powered || pfd_avn1_powered)) {
             console.log("show a warning on pfd");
         } else {
 			console.log(pfd_avn1_powered+"||"+pfd_powered);
@@ -37,7 +37,7 @@ schem.addEventListener("dataLoaded", function() {
 	schem.addEventListener("draw", function() {		
 		$("#mfd").toggleClass("hidden", !mfd_powered);
 		$("#pfd").toggleClass("hidden", !(pfd_powered || pfd_avn1_powered));
-		$("#low_volts_warning").toggleClass("hidden", !(pfd_powered && pfd_avn1_powered) && !has_volts);
+		$("#low_volts_warning").toggleClass("hidden", !(pfd_powered || pfd_avn1_powered) || !has_volts);
 	});
 	
 	
