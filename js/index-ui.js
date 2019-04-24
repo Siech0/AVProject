@@ -19,10 +19,28 @@ schem.addEventListener("dataLoaded", function() {
 		pfd_avn1_powered = value;
 	});
 	
+	let has_volts = false;
+	schem.addVertexEventListener("low_volt_indicator", "powerChanged", function(value){
+		has_volts = value;
+		if (has_volts) {
+            console.log("warning when pfd is up");
+        }
+		if (has_volts && !(pfd_powered &&pfd_avn1_powered)) {
+            console.log("show a warning on pfd");
+        } else {
+			console.log(pfd_avn1_powered+"||"+pfd_powered);
+			console.log("show no warning");
+		}
+		console.log("low volts changed", value);
+	});
+	
 	schem.addEventListener("draw", function() {		
 		$("#mfd").toggleClass("hidden", !mfd_powered);
 		$("#pfd").toggleClass("hidden", !(pfd_powered || pfd_avn1_powered));
+		$("#low_volts_warning").toggleClass("hidden", !(pfd_powered && pfd_avn1_powered) && !has_volts);
 	});
+	
+	
 });
 
 
