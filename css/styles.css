@@ -391,10 +391,31 @@ main {
 .electrical_info_row {
 	margin-bottom: 5%;
 }
-.electrical_info_row > div{
-	display: inline;
-	margin-left: 20%;
-	font-size: .9em;
+.electrical_info_row > div {
+	display: inline-block;
+	text-align: center;
+	font-size: .8em;
+	width: 3em;
+}
+
+#main_volts {
+	position: relative;
+	left: 12%;
+}
+
+#stdby_volts {
+	position: relative;
+	left: 22%;
+}
+
+#main_amps {
+	position: relative;
+	left: 12%;
+}
+
+#stdby_amps {
+	position: relative;
+	left: 22%;
 }
 /* right pull anchor */
 #right_pull_anchor {
