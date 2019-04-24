@@ -515,7 +515,7 @@
     padding-top: 8%;
     background-repeat: no-repeat;
     width: 7%;
-    transform: translate(914%, 162%);
+    transform: translate(920%, 162%);
 }
 
 #breaker_avn1_nav1_eng.on {
@@ -525,7 +525,28 @@
     padding-top: 8%;
     background-repeat: no-repeat;
     width: 7%;
-    transform: translate(914%, 162%);
+    transform: translate(920%, 162%);
+}
+
+
+#breaker_avn1_fis.off {
+    position: absolute;
+    background-image: url(../images2/Breaker5Off.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(1015%, 162%);
+}
+
+#breaker_avn1_fis.on {
+    position: absolute;
+    background-image: url(../images2/Breaker5On.png);
+    background-size: 100% 100%;
+    padding-top: 8%;
+    background-repeat: no-repeat;
+    width: 7%;
+    transform: translate(1015%, 162%);
 }
 
 /* AVN bus 2 --------------------------------*/
