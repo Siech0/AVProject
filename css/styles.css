@@ -307,7 +307,7 @@ main {
 #engine_off_warning {
 	position: relative;
 	float: right;
-	left: -50%;
+	
 	top: 50%;
 	font-size: .9em;
 	padding: .5em;

@@ -384,7 +384,7 @@
 					{
 						"class_id": "active",
 						"edges": [
-							"alt_relay"
+							
 						],
 						"is_default": true
 					},

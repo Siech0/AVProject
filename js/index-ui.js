@@ -13,31 +13,37 @@ schem.addEventListener("dataLoaded", function() {
 	let pfd_powered = false;
 	let pfd_avn1_powered = false;
 	schem.addVertexEventListener("breaker_ess_pfd_svg", "powerChanged", function(value) {
-		pfd_powered = value;
+		
+		pfd_powered = schem.isVertexPowered("breaker_ess_pfd_svg","battery") || schem.isVertexPowered("breaker_ess_pfd_svg","external_power") ||
+			schem.isVertexPowered("breaker_ess_pfd_svg","alternator") ||
+			schem.isVertexPowered("breaker_ess_pfd_svg","standby_battery");
+		
 	});
 	schem.addVertexEventListener("breaker_avn1_pfd_svg", "powerChanged", function(value) {
-		pfd_avn1_powered = value;
+		
+		pfd_avn1_powered = schem.isVertexPowered("breaker_avn1_pfd_svg","battery") || schem.isVertexPowered("breaker_avn1_pfd_svg","external_power") ||
+			schem.isVertexPowered("breaker_avn1_pfd_svg","alternator") ||
+			schem.isVertexPowered("breaker_avn1_pfd_svg","standby_battery");
+		
 	});
 	
 	let has_volts = false;
 	schem.addVertexEventListener("low_volt_indicator", "powerChanged", function(value){
 		has_volts = value;
-		if (has_volts) {
-            console.log("warning when pfd is up");
-        }
-		if (has_volts && !(pfd_powered || pfd_avn1_powered)) {
-            console.log("show a warning on pfd");
-        } else {
-			console.log(pfd_avn1_powered+"||"+pfd_powered);
-			console.log("show no warning");
-		}
-		console.log("low volts changed", value);
+		
+	});
+	
+	let has_alt_input = true;
+	schem.addVertexEventListener("alternator", "powerChanged", function(value){
+		has_alt_input = value;
+		console.log("alt", value);
 	});
 	
 	schem.addEventListener("draw", function() {		
 		$("#mfd").toggleClass("hidden", !mfd_powered);
 		$("#pfd").toggleClass("hidden", !(pfd_powered || pfd_avn1_powered));
 		$("#low_volts_warning").toggleClass("hidden", !(pfd_powered || pfd_avn1_powered) || !has_volts);
+		$("#engine_off_warning").toggleClass("hidden", !(pfd_powered || pfd_avn1_powered) || has_alt_input);
 	});
 	
 	
@@ -115,13 +121,17 @@ $("#engine_button").mousedown(function(){
 	if(panelState["#engine_button"]){ //Active
 		status.css("color", "red");
 		status.text("OFFLINE");
+		
 		schem.setVertexState("low_volt_indicator", "active");
 		schem.setVertexState("alternator", "inactive");
 		panelState["#engine_button"] = false;
 	} else if(schem.isVertexPowered("battery_relay", "battery")) { //Engine can only activate if battery is on
 		status.css("color", "cyan");
 		status.text("ONLINE");
-		schem.setVertexState("low_volt_indicator", "inactive");
+		if (schem.isVertexPowered("alt_relay", "battery")) {
+            schem.setVertexState("low_volt_indicator", "inactive");
+        }
+		
 		schem.setVertexState("alternator", "active");
 		schem.setVertexState("starter_relay_svg", "active");
 		panelState["#engine_button"] = true;
@@ -164,7 +174,8 @@ $("#master_switch_alt").click( () => {
 		$("#master_switch_alt").toggleClass("active", false);
 		$("#switch_alt_master").toggleClass("active", false);
 		
-		schem.setVertexState("alt_relay", "inactive");	
+		schem.setVertexState("alt_relay", "inactive");
+		schem.setVertexState("low_volt_indicator", "active");
 		let state = schem.getVertexState("switch_alt_master");
         schem.setVertexState("switch_alt_master", state == "active" ? "inactive" : "active");
 	} else { //Switch inactive
@@ -173,10 +184,15 @@ $("#master_switch_alt").click( () => {
 		
 		$("#audio_master").trigger("play");
 		
+		
 		schem.setVertexState("switch_alt_master", "active");
 		schem.setVertexState("alt_relay", "active");
 		schem.setVertexState("battery_relay", "active");
 		schem.setVertexState("switch_battery_master", "active");
+		schem.update();
+		if (schem.isVertexPowered("alt_relay", "alternator")) {
+            schem.setVertexState("low_volt_indicator", "inactive");
+        }
 	}
 	schem.update();
 	schem.draw();
