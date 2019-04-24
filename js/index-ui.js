@@ -34,7 +34,7 @@ schem.addEventListener("dataLoaded", function() {
 	});
 	
 	let has_alt_input = true;
-	schem.addVertexEventListener("alternator", "powerChanged", function(value){
+	schem.addVertexEventListener("alternator_indicator", "powerChanged", function(value){
 		has_alt_input = value;
 		console.log("alt", value);
 	});

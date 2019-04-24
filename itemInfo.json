@@ -311,10 +311,8 @@
 					{
 						"class_id": "active",
 						"edges": [
-							"alt_relay"
-						],
-						"requires": [
-							"alt_relay"
+							"alt_relay",
+							"alternator_indicator"
 						]
 					},
 					{
@@ -463,12 +461,24 @@
 						"edges": [
 							"battery_relay",
 							"switch_alt_master"
+							
 						]
 					},
 					{
 						"class_id": "inactive",
 						"id": "#alt_relay_off",
 						"is_default": true
+					}
+				]
+			},
+			{
+				"name": "alternator_indicator",
+				"parent_id": "",
+				"states": [
+					{
+						"class_id": "active",
+						"edges": [
+						]
 					}
 				]
 			},
