@@ -292,8 +292,10 @@ main {
 #low_volts_warning {
 	
 	font-size: .9em;
-	padding: .5em;
+	padding: .05em;
 	background-color: gray;
+    color:red;
+    border: solid 1px black;
 	/*z-index: -1;*/
 }
 
@@ -304,8 +306,11 @@ main {
 #engine_off_warning {
 	
 	font-size: .9em;
-	padding: .5em;
+	padding: .05em;
 	background-color: gray;
+    color:yellow;
+    border-color:black;
+    border: solid 1px black;
 	/*z-index: -1;*/
 }
 
@@ -405,16 +410,18 @@ main {
 
 #stdby_volts {
 	position: relative;
-	left: 22%;
+	left: 25%;
 }
 
 #main_amps {
 	position: relative;
+    transform: translateY(20%);
 	left: 12%;
 }
 
 #stdby_amps {
 	position: relative;
+    transform: translate(30%, 20%);
 	left: 22%;
 }
 /* right pull anchor */
