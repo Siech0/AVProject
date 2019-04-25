@@ -389,6 +389,21 @@ $("#switch_land_light").click( () => {
 	}
 });
 
+$("#help_menu").hide();
+$("#logo_button").click(function(){
+   if ($("#help_menu").hasClass("off"))
+    {
+       $("#help_menu").removeClass("off");
+       $("#help_menu").addClass("on");
+       $("#help_menu").slideDown(500);
+    }
+    else
+    {
+       $("#help_menu").removeClass("on");
+       $("#help_menu").addClass("off");
+       $("#help_menu").slideUp(500);        
+    }
+});
 
 //Enable navigation button panel toggle functionality
 $("#master_button").click(() => toggle("#master_main_container", false, 500)); //Master
