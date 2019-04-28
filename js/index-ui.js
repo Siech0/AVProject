@@ -320,18 +320,7 @@ stb_test.mousedown( () => {
 var breakerPanel = $("#breaker_switch_container").children();
 breakerPanel.each(function(){
 	$(this).click(function(){
-        
-        if ($(this).hasClass("off"))
-        {
-            $(this).removeClass("off");
-            $(this).addClass("on");
-        }
-        else
-        {
-            $(this).removeClass("on");
-            $(this).addClass("off");                
-        }
-        
+		$(this).toggleClass("off");
 		var id = $(this).attr('id');
 		let state = schem.getVertexState(id + "_svg");
 		schem.setVertexState(id + "_svg", state == "active" ? "inactive" : "active");
@@ -353,12 +342,9 @@ breakerPanel.each(function(){
 // we get the id, and concatenate it with svg to access the switchon the schematic
 var switchPanel = $("#switches_switch_container > *:not('#switch_land_light')");
 switchPanel.each(function(){
-	let _this = $(this);
-	_this.click(function(){        
-		var id = $(this).attr('id');
-		_this.toggleClass("off");
-		_this.toggleClass("on");
-		
+	$(this).click(function(){        
+		$(this).toggleClass("on");
+		var id = $(this).attr('id');		
 		let state = schem.getVertexState(id + "_svg");
 		schem.setVertexState(id + "_svg", state == "active" ? "inactive" : "active");
 		schem.update();
@@ -369,21 +355,20 @@ switchPanel.each(function(){
 //We filter out this specific id from the above code because its a special case.
 $("#switch_land_light").click( () => {
 	let _this = $("#switch_land_light");
-	if(_this.hasClass("off")) {
-		console.log("test2");
-		_this.removeClass("off").addClass("taxi");
-		schem.setVertexState("switch_taxi_light_svg", "active");
-		schem.update();
-		schem.draw();
-	} else if (_this.hasClass("taxi")) {
+	if (_this.hasClass("taxi")) {	//Taxi
 		_this.removeClass("taxi").addClass("land");
 		schem.setVertexState("switch_land_light_svg", "active");
 		schem.setVertexState("switch_taxi_light_svg", "inactive");
 		schem.update();
 		schem.draw();
-	} else if (_this.hasClass("land")) {
-		_this.removeClass("land").addClass("off");
+	} else if (_this.hasClass("land")) { //Land
+		_this.removeClass("land")
 		schem.setVertexState("switch_land_light_svg", "inactive");
+		schem.update();
+		schem.draw();
+	} else { //off
+		_this.addClass("taxi");
+		schem.setVertexState("switch_taxi_light_svg", "active");
 		schem.update();
 		schem.draw();
 	}

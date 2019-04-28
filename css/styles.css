@@ -70,6 +70,8 @@ nav * {
 	border-bottom-left-radius: 16px;
 	border-bottom-right-radius: 16px;
 	border-top: 0;
+	color: #DDD;
+	font-weight: bold;
 }
 
 #nav_pull_anchor > img {
@@ -282,7 +284,7 @@ main {
 	transition-timing-function: cubic-bezier(.7, .3, 0.3, .7);*/
 	background-size: 350% 100%;
 	background-position: right;
-	background-image: url(../images2/PFDBlank.png);
+	background-image: url(../images/PFDBlank.png);
 }
 
 #left_panel_content.hidden {
@@ -293,7 +295,7 @@ main {
 	width: 100%;
 	height: 100%;
 	background-color: transparent;
-	background-image: url(../images2/PFDFilled.png);
+	background-image: url(../images/PFDFilled.png);
 	background-size: 350% 100%;
 	background-position: right;
 	border-radius: 0px 20px 20px 0px;
@@ -356,6 +358,8 @@ main {
 	border-bottom-right-radius: 16px;
 	border-left: 0;
 	float: right;
+	
+
 }
 
 #left_pull_anchor > img {
@@ -393,7 +397,7 @@ main {
 	/*transition-property: all;
 	transition-duration: .7s;
 	transition-timing-function: cubic-bezier(.7, .3, 0.3, .7);*/
-	background-image: url(../images2/PFDBlank.png);
+	background-image: url(../images/PFDBlank.png);
 	background-size: 350% 100%;
 	
 }
@@ -407,7 +411,7 @@ main {
 	width: 100%;
 	height: 100%;
 	background-color: transparent;
-	background-image: url(../images2/MFDFilled.png);
+	background-image: url(../images/MFDFilled.png);
 	background-size: 350% 100%;
 	
 }
@@ -528,21 +532,21 @@ footer {
 }
 
 #panel_content_master {
-	background-image: url(../images2/MasterSwitch.jpg);
+	background-image: url(../images/MasterSwitch.jpg);
 	padding-top: 107.73%;
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 }
 
 #panel_content_breakers {
-	background-image: url(../images2/BreakerPanelSansFIS.jpg); 
+	background-image: url(../images/BreakerPanelSansFIS.jpg); 
 	padding-top: 32.39%;
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 }
 
 #panel_content_switches {
-	background-image: url(../images2/SwitchPanel.jpg); 
+	background-image: url(../images/SwitchPanel.jpg); 
 	padding-top: 76.82%;
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
@@ -556,14 +560,14 @@ footer {
 	padding-top: 30%;
     height: 2%;
 	
-	background-image: url(../images2/MasterSwitchOff.png);     
+	background-image: url(../images/MasterSwitchOff.png);     
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	overflow: hidden;
 }
 
 #master_switch_alt.active {
-    background-image: url(../images2/MasterSwitchOn.png);   	
+    background-image: url(../images/MasterSwitchOn.png);   	
 }
 
 #master_switch_bat {
@@ -574,14 +578,14 @@ footer {
 	padding-top: 30%;
 	height: 2%;
     
-    background-image: url(../images2/MasterSwitchOff.png); 
+    background-image: url(../images/MasterSwitchOff.png); 
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	overflow: hidden;
 }
 
 #master_switch_bat.active {
-    background-image: url(../images2/MasterSwitchOn.png);      	
+    background-image: url(../images/MasterSwitchOn.png);      	
 }
 
 #avn_bus1_switch {
@@ -592,14 +596,14 @@ footer {
 	padding-top: 30%;
     height: 2%;
 	
-    background-image: url(../images2/AvSwitchOff.png);
+    background-image: url(../images/AvSwitchOff.png);
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	overflow: hidden;
 }
 
 #avn_bus1_switch.active {
-    background-image: url(../images2/AvSwitchOn.png);
+    background-image: url(../images/AvSwitchOn.png);
 }
 
 #avn_bus2_switch{
@@ -610,14 +614,14 @@ footer {
 	padding-top: 30%;
 	height: 2%;
     
-    background-image: url(../images2/AvSwitchOff.png);   
+    background-image: url(../images/AvSwitchOff.png);   
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	overflow: hidden;
 }
 
 #avn_bus2_switch.active {
-    background-image: url(../images2/AvSwitchOn.png);
+    background-image: url(../images/AvSwitchOn.png);
 }
 
 /* Beginning of standby battery CSS */
@@ -649,7 +653,7 @@ footer {
     left: 42.5%;
     width: 40%;
     padding-top:30%;
-    background-image: url(../images2/TestLed.png);
+    background-image: url(../images/TestLed.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
@@ -690,7 +694,7 @@ footer {
 	padding-top: 30%;
 	background-repeat: no-repeat;
     background-size: 60% 70%;
-	background-image: url(../images2/StdbyBattSwitchTest.png);
+	background-image: url(../images/StdbyBattSwitchTest.png);
 }
 
 #standby_battery_switch.arm {
@@ -701,7 +705,7 @@ footer {
     padding-top: 22%;
     background-size: 60% 100%;
 	background-repeat: no-repeat;
-    background-image: url(../images2/StdbyBattSwitchArm.png);
+    background-image: url(../images/StdbyBattSwitchArm.png);
 }
 
 /* Styling for the switch containers */
