@@ -1436,7 +1436,8 @@
 					{
 						"class_id": "active",
 						"edges": [
-							"switch_stb"
+							"switch_stb",
+							"switch_stb_active"
 						]
 					}
 				]

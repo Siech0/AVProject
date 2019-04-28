@@ -452,11 +452,22 @@ var Schematic = /** @class */ (function () {
         if (vertex == null) {
             throw new Error("Schematic.isVertexPowered(): Attempt to get power state of invalid vertex '" + vertexName + "'");
         }
-        var source = this.sources.get(sourceName);
-        if (source == null) {
-            throw new Error("Schematic.isVertexPowered(): Attempt to get power state vertex from invalid source'" + sourceName + "'");
+        if (sourceName) { //Optional parameter
+            var source = this.sources.get(sourceName);
+            if (source == null) {
+                throw new Error("Schematic.isVertexPowered(): Attempt to get power state vertex from invalid source'" + sourceName + "'");
+            }
+            return source.hasConnection(vertexName);
         }
-        return source.hasConnection(vertexName);
+        else { //Check if powered by ANY source.
+            var found_1 = false;
+            this.sources.forEach(function (source, key, map) {
+                if (source.hasConnection(vertexName)) {
+                    found_1 = true;
+                }
+            });
+            return found_1;
+        }
     };
     /* State Class Management */
     Schematic.prototype.addStateClass = function (name, opt) {
@@ -523,12 +534,12 @@ var Schematic = /** @class */ (function () {
             //get the symetrical difference of the set
             source.forEachConnection(function (connection, _0, _1) {
                 if (!oldData.has(connection)) {
-                    _this.emitVertexEvent(connection, "powerChanged", true);
+                    _this.emitVertexEvent(connection, "powerChanged", true, source.name);
                 }
             });
             oldData.get(key).forEach(function (connection, _0, _1) {
                 if (!source.hasConnection(connection)) {
-                    _this.emitVertexEvent(connection, "powerChanged", false);
+                    _this.emitVertexEvent(connection, "powerChanged", false, source.name);
                 }
             });
         });

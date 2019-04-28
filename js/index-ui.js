@@ -12,37 +12,27 @@ schem.addEventListener("dataLoaded", function() {
 	
 	let pfd_powered = false;
 	let pfd_avn1_powered = false;
-	schem.addVertexEventListener("breaker_ess_pfd_svg", "powerChanged", function(value) {
-		
-		pfd_powered = schem.isVertexPowered("breaker_ess_pfd_svg","battery") || schem.isVertexPowered("breaker_ess_pfd_svg","external_power") ||
-			schem.isVertexPowered("breaker_ess_pfd_svg","alternator") ||
-			schem.isVertexPowered("breaker_ess_pfd_svg","standby_battery");
-		
+	schem.addVertexEventListener("breaker_ess_pfd_svg", "powerChanged", function(value, sourceName) {
+		pfd_powered = schem.isVertexPowered("breaker_ess_pfd_svg");
 	});
-	schem.addVertexEventListener("breaker_avn1_pfd_svg", "powerChanged", function(value) {
-		
-		pfd_avn1_powered = schem.isVertexPowered("breaker_avn1_pfd_svg","battery") || schem.isVertexPowered("breaker_avn1_pfd_svg","external_power") ||
-			schem.isVertexPowered("breaker_avn1_pfd_svg","alternator") ||
-			schem.isVertexPowered("breaker_avn1_pfd_svg","standby_battery");
-		
+	
+	schem.addVertexEventListener("breaker_avn1_pfd_svg", "powerChanged", function(value, sourceName) {
+		pfd_avn1_powered = schem.isVertexPowered("breaker_avn1_pfd_svg");
 	});
 	
 	let has_volts = false;
 	schem.addVertexEventListener("low_volt_indicator", "powerChanged", function(value){
 		has_volts = value;
-		
 	});
 	
 	let has_alt_input = true;
 	schem.addVertexEventListener("alternator_indicator", "powerChanged", function(value){
 		has_alt_input = value;
-		console.log("has_alt_input", value);
 	});
     
     let has_oil_pressure = false;
 	schem.addVertexEventListener("low_volt_indicator", "powerChanged", function(value){
 		has_oil_pressure = value;
-		console.log("oil_pressure", value);
 	}); 
 	
 	schem.addEventListener("draw", function() {		
@@ -52,8 +42,6 @@ schem.addEventListener("dataLoaded", function() {
 		$("#engine_off_warning").toggleClass("hidden", !(pfd_powered || pfd_avn1_powered) || has_alt_input);
         $("#low_oil_pressure_warning").toggleClass("hidden", !(pfd_powered || pfd_avn1_powered) || !has_oil_pressure);
 	});
-	
-	
 });
 
 
