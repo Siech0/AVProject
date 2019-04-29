@@ -443,16 +443,7 @@ $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
                                 targets.addEventListener("click", function(e){ 
                     if(e.target.id == "info_breaker_feeder_a")
                     {
-                        if ($("#breaker_feeder_a_svg").hasClass("off"))
-                        {
-                            $("#breaker_feeder_a_svg").removeClass("off");
-                            $("#breaker_feeder_a_svg").addClass("on");
-                        }
-                        else
-                        {
-                            $("#breaker_feeder_a_svg").removeClass("on");
-                            $("#breaker_feeder_a_svg").addClass("off");
-                        }
+                        
                         let state = schem.getVertexState("breaker_feeder_a_svg")
                         schem.setVertexState("breaker_feeder_a_svg", state == "active" ? "inactive" : "active");
                         schem.update();
@@ -460,16 +451,7 @@ $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
                     }
                     else if (e.target.id == "info_breaker_feeder_b")
                     {
-                         if ($("#breaker_feeder_b_svg").hasClass("off"))
-                        {
-                            $("#breaker_feeder_b_svg").removeClass("off");
-                            $("#breaker_feeder_b_svg").addClass("on");
-                        }
-                        else
-                        {
-                            $("#breaker_feeder_b_svg").removeClass("on");
-                            $("#breaker_feeder_b_svg").addClass("off");
-                        }
+                         
                         let state = schem.getVertexState("breaker_feeder_b_svg")
                         schem.setVertexState("breaker_feeder_b_svg", state == "active" ? "inactive" : "active");
                         schem.update();
