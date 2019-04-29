@@ -330,7 +330,16 @@ breakerPanel.each(function(){
 	});
 });
 
-
+// The alt breaker should also disengage the alt relay
+$("#breaker_alt_field").click(function(){
+	if (schem.getVertexState("breaker_alt_field_svg") == "inactive") {
+        schem.setVertexState("alt_relay", "inactive");
+    } else {
+		schem.setVertexState("alt_relay", "active");
+	}
+	schem.update();
+	schem.draw();
+});
 
 /* 
 	SWITCH PANEL CONTAINER
