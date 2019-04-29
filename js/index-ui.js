@@ -149,6 +149,12 @@ $("#engine_button").mousedown(function(){
 
 });
 
+$("#engine_button").mouseup(function(){
+	schem.setVertexState("starter_relay_svg", "inactive");
+	schem.update();
+	schem.draw();
+});
+
 panelState["#epu_button"] = false;
 $("#epu_button").click(function(){
 	var status = $("#epu_status");
