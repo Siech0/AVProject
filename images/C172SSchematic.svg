@@ -39,13 +39,13 @@
      inkscape:window-height="744"
      id="namedview1227"
      showgrid="false"
-     inkscape:zoom="2"
-     inkscape:cx="946.84902"
-     inkscape:cy="163.34041"
+     inkscape:zoom="4"
+     inkscape:cx="549.06207"
+     inkscape:cy="316.59155"
      inkscape:window-x="65"
      inkscape:window-y="24"
      inkscape:window-maximized="1"
-     inkscape:current-layer="test_voltage_sense"
+     inkscape:current-layer="labels"
      showguides="false"
      inkscape:guide-bbox="true"
      fit-margin-top="0"
@@ -1202,15 +1202,14 @@
      id="test_voltage_sense"
      transform="matrix(0.85204541,0,0,0.89672011,-0.5,-0.5)"
      style="stroke-opacity:1;">
-    
     <g
        id="standby_battery_test_paths"
        style="stroke-opacity:1;">
       <path
-       inkscape:connector-curvature="0"
-       id="path4167"
-       d="m 1022.66,464.34749 -34.32,0"
-       style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1;" />
+         inkscape:connector-curvature="0"
+         id="path4167"
+         d="m 1022.66,464.34749 -34.32,0"
+         style="fill:none;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1;" />
       <circle
          r="3"
          id="ellipse867"
@@ -4339,7 +4338,7 @@
     </g>
     <g
        id="g165"
-       transform="translate(305.5,554.5)"
+       transform="translate(293.76355,525.50545)"
        style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1">
       <switch
          id="switch163"
@@ -4373,6 +4372,7 @@
 
 
 
+
 Relay<br />
 </div>
           </div>
@@ -4387,7 +4387,7 @@ Relay<br />
     </g>
     <g
        id="g171"
-       transform="translate(296.66565,463.6461)"
+       transform="translate(275.54004,421.26945)"
        style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1">
       <switch
          id="switch169"
@@ -4421,6 +4421,7 @@ Relay<br />
 
 
 
+
 Relay<br />
 </div>
           </div>
@@ -4435,7 +4436,7 @@ Relay<br />
     </g>
     <g
        id="g177"
-       transform="translate(297.5,219.5)"
+       transform="translate(274.0271,266.33735)"
        style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1">
       <switch
          id="switch175"
@@ -4450,6 +4451,7 @@ Relay<br />
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 33px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
             <div
                style="display:inline-block;text-align:inherit;text-decoration:inherit;">Alt<br />
+
 
 
 
@@ -4564,7 +4566,7 @@ Relay<br />
     </g>
     <g
        id="g261"
-       transform="translate(265.52603,617.93249)"
+       transform="translate(251.44229,624.62354)"
        style="stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1">
       <switch
          id="switch259"
@@ -4837,6 +4839,7 @@ Relay<br />
              style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 33px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
             <div
                style="display:inline-block;text-align:inherit;text-decoration:inherit;">Panel<br />
+
 
 
 
@@ -5634,6 +5637,12 @@ LTS<br />
        font-size="12px"
        y="393.65466"
        x="1173.6144">Control</text>
+    <text
+       x="636.08484"
+       y="337.896"
+       font-size="12px"
+       id="text10268"
+       style="font-size:12px;font-family:Helvetica;text-anchor:middle;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1">Alt Field</text>
     <g
        id="g907-3"
        transform="translate(1099.3632,471.57769)"
@@ -5842,6 +5851,7 @@ LTS<br />
 
 
 
+
 Switch<br />
 </div>
           </div>
@@ -5866,6 +5876,7 @@ Switch<br />
                    style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 41px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
                   <div
                      style="display:inline-block;text-align:inherit;text-decoration:inherit;">Ignition<br />
+
 
 
 
