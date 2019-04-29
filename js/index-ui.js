@@ -111,7 +111,7 @@ $('#right_pull_anchor').click(function(){
 	Navigation Bar Engine/EPU button responsiveness.
 */
 panelState["#engine_button"] = false;
-$("#engine_button").mousedown(function(){
+$("#engine_button").bind("mousedown touchstart", function(){
 	var status = $("#engine_status"); 
 	if(panelState["#engine_button"]){ //Active
 		status.css("color", "red");
@@ -149,13 +149,18 @@ $("#engine_button").mousedown(function(){
 
 });
 
-$("#engine_button").mouseup(function(){
+$("#engine_button").bind("mouseup touchend", function(){
 	schem.setVertexState("starter_relay_svg", "inactive");
 	schem.update();
 	schem.draw();
 });
 
+// disabled context menu on engine button (so that long click on mobile won't show context menu)
+$("#engine_button").contextmenu(function(){
+	return false;
+});
 panelState["#epu_button"] = false;
+
 $("#epu_button").click(function(){
 	var status = $("#epu_status");
 	if(panelState["#epu_button"]){ //Active
@@ -273,7 +278,11 @@ stb_arm.click( () => {
 	schem.draw();
 });
 
-stb_test.mousedown( () => {
+stb_test.contextmenu(function() {
+	return false;
+});
+
+stb_test.bind("mousedown touchstart", () => {
 	if(stb_switch.hasClass("off")){ //testing stb_switch
 		$("#standby_battery_switch").removeClass("off").addClass("test");
         $("#standby_led").removeClass("off").addClass("test");
@@ -284,7 +293,7 @@ stb_test.mousedown( () => {
 		schem.draw();
 
 		//The test switch should automatically switch itself back up
-		stb_test.off("mouseup");
+		stb_test.off("mouseup touchend");
 		let func = function() {
 			$("#standby_battery_switch").removeClass("test").addClass("off");
             $("#standby_led").removeClass("test").addClass("off");
@@ -294,11 +303,13 @@ stb_test.mousedown( () => {
 			schem.update();
 			schem.draw();	
 			document.removeEventListener("mouseup", func);
+			document.removeEventListener("touchend", func);
 		}
 		document.addEventListener("mouseup", func);
+		document.addEventListener("touchend", func);
 
 	} else if (stb_switch.hasClass("arm")) { //de-arming stb_switch
-		stb_test.off("mouseup");
+		stb_test.off("mouseup touchend");
 		let func  = function() {
 			$("#standby_battery_switch").removeClass("arm").addClass("off");
 			schem.setVertexState("switch_stb", "inactive");
@@ -308,8 +319,10 @@ stb_test.mousedown( () => {
 			schem.draw();
 			console.log("here");
 			document.removeEventListener("mouseup", func);
+			document.removeEventListener("touchend", func);
 		}
 		document.addEventListener("mouseup", func);
+		document.addEventListener("touchend", func);
 	} 
 
 });
