@@ -130,6 +130,14 @@ $("#engine_button").mousedown(function(){
             schem.setVertexState("low_volt_indicator", "inactive");
 			$("#main_volts").text("32.0");
 			$("#main_amps").text("5");
+			let func = function() {
+				schem.setVertexState("starter_relay_svg", "inactive");
+				schem.update();
+				schem.draw();
+				document.removeEventListener("mouseup", func);
+			}
+			
+			document.addEventListener("mouseup", func);
         }
 		
 		schem.setVertexState("alternator", "active");
@@ -139,12 +147,6 @@ $("#engine_button").mousedown(function(){
 	schem.update();
 	schem.draw();
 
-});
-
-$("#engine_button").mouseup(function(){
-	schem.setVertexState("starter_relay_svg", "inactive");
-	schem.update();
-	schem.draw();
 });
 
 panelState["#epu_button"] = false;
@@ -277,7 +279,7 @@ stb_test.mousedown( () => {
 
 		//The test switch should automatically switch itself back up
 		stb_test.off("mouseup");
-		stb_test.mouseup( () => {
+		let func = function() {
 			$("#standby_battery_switch").removeClass("test").addClass("off");
             $("#standby_led").removeClass("test").addClass("off");
 			schem.setVertexState("switch_stb", "inactive");
@@ -285,18 +287,23 @@ stb_test.mousedown( () => {
 			schem.setVertexState("switch_stb_active", "inactive");	
 			schem.update();
 			schem.draw();	
-		});
+			document.removeEventListener("mouseup", func);
+		}
+		document.addEventListener("mouseup", func);
 
 	} else if (stb_switch.hasClass("arm")) { //de-arming stb_switch
 		stb_test.off("mouseup");
-		stb_test.mouseup( () => {
+		let func  = function() {
 			$("#standby_battery_switch").removeClass("arm").addClass("off");
 			schem.setVertexState("switch_stb", "inactive");
 			schem.setVertexState("switch_stb_dummy", "inactive");
 			schem.setVertexState("switch_stb_active", "active");	
 			schem.update();
-			schem.draw();	
-		});
+			schem.draw();
+			console.log("here");
+			document.removeEventListener("mouseup", func);
+		}
+		document.addEventListener("mouseup", func);
 	} 
 
 });
@@ -364,16 +371,14 @@ $("#switch_land_light").click( () => {
 
 $("#help_menu").hide();
 $("#logo_button").click(function(){
-   if ($("#help_menu").hasClass("off"))
+   if (!$("#help_menu").hasClass("on"))
     {
-       $("#help_menu").removeClass("off");
        $("#help_menu").addClass("on");
        $("#help_menu").slideDown(500);
     }
     else
     {
        $("#help_menu").removeClass("on");
-       $("#help_menu").addClass("off");
        $("#help_menu").slideUp(500);        
     }
 });
