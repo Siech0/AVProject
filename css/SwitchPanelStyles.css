@@ -1,102 +1,174 @@
+#switch_beacon_light.on {
+    position: absolute;
+    margin-top: 13%;
+    left: 4%;
+    width: 24%;
+	padding-top: 30%;
+	background-repeat: no-repeat;
+    background-size: 60% 70%;
+	background-image: url(../images/WhiteSwitchOn.png);
+}
 
 #switch_beacon_light {
     position: absolute;
-    background-image: url(../images/GreenSwitchOff.png);
-    background-size: 100% 100%;
-    padding-top: 23%;
-    background-repeat: no-repeat;
-    width: 15%;
-	transform: translate(33%, 52%);
+    margin-top: 13%;
+    left: 4%;
+    width: 24%;
+	padding-top: 30%;
+	background-repeat: no-repeat;
+    background-size: 60% 70%;
+	background-image: url(../images/whiteSwitchOff.png);
 }
 
-#switch_beacon_light.on {
-	background-image: url(../images/GreenSwitchOn.png);
-}
-
-#switch_nav_light {
+#switch_land_light.on {
     position: absolute;
-    background-image: url(../images/GreenSwitchOff.png);
-    background-size: 100% 100%;
-    padding-top: 23%;
-    background-repeat: no-repeat;
-    width: 15%;
-	transform: translate(166%, 52%);
-}
-
-#switch_nav_light.on {
-	background-image: url(../images/GreenSwitchOn.png);
-}
-
-#switch_strobe_light {
-    position: absolute;
-    background-image: url(../images/GreenSwitchOff.png);
-    background-size: 100% 100%;
-    padding-top: 23%;
-    background-repeat: no-repeat;
-    width: 15%;
-	transform: translate(300%, 52%);
-}
-
-#switch_strobe_light.on {
-	background-image: url(../images/GreenSwitchOn.png);	
-}
-
-#switch_fuel_pump {
-    position: absolute;
-    background-image: url(../images/GreenSwitchOff.png);
-    background-size: 100% 100%;
-    padding-top: 23%;
-    background-repeat: no-repeat;
-    width: 15%;
-	transform: translate(33%, 195%);
-}
-
-#switch_fuel_pump.on {
-	background-image: url(../images/GreenSwitchOn.png);	
-}
-
-#switch_pitot_heat {
-    position: absolute;
-    background-image: url(../images/GreenSwitchOff.png);
-    background-size: 100% 100%;
-    padding-top: 23%;
-    background-repeat: no-repeat;
-    width: 15%;
-	transform: translate(166%, 195%);
-}
-
-#switch_pitot_heat.on {
-	background-image: url(../images/GreenSwitchOn.png);	
-}
-
-#switch_cabin_lights {
-    position: absolute;
-    background-image: url(../images/GreenSwitchOff.png);
-    background-size: 100% 100%;
-    padding-top: 23%;
-    background-repeat: no-repeat;
-    width: 15%;
-	transform: translate(300%, 195%);
-}
-
-#switch_cabin_lights.on {
-	background-image: url(../images/GreenSwitchOn.png);		
+    margin-top: 13%;
+    left: 65%;
+    width: 24%;
+	padding-top: 30%;
+	background-repeat: no-repeat;
+    background-size: 60% 70%;
+	background-image: url(../images/WhiteSwitchOn.png);
 }
 
 #switch_land_light {
     position: absolute;
-    background-image: url(../images/White3WayDown.png);
-    background-size: 100% 100%;
-    padding-top: 19%;
-    background-repeat: no-repeat;
-    width: 15%;
-	transform: translate(430%, 72%);
+    margin-top: 16%;
+    left: 65%;
+    width: 24%;
+	padding-top: 23%;
+	background-repeat: no-repeat;
+    background-size: 60% 70%;
+	background-image: url(../images/White3WayDown.png);
 }
 
 #switch_land_light.taxi {
+    position: absolute;
+    margin-top: 16%;
+    left: 65%;
+    width: 24%;
+	padding-top: 23%;
+	background-repeat: no-repeat;
+    background-size: 60% 70%;
 	background-image: url(../images/White3WayMid.png);
 }
 
 #switch_land_light.land {
-	background-image: url(../images/White3WayUp.png)
+    position: absolute;
+    margin-top: 16%;
+    left: 65%;
+    width: 24%;
+	padding-top: 23%;
+	background-repeat: no-repeat;
+    background-size: 60% 70%;
+	background-image: url(../images/White3WayUp.png);
+}
+
+#switch_nav_light.on {
+    position: absolute;
+    margin-top: 13%;
+    left: 23%;
+    width: 24%;
+	padding-top: 30%;
+	background-repeat: no-repeat;
+    background-size: 60% 70%;
+	background-image: url(../images/WhiteSwitchOn.png);
+}
+
+#switch_nav_light {
+    position: absolute;
+    margin-top: 13%;
+    left: 23%;
+    width: 24%;
+	padding-top: 30%;
+	background-repeat: no-repeat;
+    background-size: 60% 70%;
+	background-image: url(../images/whiteSwitchOff.png);
+}
+
+#switch_strobe_light.on {
+    position: absolute;
+    margin-top: 13%;
+    left: 45%;
+    width: 24%;
+	padding-top: 30%;
+	background-repeat: no-repeat;
+    background-size: 60% 70%;
+	background-image: url(../images/WhiteSwitchOn.png);
+}
+
+
+#switch_strobe_light {
+    position: absolute;
+    margin-top: 13%;
+    left: 45%;
+    width: 24%;
+	padding-top: 30%;
+	background-repeat: no-repeat;
+    background-size: 60% 70%;
+	background-image: url(../images/whiteSwitchOff.png);
+}
+
+#switch_pitot_heat.on {
+    position: absolute;
+    margin-top: 45%;
+    left: 24%;
+    width: 24%;
+	padding-top: 30%;
+	background-repeat: no-repeat;
+    background-size: 60% 70%;
+	background-image: url(../images/GreenSwitchOn.png);
+}
+
+#switch_pitot_heat {
+    position: absolute;
+    margin-top: 45%;
+    left: 24%;
+    width: 24%;
+	padding-top: 30%;
+	background-repeat: no-repeat;
+    background-size: 60% 70%;
+	background-image: url(../images/GreenSwitchOff.png);
+}
+
+#switch_fuel_pump.on {
+    position: absolute;
+    margin-top: 45%;
+    left: 5%;
+    width: 24%;
+	padding-top: 30%;
+	background-repeat: no-repeat;
+    background-size: 60% 70%;
+	background-image: url(../images/WhiteSwitchOn.png);
+}
+#switch_fuel_pump {
+    position: absolute;
+    margin-top: 45%;
+    left: 4%;
+    width: 24%;
+	padding-top: 30%;
+	background-repeat: no-repeat;
+    background-size: 60% 70%;
+	background-image: url(../images/whiteSwitchOff.png);
+}
+#switch_cabin_lights.on {
+    position: absolute;
+    margin-top: 45%;
+    left: 45%;
+    width: 24%;
+	padding-top: 30%;
+	background-repeat: no-repeat;
+    background-size: 60% 70%;
+	background-image: url(../images/WhiteSwitchOn.png);
+}
+
+#switch_cabin_lights {
+    position: absolute;
+    margin-top: 45%;
+    left: 45%;
+    width: 24%;
+	padding-top: 30%;
+	background-repeat: no-repeat;
+    background-size: 60% 70%;
+	background-image: url(../images/whiteSwitchOff.png);
 }
