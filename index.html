@@ -34,16 +34,16 @@
 					<span style="width: 80px;"> EPU: <br><span id="epu_status" class="epu_controller" style="color:red;"> OFFLINE </span> </span>
 				</li>
 				<li id="master_button">
-					<img src="images2/MasterSwitchOff.png"/>
-					<img src="images2/MasterSwitchOff.png"/>
+					<img src="images/MasterSwitchOff.png"/>
+					<img src="images/MasterSwitchOff.png"/>
 					<span> MASTER </span>
 				</li>
 				<li id="breakers_button">
-					<img src="images2/Breaker5Off.png"/>
+					<img src="images/Breaker5Off.png"/>
 					<span> BREAKERS </span>
 				</li>
 				<li id="switches_button">
-					<img src="images2/GreenSwitchOff.png"/>
+					<img src="images/GreenSwitchOff.png"/>
 					<span> SWITCHES </span>
 				</li>
             </ul>
@@ -51,11 +51,13 @@
 				<img src="images/pull_down_btn.svg"/>
 			</button>            
 		</nav>
-        <div id="help_menu" class="off">
+		<!-- Unimplimented 
+        <div id="help_menu">
             <span>UCM C172 Cesna Electrical System<br>
                   For questions, comments, and concerns, email:<br>
                   PLACEHOLDER</span>
         </div>
+		-->
 	</header>
     
 	<main class="container">
@@ -134,45 +136,46 @@
 							<button id="breaker_feeder_b">feeder b</button> -->
 							
 							<!-- x-feed bus-->
-							<div id="breaker_alt_field" class="on"></div>
-							<div id="breaker_warn" class="on"></div>
+							<div id="breaker_alt_field"></div>
+							<div id="breaker_warn"></div>
+							
 							<!-- Electrical bus 1-->
-							<div id="breaker_fuel_pump" class="on"></div>
-							<div id="breaker_beacon_light" class="on"></div>
-							<div id="breaker_land_light" class="on"></div>
-							<div id="breaker_cabin_lights" class="on"></div>
-							<div id="breaker_flaps" class="on"></div>
-                            <div id="breaker_avn1" class="on"></div>
+							<div id="breaker_fuel_pump"></div>
+							<div id="breaker_beacon_light"></div>
+							<div id="breaker_land_light"></div>
+							<div id="breaker_cabin_lights"></div>
+							<div id="breaker_flaps"></div>
+                            <div id="breaker_avn1"></div>
 							
 							<!-- Electrical bus 2-->
-							<div id="breaker_pitot_heat" class="on"></div>
-							<div id="breaker_nav_light" class="on"></div>
-							<div id="breaker_taxi_light" class="on"></div>
-							<div id="breaker_strobe_light" class="on"></div>
-							<div id="breaker_panel_lights" class="on"></div>
-                            <div id="breaker_avn2" class="on"></div>
+							<div id="breaker_pitot_heat"></div>
+							<div id="breaker_nav_light"></div>
+							<div id="breaker_taxi_light"></div>
+							<div id="breaker_strobe_light"></div>
+							<div id="breaker_panel_lights"></div>
+                            <div id="breaker_avn2"></div>
 							
 							<!-- Ess bus-->
-							<div id="breaker_ess_pfd" class="on"></div>
-							<div id="breaker_ess_adc_ahrs" class="on"></div>
-							<div id="breaker_ess_nav1_eng" class="on"></div>
-							<div id="breaker_ess_comm1" class="on"></div>
-							<div id="breaker_ess_stdby_ind_lts" class="on"></div>
-							<div id="breaker_ess_stdby_battery" class="on"></div>
+							<div id="breaker_ess_pfd"></div>
+							<div id="breaker_ess_adc_ahrs"></div>
+							<div id="breaker_ess_nav1_eng"></div>
+							<div id="breaker_ess_comm1"></div>
+							<div id="breaker_ess_stdby_ind_lts"></div>
+							<div id="breaker_ess_stdby_battery"></div>
 							
 							<!-- avn1 bus-->
-							<div id="breaker_avn1_pfd" class="on"></div>
-							<div id="breaker_avn1_adc_ahrs" class="on"></div>
-							<div id="breaker_avn1_nav1_eng" class="on"></div>
-							<div id="breaker_avn1_fis" class="on"></div>
+							<div id="breaker_avn1_pfd"></div>
+							<div id="breaker_avn1_adc_ahrs"></div>
+							<div id="breaker_avn1_nav1_eng"></div>
+							<div id="breaker_avn1_fis"></div>
 							
 							<!-- avn2 bus -->
-							<div id="breaker_mfd" class="on"></div>
-							<div id="breaker_xpndr" class="on"></div>
-							<div id="breaker_nav2" class="on"></div>
-							<div id="breaker_comm2" class="on"></div>
-							<div id="breaker_audio" class="on"></div>
-                            <div id="breaker_auto_pilot" class="on"></div>
+							<div id="breaker_mfd"></div>
+							<div id="breaker_xpndr"></div>
+							<div id="breaker_nav2"></div>
+							<div id="breaker_comm2"></div>
+							<div id="breaker_audio"></div>
+                            <div id="breaker_auto_pilot"></div>
 						</div>
 					</div>
 				</li>
@@ -182,15 +185,15 @@
 					<div class="panel_content">
 						<div id="panel_content_switches">
 							<div id="switches_switch_container" class="switch_container">
-								<div id="switch_beacon_light" class="off"></div>
-								<div id="switch_land_light" class="off"></div>
-								<div id="switch_taxi_light" class="off"></div>
-								<div id="switch_nav_light" class="off"></div>
-								<div id="switch_strobe_light" class="off"></div>
-								<div id="switch_fuel_pump" class="off"></div>
-								<div id="switch_pitot_heat" class="off"></div>
+								<div id="switch_beacon_light"></div>
+								<div id="switch_land_light"></div>
+								<div id="switch_taxi_light"></div>
+								<div id="switch_nav_light"></div>
+								<div id="switch_strobe_light"></div>
+								<div id="switch_fuel_pump"></div>
+								<div id="switch_pitot_heat"></div>
 								
-								<div id="switch_cabin_lights" class="off"></div>
+								<div id="switch_cabin_lights"></div>
 							</div>    					
 						</div>
 					</div>

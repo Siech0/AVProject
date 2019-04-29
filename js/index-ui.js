@@ -12,37 +12,27 @@ schem.addEventListener("dataLoaded", function() {
 	
 	let pfd_powered = false;
 	let pfd_avn1_powered = false;
-	schem.addVertexEventListener("breaker_ess_pfd_svg", "powerChanged", function(value) {
-		
-		pfd_powered = schem.isVertexPowered("breaker_ess_pfd_svg","battery") || schem.isVertexPowered("breaker_ess_pfd_svg","external_power") ||
-			schem.isVertexPowered("breaker_ess_pfd_svg","alternator") ||
-			schem.isVertexPowered("breaker_ess_pfd_svg","standby_battery");
-		
+	schem.addVertexEventListener("breaker_ess_pfd_svg", "powerChanged", function(value, sourceName) {
+		pfd_powered = schem.isVertexPowered("breaker_ess_pfd_svg");
 	});
-	schem.addVertexEventListener("breaker_avn1_pfd_svg", "powerChanged", function(value) {
-		
-		pfd_avn1_powered = schem.isVertexPowered("breaker_avn1_pfd_svg","battery") || schem.isVertexPowered("breaker_avn1_pfd_svg","external_power") ||
-			schem.isVertexPowered("breaker_avn1_pfd_svg","alternator") ||
-			schem.isVertexPowered("breaker_avn1_pfd_svg","standby_battery");
-		
+	
+	schem.addVertexEventListener("breaker_avn1_pfd_svg", "powerChanged", function(value, sourceName) {
+		pfd_avn1_powered = schem.isVertexPowered("breaker_avn1_pfd_svg");
 	});
 	
 	let has_volts = false;
 	schem.addVertexEventListener("low_volt_indicator", "powerChanged", function(value){
 		has_volts = value;
-		
 	});
 	
 	let has_alt_input = true;
 	schem.addVertexEventListener("alternator_indicator", "powerChanged", function(value){
 		has_alt_input = value;
-		console.log("has_alt_input", value);
 	});
     
     let has_oil_pressure = false;
 	schem.addVertexEventListener("low_volt_indicator", "powerChanged", function(value){
 		has_oil_pressure = value;
-		console.log("oil_pressure", value);
 	}); 
 	
 	schem.addEventListener("draw", function() {		
@@ -52,8 +42,6 @@ schem.addEventListener("dataLoaded", function() {
 		$("#engine_off_warning").toggleClass("hidden", !(pfd_powered || pfd_avn1_powered) || has_alt_input);
         $("#low_oil_pressure_warning").toggleClass("hidden", !(pfd_powered || pfd_avn1_powered) || !has_oil_pressure);
 	});
-	
-	
 });
 
 
@@ -142,6 +130,14 @@ $("#engine_button").mousedown(function(){
             schem.setVertexState("low_volt_indicator", "inactive");
 			$("#main_volts").text("32.0");
 			$("#main_amps").text("5");
+			let func = function() {
+				schem.setVertexState("starter_relay_svg", "inactive");
+				schem.update();
+				schem.draw();
+				document.removeEventListener("mouseup", func);
+			}
+			
+			document.addEventListener("mouseup", func);
         }
 		
 		schem.setVertexState("alternator", "active");
@@ -151,12 +147,6 @@ $("#engine_button").mousedown(function(){
 	schem.update();
 	schem.draw();
 
-});
-
-$("#engine_button").mouseup(function(){
-	schem.setVertexState("starter_relay_svg", "inactive");
-	schem.update();
-	schem.draw();
 });
 
 panelState["#epu_button"] = false;
@@ -289,7 +279,7 @@ stb_test.mousedown( () => {
 
 		//The test switch should automatically switch itself back up
 		stb_test.off("mouseup");
-		stb_test.mouseup( () => {
+		let func = function() {
 			$("#standby_battery_switch").removeClass("test").addClass("off");
             $("#standby_led").removeClass("test").addClass("off");
 			schem.setVertexState("switch_stb", "inactive");
@@ -297,18 +287,23 @@ stb_test.mousedown( () => {
 			schem.setVertexState("switch_stb_active", "inactive");	
 			schem.update();
 			schem.draw();	
-		});
+			document.removeEventListener("mouseup", func);
+		}
+		document.addEventListener("mouseup", func);
 
 	} else if (stb_switch.hasClass("arm")) { //de-arming stb_switch
 		stb_test.off("mouseup");
-		stb_test.mouseup( () => {
+		let func  = function() {
 			$("#standby_battery_switch").removeClass("arm").addClass("off");
 			schem.setVertexState("switch_stb", "inactive");
 			schem.setVertexState("switch_stb_dummy", "inactive");
 			schem.setVertexState("switch_stb_active", "active");	
 			schem.update();
-			schem.draw();	
-		});
+			schem.draw();
+			console.log("here");
+			document.removeEventListener("mouseup", func);
+		}
+		document.addEventListener("mouseup", func);
 	} 
 
 });
@@ -320,18 +315,7 @@ stb_test.mousedown( () => {
 var breakerPanel = $("#breaker_switch_container").children();
 breakerPanel.each(function(){
 	$(this).click(function(){
-        
-        if ($(this).hasClass("off"))
-        {
-            $(this).removeClass("off");
-            $(this).addClass("on");
-        }
-        else
-        {
-            $(this).removeClass("on");
-            $(this).addClass("off");                
-        }
-        
+		$(this).toggleClass("off");
 		var id = $(this).attr('id');
 		let state = schem.getVertexState(id + "_svg");
 		schem.setVertexState(id + "_svg", state == "active" ? "inactive" : "active");
@@ -353,12 +337,9 @@ breakerPanel.each(function(){
 // we get the id, and concatenate it with svg to access the switchon the schematic
 var switchPanel = $("#switches_switch_container > *:not('#switch_land_light')");
 switchPanel.each(function(){
-	let _this = $(this);
-	_this.click(function(){        
-		var id = $(this).attr('id');
-		_this.toggleClass("off");
-		_this.toggleClass("on");
-		
+	$(this).click(function(){        
+		$(this).toggleClass("on");
+		var id = $(this).attr('id');		
 		let state = schem.getVertexState(id + "_svg");
 		schem.setVertexState(id + "_svg", state == "active" ? "inactive" : "active");
 		schem.update();
@@ -369,21 +350,20 @@ switchPanel.each(function(){
 //We filter out this specific id from the above code because its a special case.
 $("#switch_land_light").click( () => {
 	let _this = $("#switch_land_light");
-	if(_this.hasClass("off")) {
-		console.log("test2");
-		_this.removeClass("off").addClass("taxi");
-		schem.setVertexState("switch_taxi_light_svg", "active");
-		schem.update();
-		schem.draw();
-	} else if (_this.hasClass("taxi")) {
+	if (_this.hasClass("taxi")) {	//Taxi
 		_this.removeClass("taxi").addClass("land");
 		schem.setVertexState("switch_land_light_svg", "active");
 		schem.setVertexState("switch_taxi_light_svg", "inactive");
 		schem.update();
 		schem.draw();
-	} else if (_this.hasClass("land")) {
-		_this.removeClass("land").addClass("off");
+	} else if (_this.hasClass("land")) { //Land
+		_this.removeClass("land")
 		schem.setVertexState("switch_land_light_svg", "inactive");
+		schem.update();
+		schem.draw();
+	} else { //off
+		_this.addClass("taxi");
+		schem.setVertexState("switch_taxi_light_svg", "active");
 		schem.update();
 		schem.draw();
 	}
@@ -391,16 +371,14 @@ $("#switch_land_light").click( () => {
 
 $("#help_menu").hide();
 $("#logo_button").click(function(){
-   if ($("#help_menu").hasClass("off"))
+   if (!$("#help_menu").hasClass("on"))
     {
-       $("#help_menu").removeClass("off");
        $("#help_menu").addClass("on");
        $("#help_menu").slideDown(500);
     }
     else
     {
        $("#help_menu").removeClass("on");
-       $("#help_menu").addClass("off");
        $("#help_menu").slideUp(500);        
     }
 });

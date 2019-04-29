@@ -410,11 +410,21 @@ class Schematic {
 		if(vertex == null) {
 			throw new Error("Schematic.isVertexPowered(): Attempt to get power state of invalid vertex '" + vertexName + "'");
 		}
-		let source = this.sources.get(sourceName);
-		if(source == null) {
-			throw new Error("Schematic.isVertexPowered(): Attempt to get power state vertex from invalid source'" + sourceName + "'");
+		if(sourceName) { //Optional parameter
+			let source = this.sources.get(sourceName);
+			if(source == null) {
+				throw new Error("Schematic.isVertexPowered(): Attempt to get power state vertex from invalid source'" + sourceName + "'");
+			}
+			return source.hasConnection(vertexName);
+		} else { //Check if powered by ANY source.
+			let found = false;
+			this.sources.forEach((source: Source, key:string, map:Map<string,Source>) => {
+				if(source.hasConnection(vertexName)) {
+					found = true;
+				}
+			});
+			return found;
 		}
-		return source.hasConnection(vertexName);
 	}
 
     /* State Class Management */
@@ -497,12 +507,12 @@ class Schematic {
 			//get the symetrical difference of the set
 			source.forEachConnection((connection: string, _0: string, _1: Set<string>) => {
 				if(!oldData.has(connection)) {
-					this.emitVertexEvent(connection, "powerChanged", true);
+					this.emitVertexEvent(connection, "powerChanged", true, source.name);
 				}
 			});
 			oldData.get(key).forEach((connection: string, _0: string, _1: Set<string>) => {
 				if(!source.hasConnection(connection)) {
-					this.emitVertexEvent(connection, "powerChanged", false);
+					this.emitVertexEvent(connection, "powerChanged", false, source.name);
 				}
 			});
         });
