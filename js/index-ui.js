@@ -120,7 +120,13 @@ $("#engine_button").bind("mousedown touchstart", function(){
 		schem.setVertexState("low_volt_indicator", "active");
 		schem.setVertexState("alternator", "inactive");
 		$("#main_volts").text("24.0");
-		$("#main_amps").text("5");
+		$("#stdby_volts").text("24.0");
+		$("#main_amps").text("110");
+		if (schem.isVertexPowered("breaker_ess_stdby_battery_svg", "standby_battery")) {
+			$("#stdby_amps").text("110");    
+        } else {
+			$("#stdby_amps").text("0");    
+		}
 			
 		panelState["#engine_button"] = false;
 	} else if(schem.isVertexPowered("battery_relay", "battery")) { //Engine can only activate if battery is on
@@ -129,7 +135,13 @@ $("#engine_button").bind("mousedown touchstart", function(){
 		if (schem.isVertexPowered("alt_relay", "battery")) {
             schem.setVertexState("low_volt_indicator", "inactive");
 			$("#main_volts").text("32.0");
-			$("#main_amps").text("5");
+			$("#stdby_volts").text("32.0");
+			$("#main_amps").text("110");
+			if (schem.isVertexPowered("breaker_ess_stdby_battery_svg", "standby_battery")) {
+				$("#stdby_amps").text("110");    
+			} else {
+				$("#stdby_amps").text("0");    
+			}
 			let func = function() {
 				schem.setVertexState("starter_relay_svg", "inactive");
 				schem.update();
@@ -190,7 +202,13 @@ $("#master_switch_alt").click( () => {
 		schem.setVertexState("alt_relay", "inactive");
 		schem.setVertexState("low_volt_indicator", "active");
 		$("#main_volts").text("24.0");
-		$("#main_amps").text("5");
+		$("#stdby_volts").text("24.0");
+		$("#main_amps").text("110");
+		if (schem.isVertexPowered("breaker_ess_stdby_battery_svg", "standby_battery")) {
+			$("#stdby_amps").text("110");    
+        } else {
+			$("#stdby_amps").text("0");    
+		}
 		let state = schem.getVertexState("switch_alt_master");
         schem.setVertexState("switch_alt_master", state == "active" ? "inactive" : "active");
 	} else { //Switch inactive
@@ -208,7 +226,13 @@ $("#master_switch_alt").click( () => {
 		if (schem.isVertexPowered("alt_relay", "alternator")) {
             schem.setVertexState("low_volt_indicator", "inactive");
 			$("#main_volts").text("32.0");
-			$("#main_amps").text("5");
+			$("#stdby_volts").text("32.0");
+			$("#main_amps").text("110");
+			if (schem.isVertexPowered("breaker_ess_stdby_battery_svg", "standby_battery")) {
+			$("#stdby_amps").text("110");    
+			} else {
+				$("#stdby_amps").text("0");    
+			}
         }
 	}
 	schem.update();
@@ -227,7 +251,13 @@ $("#master_switch_bat").click( () => {
 	} else { //Switch inactive
 		$("#master_switch_bat").toggleClass("active", true);
 		$("#main_volts").text("24.0");
-		$("#main_amps").text("5");
+		$("#stdby_volts").text("24.0");
+		$("#main_amps").text("110");
+		if (schem.isVertexPowered("breaker_ess_stdby_battery_svg", "standby_battery")) {
+			$("#stdby_amps").text("110");    
+        } else {
+			$("#stdby_amps").text("0");    
+		}
 		schem.setVertexState("switch_battery_master", "active");
 		schem.setVertexState("battery_relay", "active");
 	}
@@ -262,17 +292,28 @@ $("#avn_bus2_switch").click( () => {
 let stb_switch = $("#standby_battery_switch");
 let stb_arm = $("#standby_battery_arm");
 let stb_test = $("#standby_battery_test");
-stb_arm.click( () => {
+stb_arm.bind("click touchstart", () => {
 	if(stb_switch.hasClass("off")){ //arming stb_switch
         $("#standby_battery_switch").removeClass("off").addClass("arm");
 		schem.setVertexState("switch_stb", "arm");
 		schem.setVertexState("switch_stb_dummy", "active");
 		schem.setVertexState("switch_stb_active", "active");
+		
+		if (schem.isVertexPowered("breaker_ess_stdby_battery_svg", "battery") ||
+			schem.isVertexPowered("breaker_ess_stdby_battery_svg", "external_power") ||
+			schem.isVertexPowered("breaker_ess_stdby_battery_svg", "alternator")) {
+			$("#stdby_amps").text("110");        
+        } else {
+			$("#stdby_amps").text("110");    
+		}
+		
 	} else if (stb_switch.hasClass("test")) { //This should never happen, but for the sake of it we check.
 		$("#standby_battery_switch").removeClass("test").addClass("off");
 		schem.setVertexState("switch_stb", "inactive");
 		schem.setVertexState("switch_stb_dummy", "inactive");
 		schem.setVertexState("switch_stb_active", "inactive");
+		$("#stdby_amps").text("0");    
+		
 	} 
 	schem.update();
 	schem.draw();
@@ -289,6 +330,7 @@ stb_test.bind("mousedown touchstart", () => {
 		schem.setVertexState("switch_stb", "test");
 		schem.setVertexState("switch_stb_dummy", "inactive");
 		schem.setVertexState("switch_stb_active", "active");
+		$("#stdby_amps").text("-110"); 
 		schem.update();
 		schem.draw();
 
@@ -299,7 +341,8 @@ stb_test.bind("mousedown touchstart", () => {
             $("#standby_led").removeClass("test").addClass("off");
 			schem.setVertexState("switch_stb", "inactive");
 			schem.setVertexState("switch_stb_dummy", "inactive");
-			schem.setVertexState("switch_stb_active", "inactive");	
+			schem.setVertexState("switch_stb_active", "inactive");
+			$("#stdby_amps").text("0"); 
 			schem.update();
 			schem.draw();	
 			document.removeEventListener("mouseup", func);
@@ -314,7 +357,8 @@ stb_test.bind("mousedown touchstart", () => {
 			$("#standby_battery_switch").removeClass("arm").addClass("off");
 			schem.setVertexState("switch_stb", "inactive");
 			schem.setVertexState("switch_stb_dummy", "inactive");
-			schem.setVertexState("switch_stb_active", "active");	
+			schem.setVertexState("switch_stb_active", "active");
+			$("#stdby_amps").text("0"); 
 			schem.update();
 			schem.draw();
 			console.log("here");
