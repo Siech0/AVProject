@@ -17,7 +17,6 @@ body {
 	-webkit-justify-content: flex-center; /* Safari Compat */
 	display: flex;
 	justify-content: center;
-	
 	width: 100%;
 	align-items: center;
 }
@@ -92,7 +91,7 @@ nav * {
 	overflow: hidden;
 		
 
-	max-height: 10vh;
+	/*max-height: 10vh;*/
 	transition-property: all;
 	transition-duration: .7s;
 	transition-timing-function: cubic-bezier(.7, .3, 0.3, .7);
@@ -185,73 +184,16 @@ main {
 }
 
 #svg_wrapper{
-    	position: relative;
+	
+    	position: absolute;
 		height: 85vh;
-		max-width: 90vw;
+		width: 90vw;
     	padding: 2%;
-    	margin: 2vmax;
 		background-color: white;
-		
+		top: 2%;
 		border: 2px solid black;
 		border-radius: 8px;
 		overflow: hidden;
-}
-
-#legend {
-    z-index: 1;
-    position: absolute;
-	top: 20px;
-	right: 20px;
-	line-height: .8em;
-	font-size: .8em;
-
-    background: #D3D3D3;
-    border: 1px solid black;
-    border-radius: 4px;
-}
-
-#legend_header {
-	padding: 4px;
-	font-weight: bold;
-	
-	border-bottom: 1px solid black;
-}
-
-
-#legend_content {
-	padding: 5px;
-}
-
-#legend_color_wrapper {
-
-}
-
-#legend_content p {
-    margin-left: 24px;
-    padding: 2px;
-}
-
-#legend_content span {
-    position: absolute;
-    height: 11px;
-    width: 15px;
-    border: 1px solid black;
-}
-
-#color_battery > span {
-    background-color: magenta;
-}
-
-#color_alternator > span {
-    background-color: teal;
-}
-
-#color_standby_battery > span {
-    background-color: blue;
-}
-
-#color_epu > span {
-    background-color: orange;
 }
 
 #svg_wrapper svg {
@@ -424,12 +366,12 @@ main {
 
 #electrical_info {
 	position: relative;
-	top: 76%;
+	top: 75%;
 	left: 35%;
 	color: white;
 }
 .electrical_info_row {
-	margin-bottom: 8%;
+	margin-bottom: 7%;
 }
 .electrical_info_row > div {
 	display: inline-block;
@@ -778,10 +720,10 @@ footer {
 	flex-direction: column;
 
 	z-index: 11;
-	min-width: 15vw;
+	min-width: 20vw;
 	max-width: 20vw;
-	min-height: 7vh;
-	max-height: 20vh;
+	min-height: 30vh;
+	max-height: 30vh;
 
 	
 	color: #DDD;
@@ -796,7 +738,7 @@ footer {
 
 
 .info_panel_header {
-	/*font-size: 1.75vw;*/
+	font-size: 1.75vw;
 	width: 95%;
 	height: 50%;
 	background-color: #777777;
@@ -806,7 +748,7 @@ footer {
 }
 
 .info_panel_content {
-	font-size: 0.8em;
+	font-size: 1.3vw;
 	line-height: 1.1em;
 	overflow-y: auto;
 	position: relative;

@@ -417,15 +417,15 @@ $("#breakers_button").click(() => toggle("#breakers_main_container", false, 500)
 $("#switches_button").click(() => toggle("#switches_main_container", false, 500)); //Switches
 
 //Enable bottom panel self close functionality
-$("#master_close").click(() => {
+$("#master_close").bind("click touchstart", () => {
 	close("#master_main_container", 500);
 	panelState["#master_main_container"] = false;
 }); //Master
-$("#breakers_close").click(() => {
+$("#breakers_close").bind("click touchstart",() => {
 	close("#breakers_main_container", 500);
 	panelState["#breakers_main_container"] = false;
 }); //Breakers
-$("#switches_close").click(() => {
+$("#switches_close").bind("click touchstart",() => {
 	close("#switches_main_container", 500);
 	panelState["#switches_main_container"] = false;
 }); //Switches
@@ -433,6 +433,7 @@ $("#switches_close").click(() => {
 
 //Enable draggable elements
 $(".draggable").draggable({handle: ".draggable_handle", containment: "window"});
+
 
 //Prevent annoying image drag 
 $('img').on('dragstart', function(event) { event.preventDefault(); });
@@ -516,7 +517,7 @@ $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
 						title.text(infoPanels[e.target.id].title);
 						let closer = $("<span class='close' id='info_panel_close_'" + e.target.id + "'></span>");
 						closer.text('×');
-						closer.click(() => {
+						closer.bind("click touchstart", () => {
 							remove("#info_panel_"+ e.target.id, 500);
 							panelState[e.target.id] = false;
 						});
