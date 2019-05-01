@@ -22,25 +22,31 @@ schem.addEventListener("dataLoaded", function() {
 	
 	let has_volts = false;
 	schem.addVertexEventListener("low_volt_indicator", "powerChanged", function(value){
-		has_volts = value;
+		has_volts = schem.isVertexPowered("low_volt_indicator");
 	});
 	
 	let has_alt_input = true;
+	schem.addVertexEventListener("battery_relay", "powerChanged", function(value){
+		has_alt_input = schem.isVertexPowered("alternator_indicator");
+	});
 	schem.addVertexEventListener("alternator_indicator", "powerChanged", function(value){
-		has_alt_input = value;
+		has_alt_input = schem.isVertexPowered("alternator_indicator");
 	});
     
-    let has_oil_pressure = false;
-	schem.addVertexEventListener("low_volt_indicator", "powerChanged", function(value){
-		has_oil_pressure = value;
-	}); 
+    let has_oil_pressure = true;
+	schem.addVertexEventListener("battery_relay", "powerChanged", function(value){
+		has_oil_pressure = schem.isVertexPowered("alternator_indicator");
+	});
+	schem.addVertexEventListener("alternator_indicator", "powerChanged", function(value){
+		has_oil_pressure = schem.isVertexPowered("alternator_indicator");
+	});
 	
 	schem.addEventListener("draw", function() {		
 		$("#mfd").toggleClass("hidden", !mfd_powered);
 		$("#pfd").toggleClass("hidden", !(pfd_powered || pfd_avn1_powered));
 		$("#low_volts_warning").toggleClass("hidden", !(pfd_powered || pfd_avn1_powered) || !has_volts);
 		$("#engine_off_warning").toggleClass("hidden", !(pfd_powered || pfd_avn1_powered) || has_alt_input);
-        $("#low_oil_pressure_warning").toggleClass("hidden", !(pfd_powered || pfd_avn1_powered) || !has_oil_pressure);
+        $("#low_oil_pressure_warning").toggleClass("hidden", !(pfd_powered || pfd_avn1_powered) || has_oil_pressure);
 	});
 });
 
