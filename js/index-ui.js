@@ -7,7 +7,7 @@ let schem = new Schematic();
 schem.addEventListener("dataLoaded", function() {
 	let mfd_powered = false;
 	schem.addVertexEventListener("breaker_mfd_svg", "powerChanged", function(value) {
-		mfd_powered = value;
+		mfd_powered = schem.isVertexPowered("breaker_mfd_svg");
 	});
 	
 	let pfd_powered = false;
