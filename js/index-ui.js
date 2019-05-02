@@ -492,6 +492,19 @@ $('img').on('dragstart', function(event) { event.preventDefault(); });
 $('.start-hidden').hide();
 $('.start-hidden').toggleClass('start-hidden');
 
+$("#help_menu").css("width", $("#logo_button").width());
+let logo_coord = $("#logo_button").position();
+$("#help_menu").css("left", logo_coord.left);
+$("#help_menu").css("left", logo_coord.left);
+$("#help_menu").css("max-width", $("#logo_button").width());
+$(window).resize(function(){
+    let logo_coord = $("#logo_button").position();
+    $("#help_menu").css("max-width", $("#logo_button").width());
+    $("#help_menu").css("width", $("#logo_button").width());
+    $("#help_menu").css("left", logo_coord.left);
+});
+  
+
 /*Load the SVG file into the SVG_WRAPPER and handle errors if they occur.*/
 /*We are using .get over .load because .load is destructive to other elements in the wrapper*/
 $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {

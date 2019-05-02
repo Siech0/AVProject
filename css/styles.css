@@ -155,24 +155,6 @@ nav * {
   	line-height: normal;
 }
 
-#help_menu {
-    position: absolute;
-    width: 20.2%;
-    height: 140%;
-    border: 2px solid black;
-    border-radius: 0px 0px 5px 5px;
-    background-color: #666666;
-    top: 76%;
-    left: 18.6%;
-    text-align: center;
-    font-size: 15px;
-}
-
-#help_menu > span {
-    display:inline-block;
-    margin: 4px;
-}
-
 /* MAIN CONTENT STYLES */
 
 main {
@@ -348,6 +330,24 @@ main {
 
 #right_panel_content.hidden {
 	max-width: 0vw;
+}
+
+#help_menu {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    height: 10.4vw;
+    border: 2px solid black;
+    border-radius: 0px 0px 5px 5px;
+    background-color: #666666;
+    top: 76%;
+    text-align: center;
+}
+
+#help_menu > span {
+    display:inline-block;
+    margin: 4px;
+    font-size: 1.2vw;
 }
 
 #mfd {
