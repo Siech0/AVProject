@@ -54,24 +54,24 @@ schem.addEventListener("dataLoaded", function() {
 /* 
 	UTILITY FUNCTIONS
 */
-let toggle = function(id, initial, rate) {
-	if(panelState[id] == null){
+let toggleVisible = function(id, initial) {
+	if(panelState[id] == null) {
 		panelState[id] = initial;
 	}
 	
-	if(panelState[id]){
-		$(id).fadeOut(rate);
+	if(panelState[id]) {
+		$(id).css("visibility", "hidden");
 	} else {
-		$(id).fadeIn(rate);
+		$(id).css("visibility", "visible");
 	}
 	panelState[id] = !panelState[id];
 }
 
-let close = function(id, rate) {
+let closeVisible = function(id, rate) {
 	if(panelState[id] == undefined) {
 		panelState[id] = false;
 	}
-	$(id).fadeOut(rate);
+	$(id).css("visibility", "hidden");
 }
 
 let remove = function(id, rate) {
@@ -462,35 +462,23 @@ $("#logo_button").click(function(){
 });
 
 //Enable navigation button panel toggle functionality
-$("#master_button").click(() => toggle("#master_main_container", false, 500)); //Master
-$("#breakers_button").click(() => toggle("#breakers_main_container", false, 500)); //Breakers
-$("#switches_button").click(() => toggle("#switches_main_container", false, 500)); //Switches
+$("#master_button").click(() => toggleVisible("#master_main_container", false));
+$("#breakers_button").click(() => toggleVisible("#breakers_main_container", false)); //Breakers
+$("#switches_button").click(() => toggleVisible("#switches_main_container", false)); //Switches
 
 //Enable bottom panel self close functionality
 $("#master_close").bind("click touchstart", () => {
-	close("#master_main_container", 500);
+	closeVisible("#master_main_container", 500);
 	panelState["#master_main_container"] = false;
 }); //Master
 $("#breakers_close").bind("click touchstart",() => {
-	close("#breakers_main_container", 500);
+	closeVisible("#breakers_main_container", 500);
 	panelState["#breakers_main_container"] = false;
 }); //Breakers
 $("#switches_close").bind("click touchstart",() => {
-	close("#switches_main_container", 500);
+	closeVisible("#switches_main_container", 500);
 	panelState["#switches_main_container"] = false;
 }); //Switches
-
-
-//Enable draggable elements
-$(".draggable").draggable({handle: ".draggable_handle", containment: "window"});
-
-
-//Prevent annoying image drag 
-$('img').on('dragstart', function(event) { event.preventDefault(); });
-
-//Ensure that hidden elements are hidden using the jquery api, not just the style
-$('.start-hidden').hide();
-$('.start-hidden').toggleClass('start-hidden');
 
 $("#help_menu").css("width", $("#logo_button").width());
 let logo_coord = $("#logo_button").position();
@@ -504,7 +492,6 @@ $(window).resize(function(){
     $("#help_menu").css("left", logo_coord.left);
 });
   
-
 /*Load the SVG file into the SVG_WRAPPER and handle errors if they occur.*/
 /*We are using .get over .load because .load is destructive to other elements in the wrapper*/
 $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
@@ -560,7 +547,6 @@ $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
 						let wrapperPos = wrapper.position();
 						let wrapperX = e.pageX - wrapperPos.left;
 						let wrapperY = e.pageY - wrapperPos.top;
-						console.log(`page: (${e.pageX}, ${e.pageY}), wrapper; (${wrapperX}, ${wrapperY}), dimensions: ${wrapper.width()}*${wrapper.height()}`);
 						if(wrapperX + panel.innerWidth() < wrapper.innerWidth() - 40) {
 							panel.css('left', wrapperX + 'px');
 						} else {
@@ -617,3 +603,14 @@ $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
 		});
 	}
 }, "text");
+
+//Enable draggable elements
+$(".draggable").draggable({handle: ".draggable_handle", containment: "window"});
+
+//Prevent annoying image drag 
+$('img').on('dragstart', function(event) { event.preventDefault(); });
+
+//Ensure that hidden elements are hidden using the jquery api, not just the style
+$('.start-hidden').hide();
+$('.start-hidden').toggleClass('start-hidden');
+

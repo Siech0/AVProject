@@ -29,6 +29,10 @@ body {
 	display: none;
 }
 
+.invisible {
+	visibility: hidden;
+}
+
 /* Pull anchor css */
 .pull_anchor {
 	background-color: #777777;
@@ -41,26 +45,18 @@ body {
 	background-color: #888888;
 }
 
-
 /* HEADER STYLES */
 header {
 	position: absolute;
-	width: 100%;
 	height: auto;
 	top: 0;
 	left: 0;
+	right: 0;
 	z-index: 5;
 }
 
 nav {
 	flex-direction: column !important;
-	pointer-events: none;
-	visibility: hidden;
-}
-
-nav * {
-	pointer-events: all;
-	visibility: visible;
 }
 
 /* Nav pull anchor */
@@ -424,36 +420,32 @@ main {
 /* FOOTER STYLES */
 footer {
 	position: absolute;
+	display: -webkit-flex; /* Safari Compat */
+	-webkit-justify-content: flex-center; /* Safari Compat */
+	display: flex;
+	right: 0;
+	left: 0;
 	bottom: 0;
+	padding-bottom: 3vh;
 	z-index: 5;
-	width: 100%;
-	padding-bottom: 5px;
 }
 
 #panel_list {
+	width: auto;
+	margin: 0 auto;
+	height: auto;
 	list-style: none;
-
 } 
 
 #panel_list > li {
 	float: left;
+	display: -webkit-flex; /* Safari Compat */
+	-webkit-justify-content: flex-center; /* Safari Compat */
+	display: flex;
+	flex-direction: column;
+	float: left;
 	margin: 0 1px 0 1px;
-    position: absolute;
-}
-
-#master_main_container {
-    top: -3800%;
-    left: 10%;
-}
-
-#breakers_main_container {
-    top: -3800%;
-    left: 25%;
-}
-
-#switches_main_container {
-    top: -3800%;
-    left: 73.3%;
+    position: relative;
 }
 
 /*Class for all lower box headers*/
@@ -706,13 +698,9 @@ footer {
 }
 
 /* Styling for information panels */
-
-
-
 .info_panels_textwrap{
     white-space: pre-line;    
 }
-
 
 .info_panel {
 	position: absolute;
@@ -720,9 +708,7 @@ footer {
 	flex-direction: column;
 
 	z-index: 11;
-	min-width: 20vw;
-	max-width: 20vw;
-	min-height: 30vh;
+	width: 20vw;
 	max-height: 30vh;
 
 	
@@ -738,7 +724,6 @@ footer {
 
 
 .info_panel_header {
-	font-size: 1.75vw;
 	width: 95%;
 	height: 50%;
 	background-color: #777777;
@@ -748,8 +733,6 @@ footer {
 }
 
 .info_panel_content {
-	font-size: 1.3vw;
-	line-height: 1.1em;
 	overflow-y: auto;
 	position: relative;
 	white-space: pre-line;
@@ -789,6 +772,7 @@ footer {
 	}
 }
 
+/* Computer */
 @media (min-aspect-ratio: 4/3){
 	#panel_content_master {
 		width: 11vmax;
@@ -801,8 +785,18 @@ footer {
 	#panel_content_switches {
 		width: 15.4vmax;
 	}
+	
+	.info_panel_header {
+		font-size: 1.25em
+	}
+
+	.info_panel_content > p {
+		font-size: 1em;
+		line-height: 1.1em;
+	}
 }
 
+/* IPAD */
 @media (max-aspect-ratio: 4/3){
 	#panel_content_master {
 		width: 14vmax;
@@ -814,5 +808,14 @@ footer {
 
 	#panel_content_switches {
 		width: 19.5vmax;
+	}
+	
+	.info_panel_header {
+		font-size: 1.75vw;	
+	}
+	
+	.info_panel_content > p {
+		font-size: 1.3vw;
+		line-height: 1.1em;	
 	}
 }
