@@ -605,7 +605,7 @@ $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
 }, "text");
 
 //Enable draggable elements
-$(".draggable").draggable({handle: ".draggable_handle", containment: "window"});
+$(".draggable").draggable({handle: ".draggable_handle", containment: "document"});
 
 //Prevent annoying image drag 
 $('img').on('dragstart', function(event) { event.preventDefault(); });
