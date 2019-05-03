@@ -335,6 +335,7 @@ main {
     height: 10.4vw;
     border: 2px solid black;
     border-radius: 0px 0px 5px 5px;
+	border-top: 0;
     background-color: #666666;
     top: 76%;
     text-align: center;
@@ -344,6 +345,7 @@ main {
     display:inline-block;
     margin: 4px;
     font-size: 1.2vw;
+	color: 	#DDD;
 }
 
 #mfd {
@@ -730,16 +732,20 @@ footer {
 	border-bottom: 1px solid black;
 	font-weight: bold;
 	padding: 3%;
+	font-size: 1.25em
 }
 
 .info_panel_content {
 	overflow-y: auto;
 	position: relative;
 	white-space: pre-line;
+	font-size: 1em;
+	line-height: 1.1em;
 }
 
 .info_panel_content > p {
 	padding: 8px;
+
 }
 
 
@@ -761,6 +767,19 @@ footer {
 	
 	#nav_list > li {
 		min-width: 10vw;
+	}	
+		
+	.info_panel {
+		width: 30vw;
+	}
+		
+	.info_panel_header {
+		font-size: 1.75vw;	
+	}
+	
+	.info_panel_content > p {
+		font-size: 1.4vw;
+		line-height: 1.1em;	
 	}
 }
 
@@ -768,7 +787,16 @@ footer {
 @media (max-width: 700px) {
 	html {
 		font-size: 1em;
-		line-height: 1.25em;
+		line-height: 1.5em;
+	}
+	
+	.info_panel_header {
+		font-size: 2vw;	
+	}
+	
+	.info_panel_content > p {
+		font-size: 1.5vw;
+		line-height: 1.3em;	
 	}
 }
 
@@ -785,15 +813,6 @@ footer {
 	#panel_content_switches {
 		width: 15.4vmax;
 	}
-	
-	.info_panel_header {
-		font-size: 1.25em
-	}
-
-	.info_panel_content > p {
-		font-size: 1em;
-		line-height: 1.1em;
-	}
 }
 
 /* IPAD */
@@ -808,14 +827,5 @@ footer {
 
 	#panel_content_switches {
 		width: 19.5vmax;
-	}
-	
-	.info_panel_header {
-		font-size: 1.75vw;	
-	}
-	
-	.info_panel_content > p {
-		font-size: 1.3vw;
-		line-height: 1.1em;	
 	}
 }
