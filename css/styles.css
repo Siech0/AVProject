@@ -41,6 +41,10 @@ body {
 	padding: 1px;
 }
 
+.pull_anchor:focus {
+    outline: none;
+}
+
 .pull_anchor:hover {
 	background-color: #888888;
 }
