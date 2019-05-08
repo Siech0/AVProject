@@ -1,5 +1,7 @@
 ﻿let panelState = {};
 let schem = new Schematic();
+let touch = false;
+window.addEventListener("touchstart", function(){touch=true;}, false);
 
 /* 
 	SCHEMATIC EVENT SETUP
@@ -113,11 +115,23 @@ $('#right_pull_anchor').click(function(){
 	panelState['#right_pull_anchor'] = !panelState['#right_pull_anchor'];
 });
 
+
 /*
 	Navigation Bar Engine/EPU button responsiveness.
 */
 panelState["#engine_button"] = false;
-$("#engine_button").bind("mousedown touchstart", function(){
+$("#engine_button").bind("mousedown touchstart", function(e){
+	if (touch && e.type == "mousedown") {
+		return;
+	}
+
+	console.log(window.ontouchstart);
+	if(window.ontouchstart != null && e.type == 'mousedown') {
+		console.log(typeof(window.ontouchstart));
+		console.log(window.ontouchstart);
+		return;
+	}
+
 	var status = $("#engine_status"); 
 	if(panelState["#engine_button"]){ //Active
 		status.css("color", "red");
@@ -153,9 +167,11 @@ $("#engine_button").bind("mousedown touchstart", function(){
 				schem.update();
 				schem.draw();
 				document.removeEventListener("mouseup", func);
+				document.removeEventListener("touchend", func);
 			}
 			
 			document.addEventListener("mouseup", func);
+			document.addEventListener("touchend", func);
         }
 		
 		schem.setVertexState("alternator", "active");
@@ -167,11 +183,11 @@ $("#engine_button").bind("mousedown touchstart", function(){
 
 });
 
-$("#engine_button").bind("mouseup touchend", function(){
-	schem.setVertexState("starter_relay_svg", "inactive");
-	schem.update();
-	schem.draw();
-});
+//$("#engine_button").bind("mouseup touchend", function(){
+//	schem.setVertexState("starter_relay_svg", "inactive");
+//	schem.update();
+//	schem.draw();
+//});
 
 // disabled context menu on engine button (so that long click on mobile won't show context menu)
 $("#engine_button").contextmenu(function(){
@@ -298,7 +314,7 @@ $("#avn_bus2_switch").click( () => {
 let stb_switch = $("#standby_battery_switch");
 let stb_arm = $("#standby_battery_arm");
 let stb_test = $("#standby_battery_test");
-stb_arm.bind("click touchstart", () => {
+stb_arm.bind("click", () => {
 	if(stb_switch.hasClass("off")){ //arming stb_switch
         $("#standby_battery_switch").removeClass("off").addClass("arm");
 		schem.setVertexState("switch_stb", "arm");
@@ -329,7 +345,7 @@ stb_test.contextmenu(function() {
 	return false;
 });
 
-stb_test.bind("mousedown touchstart", () => {
+stb_test.bind("mousedown touchstart",function(){
 	if(stb_switch.hasClass("off")){ //testing stb_switch
 		$("#standby_battery_switch").removeClass("off").addClass("test");
         $("#standby_led").removeClass("off").addClass("test");
@@ -341,7 +357,7 @@ stb_test.bind("mousedown touchstart", () => {
 		schem.draw();
 
 		//The test switch should automatically switch itself back up
-		stb_test.off("mouseup touchend");
+		stb_test.off("mouseup");
 		let func = function() {
 			$("#standby_battery_switch").removeClass("test").addClass("off");
             $("#standby_led").removeClass("test").addClass("off");
@@ -353,12 +369,12 @@ stb_test.bind("mousedown touchstart", () => {
 			schem.draw();	
 			document.removeEventListener("mouseup", func);
 			document.removeEventListener("touchend", func);
-		}
+		};
 		document.addEventListener("mouseup", func);
 		document.addEventListener("touchend", func);
 
 	} else if (stb_switch.hasClass("arm")) { //de-arming stb_switch
-		stb_test.off("mouseup touchend");
+		stb_test.off("mouseup");
 		let func  = function() {
 			$("#standby_battery_switch").removeClass("arm").addClass("off");
 			schem.setVertexState("switch_stb", "inactive");
@@ -467,15 +483,15 @@ $("#breakers_button").click(() => toggleVisible("#breakers_main_container", fals
 $("#switches_button").click(() => toggleVisible("#switches_main_container", false)); //Switches
 
 //Enable bottom panel self close functionality
-$("#master_close").bind("click touchstart", () => {
+$("#master_close").click(() => {
 	closeVisible("#master_main_container", 500);
 	panelState["#master_main_container"] = false;
 }); //Master
-$("#breakers_close").bind("click touchstart",() => {
+$("#breakers_close").click(() => {
 	closeVisible("#breakers_main_container", 500);
 	panelState["#breakers_main_container"] = false;
 }); //Breakers
-$("#switches_close").bind("click touchstart",() => {
+$("#switches_close").click(() => {
 	closeVisible("#switches_main_container", 500);
 	panelState["#switches_main_container"] = false;
 }); //Switches
@@ -566,7 +582,7 @@ $.get("images/C172SSchematic.svg", null, function(data, status, jqXHR) {
 						title.text(infoPanels[e.target.id].title);
 						let closer = $("<span class='close' id='info_panel_close_'" + e.target.id + "'></span>");
 						closer.text('×');
-						closer.bind("click touchstart", () => {
+						closer.click(() => {
 							remove("#info_panel_"+ e.target.id, 500);
 							panelState[e.target.id] = false;
 						});
